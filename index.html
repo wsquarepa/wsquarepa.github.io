@@ -1,3 +1,61 @@
-<h1>Welcome to <div style="color:rgb(118, 118, 255)">WSQUAREPA</div>'s github website!</h1>
-Choose a link to get started
-<a href="/scienceInquiry.html">Science inquiry project</a>
+<h1 id="title">Welcome</h1>
+<div style="position: fixed; top: 60px">
+    Choose a link to get started <br>
+    <a href="currentEventsInquiry.html">Current Events inquiry project</a>
+</div>
+<script>
+    var title = document.getElementById("title")
+    var rotationTime = 1
+    var o = [
+        'Welcome',
+        'Vitejte',
+        'Velkomst',
+        'Welkom',
+        'Tere tulemast',
+        'Tervetuloa',
+        'Welgekomen',
+        'Bienvenue',
+        'Willkommen',
+        'Failte',
+        'Benvenuto',
+        'Gaidits',
+        'Laukiamas',
+        'Witamy',
+        'Bienvenido',
+        'Valkommen',
+        'Croeso',
+        'BLUBBADOO!!'
+    ]
+    var text = ""
+    var reachedEnd = false
+    var cycleTime = 0
+    text = o[0] + "!"
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    setInterval(() => {
+        if (reachedEnd) {
+
+        } else if (rotationTime == text.length + 1) {
+            reachedEnd = true
+            setTimeout(() => {
+                title.innerHTML = ""
+                reachedEnd = false
+                rotationTime = 1
+                cycleTime++
+                if (cycleTime == o.length) cycleTime = 0
+                var chosen = o[cycleTime]
+                text = chosen + "!"
+                title.style = `color:rgb(${getRandomInt(0, 255)},${getRandomInt(0, 255)},${getRandomInt(0, 255)})`
+            }, 250)
+        } else {
+            title.innerHTML = text.slice(0, rotationTime)
+            rotationTime += 1
+        }
+    }, 100)
+
+</script>
