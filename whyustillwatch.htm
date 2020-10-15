@@ -1,0 +1,46 @@
+<h1 id="title" style="font-size: 100px"></h1>
+<p onmouseover="document.getElementById('reply').hidden = false">Why did you decide to waste your time watching all the text?</p>
+<p id="reply" onmouseover="document.getElementById('replytoreply').hidden = false" hidden>Well, I dunno...</p>
+<p id="replytoreply" onmouseover="getoverwithit()" hidden> Then do something worthwile! </p>
+<p id="replytoreplytoreply" hidden> Ok fine...</p>
+<script>
+    var title = document.getElementById("title")
+    var o = [
+        'Welcome',
+        'Vitejte',
+        'Velkomst',
+        'Welkom',
+        'Tere tulemast',
+        'Tervetuloa',
+        'Welgekomen',
+        'Bienvenue',
+        'Willkommen',
+        'Failte',
+        'Benvenuto',
+        'Gaidits',
+        'Laukiamas',
+        'Witamy',
+        'Bienvenido',
+        'Valkommen',
+        'Croeso',
+        'BLUBBADOO!!'
+    ]
+
+    function getoverwithit() {
+        document.getElementById('replytoreplytoreply').hidden = false
+        setTimeout(() => {
+            location = "/"
+        }, 1000)
+    }
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    setInterval(() => {
+        title.innerHTML = o[getRandomInt(0, o.length - 1)] + "!"
+    })
+
+</script>
