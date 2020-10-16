@@ -2,9 +2,10 @@
     <title>WSQUAREPA | WHY U STILL WATCH</title>
 </head>
 <h1 id="title" style="font-size: 100px"></h1>
-<p onmouseover="document.getElementById('reply').hidden = false">Why did you decide to waste your time watching all the text?</p>
-<p id="reply" onmouseover="document.getElementById('replytoreply').hidden = false" hidden>Well, I dunno...</p>
-<p id="replytoreply" onmouseover="getoverwithit()" hidden> Then do something worthwile! </p>
+<p onmouseover="getoverwithit()">Why did you decide to waste your time watching all the
+    text?</p>
+<p id="reply" hidden>Well, I dunno...</p>
+<p id="replytoreply" hidden> Then do something worthwile! </p>
 <p id="replytoreplytoreply" hidden> Ok fine...</p>
 <script>
     var title = document.getElementById("title")
@@ -30,9 +31,15 @@
     ]
 
     function getoverwithit() {
-        document.getElementById('replytoreplytoreply').hidden = false
+        document.getElementById('reply').hidden = false
         setTimeout(() => {
-            location = "/"
+            document.getElementById('replytoreply').hidden = false
+            setTimeout(() => {
+                document.getElementById('replytoreplytoreply').hidden = false
+                setTimeout(() => {
+                    location = "/"
+                }, 1500)
+            }, 1000)
         }, 1000)
     }
 
