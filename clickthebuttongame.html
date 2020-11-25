@@ -118,7 +118,7 @@
         const upgradeNumber = upgradesDone.length
 
         if (upgradeNumber == 10) {
-            if (money >= 100000) {
+            if (money >= 1000000) {
                 var fadeId = setInterval(fadeFrame, 20)
                 var litnumber = 255
 
@@ -166,7 +166,7 @@
                     }
                 }
             } else {
-                button.innerHTML = "Rebirth - Costs $100000"
+                button.innerHTML = "Rebirth - Costs $1000000"
             }
         } else {
             if (money >= upgrades[upgradeNumber].cost) {
@@ -176,7 +176,7 @@
                     button.innerHTML = upgrades[upgradeNumber + 1].name + " - Costs $" + upgrades[upgradeNumber + 1]
                     .cost
                 } else {
-                    button.innerHTML = "Rebirth - Costs $100000"
+                    button.innerHTML = "Rebirth - Costs $1000000"
                 }
             }
         }
