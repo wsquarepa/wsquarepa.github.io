@@ -38,7 +38,7 @@ if (codeVersion != gameVersion){
   alert(`CrackWare Code Version does not match ShellShockers current version.
 Expect bugs!
 
-CrackWare may need to be updated by TDStuart.
+CrackWare may need to be updated by wsquarepa.
 CrackWare update will automatically be applied when it is updated.
 No download is required when CrackWare is updated.
 
@@ -1565,7 +1565,7 @@ window.hack.loadGui = function(){
   });
   
   
-  window.hack.modMenu.credit.container.innerHTML = `<p style="color:white;font-size: medium;margin-bottom: 0px;padding-left: 15px;">Created By : TDStuart</p><p style="color:white;font-size: medium;margin-top: 0px;padding-left: 15px;">Thanks to Cryo and Sadly for their help and code!</p>`
+  window.hack.modMenu.credit.container.innerHTML = `<p style="color:white;font-size: medium;margin-bottom: 0px;padding-left: 15px;">Created By : wsquarepa</p><p style="color:white;font-size: medium;margin-top: 0px;padding-left: 15px;">Thanks to Alex and Josiah for their help and code!</p>`
 
   
   let titleTextElm = window.hack.gui.panel.panel.childNodes[0];
