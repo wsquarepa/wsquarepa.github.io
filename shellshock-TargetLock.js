@@ -1127,11 +1127,7 @@ window.hack.loadGui = function(){
 
   hack.modMenu.aimbot.container.toggle = hack.gui.Register({
     type: 'checkbox',
-<<<<<<< HEAD
-    label: 'Aimbot:',
-=======
     label: 'Aimbot : ',
->>>>>>> parent of c96e0d9... Changed Names from Silent to AimAssist
     object: hack.modMenu.aimbot,
     property: 'enabled',
     folder: 'Aimbot'
@@ -1139,11 +1135,7 @@ window.hack.loadGui = function(){
 
   hack.modMenu.aimbot.container.highlightTarget = hack.gui.Register({
     type: 'checkbox',
-<<<<<<< HEAD
-    label: 'Highlight:',
-=======
     label: 'SeeTarget:',
->>>>>>> parent of c96e0d9... Changed Names from Silent to AimAssist
     object: hack.modMenu.aimbot,
     property: 'highlightTarget',
     folder: 'Aimbot'
@@ -1151,11 +1143,7 @@ window.hack.loadGui = function(){
 
   hack.modMenu.aimbot.container.predict = hack.gui.Register({
     type: 'checkbox',
-<<<<<<< HEAD
-    label: 'Predict:',
-=======
     label: 'Predict?:',
->>>>>>> parent of c96e0d9... Changed Names from Silent to AimAssist
     object: hack.modMenu.aimbot,
     property: 'predict',
     folder: 'Aimbot'
