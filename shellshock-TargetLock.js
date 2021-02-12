@@ -1127,7 +1127,7 @@ window.hack.loadGui = function(){
 
   hack.modMenu.aimbot.container.toggle = hack.gui.Register({
     type: 'checkbox',
-    label: 'Target Lock/Aimbot: ',
+    label: 'Aimbot:',
     object: hack.modMenu.aimbot,
     property: 'enabled',
     folder: 'Aimbot'
@@ -1135,7 +1135,7 @@ window.hack.loadGui = function(){
 
   hack.modMenu.aimbot.container.highlightTarget = hack.gui.Register({
     type: 'checkbox',
-    label: 'Highlight Target:',
+    label: 'Highlight:',
     object: hack.modMenu.aimbot,
     property: 'highlightTarget',
     folder: 'Aimbot'
@@ -1143,7 +1143,7 @@ window.hack.loadGui = function(){
 
   hack.modMenu.aimbot.container.predict = hack.gui.Register({
     type: 'checkbox',
-    label: 'Predict Movement:',
+    label: 'Predict:',
     object: hack.modMenu.aimbot,
     property: 'predict',
     folder: 'Aimbot'
@@ -1151,7 +1151,7 @@ window.hack.loadGui = function(){
 
   hack.modMenu.aimbot.container.silentLevel = hack.gui.Register({
     type: 'select',
-    label: 'AimAssist Strength:',
+    label: 'Strength:',
     object: hack.modMenu.aimbot,
     property: 'silentLevel',
     folder: 'Aimbot',
