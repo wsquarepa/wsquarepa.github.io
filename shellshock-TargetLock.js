@@ -62,7 +62,7 @@ window.hack = {
       bindType: 'hold',
       highlightTarget: true,
       predict: true,
-      silentLevel: 'High',
+      silentLevel: 'Level 3',
       silentAimTarget: {
         aim: false,
         pos: {}
@@ -984,7 +984,7 @@ window.hack.loadSettings = function(settings){
   modMenu.aimbot.fov = (settings.aimbot.fov==null)? 4 : settings.aimbot.fov;
   modMenu.aimbot.bindType = (settings.aimbot.bindType==null)? 'hold' : settings.aimbot.bindType;
   modMenu.aimbot.highlightTarget = (settings.aimbot.highlightTarget==null)? false : settings.aimbot.highlightTarget;
-  modMenu.aimbot.silentLevel = (settings.aimbot.silentLevel==null)? 'High' : settings.aimbot.silentLevel;
+  modMenu.aimbot.silentLevel = (settings.aimbot.silentLevel==null)? 'Level 3' : settings.aimbot.silentLevel;
   modMenu.aimbot.container.silentLevel.container.hidden = (modMenu.aimbot.type == 'FOV')? true : false;
   
   modMenu.esp.enabled = (settings.esp.enabled==null)? false : settings.esp.enabled;
@@ -1116,7 +1116,7 @@ window.hack.loadGui = function(){
     barMode: 'none',
     opacity: 0.95,
     root: document.body,
-    open: false
+    open: true
   });
 
   hack.modMenu.aimbot.container.label = hack.gui.Register({
@@ -1127,7 +1127,7 @@ window.hack.loadGui = function(){
 
   hack.modMenu.aimbot.container.toggle = hack.gui.Register({
     type: 'checkbox',
-    label: 'Aimbot:',
+    label: 'Aimbot : ',
     object: hack.modMenu.aimbot,
     property: 'enabled',
     folder: 'Aimbot'
@@ -1135,7 +1135,7 @@ window.hack.loadGui = function(){
 
   hack.modMenu.aimbot.container.highlightTarget = hack.gui.Register({
     type: 'checkbox',
-    label: 'Highlight:',
+    label: 'SeeTarget:',
     object: hack.modMenu.aimbot,
     property: 'highlightTarget',
     folder: 'Aimbot'
@@ -1143,7 +1143,7 @@ window.hack.loadGui = function(){
 
   hack.modMenu.aimbot.container.predict = hack.gui.Register({
     type: 'checkbox',
-    label: 'Predict:',
+    label: 'Predict?:',
     object: hack.modMenu.aimbot,
     property: 'predict',
     folder: 'Aimbot'
@@ -1155,7 +1155,7 @@ window.hack.loadGui = function(){
     object: hack.modMenu.aimbot,
     property: 'silentLevel',
     folder: 'Aimbot',
-    options: ['Low', 'Medium', 'High']
+    options: ['Level 1', 'Level 2', 'Level 3']
   });
 
   hack.modMenu.aimbot.container.typeselector = hack.gui.Register({
@@ -1165,11 +1165,11 @@ window.hack.loadGui = function(){
     property: 'type',
     folder: 'Aimbot',
     onChange: (type) => {
-      hack.modMenu.aimbot.container.fov.container.hidden = (type == 'FOV' || type == 'Assist')? false : true;
+      hack.modMenu.aimbot.container.fov.container.hidden = (type == 'FOV' || type == 'Silent')? false : true;
       hack.modMenu.aimbot.container.highlightTarget.container.hidden = (type == 'FOV')? false : true;
       hack.modMenu.aimbot.container.silentLevel.container.hidden = (type == 'FOV')? true : false;
     },
-    options: ['FOV', 'Assist']
+    options: ['FOV', 'Silent']
     
   });
 
@@ -1697,15 +1697,15 @@ if (this.doSilentUpdate){
   nYaw = this.silentYaw;
   nPitch = this.silentPitch;
   if (window.hack.modMenu.aimbot.silentLevel){
-    if (window.hack.modMenu.aimbot.silentLevel == 'Low'){
+    if (window.hack.modMenu.aimbot.silentLevel == 'Level 1'){
       this.stateBuffer[Math.mod(this.stateIdx-1, 256)].yaw=nYaw;
       this.stateBuffer[Math.mod(this.stateIdx-1, 256)].pitch=nPitch;
-    }else if (window.hack.modMenu.aimbot.silentLevel == 'Medium'){
+    }else if (window.hack.modMenu.aimbot.silentLevel == 'Level 2'){
       this.stateBuffer[Math.mod(this.stateIdx-1, 256)].yaw=nYaw;
       this.stateBuffer[Math.mod(this.stateIdx-1, 256)].pitch=nPitch;
       this.stateBuffer[Math.mod(this.stateIdx-2, 256)].yaw=nYaw;
       this.stateBuffer[Math.mod(this.stateIdx-2, 256)].pitch=nPitch;
-    }else if (window.hack.modMenu.aimbot.silentLevel == 'High'){
+    }else if (window.hack.modMenu.aimbot.silentLevel == 'Level 3'){
       this.stateBuffer[Math.mod(this.stateIdx-1, 256)].yaw=nYaw;
       this.stateBuffer[Math.mod(this.stateIdx-1, 256)].pitch=nPitch;
       this.stateBuffer[Math.mod(this.stateIdx-2, 256)].yaw=nYaw;
@@ -1718,14 +1718,14 @@ if (this.doSilentUpdate){
 if(this.actor)this.stateBuffer[this.stateIdx].controlKeys=this.controlKeys,this.stateBuffer[this.stateIdx].yaw=nYaw,this.stateBuffer[this.stateIdx].pitch=nPitch;
 else{this.shotsQueued+=this.stateBuffer[this.stateIdx].shots,this.stateBuffer[this.stateIdx].shots=0;n=Math.mod(this.stateIdx+1,hi);this.stateBuffer[n].yaw=this.yaw,this.stateBuffer[n].pitch=this.pitch}if(this.controlKeys&li.left&&(t-=Math.cos(this.yaw),r+=Math.sin(this.yaw)),this.controlKeys&li.right&&(t+=Math.cos(this.yaw),r-=Math.sin(this.yaw)),this.controlKeys&li.up&&(this.climbing?i+=1:(t+=Math.sin(this.yaw),r+=Math.cos(this.yaw))),this.controlKeys&li.down&&(this.climbing?i-=1:(t-=Math.sin(this.yaw),r-=Math.cos(this.yaw))),this.controlKeys&li.jump&&(this.jumpQueued=10,this.controlKeys^=this.controlKeys&li.jump,this.actor&&this.id==l&&(cr^=cr&li.jump)),this.jumpQueued>0&&(this.jumpQueued--,this.jump()),this.climbing){this.setJumping(!1);var o=this.dy;this.corrections&&(o+=this.corrected.dy/this.totalCorrections,this.corrections--),this.dy+=.028*i;var a=.5*(this.dy+o);this.y+=a,this.dy*=.5,Math.floor(this.y)>=gr.height&&(this.climbing=!1),this.move(0,a,0)}else{var s=new BABYLON.Vector3(t,i,r).normalize();this.dx+=.025*s.x,this.dz+=.025*s.z,this.dy-=.012,this.dy=Math.max(-.29,this.dy);var c=ui.v4;if(c.copyFromFloats(this.x,this.y,this.z),this.move(this.dx,this.dy,this.dz),this.dx=this.x-c.x,this.dy=this.y-c.y,this.dz=this.z-c.z,this.onGround&&this.dy>0){var h=1-.5*ui.v7.copyFromFloats(this.dx,this.dy,this.dz).normalize().y;this.dx*=h,this.dz*=h}!e&&this.corrections&&(o=0,pdx=this.corrected.dx/this.totalCorrections,this.climbing&&(o=this.corrected.dy/this.totalCorrections),pdz=this.corrected.dz/this.totalCorrections,this.corrections--,this.move(pdx,o,pdz))}if(!e){this.shield>0&&this.playing&&(this.shield-=2,(0!=t||0!=i||this.shield<=0)&&this.disableShield());var u=Math.max(0,Math.length3(this.dx,this.dy,this.dz)-.012);if((this.climbing||this.jumping)&&(u*=2),this.bobble=(this.bobble+7*(u+.01))%Math.PI2,this.shotSpread+=this.weapon.instability*u*2,this.shotSpread=Math.max(this.shotSpread*this.weapon.instability-.01*this.weapon.subClass.stability,0),this.weapon&&this.weapon.update(),this.hp>0&&(this.hp=Math.min(100,this.hp+.1)),this.swapWeaponCountdown>0&&(this.shotSpread=this.weapon.instability,this.swapWeaponCountdown--,this.swapWeaponCountdown<=0&&(this.actor?this.id==l&&Ji.show():(this.swapWeaponCountdown=0,this.weaponIdx=this.equipWeaponIdx,this.weapon=this.weapons[this.weaponIdx]))),this.reloadCountdown>0&&(this.shotSpread=this.weapon.instability,this.reloadCountdown-=2,this.reloadCountdown<=0&&(this.reloadCountdown=0,this.reloaded())),this.rofCountdown>0&&(this.rofCountdown=Math.max(this.rofCountdown-1,0)),this.recoilCountdown>0&&(this.recoilCountdown=Math.max(this.recoilCountdown-2,0)),this.grenadeCountdown>0&&(this.grenadeCountdown-=2,this.grenadeCountdown<=0&&this.grenadesQueued>0&&!this.actor&&this.throwGrenade()),this.actor){if(this.id==l){this.triggerPulled&&this.fire(),this.activeShellStreaks&Ht.EggBreaker&&(this.eggBreakerValue=Math.max(0,this.eggBreakerValue-1));var d=Math.floor(this.eggBreakerValue/30),p=document.getElementById("eggBreakerTimer");d!=parseInt(p.innerText)&&(p.innerText=d)}}else if(this.shotsQueued>0&&(this.lastActivity=mr,this.fire()),this.activeShellStreaks&Ht.EggBreaker&&--this.eggBreakerValue<=0){this.endShellStreak(Ht.EggBreaker);var f=Bi.getBuffer();f.packInt8(Dt),f.packInt8(this.id),f.packInt8(Ht.EggBreaker),sendToAll(f)}this.stateIdx=Math.mod(this.stateIdx+1,hi),this.stateBuffer[this.stateIdx].x=this.x,this.stateBuffer[this.stateIdx].y=this.y,this.stateBuffer[this.stateIdx].z=this.z,this.stateBuffer[this.stateIdx].dx=this.dx,this.stateBuffer[this.stateIdx].dy=this.dy,this.stateBuffer[this.stateIdx].dz=this.dz,this.stateBuffer[this.stateIdx].jumping=this.jumping,this.stateBuffer[this.stateIdx].climbing=this.climbing,this.actor&&ws&&this.id==l&&br.stateIdx%zt==0&&ws.readyState==ws.OPEN&&br.playing&&!X&&function(){if(br){var e=Bi.getBuffer();e.packInt8(St),e.packInt8(Math.mod(br.stateIdx-zt,hi)),e.packInt8(br.serverStateIdx);for(var t=Math.mod(br.stateIdx-zt,hi),i=0;i<zt;i++){var r=Math.mod(t+i,hi);e.packInt8(br.stateBuffer[r].controlKeys),e.packInt8(br.stateBuffer[r].shots),e.packRadU(br.stateBuffer[r].yaw),e.packRad(br.stateBuffer[r].pitch),br.stateBuffer[r].shots=0}e.send(ws)}}()}this.dx*=.64,this.dz*=.64,this.climbing&&(this.dy*=.64),this.actor&&this.id==l||(this.reloadsQueued>0&&this.reloadAtRounds==this.weapon.ammo.rounds&&this.reload(),this.weaponSwapsQueued>0&&this.weaponSwapAtRounds==this.weapon.ammo.rounds&&this.swapWeapon(this.equipWeaponIdx))},ui.prototype.move=function(e,t,i){var r=ui.v1,n=ui.v8,o=ui.v2,a=ui.v3;this.onGround=Math.max(--this.onGround,0),this.y+=.31,n.copyFromFloats(e,t,i),Math.capVector3(n,.29),r.copyFromFloats(this.x,this.y,this.z),r.addInPlace(n),r.x=Math.clamp(r.x,.1,gr.width-.1),r.z=Math.clamp(r.z,.1,gr.depth-.1);for(var s=0;s<8;s++){var c=Ue.sphereCollidesWithStructure(r,.31,o,a);if(!c)break;a.y<-.707&&(this.onGround=4),this.climbing||c.colliderType&Ue.Type.ladder&&this.tryToClimbLadder(c,a),r.addInPlace(o),this.onGround&&(this.jumping?(this.setJumping(!1),this.dy=0):this.controlKeys&li.down&&(this.climbing=!1))}if(8==s&&(n.scaleInPlace(.9),r.subtractInPlace(n)),this.x=r.x,this.y=r.y,this.z=r.z,this.climbing&&(!this.actor||this.id==l)){var h=this.climbX,u=this.climbZ;this.climbRY;this.climbing=!1;var d=gr.data[h][Math.clamp(Math.floor(this.y-.25),0,gr.height-1)][u];Math.floor(d.ry/Math.PI90)==this.climbRY&&d.mesh&&"ladder"==d.mesh.colliderType&&(this.climbing=!0);d=gr.data[h][Math.clamp(Math.floor(this.y+.25),0,gr.height-1)][u];Math.floor(d.ry/Math.PI90)==this.climbRY&&d.mesh&&"ladder"==d.mesh.colliderType&&(this.climbing=!0)}this.y-=.31},ui.prototype.tryToClimbLadder=function(e,t){if(this.controlKeys&li.up&&!(Math.abs(e.position.y-(this.y+.18))>.9)){var i=Math.round(this.yaw/Math.PI90)%4,r=e.cell.ry;if(i==r||(i+2)%4==r){var n=ui.v5.set(t.x,t.z).normalize(),o=ui.v6.set(Math.cos(this.yaw),-Math.sin(this.yaw)),a=BABYLON.Vector2.Dot(o,n);Math.abs(a)<.4&&(this.climbing=!0,this.climbX=Math.clamp(Math.floor(e.position.x),0,gr.width-1),this.climbZ=Math.clamp(Math.floor(e.position.z),0,gr.depth-1),this.climbRY=e.cell.ry,this.dy=0,this.setJumping(!1))}}},ui.prototype.disableShield=function(){this.shield=0,this.actor&&(this.actor.bodyMesh.renderOverlay=!1,this.actor.hands.renderOverlay=!1)},ui.prototype.enableShield=function(){this.shield=120,this.actor&&(this.actor.bodyMesh.overlayColor=ui.OverlayColor.green,this.actor.hands.overlayColor=ui.OverlayColor.green,this.actor.bodyMesh.renderOverlay=!0,this.actor.hands.renderOverlay=!0)},ui.prototype.resetStateBuffer=function(){for(var e=0;e<hi;e++)this.stateBuffer[e]={yaw:this.yaw,pitch:this.pitch,fire:!1,jumping:this.jumping,climbing:this.climbing,x:this.x,y:this.y,z:this.z,dx:this.dx,dy:this.dy,dz:this.dz,controlKeys:this.controlKeys,shots:0,rounds:this.weapon.ammo.rounds,store:this.weapon.ammo.store}},ui.prototype.canJump=function(){return this.climbing|this.onGround},ui.prototype.jump=function(){this.climbing&&(this.dy=.065,this.climbing=!1,this.setJumping(!0)),this.canJump()&&(this.dy=.13,this.setJumping(!0))},ui.prototype.setJumping=function(e){this.jumpQueued=!1,this.onGround=0,this.jumping=e,this.stateBuffer[this.stateIdx].jumping=e},ui.prototype.changeCharacter=function(e,t,i,r,n,o,a){var s=function(e,t){return e&&!t||!e&&t||null!==e&&null!==t&&e.id!==t.id};if(e!==this.charClass||t.id!==this.primaryWeaponItem.id||i.id!==this.secondaryWeaponItem.id||r!==this.shellColor||s(this.hatItem,n)||s(this.stampItem,o)||this.grenadeItem!==a){var c;if(this.charClass=e,this.primaryWeaponItem=t,this.secondaryWeaponItem=i,this.shellColor=r,this.hatItem=n,this.stampItem=o,this.grenadeItem=a,this.actor)if(this.actor.setShellColor(r),this.id==l)(c=Bi.getBuffer()).packInt8(ft),c.packInt8(e),c.packInt8(k.get8BitItemId(t,e)),c.packInt8(k.get8BitItemId(i,e)),c.packInt8(r),c.packInt8(k.get8BitItemId(n,e)),c.packInt8(k.get8BitItemId(o,e)),c.packInt8(k.get8BitItemId(a,e)),c.send(ws);else this.actor.wearHat(this.hatItem),this.actor.applyStamp(this.stampItem);else(c=Bi.getBuffer()).packInt8(ft),c.packInt8(this.id),c.packInt8(e),c.packInt8(k.get8BitItemId(this.primaryWeaponItem,e)),c.packInt8(k.get8BitItemId(this.secondaryWeaponItem,e)),c.packInt8(r),c.packInt8(k.get8BitItemId(this.hatItem,e)),c.packInt8(k.get8BitItemId(this.stampItem,e)),c.packInt8(k.get8BitItemId(this.grenadeItem,e)),sendToOthers(c,this.id);this.changeWeaponLoadout(t,i)}},ui.prototype.swapWeapon=function(e){var t;(this.actor&&this.id!=l||this.canSwapOrReload()&&e<2)&&(this.equipWeaponIdx=e,this.releaseTrigger(),this.swapWeaponCountdown=this.weapon.stowWeaponTime+this.weapons[e].equipTime,this.actor?(this.id==l&&Ji.hide(),this.weapon.actor.stow(),this.id==l&&((t=Bi.getBuffer()).packInt8(ot),t.packInt8(e),t.packInt8(this.weapon.ammo.rounds),t.send(ws))):(this.swapWeaponCountdown*=.9,this.weaponSwapsQueued--,(t=Bi.getBuffer()).packInt8(ot),t.packInt8(this.id),t.packInt8(e),sendToOthers(t,this.id)))},ui.prototype.collectItem=function(e,t){switch(e){case Aa.AMMO:return!!this.weapons[t].collectAmmo()&&(this.actor&&(Ni.play("ammo",this.actor.bodyMesh.absolutePosition),Bn()),!0);case Aa.GRENADE:return this.grenadeCount<this.grenadeCapacity&&(this.grenadeCount++,this.actor&&(Ni.play("ammo",this.actor.bodyMesh.absolutePosition),Bn()),!0)}},ui.prototype.isAtReady=function(e){return!(!(this.playing&&this.weapon&&this.reloadCountdown<=0&&this.swapWeaponCountdown<=0&&this.grenadeCountdown<=0)||this.actor&&0!=ji)},ui.prototype.canSwapOrReload=function(){return!(!(this.playing&&this.weapon&&this.recoilCountdown<=0&&this.reloadCountdown<=0&&this.swapWeaponCountdown<=0&&this.grenadeCountdown<=0&&this.shotsQueued<=0)||this.actor&&0!=ji)},ui.prototype.fire=function(){this.shield>0?this.releaseTrigger():this.isAtReady()&&this.rofCountdown<=0&&(this.weapon.ammo.rounds>0?(this.recoilCountdown=this.weapon.subClass.recoil,this.rofCountdown=this.weapon.subClass.rof,this.actor?this.actor.fire():(this.recoilCountdown*=.9,this.rofCountdown*=.9,this.shotsQueued--),this.weapon.fire(),this.weapon.ammo.rounds--,this.shotSpread+=.5*this.weapon.instability,this.actor&&this.id==l&&
 (function(x){
-  if (window.hack.modMenu.aimbot.type == "Assist" && window.hack.modMenu.aimbot.enabled){
+  if (window.hack.modMenu.aimbot.type == "Silent" && window.hack.modMenu.aimbot.enabled){
     let yawPitch = window.hack.modMenu.aimbot.doSilentAim();
     aimYaw = yawPitch.yaw;
     aimPitch = yawPitch.pitch;
     x.stateBuffer[x.stateIdx].yaw = aimYaw;
     x.stateBuffer[x.stateIdx].pitch = aimPitch;
     if (window.hack.modMenu.aimbot.silentLevel){
-      if (window.hack.modMenu.aimbot.silentLevel != 'Low'){
+      if (window.hack.modMenu.aimbot.silentLevel != 'Level 1'){
         x.stateBuffer[Math.mod(x.stateIdx-1, 256)].yaw = aimYaw;
         x.stateBuffer[Math.mod(x.stateIdx-1, 256)].pitch = aimPitch;
       }
