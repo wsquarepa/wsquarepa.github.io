@@ -1224,14 +1224,14 @@ window.hack.loadGui = function () {
 
 
   window.hack.gui = new guify({
-    title: 'CrackWare V5.2.5',
+    title: 'Cluckinator V5.2.5',
     theme: 'dark',
     align: 'right',
     width: 300,
     barMode: 'none',
     opacity: 0.95,
     root: document.body,
-    open: true
+    open: false
   });
 
   hack.modMenu.aimbot.container.label = hack.gui.Register({
