@@ -1,4 +1,4 @@
-/*VERSION:0.39.3*/
+/*VERSION:0.39.4*/
 
 
 window._utils = {};
@@ -32,7 +32,7 @@ window._utils.requirelib('https://unpkg.com/guify@0.12.0/lib/guify.min.js').then
 
 
 
-let codeVersion = "0.39.3";
+let codeVersion = "0.39.4";
 let gameVersion = window.version;
 if (codeVersion != gameVersion) {
   alert(`CrackWare Code Version does not match ShellShockers current version.
@@ -1224,7 +1224,7 @@ window.hack.loadGui = function () {
 
 
   window.hack.gui = new guify({
-    title: 'Cluckinator V5.2.6',
+    title: 'Cluckinator V5.2.7',
     theme: 'dark',
     align: 'right',
     width: 300,
@@ -1696,7 +1696,7 @@ window.hack.loadGui = function () {
   });
 
 
-  window.hack.modMenu.credit.container.innerHTML = `<p style="color:white;font-size: medium;margin-bottom: 0px;padding-left: 15px;">Created By : wsquarepa</p><p style="color:white;font-size: medium;margin-top: 0px;padding-left: 15px;">Thanks to Josiah and Alex for their help and code!</p>`
+  window.hack.modMenu.credit.container.innerHTML = `<p style="color:white;font-size: medium;margin-bottom: 0px;padding-left: 15px;">Created By : wsquarepa</p><p style="color:white;font-size: medium;margin-top: 0px;padding-left: 15px;">Thanks to Alex and Josiah for their help and code!</p>`
 
 
   let titleTextElm = window.hack.gui.panel.panel.childNodes[0];
@@ -40143,6 +40143,19 @@ var extern = function () {
       salePrice: null,
       flagText: "",
       type: "item",
+      inStore: 0,
+      currency: 0,
+      isActive: !1
+    }, {
+      itemId: {
+        id: 1202
+      },
+      sku: "item_hat_skull_wings",
+      name: "Skull Wings",
+      price: 10,
+      salePrice: null,
+      flagText: "",
+      type: "item",
       inStore: 1,
       currency: 0,
       isActive: !0
@@ -42914,6 +42927,85 @@ var extern = function () {
       is_available: !1,
       unlock: "manual"
     }, {
+      id: 1202,
+      name: "Skull Wings",
+      price: 2147483647,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_premium_SkullWings",
+        tags: ["Premium"]
+      },
+      is_available: !0,
+      unlock: "premium"
+    }, {
+      id: 1203,
+      name: "Airpods",
+      price: 25e3,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_airpods"
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 1204,
+      name: "Paper Bag",
+      price: 1e3,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_bag"
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 1205,
+      name: "Hipster",
+      price: 5e3,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_hipster"
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 1206,
+      name: "Beret",
+      price: 2500,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_beret"
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 1207,
+      name: "Spike",
+      price: 7500,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_spike"
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
       id: 2001,
       name: "Target",
       price: 0,
@@ -45292,6 +45384,201 @@ var extern = function () {
         x: 11,
         y: 5,
         tags: ["Pixel"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2162,
+      name: "Angry Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 11,
+        y: 12,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2163,
+      name: "Cat Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 11,
+        y: 13,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2164,
+      name: "Crazy Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 11,
+        y: 14,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2165,
+      name: "Dog Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 11,
+        y: 15,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2166,
+      name: "Evil Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 0,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2167,
+      name: "Grining Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 1,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2168,
+      name: "Happy Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 2,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2169,
+      name: "Laughing Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 3,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2170,
+      name: "Pirate Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 4,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2171,
+      name: "Sick Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 5,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2172,
+      name: "Smiling Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 6,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2173,
+      name: "Tongue-Out Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 7,
+        tags: ["Mouth"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 2174,
+      name: "Upset Mouth",
+      price: 2500,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 8,
+        tags: ["Mouth"]
       },
       is_available: !0,
       unlock: "purchase"
@@ -49543,7 +49830,7 @@ var extern = function () {
     numPlayers: "14"
   }, {
     filename: "castle",
-    hash: "sde2bwta2m",
+    hash: "egqnyzqnyf",
     name: "Castle",
     modes: {
       FFA: !0,
@@ -49587,7 +49874,7 @@ var extern = function () {
     numPlayers: "16"
   }, {
     filename: "dirt",
-    hash: "q0b4yz3gve",
+    hash: "2gfk27xwn2s",
     name: "Dirt",
     modes: {
       FFA: !0,
@@ -49598,7 +49885,7 @@ var extern = function () {
     numPlayers: "18"
   }, {
     filename: "dirtbase",
-    hash: "13qzs9bb5tb",
+    hash: "1jejc07a4em",
     name: "Dirt Base",
     modes: {
       FFA: !0,
@@ -49719,7 +50006,7 @@ var extern = function () {
     numPlayers: "18"
   }, {
     filename: "palaceSiege",
-    hash: "pbappab1n6",
+    hash: "bn00p1lavh",
     name: "Palace Siege",
     modes: {
       FFA: !0,
@@ -52195,6 +52482,9 @@ var extern = function () {
     var t = (e = e || window.event).key;
     if (t != Yn)
       if (Yn = t, $i || 0 != gr || "Enter" != t || !B.enableChat) {
+        er || "TAB" == i && (i = "ESCAPE", e.preventDefault(), function (e) {
+          er || k && !de && document.pointerLockElement && (console.log("IS PAUSING"), document.exitPointerLock(), console.log("pausing game on key: ", e))
+        }("down"));
         var i = ("" + t).toLocaleUpperCase();
         if (" " == i && (i = "SPACE", e.preventDefault()), debug) {
           if ("`" == i) return void
