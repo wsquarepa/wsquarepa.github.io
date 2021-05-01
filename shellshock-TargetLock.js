@@ -1,4 +1,4 @@
-/*VERSION:0.39.4*/
+/*VERSION:0.39.6*/
 
 
 window._utils = {};
@@ -32,7 +32,7 @@ window._utils.requirelib('https://unpkg.com/guify@0.12.0/lib/guify.min.js').then
 
 
 
-let codeVersion = "0.39.4";
+let codeVersion = "0.39.6";
 let gameVersion = window.version;
 if (codeVersion != gameVersion) {
   alert(`CrackWare Code Version does not match ShellShockers current version.
@@ -1224,7 +1224,7 @@ window.hack.loadGui = function () {
 
 
   window.hack.gui = new guify({
-    title: 'Cluckinator V5.2.7',
+    title: 'CrackWare V5.2.8',
     theme: 'dark',
     align: 'right',
     width: 300,
@@ -1696,7 +1696,7 @@ window.hack.loadGui = function () {
   });
 
 
-  window.hack.modMenu.credit.container.innerHTML = `<p style="color:white;font-size: medium;margin-bottom: 0px;padding-left: 15px;">Created By : wsquarepa</p><p style="color:white;font-size: medium;margin-top: 0px;padding-left: 15px;">Thanks to Alex and Josiah for their help and code!</p>`
+  window.hack.modMenu.credit.container.innerHTML = `<p style="color:white;font-size: medium;margin-bottom: 0px;padding-left: 15px;">Created By : wsquarepa</p>`
 
 
   let titleTextElm = window.hack.gui.panel.panel.childNodes[0];
@@ -1774,33 +1774,6 @@ window.hack.modMenu.skins.onGotSkins = function () {
     window.hack.itemsById[item.id] = item;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -39675,23 +39648,24 @@ var extern = function () {
     pe = navigator.language;
   const fe = parsedUrl.query.debug;
   let me = null;
-  var _e = "undefined" != typeof hasPoki && hasPoki,
-    ge = "undefined" != typeof isPokiInit && isPokiInit,
-    ve = null,
-    ye = !0,
-    be = "",
+  var _e = null,
+    ge = !0,
+    ve = "",
+    ye = !1,
+    be = null,
     xe = !1,
-    Te = null,
-    Ee = !1,
-    Pe = 0,
-    Se = {
+    Te = {
+      discord: 0,
+      ticTok: 0
+    };
+  var Ee = {
       text: ["rgba(255, 255, 255, 1)", "rgba(64, 224, 255, 1)", "rgba(255, 192, 160, 1)"],
       meBackground: ["rgba(255, 192, 64, 0.75)", "rgba(0, 192, 255, 0.8)", "rgba(192, 64, 32, 0.8)"],
       themBackground: ["rgba(0, 0, 0, 0.25)", "rgba(0, 64, 192, 0.3)", "rgba(192, 64, 32, 0.3)"],
       summaryBackground: ["rgba(64, 64, 64, 0.75)", "rgba(0, 64, 192, 0.75)", "rgba(192, 64, 32, 0.75)"],
       outline: [new BABYLON.Color4(1, 1, 1, 1), new BABYLON.Color4(0, .75, 1, 1), new BABYLON.Color4(1, .25, .25, 1)]
     },
-    Ae = [{
+    Pe = [{
       itemId: {
         id: null
       },
@@ -40156,11 +40130,37 @@ var extern = function () {
       salePrice: null,
       flagText: "",
       type: "item",
+      inStore: 0,
+      currency: 0,
+      isActive: !1
+    }, {
+      itemId: {
+        id: 4512
+      },
+      sku: "item_gun_aug_retro",
+      name: "Retro TriHard",
+      price: 10,
+      salePrice: null,
+      flagText: "",
+      type: "item",
+      inStore: 0,
+      currency: 0,
+      isActive: !1
+    }, {
+      itemId: {
+        id: 1215
+      },
+      sku: "item_hat_robot_wings",
+      name: "Robot Pixel Wings",
+      price: 10,
+      salePrice: null,
+      flagText: "",
+      type: "item",
       inStore: 1,
       currency: 0,
       isActive: !0
     }],
-    Me = [{
+    Se = [{
       id: 1001,
       name: "Ball Cap",
       price: 0,
@@ -41318,7 +41318,7 @@ var extern = function () {
         meshName: "hat_glassesShamrock",
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 1085,
@@ -41332,7 +41332,7 @@ var extern = function () {
         meshName: "hat_potOfGold",
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 1086,
@@ -41346,7 +41346,7 @@ var extern = function () {
         meshName: "hat_leprechaun",
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 1087,
@@ -41360,7 +41360,7 @@ var extern = function () {
         meshName: "hat_bunnyEars",
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 1088,
@@ -41374,7 +41374,7 @@ var extern = function () {
         meshName: "hat_eggNest",
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 1089,
@@ -41388,7 +41388,7 @@ var extern = function () {
         meshName: "hat_eggBasket",
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 1090,
@@ -41402,7 +41402,7 @@ var extern = function () {
         meshName: "hat_eggCrown",
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 1091,
@@ -43006,6 +43006,113 @@ var extern = function () {
       is_available: !0,
       unlock: "purchase"
     }, {
+      id: 1208,
+      name: "TicTok",
+      price: 2147483647,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_tiktok"
+      },
+      is_available: !1,
+      unlock: "manual"
+    }, {
+      id: 1209,
+      name: "Beanie",
+      price: 2147483647,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_beanie",
+        tags: ["Newsletter"]
+      },
+      is_available: !1,
+      unlock: "manual"
+    }, {
+      id: 1210,
+      name: "Riddler",
+      price: 2147483647,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_riddler"
+      },
+      is_available: !1,
+      unlock: "manual"
+    }, {
+      id: 1211,
+      name: "Miner Cap",
+      price: 2147483647,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_miner"
+      },
+      is_available: !1,
+      unlock: "manual"
+    }, {
+      id: 1212,
+      name: "Dog Cap",
+      price: 2147483647,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_dog"
+      },
+      is_available: !1,
+      unlock: "manual"
+    }, {
+      id: 1213,
+      name: "Satellite Cap",
+      price: 2147483647,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_satellite"
+      },
+      is_available: !1,
+      unlock: "manual"
+    }, {
+      id: 1214,
+      name: "Evil Pablo",
+      price: 100,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_evilpablo",
+        tags: ["EGGORG"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 1215,
+      name: "Robot Pixel Wings",
+      price: 2147483647,
+      item_type_id: 1,
+      item_type_name: "Hat",
+      category_name: "Hats",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "hat_premium_PixelRobot",
+        tags: ["Premium"]
+      },
+      is_available: !0,
+      unlock: "premium"
+    }, {
       id: 2001,
       name: "Target",
       price: 0,
@@ -43749,7 +43856,7 @@ var extern = function () {
         y: 12,
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 2052,
@@ -43764,7 +43871,7 @@ var extern = function () {
         y: 12,
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 2053,
@@ -43779,7 +43886,7 @@ var extern = function () {
         y: 13,
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 2054,
@@ -43794,7 +43901,7 @@ var extern = function () {
         y: 13,
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 2055,
@@ -43809,7 +43916,7 @@ var extern = function () {
         y: 13,
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 2056,
@@ -43824,7 +43931,7 @@ var extern = function () {
         y: 13,
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 2057,
@@ -45583,6 +45690,66 @@ var extern = function () {
       is_available: !0,
       unlock: "purchase"
     }, {
+      id: 2175,
+      name: "Dead BW",
+      price: 5e3,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 10,
+        tags: ["EGGORG"]
+      },
+      is_available: !1,
+      unlock: "purchase"
+    }, {
+      id: 2176,
+      name: "Egg Org",
+      price: 2e3,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 11,
+        tags: ["EGGORG"]
+      },
+      is_available: !1,
+      unlock: "purchase"
+    }, {
+      id: 2177,
+      name: "Aries",
+      price: 2147483647,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 12,
+        tags: ["ShellLeage"]
+      },
+      is_available: !1,
+      unlock: "manual"
+    }, {
+      id: 2178,
+      name: "Evil Pablo",
+      price: 100,
+      item_type_id: 2,
+      item_type_name: "Stamp",
+      category_name: "Stamps",
+      exclusive_for_class: null,
+      item_data: {
+        x: 12,
+        y: 9,
+        tags: ["EGGORG"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
       id: 3100,
       name: "Eggk47",
       price: 0,
@@ -45591,7 +45758,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47"
       },
       is_available: !0,
@@ -45605,7 +45772,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Gold"
       },
       is_available: !0,
@@ -45619,7 +45786,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Bear"
       },
       is_available: !0,
@@ -45633,7 +45800,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Halloween",
         tags: ["Halloween"]
       },
@@ -45648,7 +45815,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Turkey",
         tags: ["Thanksgiving"]
       },
@@ -45663,7 +45830,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Present",
         tags: ["Christmas"]
       },
@@ -45678,7 +45845,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_NewYear",
         tags: ["NewYears2019"]
       },
@@ -45693,7 +45860,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Groundhog",
         tags: ["GroundhogDay"]
       },
@@ -45708,7 +45875,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Buck",
         tags: ["Promotional"]
       },
@@ -45723,7 +45890,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Valentines",
         tags: ["ValentinesDay"]
       },
@@ -45738,11 +45905,11 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_SaintPaddy",
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 3111,
@@ -45753,11 +45920,11 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Easter",
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 3112,
@@ -45768,7 +45935,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Flames",
         tags: ["Promotional"]
       },
@@ -45783,7 +45950,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Rainbow",
         tags: ["Rainbow"]
       },
@@ -45798,7 +45965,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Steampunk",
         tags: ["Steampunk"]
       },
@@ -45813,7 +45980,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Memphis",
         tags: ["Memphis"]
       },
@@ -45828,7 +45995,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_spaceEgg",
         tags: ["Eggwalker"]
       },
@@ -45843,7 +46010,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_NukeZone",
         tags: ["NukeZone"]
       },
@@ -45858,7 +46025,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_NewYear2020",
         tags: ["NewYears2020"]
       },
@@ -45873,7 +46040,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Snake",
         tags: ["EggyCash"]
       },
@@ -45888,7 +46055,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_SnakeAlbino",
         tags: ["EggyCashAlbino"]
       },
@@ -45903,7 +46070,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_RaidLand",
         tags: ["RaidLand"]
       },
@@ -45918,7 +46085,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Toxic",
         tags: ["Rotten"]
       },
@@ -45933,7 +46100,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Music",
         tags: ["Rockstar"]
       },
@@ -45948,7 +46115,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Galaxy",
         tags: ["Galeggsy"]
       },
@@ -45963,7 +46130,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Chicken",
         tags: ["Chicken"]
       },
@@ -45978,7 +46145,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_Techno",
         tags: ["Premium"]
       },
@@ -45993,7 +46160,7 @@ var extern = function () {
       category_name: "Soldier Primary Weapons",
       exclusive_for_class: 0,
       item_data: {
-        class: Xt,
+        class: Wt,
         meshName: "gun_eggk47_NewYear2021",
         tags: ["NewYears", "2021"]
       },
@@ -46008,7 +46175,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1"
       },
       is_available: !0,
@@ -46022,7 +46189,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Gold"
       },
       is_available: !0,
@@ -46036,7 +46203,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Bear"
       },
       is_available: !0,
@@ -46050,7 +46217,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Halloween",
         tags: ["Halloween"]
       },
@@ -46065,7 +46232,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Turkey",
         tags: ["Thanksgiving"]
       },
@@ -46080,7 +46247,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Present",
         tags: ["Christmas"]
       },
@@ -46095,7 +46262,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_NewYear",
         tags: ["NewYears2019"]
       },
@@ -46110,7 +46277,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Groundhog",
         tags: ["GroundhogDay"]
       },
@@ -46125,7 +46292,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Buck",
         tags: ["Promotional"]
       },
@@ -46140,7 +46307,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Valentines",
         tags: ["ValentinesDay"]
       },
@@ -46155,11 +46322,11 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_SaintPaddy",
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 3411,
@@ -46170,11 +46337,11 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Easter",
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 3412,
@@ -46185,7 +46352,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Flames",
         tags: ["Promotional"]
       },
@@ -46200,7 +46367,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Rainbow",
         tags: ["Rainbow"]
       },
@@ -46215,7 +46382,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Steampunk",
         tags: ["Steampunk"]
       },
@@ -46230,7 +46397,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Memphis",
         tags: ["Memphis"]
       },
@@ -46245,7 +46412,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_spaceEgg",
         tags: ["Eggwalker", "premium"]
       },
@@ -46260,7 +46427,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_NukeZone",
         tags: ["NukeZone"]
       },
@@ -46275,7 +46442,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_NewYear2020",
         tags: ["NewYears2020"]
       },
@@ -46290,7 +46457,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Snake",
         tags: ["EggyCash"]
       },
@@ -46305,7 +46472,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_SnakeAlbino",
         tags: ["EggyCashAlbino"]
       },
@@ -46320,7 +46487,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_RaidLand",
         tags: ["RaidLand"]
       },
@@ -46335,7 +46502,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Toxic",
         tags: ["Rotten"]
       },
@@ -46350,7 +46517,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Music",
         tags: ["Rockstar"]
       },
@@ -46365,7 +46532,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Galaxy",
         tags: ["Galeggsy"]
       },
@@ -46380,7 +46547,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Chicken",
         tags: ["Chicken"]
       },
@@ -46395,7 +46562,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_Techno",
         tags: ["Premium"]
       },
@@ -46410,7 +46577,7 @@ var extern = function () {
       category_name: "Ranger Primary Weapons",
       exclusive_for_class: 2,
       item_data: {
-        class: Qt,
+        class: Yt,
         meshName: "gun_csg1_NewYear2021",
         tags: ["NewYears", "2021"]
       },
@@ -46425,7 +46592,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge"
       },
       is_available: !0,
@@ -46439,7 +46606,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Gold"
       },
       is_available: !0,
@@ -46453,7 +46620,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Bear"
       },
       is_available: !0,
@@ -46467,7 +46634,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Halloween",
         tags: ["Halloween"]
       },
@@ -46482,7 +46649,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Turkey",
         tags: ["Thanksgiving"]
       },
@@ -46497,7 +46664,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Present",
         tags: ["Christmas"]
       },
@@ -46512,7 +46679,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_NewYear",
         tags: ["NewYears2019"]
       },
@@ -46527,7 +46694,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Groundhog",
         tags: ["GroundhogDay"]
       },
@@ -46542,7 +46709,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Buck",
         tags: ["Promotional"]
       },
@@ -46557,7 +46724,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Valentines",
         tags: ["ValentinesDay"]
       },
@@ -46572,11 +46739,11 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_SaintPaddy",
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 3611,
@@ -46587,11 +46754,11 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Easter",
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 3612,
@@ -46602,7 +46769,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Flames",
         tags: ["Promotional"]
       },
@@ -46617,7 +46784,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Rainbow",
         tags: ["Rainbow"]
       },
@@ -46632,7 +46799,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Steampunk",
         tags: ["Steampunk"]
       },
@@ -46647,7 +46814,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Memphis",
         tags: ["Memphis"]
       },
@@ -46662,7 +46829,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_spaceEgg",
         tags: ["Eggwalker"]
       },
@@ -46677,7 +46844,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_NukeZone",
         tags: ["NukeZone"]
       },
@@ -46692,7 +46859,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_NewYear2020",
         tags: ["NewYears2020"]
       },
@@ -46707,7 +46874,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Snake",
         tags: ["EggyCash"]
       },
@@ -46722,7 +46889,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_SnakeAlbino",
         tags: ["EggyCashAlbino"]
       },
@@ -46737,7 +46904,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_RaidLand",
         tags: ["RaidLand"]
       },
@@ -46752,7 +46919,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Toxic",
         tags: ["Rotten"]
       },
@@ -46767,7 +46934,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Music",
         tags: ["Rockstar"]
       },
@@ -46782,7 +46949,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Galaxy",
         tags: ["Galeggsy"]
       },
@@ -46797,7 +46964,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Killstreak",
         tags: ["Killstreak"]
       },
@@ -46812,7 +46979,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Chicken",
         tags: ["Chicken"]
       },
@@ -46827,7 +46994,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_Techno",
         tags: ["premium"]
       },
@@ -46842,7 +47009,7 @@ var extern = function () {
       category_name: "Scrambler Primary Weapons",
       exclusive_for_class: 1,
       item_data: {
-        class: Kt,
+        class: jt,
         meshName: "gun_dozenGauge_NewYear2021",
         tags: ["NewYears", "2021"]
       },
@@ -46857,7 +47024,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm"
       },
       is_available: !0,
@@ -46871,7 +47038,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Gold"
       },
       is_available: !0,
@@ -46885,7 +47052,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Bear"
       },
       is_available: !0,
@@ -46899,7 +47066,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Halloween",
         tags: ["Halloween"]
       },
@@ -46914,7 +47081,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Turkey",
         tags: ["Thanksgiving"]
       },
@@ -46929,7 +47096,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Present",
         tags: ["Christmas"]
       },
@@ -46944,7 +47111,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_NewYear",
         tags: ["NewYears2019"]
       },
@@ -46959,7 +47126,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Groundhog",
         tags: ["GroundhogDay"]
       },
@@ -46974,7 +47141,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Buck",
         tags: ["Promotional"]
       },
@@ -46989,7 +47156,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Valentines",
         tags: ["ValentinesDay"]
       },
@@ -47004,11 +47171,11 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_SaintPaddy",
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 3011,
@@ -47019,11 +47186,11 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Easter",
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 3012,
@@ -47034,7 +47201,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Flames",
         tags: ["Promotional"]
       },
@@ -47049,7 +47216,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Rainbow",
         tags: ["Rainbow"]
       },
@@ -47064,7 +47231,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Steampunk",
         tags: ["Steampunk"]
       },
@@ -47079,7 +47246,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Memphis",
         tags: ["Memphis"]
       },
@@ -47094,7 +47261,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_spaceEgg",
         tags: ["Eggwalker", "premium"]
       },
@@ -47109,7 +47276,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_NukeZone",
         tags: ["NukeZone"]
       },
@@ -47124,7 +47291,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_NewYear2020",
         tags: ["NewYears2020"]
       },
@@ -47139,7 +47306,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Snake",
         tags: ["EggyCash"]
       },
@@ -47154,7 +47321,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_SnakeAlbino",
         tags: ["EggyCashAlbino"]
       },
@@ -47169,7 +47336,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_RaidLand",
         tags: ["RaidLand"]
       },
@@ -47184,7 +47351,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Toxic",
         tags: ["Rotten"]
       },
@@ -47199,7 +47366,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Music",
         tags: ["Rockstar"]
       },
@@ -47214,7 +47381,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Galaxy",
         tags: ["Galeggsy"]
       },
@@ -47229,7 +47396,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Techno",
         tags: ["Premium"]
       },
@@ -47244,7 +47411,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_CubicCastles",
         tags: ["CubicCastles"]
       },
@@ -47259,7 +47426,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Chicken",
         tags: ["Chicken"]
       },
@@ -47274,7 +47441,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_NewYear2021",
         tags: ["NewYears"]
       },
@@ -47289,7 +47456,7 @@ var extern = function () {
       category_name: "Shared Secondary Weapons",
       exclusive_for_class: null,
       item_data: {
-        class: Zt,
+        class: Xt,
         meshName: "gun_cluck9mm_Retro",
         tags: ["Premium"]
       },
@@ -47304,7 +47471,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg"
       },
       is_available: !0,
@@ -47318,7 +47485,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Gold"
       },
       is_available: !0,
@@ -47332,7 +47499,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Bear"
       },
       is_available: !0,
@@ -47346,7 +47513,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Turkey",
         tags: ["Thanksgiving"]
       },
@@ -47361,7 +47528,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Present",
         tags: ["Christmas"]
       },
@@ -47376,7 +47543,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_NewYear",
         tags: ["NewYears2019"]
       },
@@ -47391,7 +47558,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Groundhog",
         tags: ["GroundhogDay"]
       },
@@ -47406,7 +47573,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Buck",
         tags: ["Promotional"]
       },
@@ -47421,7 +47588,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Valentines",
         tags: ["ValentinesDay"]
       },
@@ -47436,11 +47603,11 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_SaintPaddy",
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 3811,
@@ -47451,11 +47618,11 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Easter",
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 3812,
@@ -47466,7 +47633,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Flames",
         tags: ["Promotional"]
       },
@@ -47481,7 +47648,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Rainbow",
         tags: ["Rainbow"]
       },
@@ -47496,7 +47663,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Steampunk",
         tags: ["Steampunk"]
       },
@@ -47511,7 +47678,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Memphis",
         tags: ["Memphis"]
       },
@@ -47526,7 +47693,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Halloween",
         tags: ["Halloween"]
       },
@@ -47541,7 +47708,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_spaceEgg",
         tags: ["Eggwalker"]
       },
@@ -47556,7 +47723,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_NukeZone",
         tags: ["NukeZone"]
       },
@@ -47571,7 +47738,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_NewYear2020",
         tags: ["NewYears2020"]
       },
@@ -47586,7 +47753,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Snake",
         tags: ["EggyCash"]
       },
@@ -47601,7 +47768,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_SnakeAlbino",
         tags: ["EggyCashAlbino"]
       },
@@ -47616,7 +47783,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_RaidLand",
         tags: ["RaidLand"]
       },
@@ -47631,7 +47798,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Toxic",
         tags: ["Rotten"]
       },
@@ -47646,7 +47813,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Music",
         tags: ["Rockstar"]
       },
@@ -47661,7 +47828,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Galaxy",
         tags: ["Galeggsy"]
       },
@@ -47676,7 +47843,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Chicken",
         tags: ["Chicken"]
       },
@@ -47691,7 +47858,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_NewYear2021",
         tags: ["NewYears", "2021"]
       },
@@ -47706,7 +47873,7 @@ var extern = function () {
       category_name: "Eggsploder Primary Weapons",
       exclusive_for_class: 3,
       item_data: {
-        class: qt,
+        class: Kt,
         meshName: "gun_rpegg_Techno",
         tags: ["Premium"]
       },
@@ -47721,7 +47888,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg"
       },
       is_available: !0,
@@ -47735,7 +47902,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Gold"
       },
       is_available: !0,
@@ -47749,7 +47916,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Bear"
       },
       is_available: !0,
@@ -47763,7 +47930,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Halloween",
         tags: ["Halloween"]
       },
@@ -47778,7 +47945,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Turkey",
         tags: ["Thanksgiving"]
       },
@@ -47793,7 +47960,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Present",
         tags: ["Christmas"]
       },
@@ -47808,7 +47975,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_NewYear",
         tags: ["NewYears2019"]
       },
@@ -47823,7 +47990,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Groundhog",
         tags: ["GroundhogDay"]
       },
@@ -47838,7 +48005,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Buck",
         tags: ["Promotional"]
       },
@@ -47853,7 +48020,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Valentines",
         tags: ["ValentinesDay"]
       },
@@ -47868,11 +48035,11 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_SaintPaddy",
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 4011,
@@ -47883,11 +48050,11 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Easter",
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 4012,
@@ -47898,7 +48065,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Flames",
         tags: ["Promotional"]
       },
@@ -47913,7 +48080,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Rainbow",
         tags: ["Rainbow"]
       },
@@ -47928,7 +48095,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Steampunk",
         tags: ["Steampunk"]
       },
@@ -47943,7 +48110,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Memphis",
         tags: ["Memphis"]
       },
@@ -47958,7 +48125,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_spaceEgg",
         tags: ["Eggwalker"]
       },
@@ -47973,7 +48140,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_NukeZone",
         tags: ["NukeZone"]
       },
@@ -47988,7 +48155,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_NewYear2020",
         tags: ["NewYears2020"]
       },
@@ -48003,7 +48170,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Snake",
         tags: ["EggyCash"]
       },
@@ -48018,7 +48185,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_SnakeAlbino",
         tags: ["EggyCashAlbino"]
       },
@@ -48033,7 +48200,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_RaidLand",
         tags: ["RaidLand"]
       },
@@ -48048,7 +48215,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Toxic",
         tags: ["Rotten"]
       },
@@ -48063,7 +48230,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Music",
         tags: ["Rockstar"]
       },
@@ -48078,7 +48245,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Galaxy",
         tags: ["Galeggsy"]
       },
@@ -48093,7 +48260,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Chicken",
         tags: ["Chicken"]
       },
@@ -48108,7 +48275,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_Techno",
         tags: ["premium", "techno"]
       },
@@ -48123,7 +48290,7 @@ var extern = function () {
       category_name: "Whipper Primary Weapons",
       exclusive_for_class: 4,
       item_data: {
-        class: Jt,
+        class: Qt,
         meshName: "gun_smg_NewYear2021",
         tags: ["NewYears", "2021"]
       },
@@ -48138,7 +48305,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24"
       },
       is_available: !0,
@@ -48152,7 +48319,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Gold"
       },
       is_available: !0,
@@ -48166,7 +48333,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Bear"
       },
       is_available: !0,
@@ -48180,7 +48347,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Halloween",
         tags: ["Halloween"]
       },
@@ -48195,7 +48362,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Turkey",
         tags: ["Thanksgiving"]
       },
@@ -48210,7 +48377,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Present",
         tags: ["Christmas"]
       },
@@ -48225,7 +48392,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_NewYear",
         tags: ["NewYears2019"]
       },
@@ -48240,7 +48407,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Groundhog",
         tags: ["GroundhogDay"]
       },
@@ -48255,7 +48422,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Buck",
         tags: ["Promotional"]
       },
@@ -48270,7 +48437,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Valentines",
         tags: ["ValentinesDay"]
       },
@@ -48285,11 +48452,11 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_SaintPaddy",
         tags: ["StPatricksDay"]
       },
-      is_available: !0,
+      is_available: !1,
       unlock: "purchase"
     }, {
       id: 4211,
@@ -48300,11 +48467,11 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Easter",
         tags: ["Easter"]
       },
-      is_available: !1,
+      is_available: !0,
       unlock: "purchase"
     }, {
       id: 4212,
@@ -48315,7 +48482,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Flames",
         tags: ["Promotional"]
       },
@@ -48330,7 +48497,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Rainbow",
         tags: ["Rainbow"]
       },
@@ -48345,7 +48512,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Steampunk",
         tags: ["Steampunk"]
       },
@@ -48360,7 +48527,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Memphis",
         tags: ["Memphis"]
       },
@@ -48375,7 +48542,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_spaceEgg",
         tags: ["Eggwalker"]
       },
@@ -48390,7 +48557,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_NukeZone",
         tags: ["NukeZone"]
       },
@@ -48405,7 +48572,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_NewYear2020",
         tags: ["NewYears2020"]
       },
@@ -48420,7 +48587,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Snake",
         tags: ["EggyCash"]
       },
@@ -48435,7 +48602,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_SnakeAlbino",
         tags: ["EggyCashAlbino"]
       },
@@ -48450,7 +48617,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_RaidLand",
         tags: ["RaidLand"]
       },
@@ -48465,7 +48632,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Toxic",
         tags: ["Rotten"]
       },
@@ -48480,7 +48647,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Techno",
         tags: ["Techno", "premium"]
       },
@@ -48495,7 +48662,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Music",
         tags: ["Rockstar"]
       },
@@ -48510,7 +48677,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Galaxy",
         tags: ["Galeggsy"]
       },
@@ -48525,7 +48692,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_Chicken",
         tags: ["Chicken"]
       },
@@ -48540,7 +48707,7 @@ var extern = function () {
       category_name: "Crackshot Primary Weapons",
       exclusive_for_class: 5,
       item_data: {
-        class: $t,
+        class: Zt,
         meshName: "gun_m24_NewYear2021",
         tags: ["NewYears", "2021"]
       },
@@ -48767,6 +48934,48 @@ var extern = function () {
         meshName: "grenade_SaintPaddy",
         tags: ["StPatricksDay"]
       },
+      is_available: !1,
+      unlock: "purchase"
+    }, {
+      id: 16016,
+      name: "Grenade Easter",
+      price: 3e3,
+      item_type_id: 6,
+      item_type_name: "Grenade",
+      category_name: "Grenades",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "grenade_Easter",
+        tags: ["Easter"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 16017,
+      name: "Grenade Pablo",
+      price: 2500,
+      item_type_id: 6,
+      item_type_name: "Grenade",
+      category_name: "Grenades",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "grenade_Pablo",
+        tags: ["EGGORG"]
+      },
+      is_available: !0,
+      unlock: "purchase"
+    }, {
+      id: 16018,
+      name: "Grenade Diablo",
+      price: 2500,
+      item_type_id: 6,
+      item_type_name: "Grenade",
+      category_name: "Grenades",
+      exclusive_for_class: null,
+      item_data: {
+        meshName: "grenade_Diablo",
+        tags: ["EGGORG"]
+      },
       is_available: !0,
       unlock: "purchase"
     }, {
@@ -48778,7 +48987,7 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug"
       },
       is_available: !0,
@@ -48792,7 +49001,7 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug_Gold"
       },
       is_available: !0,
@@ -48806,7 +49015,7 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug_Bear"
       },
       is_available: !0,
@@ -48820,7 +49029,7 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug_Rainbow"
       },
       is_available: !0,
@@ -48834,7 +49043,7 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug_Steampunk"
       },
       is_available: !0,
@@ -48848,7 +49057,7 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug_Memphis"
       },
       is_available: !0,
@@ -48862,7 +49071,7 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug_NukeZone"
       },
       is_available: !0,
@@ -48876,7 +49085,7 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug_Snake"
       },
       is_available: !0,
@@ -48890,7 +49099,7 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug_RaidLand"
       },
       is_available: !0,
@@ -48904,7 +49113,7 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug_Toxic"
       },
       is_available: !0,
@@ -48918,7 +49127,7 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug_SnakeAlbino"
       },
       is_available: !1,
@@ -48932,21 +49141,51 @@ var extern = function () {
       category_name: "TriHard Primary Weapons",
       exclusive_for_class: 6,
       item_data: {
-        class: ei,
+        class: qt,
         meshName: "gun_aug_SaintPaddy",
         tags: ["StPatricksDay"]
+      },
+      is_available: !1,
+      unlock: "purchase"
+    }, {
+      id: 4512,
+      name: "TriHard Retro",
+      price: 2147483647,
+      item_type_id: 3,
+      item_type_name: "Primary",
+      category_name: "TriHard Primary Weapons",
+      exclusive_for_class: 6,
+      item_data: {
+        class: qt,
+        meshName: "gun_aug_Retro",
+        tags: ["Premium"]
+      },
+      is_available: !1,
+      unlock: "premium"
+    }, {
+      id: 4513,
+      name: "TriHard Easter",
+      price: 3e3,
+      item_type_id: 3,
+      item_type_name: "Primary",
+      category_name: "TriHard Primary Weapons",
+      exclusive_for_class: 6,
+      item_data: {
+        class: qt,
+        meshName: "gun_aug_Easter",
+        tags: ["Easter"]
       },
       is_available: !0,
       unlock: "purchase"
     }];
 
-  function Ce(e) {
-    this.scene = e, this.x = 0, this.y = 0, this.z = 0, this.dx = 0, this.dy = 0, this.dz = 0, this.active = !1, this.player = null, this.damage = 20, this.range = 0, this.velocity = 0, this.hitsMap = !1, this.origin = new BABYLON.Vector3, this.direction = new BABYLON.Vector3, this.end = new BABYLON.Vector3, void 0 !== Gi && (this.actor = new Gi(this))
+  function Ae(e) {
+    this.scene = e, this.x = 0, this.y = 0, this.z = 0, this.dx = 0, this.dy = 0, this.dz = 0, this.active = !1, this.player = null, this.damage = 20, this.range = 0, this.velocity = 0, this.hitsMap = !1, this.origin = new BABYLON.Vector3, this.direction = new BABYLON.Vector3, this.end = new BABYLON.Vector3, void 0 !== Vi && (this.actor = new Vi(this))
   }
 
-  function Re() {
+  function Me() {
     var e = new BABYLON.Vector3(0, 0, 0),
-      t = new BABYLON.Vector3(Ar.width, Ar.height, Ar.depth);
+      t = new BABYLON.Vector3(Er.width, Er.height, Er.depth);
     this.world = new BABYLON.BoundingBox(e, t), this.bvh = this.createNode(this.world, 2), this.checkTick = 0
   }
   BABYLON.Skeleton.prototype.disableBlending = function () {
@@ -48981,16 +49220,16 @@ var extern = function () {
     o = (o = o > i.y ? i.y : o) < t.y ? t.y : o;
     var a = e.z;
     a = (a = a > i.z ? i.z : a) < t.z ? t.z : a, r.copyFromFloats(n, o, a)
-  }, Ce.damageExp = 4, Ce.v1 = new BABYLON.Vector3, Ce.v2 = new BABYLON.Vector3, Ce.v3 = new BABYLON.Vector3, Ce.position = new BABYLON.Vector3, Ce.fire = function (e, t, i, r) {
-    Ur.bulletPool.retrieve().fireThis(e, t, i, r)
-  }, Ce.prototype.fireThis = function (e, t, i, r) {
+  }, Ae.damageExp = 4, Ae.v1 = new BABYLON.Vector3, Ae.v2 = new BABYLON.Vector3, Ae.v3 = new BABYLON.Vector3, Ae.position = new BABYLON.Vector3, Ae.fire = function (e, t, i, r) {
+    Nr.bulletPool.retrieve().fireThis(e, t, i, r)
+  }, Ae.prototype.fireThis = function (e, t, i, r) {
     this.player = e, this.x = t.x, this.y = t.y, this.z = t.z, this.origin.set(this.x, this.y, this.z), this.direction.copyFrom(i).normalize().scaleInPlace(r.velocity), this.dx = this.direction.x, this.dy = this.direction.y, this.dz = this.direction.z, this.weaponClass = r, this.damage = r.damage, this.active = !0, this.range = r.range, this.velocity = r.velocity, this.hitsMap = !1, this.powerful = !1;
-    var n = Ve.rayCollidesWithMap(t, i, Ve.projectileCollidesWithCell);
-    n && (this.end.copyFrom(n.pick.pickedPoint), this.range = BABYLON.Vector3.Distance(t, n.pick.pickedPoint), this.hitsMap = !0), e.activeShellStreaks & Wt.EggBreaker && (this.powerful = !0, this.damage *= 1.5), this.actor && (0 == this.player.weapon.tracer ? this.actor.fire(this.powerful) : this.actor.delayFrames = Number.MAX_SAFE_INTEGER)
-  }, Ce.prototype.remove = function () {
-    Ur.bulletPool.recycle(this), this.actor && this.actor.remove()
-  }, Ce.prototype.update = function () {
-    if (Ce.position.set(this.x, this.y, this.z), this.range < this.velocity && this.direction.scaleInPlace(this.range / this.velocity), !Ve.rayCollidesWithPlayer(Ce.position, this.direction, this))
+    var n = Ne.rayCollidesWithMap(t, i, Ne.projectileCollidesWithCell);
+    n && (this.end.copyFrom(n.pick.pickedPoint), this.range = BABYLON.Vector3.Distance(t, n.pick.pickedPoint), this.hitsMap = !0), e.activeShellStreaks & zt.EggBreaker && (this.powerful = !0, this.damage *= 1.5), this.actor && (0 == this.player.weapon.tracer ? this.actor.fire(this.powerful) : this.actor.delayFrames = Number.MAX_SAFE_INTEGER)
+  }, Ae.prototype.remove = function () {
+    Nr.bulletPool.recycle(this), this.actor && this.actor.remove()
+  }, Ae.prototype.update = function () {
+    if (Ae.position.set(this.x, this.y, this.z), this.range < this.velocity && this.direction.scaleInPlace(this.range / this.velocity), !Ne.rayCollidesWithPlayer(Ae.position, this.direction, this))
       if (this.x += this.dx, this.y += this.dy, this.z += this.dz, this.range -= this.velocity, this.range <= 0) {
         if (this.actor && this.hitsMap) {
           var e = this.end,
@@ -48998,30 +49237,30 @@ var extern = function () {
             i = .1 * -this.dy,
             r = .1 * -this.dz;
           ! function (e, t, i, r, n, o) {
-            var a = Yi.getSprite(0);
-            a.animLength = 20 * Math.random() + 30, a.easing = ai, a.position.x = e, a.position.y = t, a.position.z = i, a.dx = .1 * r, a.dy = .1 * n, a.dz = .1 * o, a.startSize = .1, a.endSize = .2 * Math.random() + .4, a.angle = Math.random() * Math.PI2, a.rotate = .08 * Math.random() - .04, a.animColors = un
+            var a = Hi.getSprite(0);
+            a.animLength = 20 * Math.random() + 30, a.easing = ri, a.position.x = e, a.position.y = t, a.position.z = i, a.dx = .1 * r, a.dy = .1 * n, a.dz = .1 * o, a.startSize = .1, a.endSize = .2 * Math.random() + .4, a.angle = Math.random() * Math.PI2, a.rotate = .08 * Math.random() - .04, a.animColors = ln
           }(e.x, e.y, e.z, t, i, r)
         }
         this.remove()
       } else;
-  }, Ce.prototype.collidesWithPlayer = function (e, t) {
-    Ce.v1.x = this.dx, Ce.v1.y = this.dy, Ce.v1.z = this.dz, Ce.v1.normalize();
-    var i = .9 * -BABYLON.Vector3.Dot(Ce.v1, t) + .1,
-      r = this.damage * Math.pow(i, Ce.damageExp);
-    Fn(e, this.player, r, Ce.v1.x, Ce.v1.z), this.remove()
-  }, Re.prototype.add = function (e, t) {
+  }, Ae.prototype.collidesWithPlayer = function (e, t) {
+    Ae.v1.x = this.dx, Ae.v1.y = this.dy, Ae.v1.z = this.dz, Ae.v1.normalize();
+    var i = .9 * -BABYLON.Vector3.Dot(Ae.v1, t) + .1,
+      r = this.damage * Math.pow(i, Ae.damageExp);
+    wn(e, this.player, r, Ae.v1.x, Ae.v1.z), this.remove()
+  }, Me.prototype.add = function (e, t) {
     t = t || this.bvh;
     for (var i = 0; i < t.length; i++) {
       var r = t[i];
       BABYLON.BoundingBox.Intersects(e.bb, r) && (r.maximumWorld.x - r.minimumWorld.x > .5 * (e.bb.maximumWorld.x - e.bb.minimumWorld.x) && r.maximumWorld.y - r.minimumWorld.y > .5 * (e.bb.maximumWorld.y - e.bb.minimumWorld.y) && r.maximumWorld.z - r.minimumWorld.z > .5 * (e.bb.maximumWorld.z - e.bb.minimumWorld.z) ? (0 == r.bvh.length && (r.bvh = this.createNode(r, 2)), e.checkTick = 0, this.add(e, r.bvh)) : r.objects.push(e))
     }
-  }, Re.prototype.createNode = function (e, t) {
+  }, Me.prototype.createNode = function (e, t) {
     var i = [],
       r = (e.maximumWorld.x - e.minimumWorld.x) / t,
       n = (e.maximumWorld.z - e.minimumWorld.z) / t;
-    if (r > Ar.height) var o = 0,
-      a = Ar.height,
-      s = Ar.height;
+    if (r > Er.height) var o = 0,
+      a = Er.height,
+      s = Er.height;
     else o = e.minimumWorld.y, s = ((a = e.maximumWorld.y) - o) / t;
     for (var l = e.minimumWorld.x; l < e.maximumWorld.x; l += r)
       for (var c = o; c < a; c += s)
@@ -49032,9 +49271,9 @@ var extern = function () {
           p.bvh = [], p.objects = [], i.push(p)
         }
     return i
-  }, Re.prototype.getObjects = function (e, t) {
+  }, Me.prototype.getObjects = function (e, t) {
     this.checkTick++, this.recurseObjects(e, this.bvh, t)
-  }, Re.prototype.recurseObjects = function (e, t, i) {
+  }, Me.prototype.recurseObjects = function (e, t, i) {
     for (var r = 0; r < t.length; r++) {
       var n = t[r];
       if (BABYLON.BoundingBox.Intersects(e, n)) {
@@ -49046,14 +49285,14 @@ var extern = function () {
       }
     }
   };
-  var Oe = 0,
-    Ie = 1,
-    De = 1,
-    we = 2,
-    Le = 3,
-    Be = 4,
-    Fe = 6,
-    Ne = {
+  var Ce = 0,
+    Re = 1,
+    Oe = 1,
+    Ie = 2,
+    De = 3,
+    we = 4,
+    Le = 6,
+    Be = {
       Soldier: 0,
       Scrambler: 1,
       Ranger: 2,
@@ -49062,11 +49301,11 @@ var extern = function () {
       Crackshot: 5,
       TriHard: 6
     };
-  if (Ne.length = Object.keys(Ne).length, !V) V = new ke;
+  if (Be.length = Object.keys(Be).length, !V) V = new Fe;
 
-  function ke() {
-    if (null == Me) throw "Items is undefined or null, cannot create Catalog";
-    window.hack.items = Me;
+  function Fe() {
+    if (null == Se) throw "Items is undefined or null, cannot create Catalog";
+    window.hack.items = Se;
     window.hack.modMenu.skins.onGotSkins();
     this.isSetup = !1, this.filterItems = function (e, t) {
       for (var i = [], r = 0; r < e.length; r++) t(e[r]) && i.push(e[r]);
@@ -49076,44 +49315,44 @@ var extern = function () {
         if (t[i] && t[i].id === e) return t[i];
       return null
     }, this.findItemsByIds = function (e) {
-      return Me.filter(t => e.includes(t.id))
+      return Se.filter(t => e.includes(t.id))
     }, this.findItemById = function (e) {
-      return this.findItemInListById(e, Me)
+      return this.findItemInListById(e, Se)
     }, this.findItemBy8BitItemId = function (e, t, i) {
-      if (!1 === this.isSetup && this.setupCatalog(), void 0 === t || t >= Ne.length) return null;
+      if (!1 === this.isSetup && this.setupCatalog(), void 0 === t || t >= Be.length) return null;
       var r = i;
       switch (e) {
-        case De:
+        case Oe:
           return 0 === i ? null : (r += 999, this.findItemInListById(r, this.hats));
-        case we:
+        case Ie:
           return 0 === i ? null : (r += 1999, this.findItemInListById(r, this.stamps));
-        case Le:
+        case De:
           switch (r += 3e3, t) {
-            case Ne.Soldier:
+            case Be.Soldier:
               r += 100;
               break;
-            case Ne.Scrambler:
+            case Be.Scrambler:
               r += 600;
               break;
-            case Ne.Ranger:
+            case Be.Ranger:
               r += 400;
               break;
-            case Ne.Eggsploder:
+            case Be.Eggsploder:
               r += 800;
               break;
-            case Ne.Whipper:
+            case Be.Whipper:
               r += 1e3;
               break;
-            case Ne.Crackshot:
+            case Be.Crackshot:
               r += 1200;
               break;
-            case Ne.TriHard:
+            case Be.TriHard:
               r += 1500
           }
-          return this.findItemInListById(r, this.forClass[t].forWeaponSlot[Oe]);
-        case Be:
-          return r += 3e3, this.findItemInListById(r, this.forClass[t].forWeaponSlot[Ie]);
-        case Fe:
+          return this.findItemInListById(r, this.forClass[t].forWeaponSlot[Ce]);
+        case we:
+          return r += 3e3, this.findItemInListById(r, this.forClass[t].forWeaponSlot[Re]);
+        case Le:
           return r += 16e3, this.findItemInListById(r, this.grenades)
       }
     }, this.get8BitItemId = function (e, t) {
@@ -49121,40 +49360,40 @@ var extern = function () {
       !1 === this.isSetup && this.setupCatalog();
       var i = e.id;
       switch (e.item_type_id) {
-        case De:
+        case Oe:
           i -= 999;
           break;
-        case we:
+        case Ie:
           i -= 1999;
           break;
-        case Le:
+        case De:
           switch (i -= 3e3, t) {
-            case Ne.Soldier:
+            case Be.Soldier:
               i -= 100;
               break;
-            case Ne.Scrambler:
+            case Be.Scrambler:
               i -= 600;
               break;
-            case Ne.Ranger:
+            case Be.Ranger:
               i -= 400;
               break;
-            case Ne.Eggsploder:
+            case Be.Eggsploder:
               i -= 800;
               break;
-            case Ne.Whipper:
+            case Be.Whipper:
               i -= 1e3;
               break;
-            case Ne.Crackshot:
+            case Be.Crackshot:
               i -= 1200;
               break;
-            case Ne.TriHard:
+            case Be.TriHard:
               i -= 1500
           }
           break;
-        case Be:
+        case we:
           i -= 3e3;
           break;
-        case Fe:
+        case Le:
           i -= 16e3
       }
       return i
@@ -49179,7 +49418,7 @@ var extern = function () {
         return t.position.y = .5, t.position.z = 1, i
       }
     }, this.getTaggedItems = function (e) {
-      return this.filterItems(Me, (function (t) {
+      return this.filterItems(Se, (function (t) {
         if (void 0 !== t.item_data.tags && null !== t.item_data.tags && t.item_data.tags.length > 0)
           for (var i = 0; i < t.item_data.tags.length; i++)
             if (t.item_data.tags[i] === e) return !0;
@@ -49187,23 +49426,23 @@ var extern = function () {
       }))
     }, this.setupCatalog = function () {
       this.hats = [], this.stamps = [], this.primaryWeapons = [], this.secondaryWeapons = [], this.grenades = [], this.forClass = [];
-      for (var e = 0; e < Me.length; e++) switch (Me[e].item_type_id) {
+      for (var e = 0; e < Se.length; e++) switch (Se[e].item_type_id) {
+        case Oe:
+          this.hats.push(Se[e]);
+          break;
+        case Ie:
+          this.stamps.push(Se[e]);
+          break;
         case De:
-          this.hats.push(Me[e]);
+          this.primaryWeapons.push(Se[e]), this.addWeaponFunctions(Se[e]);
           break;
         case we:
-          this.stamps.push(Me[e]);
+          this.secondaryWeapons.push(Se[e]), this.addWeaponFunctions(Se[e]);
           break;
         case Le:
-          this.primaryWeapons.push(Me[e]), this.addWeaponFunctions(Me[e]);
-          break;
-        case Be:
-          this.secondaryWeapons.push(Me[e]), this.addWeaponFunctions(Me[e]);
-          break;
-        case Fe:
-          this.grenades.push(Me[e]), this.addGrenadeFunctions(Me[e])
+          this.grenades.push(Se[e]), this.addGrenadeFunctions(Se[e])
       }
-      for (var t = 0; t < Ne.length; t++) {
+      for (var t = 0; t < Be.length; t++) {
         var i = function (e) {
             return 0 === e.price && null === e.exclusive_for_class
           },
@@ -49229,20 +49468,20 @@ var extern = function () {
       this.isSetup = !0
     }, !1 === this.isSetup && this.setupCatalog()
   }
-  var Ve = {
+  var Ne = {
       init: function (e) {
-        Ve.playerCollisionMesh = BABYLON.MeshBuilder.CreateBox("pc", {
+        Ne.playerCollisionMesh = BABYLON.MeshBuilder.CreateBox("pc", {
           size: .5,
           height: .6
-        }, e), Ve.playerCollisionMesh.position.y = .3, Ve.playerCollisionMesh.bakeCurrentTransformIntoVertices(), Ve.playerCollisionMesh.setEnabled(!1), Ve.wedgeCollisionMesh = BABYLON.MeshBuilder.CreateBox("", {
+        }, e), Ne.playerCollisionMesh.position.y = .3, Ne.playerCollisionMesh.bakeCurrentTransformIntoVertices(), Ne.playerCollisionMesh.setEnabled(!1), Ne.wedgeCollisionMesh = BABYLON.MeshBuilder.CreateBox("", {
           size: 1.5
-        }, e), Ve.wedgeCollisionMesh.position.y = -.75, Ve.wedgeCollisionMesh.bakeCurrentTransformIntoVertices(), Ve.wedgeCollisionMesh.rotation.x = -Math.PI / 4, Ve.wedgeCollisionMesh.bakeTransformIntoVertices(Ve.wedgeCollisionMesh.getWorldMatrix()), Ve.wedgeCollisionMesh.setEnabled(!1), Ve.iwedgeCollisionMesh = BABYLON.MeshBuilder.CreateBox("", {
+        }, e), Ne.wedgeCollisionMesh.position.y = -.75, Ne.wedgeCollisionMesh.bakeCurrentTransformIntoVertices(), Ne.wedgeCollisionMesh.rotation.x = -Math.PI / 4, Ne.wedgeCollisionMesh.bakeTransformIntoVertices(Ne.wedgeCollisionMesh.getWorldMatrix()), Ne.wedgeCollisionMesh.setEnabled(!1), Ne.iwedgeCollisionMesh = BABYLON.MeshBuilder.CreateBox("", {
           size: 1.5
-        }, e), Ve.iwedgeCollisionMesh.position.y = .75, Ve.iwedgeCollisionMesh.bakeCurrentTransformIntoVertices(), Ve.iwedgeCollisionMesh.rotation.x = -Math.PI / 4, Ve.iwedgeCollisionMesh.bakeTransformIntoVertices(Ve.iwedgeCollisionMesh.getWorldMatrix()), Ve.iwedgeCollisionMesh.setEnabled(!1), Ve.fullCollisionMesh = BABYLON.MeshBuilder.CreateBox("", {
+        }, e), Ne.iwedgeCollisionMesh.position.y = .75, Ne.iwedgeCollisionMesh.bakeCurrentTransformIntoVertices(), Ne.iwedgeCollisionMesh.rotation.x = -Math.PI / 4, Ne.iwedgeCollisionMesh.bakeTransformIntoVertices(Ne.iwedgeCollisionMesh.getWorldMatrix()), Ne.iwedgeCollisionMesh.setEnabled(!1), Ne.fullCollisionMesh = BABYLON.MeshBuilder.CreateBox("", {
           size: 1
-        }, e), Ve.fullCollisionMesh.setEnabled(!1), Ve.pointCollisionMesh = BABYLON.MeshBuilder.CreateBox("point", {
+        }, e), Ne.fullCollisionMesh.setEnabled(!1), Ne.pointCollisionMesh = BABYLON.MeshBuilder.CreateBox("point", {
           size: .01
-        }, e), Ve.pointCollisionMesh.setEnabled(!1)
+        }, e), Ne.pointCollisionMesh.setEnabled(!1)
       },
       v1: new BABYLON.Vector3,
       v2: new BABYLON.Vector3,
@@ -49256,10 +49495,10 @@ var extern = function () {
         var i = Math.floor(e.x),
           r = Math.floor(e.y),
           n = Math.floor(e.z);
-        return !(i < 0 || i >= Sr.width || n < 0 || n >= Sr.depth || r < 0 || r >= Sr.height) && Ve.meshCollidesWithCell(Ve.pointCollisionMesh, e, i, r, n, t)
+        return !(i < 0 || i >= Tr.width || n < 0 || n >= Tr.depth || r < 0 || r >= Tr.height) && Ne.meshCollidesWithCell(Ne.pointCollisionMesh, e, i, r, n, t)
       },
       playerCollidesWithMap: function (e) {
-        return Ve.meshCollidesWithMap(Ve.playerCollisionMesh, e)
+        return Ne.meshCollidesWithMap(Ne.playerCollisionMesh, e)
       },
       meshCollidesWithMap: function (e, t) {
         var i = {};
@@ -49268,10 +49507,10 @@ var extern = function () {
           var o = Math.floor(t.x + r.vectors[n].x),
             a = Math.floor(t.y + r.vectors[n].y),
             s = Math.floor(t.z + r.vectors[n].z);
-          if (o < 0 || o >= Sr.width || s < 0 || s >= Sr.depth || a < 0) return !0;
+          if (o < 0 || o >= Tr.width || s < 0 || s >= Tr.depth || a < 0) return !0;
           var l = o + 1e3 * a + 1e6 * s;
-          if (a < Sr.height && !i[l]) {
-            var c = Ve.meshCollidesWithCell(e, t, o, a, s);
+          if (a < Tr.height && !i[l]) {
+            var c = Ne.meshCollidesWithCell(e, t, o, a, s);
             if (c) return c;
             i[l] = !0
           }
@@ -49279,14 +49518,14 @@ var extern = function () {
         return !1
       },
       meshCollidesWithCell: function (e, t, i, r, n, o) {
-        var a = Sr.data[i][r][n];
+        var a = Tr.data[i][r][n];
         if (a.idx) {
-          var s = li[a.idx];
+          var s = oi[a.idx];
           if (o && s.softness) return !1;
           switch (s.colliderType) {
             case "full":
               return {
-                x: i, y: r, z: n, cell: a, mesh: Ve.fullCollisionMesh
+                x: i, y: r, z: n, cell: a, mesh: Ne.fullCollisionMesh
               };
             case "ladder":
               if ("pc" != e.name) return !1;
@@ -49294,7 +49533,7 @@ var extern = function () {
             case "none":
               return !1
           }
-          e.position.x = t.x - i - .5, e.position.y = t.y - r - .5, e.position.z = t.z - n - .5, Ve.v1.set(-e.position.x, -e.position.y, -e.position.z), e.setPivotPoint(Ve.v1), e.rotation.x = -a.rx, e.rotation.y = -a.ry, e.rotation.z = -a.rz, e.computeWorldMatrix();
+          e.position.x = t.x - i - .5, e.position.y = t.y - r - .5, e.position.z = t.z - n - .5, Ne.v1.set(-e.position.x, -e.position.y, -e.position.z), e.setPivotPoint(Ne.v1), e.rotation.x = -a.rx, e.rotation.y = -a.ry, e.rotation.z = -a.rz, e.computeWorldMatrix();
           var l = a.colliderMesh.intersectsMesh(e, a.colliderPrecise, a.colliderChildren);
           if (l) return {
             x: i,
@@ -49308,7 +49547,7 @@ var extern = function () {
       },
       rayCollidesWithMap: function (e, t, i) {
         if (isNaN(e.x) || isNaN(e.y) || isNaN(e.z)) return !1;
-        if (e.x < 0 || e.x >= Sr.width || e.z < 0 || e.z >= Sr.depth || e.y < 0 || e.y >= Sr.height) return !1;
+        if (e.x < 0 || e.x >= Tr.width || e.z < 0 || e.z >= Tr.depth || e.y < 0 || e.y >= Tr.height) return !1;
         var r = t.length(),
           n = Math.floor(e.x),
           o = Math.floor(e.y),
@@ -49319,22 +49558,22 @@ var extern = function () {
           h = Math.sign(s),
           u = Math.sign(l),
           d = Math.sign(c),
-          p = Ve.intbound(e.x, s),
-          f = Ve.intbound(e.y, l),
-          m = Ve.intbound(e.z, c),
+          p = Ne.intbound(e.x, s),
+          f = Ne.intbound(e.y, l),
+          m = Ne.intbound(e.z, c),
           _ = h / s,
           g = u / l,
           v = d / c;
         if (0 === s && 0 === l && 0 === c) return !1;
         for (r /= Math.sqrt(s * s + l * l + c * c);
-          (h > 0 ? n < Sr.width : n >= 0) && (u > 0 ? o < Sr.height : o >= 0) && (d > 0 ? a < Sr.depth : a >= 0);) {
-          if (!(n < 0 || o < 0 || a < 0 || n >= Sr.width || o >= Sr.height || a >= Sr.depth)) {
+          (h > 0 ? n < Tr.width : n >= 0) && (u > 0 ? o < Tr.height : o >= 0) && (d > 0 ? a < Tr.depth : a >= 0);) {
+          if (!(n < 0 || o < 0 || a < 0 || n >= Tr.width || o >= Tr.height || a >= Tr.depth)) {
             var y = i(e, t, {
               x: n,
               y: o,
               z: a
             });
-            if (y && "verysoft" != li[y.cell.idx].softness) return y
+            if (y && "verysoft" != oi[y.cell.idx].softness) return y
           }
           if (p < f)
             if (p < m) {
@@ -49354,11 +49593,11 @@ var extern = function () {
         }
       },
       intbound: function (e, t) {
-        return t < 0 ? Ve.intbound(-e, -t) : (1 - (e = (e % 1 + 1) % 1)) / t
+        return t < 0 ? Ne.intbound(-e, -t) : (1 - (e = (e % 1 + 1) % 1)) / t
       },
       getCellForRay: function (e) {
         try {
-          var t = Sr.data[e.x][e.y][e.z]
+          var t = Tr.data[e.x][e.y][e.z]
         } catch (t) {
           console.log(e)
         }
@@ -49371,19 +49610,19 @@ var extern = function () {
         return t
       },
       projectileCollidesWithCell: function (e, t, i) {
-        var r = Ve.getCellForRay(i);
+        var r = Ne.getCellForRay(i);
         if (!r) return !1;
         if (r.mesh.softness) return !1;
-        colliderMesh = r.colliderMesh, Ve.matrix.copyFrom(r.colliderMatrix), Ve.v4.set(i.x + .5, i.y + .5, i.z + .5), Ve.v1.set(e.x, e.y, e.z), Ve.v2.copyFrom(t), Ve.v1.subtractInPlace(Ve.v4), Ve.ray.origin.copyFrom(Ve.v1), Ve.ray.direction.copyFrom(Ve.v2), Ve.ray.length = 1, BABYLON.Ray.TransformToRef(Ve.ray, Ve.matrix, Ve.ray);
-        var n = Ve.intersectsColliderMesh(colliderMesh, !1);
+        colliderMesh = r.colliderMesh, Ne.matrix.copyFrom(r.colliderMatrix), Ne.v4.set(i.x + .5, i.y + .5, i.z + .5), Ne.v1.set(e.x, e.y, e.z), Ne.v2.copyFrom(t), Ne.v1.subtractInPlace(Ne.v4), Ne.ray.origin.copyFrom(Ne.v1), Ne.ray.direction.copyFrom(Ne.v2), Ne.ray.length = 1, BABYLON.Ray.TransformToRef(Ne.ray, Ne.matrix, Ne.ray);
+        var n = Ne.intersectsColliderMesh(colliderMesh, !1);
         if (colliderMesh = n.pickedMesh, n.hit) {
-          if (colliderMesh != Ve.fullCollisionMesh && (Math.abs(n.pickedPoint.x) > .5 || Math.abs(n.pickedPoint.y) > .5 || Math.abs(n.pickedPoint.z) > .5)) {
-            var o = BABYLON.Vector3.DistanceSquared(Ve.ray.origin, BABYLON.Vector3.Zero());
-            BABYLON.Vector3.DistanceSquared(Ve.ray.origin, n.pickedPoint) < o && (n = Ve.ray.intersectsMesh(Ve.fullCollisionMesh, !1))
+          if (colliderMesh != Ne.fullCollisionMesh && (Math.abs(n.pickedPoint.x) > .5 || Math.abs(n.pickedPoint.y) > .5 || Math.abs(n.pickedPoint.z) > .5)) {
+            var o = BABYLON.Vector3.DistanceSquared(Ne.ray.origin, BABYLON.Vector3.Zero());
+            BABYLON.Vector3.DistanceSquared(Ne.ray.origin, n.pickedPoint) < o && (n = Ne.ray.intersectsMesh(Ne.fullCollisionMesh, !1))
           }
           if (n.hit) {
-            var a = BABYLON.Vector3.TransformCoordinates(n.pickedPoint, Ve.matrix.invert());
-            return a.addInPlace(Ve.v4), n.pickedPoint = a, {
+            var a = BABYLON.Vector3.TransformCoordinates(n.pickedPoint, Ne.matrix.invert());
+            return a.addInPlace(Ne.v4), n.pickedPoint = a, {
               cell: r,
               pick: n
             }
@@ -49392,29 +49631,29 @@ var extern = function () {
         return !1
       },
       grenadeCollidesWithCell: function (e, t, i, r) {
-        var n = Ve.getCellForRay(i);
+        var n = Ne.getCellForRay(i);
         if (!n) return !1;
-        colliderMesh = n.colliderMesh, Ve.matrix.copyFrom(n.colliderMatrix), Ve.v4.set(i.x + .5, i.y + .5, i.z + .5), Ve.v1.set(e.x, e.y, e.z), Ve.v2.copyFrom(t);
+        colliderMesh = n.colliderMesh, Ne.matrix.copyFrom(n.colliderMatrix), Ne.v4.set(i.x + .5, i.y + .5, i.z + .5), Ne.v1.set(e.x, e.y, e.z), Ne.v2.copyFrom(t);
         var o = t.length();
-        Ve.v2.normalize().scaleInPlace(10), Ve.v1.subtractInPlace(Ve.v4), Ve.ray.origin.copyFrom(Ve.v1), Ve.ray.direction.copyFrom(Ve.v2), Ve.ray.length = 1, BABYLON.Ray.TransformToRef(Ve.ray, Ve.matrix, Ve.ray);
-        var a = Ve.intersectsColliderMesh(colliderMesh, !1);
+        Ne.v2.normalize().scaleInPlace(10), Ne.v1.subtractInPlace(Ne.v4), Ne.ray.origin.copyFrom(Ne.v1), Ne.ray.direction.copyFrom(Ne.v2), Ne.ray.length = 1, BABYLON.Ray.TransformToRef(Ne.ray, Ne.matrix, Ne.ray);
+        var a = Ne.intersectsColliderMesh(colliderMesh, !1);
         if (colliderMesh = a.pickedMesh, a.hit) {
-          if (BABYLON.Vector3.Distance(Ve.ray.origin, a.pickedPoint) <= o) return Ve.matrix.invert(), (l = BABYLON.Vector3.TransformCoordinates(a.pickedPoint, Ve.matrix)).addInPlace(Ve.v4), a.pickedPoint = l, {
+          if (BABYLON.Vector3.Distance(Ne.ray.origin, a.pickedPoint) <= o) return Ne.matrix.invert(), (l = BABYLON.Vector3.TransformCoordinates(a.pickedPoint, Ne.matrix)).addInPlace(Ne.v4), a.pickedPoint = l, {
             cell: n,
             pick: a,
-            normal: s = BABYLON.Vector3.TransformCoordinates(a.normal, Ve.matrix),
+            normal: s = BABYLON.Vector3.TransformCoordinates(a.normal, Ne.matrix),
             dot: BABYLON.Vector3.Dot(t, s)
           };
           if (!a.insideMesh) return !1;
           var s = a.normal;
-          if ((a = Ve.ray.intersectsMesh(Ve.fullCollisionMesh, !1)).hit) {
+          if ((a = Ne.ray.intersectsMesh(Ne.fullCollisionMesh, !1)).hit) {
             var l;
-            Ve.matrix.invert(), (l = BABYLON.Vector3.TransformCoordinates(a.pickedPoint, Ve.matrix)).addInPlace(Ve.v4), a.pickedPoint = l;
+            Ne.matrix.invert(), (l = BABYLON.Vector3.TransformCoordinates(a.pickedPoint, Ne.matrix)).addInPlace(Ne.v4), a.pickedPoint = l;
             s = a.getNormal(!0, !1);
             return {
               cell: n,
               pick: a,
-              normal: s = BABYLON.Vector3.TransformCoordinates(s, Ve.matrix),
+              normal: s = BABYLON.Vector3.TransformCoordinates(s, Ne.matrix),
               dot: BABYLON.Vector3.Dot(t, s)
             }
           }
@@ -49423,29 +49662,29 @@ var extern = function () {
       },
       intersectsColliderMesh: function (e, t) {
         var i = 1e5,
-          r = Ve.ray.intersectsMesh(e, t),
+          r = Ne.ray.intersectsMesh(e, t),
           n = null,
           o = !1;
-        r.hit && (n = r.getNormal(!0, !1), (c = BABYLON.Vector3.Dot(Ve.ray.direction, n)) > 0 && (o = !0), i = BABYLON.Vector3.DistanceSquared(Ve.ray.origin, r.pickedPoint));
+        r.hit && (n = r.getNormal(!0, !1), (c = BABYLON.Vector3.Dot(Ne.ray.direction, n)) > 0 && (o = !0), i = BABYLON.Vector3.DistanceSquared(Ne.ray.origin, r.pickedPoint));
         for (var a = e.getChildMeshes(), s = 0; s < a.length; s++) {
-          var l = Ve.ray.intersectsMesh(a[s], t);
+          var l = Ne.ray.intersectsMesh(a[s], t);
           if (l.hit) {
-            var c, h = BABYLON.Vector3.DistanceSquared(Ve.ray.origin, l.pickedPoint),
+            var c, h = BABYLON.Vector3.DistanceSquared(Ne.ray.origin, l.pickedPoint),
               u = l.getNormal(!0, !1);
-            (c = BABYLON.Vector3.Dot(Ve.ray.direction, u)) > 0 && (o = !0), h < i && (i = h, r = l, n = u, c > 0 && (o = !0))
+            (c = BABYLON.Vector3.Dot(Ne.ray.direction, u)) > 0 && (o = !0), h < i && (i = h, r = l, n = u, c > 0 && (o = !0))
           }
         }
         return r.normal = n, r.insideMesh = o, r
       },
       rayCollidesWithPlayer: function (e, t, i) {
         for (var r = i ? i.player.team : null, n = i ? i.player.id : null, o = 0; o < playerLimit; o++) {
-          var a = Ir[o];
+          var a = Cr[o];
           if (a && a.playing && a.id != n && (0 == a.team || a.team != r)) {
-            if (Ve.ray.origin.copyFrom(e), Ve.ray.direction.copyFrom(t), Ve.ray.length = 1, i.actor) var s = Ve.rayCollidesWithPlayerHelper(Ve.ray, a);
+            if (Ne.ray.origin.copyFrom(e), Ne.ray.direction.copyFrom(t), Ne.ray.length = 1, i.actor) var s = Ne.rayCollidesWithPlayerHelper(Ne.ray, a);
             else {
               var l = i.player.serverStateIdx;
-              Math.diff(serverStateIdx, l, ui) > 15 && (l = Math.mod(serverStateIdx - 15, ui));
-              s = Ve.rayCollidesWithPlayerHelper(Ve.ray, a.stateBuffer[l])
+              Math.diff(serverStateIdx, l, li) > 15 && (l = Math.mod(serverStateIdx - 15, li));
+              s = Ne.rayCollidesWithPlayerHelper(Ne.ray, a.stateBuffer[l])
             }
             s && i && i.collidesWithPlayer(a, s)
           }
@@ -49454,18 +49693,18 @@ var extern = function () {
       },
       rayCollidesWithPlayerHelper: function (e, t) {
         var i = e.origin,
-          r = Ve.v1;
+          r = Ne.v1;
         r.copyFrom(i).addInPlace(e.direction);
-        var n = Ve.v5;
+        var n = Ne.v5;
         n.set(t.x, t.y + .32, t.z);
-        var o = Ve.v2;
+        var o = Ne.v2;
         o.copyFrom(e.origin), o.subtractInPlace(n);
         var a = BABYLON.Vector3.Dot(e.direction, e.direction),
           s = 2 * BABYLON.Vector3.Dot(e.direction, o),
           l = BABYLON.Vector3.Dot(o, o) - .09,
           c = Math.pow(s, 2) - 4 * a * l,
-          h = Ve.v3,
-          u = Ve.v4;
+          h = Ne.v3,
+          u = Ne.v4;
         if (c < 0) return !1;
         if (0 == c) return BABYLON.Vector3.LerpToRef(i, r, c, h), h.subtractToRef(n, u), u.normalize(), u;
         var d = (-s - Math.sqrt(c)) / (2 * a);
@@ -49473,207 +49712,212 @@ var extern = function () {
         return d >= 0 && d <= 1 && (BABYLON.Vector3.LerpToRef(i, r, d, h), h.subtractToRef(n, u), u.normalize(), u)
       }
     },
-    Ue = {
+    ke = {
       init: function () {
-        Ue.bvh = new Re
+        ke.bvh = new Me
       },
       sphereCollidesWithStructure: function (e, t, i, r, n) {
-        var o = Ue.box,
-          a = Ue.v1,
-          s = Ue.v2;
+        var o = ke.box,
+          a = ke.v1,
+          s = ke.v2;
         o.minimumWorld.copyFrom(e), o.minimumWorld.x -= t, o.minimumWorld.y -= t, o.minimumWorld.z -= t, o.maximumWorld.copyFrom(e), o.maximumWorld.x += t, o.maximumWorld.y += t, o.maximumWorld.z += t, i.copyFromFloats(0, 0, 0);
         var l = 0,
           c = !1;
-        return Ue.bvh.getObjects(o, n => {
-          Ue.sphereCollidesWithBox(e, t, n, a, s) && (s.y < -.707 && (a.y = a.length(), a.x = 0, a.z = 0), a.length() > i.length() && (i.copyFrom(a), r.copyFrom(s), c = n), l++)
+        return ke.bvh.getObjects(o, n => {
+          ke.sphereCollidesWithBox(e, t, n, a, s) && (s.y < -.707 && (a.y = a.length(), a.x = 0, a.z = 0), a.length() > i.length() && (i.copyFrom(a), r.copyFrom(s), c = n), l++)
         }), l > 0 && c
       },
       sphereCollidesWithBox: function (e, t, i, r, n) {
-        var o = Ue.v3,
-          a = Ue.v4,
-          s = Ue.mtx2;
+        var o = ke.v3,
+          a = ke.v4,
+          s = ke.mtx2;
         if (o.copyFrom(e), o.subtractInPlace(i.position), i.matrix.invertToRef(s), BABYLON.Vector3.TransformNormalToRef(o, s, o), BABYLON.Vector3.ClampToRef(o, i.minimumWorld, i.maximumWorld, a), (l = BABYLON.Vector3.Distance(o, a)) < t) {
-          a.subtractInPlace(o), BABYLON.Vector3.TransformNormalToRef(a, i.matrix, a), a.addInPlace(e), a.subtractInPlace(i.position), BABYLON.Vector3.ClampToRef(a, Ue.vmin, Ue.vmax, a), a.addInPlace(i.position);
+          a.subtractInPlace(o), BABYLON.Vector3.TransformNormalToRef(a, i.matrix, a), a.addInPlace(e), a.subtractInPlace(i.position), BABYLON.Vector3.ClampToRef(a, ke.vmin, ke.vmax, a), a.addInPlace(i.position);
           var l = BABYLON.Vector3.Distance(e, a);
           if (a.subtractInPlace(e).normalize(), l < (t *= .16 * Math.abs(a.y) + .84)) return n.copyFrom(a), a.scaleInPlace(l - t - .001), r.copyFrom(a), !0
         }
         return !1
       },
       add: function (e) {
-        Ue.bvh.add(e)
+        ke.bvh.add(e)
       }
     };
-  Ue.v1 = new BABYLON.Vector3, Ue.v2 = new BABYLON.Vector3, Ue.v3 = new BABYLON.Vector3, Ue.v4 = new BABYLON.Vector3, Ue.v5 = new BABYLON.Vector3, Ue.v6 = new BABYLON.Vector3, Ue.v7 = new BABYLON.Vector3, Ue.mtx1 = new BABYLON.Matrix, Ue.mtx2 = new BABYLON.Matrix, Ue.vmin = new BABYLON.Vector3(-.5, -.5, -.5), Ue.vmax = new BABYLON.Vector3(.5, .5, .5), Ue.box = new BABYLON.BoundingBox(BABYLON.Vector3.Zero(), BABYLON.Vector3.Zero()), Ue.Type = {
+  ke.v1 = new BABYLON.Vector3, ke.v2 = new BABYLON.Vector3, ke.v3 = new BABYLON.Vector3, ke.v4 = new BABYLON.Vector3, ke.v5 = new BABYLON.Vector3, ke.v6 = new BABYLON.Vector3, ke.v7 = new BABYLON.Vector3, ke.mtx1 = new BABYLON.Matrix, ke.mtx2 = new BABYLON.Matrix, ke.vmin = new BABYLON.Vector3(-.5, -.5, -.5), ke.vmax = new BABYLON.Vector3(.5, .5, .5), ke.box = new BABYLON.BoundingBox(BABYLON.Vector3.Zero(), BABYLON.Vector3.Zero()), ke.Type = {
     full: 1,
     wedge: 2,
     iwedge: 4,
     aabb: 8,
     obb: 16,
     ladder: 32
-  }, Ue.aabbMask = Ue.Type.full | Ue.Type.aabb | Ue.Type.ladder;
-  var ze = 4e3,
-    Ge = 4001,
-    He = 4002,
-    We = 4003,
-    je = 4004,
-    Ye = 4005,
-    Xe = 4021,
-    Ke = 4023,
-    Qe = 0,
-    Ze = 1,
-    qe = 2,
-    Je = 3,
-    $e = 6,
-    et = 8,
-    tt = 9,
-    it = 10,
-    rt = 11,
-    nt = 12,
-    ot = 13,
-    at = 15,
-    st = 14,
-    lt = 16,
-    ct = 18,
-    ht = 19,
-    ut = 21,
-    dt = 22,
-    pt = 23,
-    ft = 25,
-    mt = 27,
-    _t = 30,
-    gt = 31,
-    vt = 32,
-    yt = 33,
-    bt = 35,
-    xt = 36,
-    Tt = 38,
-    Et = 40,
-    Pt = 42,
-    St = 44,
-    At = 45,
-    Mt = 46,
-    Ct = 47,
-    Rt = 48,
-    Ot = 66,
-    It = 64,
-    Dt = 65,
-    wt = 51,
-    Lt = 49,
-    Bt = 58,
-    Ft = 63,
+  }, ke.aabbMask = ke.Type.full | ke.Type.aabb | ke.Type.ladder;
+  var Ve = 4e3,
+    Ue = 4001,
+    ze = 4002,
+    Ge = 4003,
+    He = 4004,
+    We = 4005,
+    je = 4021,
+    Ye = 4023,
+    Xe = 0,
+    Ke = 1,
+    Qe = 2,
+    Ze = 3,
+    qe = 6,
+    Je = 8,
+    $e = 9,
+    et = 10,
+    tt = 11,
+    it = 12,
+    rt = 13,
+    nt = 15,
+    ot = 14,
+    at = 16,
+    st = 18,
+    lt = 19,
+    ct = 21,
+    ht = 22,
+    ut = 23,
+    dt = 25,
+    pt = 27,
+    ft = 30,
+    mt = 31,
+    _t = 32,
+    gt = 33,
+    vt = 35,
+    yt = 36,
+    bt = 38,
+    xt = 40,
+    Tt = 42,
+    Et = 44,
+    Pt = 45,
+    St = 46,
+    At = 47,
+    Mt = 48,
+    Ct = 66,
+    Rt = 64,
+    Ot = 65,
+    It = 51,
+    Dt = 49,
+    wt = 58,
+    Lt = 63,
+    Bt = 1,
+    Ft = 2,
     Nt = 1,
     kt = 2,
-    Vt = 1,
-    Ut = 2,
-    zt = Math.ceil(3),
-    Gt = 100,
-    Ht = "rew_1200",
-    Wt = {
+    Vt = Math.ceil(3),
+    Ut = {
+      perKill: 10,
+      video: 100,
+      perKillModTwo: 20,
+      discord: "rew_1200",
+      tiktok: "rew_1208"
+    },
+    zt = {
       HardBoiled: 1,
       EggBreaker: 2
     };
 
-  function jt(e) {
-    this.scene = e, this.x = 0, this.y = 0, this.z = 0, this.dx = 0, this.dy = 0, this.dz = 0, this.ttl = 0, this.resting = !1, this.active = !1, this.player = null, void 0 !== xa && (this.actor = new xa(this))
+  function Gt(e) {
+    this.scene = e, this.x = 0, this.y = 0, this.z = 0, this.dx = 0, this.dy = 0, this.dz = 0, this.ttl = 0, this.resting = !1, this.active = !1, this.player = null, void 0 !== va && (this.actor = new va(this))
   }
 
-  function Yt(e, t) {
+  function Ht(e, t) {
     this.player = e, this.scene = this.player.scene, this.subClass = t, this.highPrecision = !1, this.equipTime = 13, this.stowWeaponTime = 13, this.inaccuracy = 1 - t.accuracy, this.instability = 1 - t.stability, this.tracer = 0, this.burstQueue = 0
   }
 
-  function Xt(e, t) {
-    Yt.call(this, e, Xt), this.ammo = {
+  function Wt(e, t) {
+    Ht.call(this, e, Wt), this.ammo = {
       rounds: 30,
       capacity: 30,
       reload: 30,
       store: 240,
       storeMax: 240,
       pickup: 30
-    }, this.longReloadTime = 205, this.shortReloadTime = 160, void 0 !== Ea && (this.actor = new Ea(this, t))
+    }, this.longReloadTime = 205, this.shortReloadTime = 160, void 0 !== ba && (this.actor = new ba(this, t))
   }
 
-  function Kt(e, t) {
-    Yt.call(this, e, Kt), this.ammo = {
+  function jt(e, t) {
+    Ht.call(this, e, jt), this.ammo = {
       rounds: 2,
       capacity: 2,
       reload: 2,
       store: 24,
       storeMax: 24,
       pickup: 8
-    }, this.longReloadTime = 155, this.shortReloadTime = 155, this.v1 = new BABYLON.Vector3, void 0 !== Pa && (this.actor = new Pa(this, t))
+    }, this.longReloadTime = 155, this.shortReloadTime = 155, this.v1 = new BABYLON.Vector3, void 0 !== xa && (this.actor = new xa(this, t))
   }
 
-  function Qt(e, t) {
-    Yt.call(this, e, Qt), this.ammo = {
+  function Yt(e, t) {
+    Ht.call(this, e, Yt), this.ammo = {
       rounds: 15,
       capacity: 15,
       reload: 15,
       store: 60,
       storeMax: 60,
       pickup: 15
-    }, this.hasScope = !0, this.longReloadTime = 225, this.shortReloadTime = 165, this.highPrecision = !0, void 0 !== Sa && (this.actor = new Sa(this, t))
+    }, this.hasScope = !0, this.longReloadTime = 225, this.shortReloadTime = 165, this.highPrecision = !0, void 0 !== Ta && (this.actor = new Ta(this, t))
   }
 
-  function Zt(e, t) {
-    Yt.call(this, e, Zt), this.ammo = {
+  function Xt(e, t) {
+    Ht.call(this, e, Xt), this.ammo = {
       rounds: 15,
       capacity: 15,
       reload: 15,
       store: 60,
       storeMax: 60,
       pickup: 15
-    }, this.longReloadTime = 195, this.shortReloadTime = 160, void 0 !== Aa && (this.actor = new Aa(this, t))
+    }, this.longReloadTime = 195, this.shortReloadTime = 160, void 0 !== Ea && (this.actor = new Ea(this, t))
   }
 
-  function qt(e, t) {
-    Yt.call(this, e, qt), this.ammo = {
+  function Kt(e, t) {
+    Ht.call(this, e, Kt), this.ammo = {
       rounds: 1,
       capacity: 1,
       reload: 1,
       store: 3,
       storeMax: 3,
       pickup: 1
-    }, this.hasScope = !0, this.longReloadTime = 170, this.shortReloadTime = 170, void 0 !== Ma && (this.actor = new Ma(this, t))
+    }, this.hasScope = !0, this.longReloadTime = 170, this.shortReloadTime = 170, void 0 !== Pa && (this.actor = new Pa(this, t))
   }
 
-  function Jt(e, t) {
-    Yt.call(this, e, Jt), this.ammo = {
+  function Qt(e, t) {
+    Ht.call(this, e, Qt), this.ammo = {
       rounds: 40,
       capacity: 40,
       reload: 40,
       store: 200,
       storeMax: 200,
       pickup: 40
-    }, this.longReloadTime = 225, this.shortReloadTime = 190, void 0 !== Ca && (this.actor = new Ca(this, t))
+    }, this.longReloadTime = 225, this.shortReloadTime = 190, void 0 !== Sa && (this.actor = new Sa(this, t))
   }
 
-  function $t(e, t) {
-    Yt.call(this, e, $t), this.ammo = {
+  function Zt(e, t) {
+    Ht.call(this, e, Zt), this.ammo = {
       rounds: 1,
       capacity: 1,
       reload: 1,
       store: 20,
       storeMax: 20,
       pickup: 4
-    }, this.hasScope = !0, this.longReloadTime = 120, this.shortReloadTime = 120, void 0 !== Ra && (this.actor = new Ra(this, t))
+    }, this.hasScope = !0, this.longReloadTime = 120, this.shortReloadTime = 120, void 0 !== Aa && (this.actor = new Aa(this, t))
   }
 
-  function ei(e, t) {
-    Yt.call(this, e, ei), this.ammo = {
+  function qt(e, t) {
+    Ht.call(this, e, qt), this.ammo = {
       rounds: 24,
       capacity: 24,
       reload: 24,
       store: 150,
       storeMax: 150,
       pickup: 24
-    }, this.longReloadTime = 205, this.shortReloadTime = 160, void 0 !== Oa && (this.actor = new Oa(this, t))
+    }, this.longReloadTime = 205, this.shortReloadTime = 160, void 0 !== Ma && (this.actor = new Ma(this, t))
   }
-  jt.v1 = new BABYLON.Vector3, jt.v2 = new BABYLON.Vector3, jt.v3 = new BABYLON.Vector3, jt.v4 = new BABYLON.Vector3, jt.matrix = new BABYLON.Matrix, jt.prototype.update = function () {
+  Gt.v1 = new BABYLON.Vector3, Gt.v2 = new BABYLON.Vector3, Gt.v3 = new BABYLON.Vector3, Gt.v4 = new BABYLON.Vector3, Gt.matrix = new BABYLON.Matrix, Gt.prototype.update = function () {
     if (this.ttl <= 0)
-      if (Ur.grenadePool.recycle(this), this.actor) this.actor.remove();
+      if (Nr.grenadePool.recycle(this), this.actor) this.actor.remove();
       else {
-        var e = Hi.getBuffer();
-        e.packInt8(Mt), e.packInt8(Fe), e.packInt8(this.player.grenadeItem.id - 16e3), e.packFloat(this.x), e.packFloat(this.y), e.packFloat(this.z), e.packInt8(this.damage), e.packFloat(this.radius), sendToAll(e), checkExplosionCollisions(this)
+        var e = Ui.getBuffer();
+        e.packInt8(St), e.packInt8(Le), e.packInt8(this.player.grenadeItem.id - 16e3), e.packFloat(this.x), e.packFloat(this.y), e.packFloat(this.z), e.packInt8(this.damage), e.packFloat(this.radius), sendToAll(e), checkExplosionCollisions(this)
       }
     else {
       if (!this.resting) {
@@ -49688,21 +49932,21 @@ var extern = function () {
       }
       this.ttl -= 1
     }
-  }, jt.prototype.collidesWithMap = function () {
-    jt.v1.set(this.x, this.y - .07, this.z), jt.v2.set(this.dx, this.dy, this.dz), jt.v3.set(this.dx, this.dy, this.dz);
-    var e = Ve.rayCollidesWithMap(jt.v1, jt.v2, Ve.grenadeCollidesWithCell);
+  }, Gt.prototype.collidesWithMap = function () {
+    Gt.v1.set(this.x, this.y - .07, this.z), Gt.v2.set(this.dx, this.dy, this.dz), Gt.v3.set(this.dx, this.dy, this.dz);
+    var e = Ne.rayCollidesWithMap(Gt.v1, Gt.v2, Ne.grenadeCollidesWithCell);
     if (e) {
-      if (!(1 == e.normal.y && jt.v3.length() < .05)) return jt.v3.subtractInPlace(e.normal.scale(1.6 * e.dot)), this.dx = .98 * jt.v3.x, this.dy = jt.v3.y, this.dz = .98 * jt.v3.z, this.actor && this.actor.bounce(), e;
+      if (!(1 == e.normal.y && Gt.v3.length() < .05)) return Gt.v3.subtractInPlace(e.normal.scale(1.6 * e.dot)), this.dx = .98 * Gt.v3.x, this.dy = Gt.v3.y, this.dz = .98 * Gt.v3.z, this.actor && this.actor.bounce(), e;
       this.resting = !0
     }
     return !1
-  }, jt.prototype.throw = function (e, t, i) {
+  }, Gt.prototype.throw = function (e, t, i) {
     this.player = e, this.x = t.x, this.y = t.y, this.z = t.z, this.dx = i.x, this.dy = i.y, this.dz = i.z, this.ttl = 75, this.damage = 150, this.radius = 3, this.resting = !1, this.active = !0, this.actor && this.actor.throw()
-  }, Yt.prototype.update = function () {
+  }, Ht.prototype.update = function () {
     this.burstQueue > 0 && (this.burstQueue % this.subClass.burstRof == 0 && this.fire(), this.burstQueue--)
-  }, Yt.prototype.collectAmmo = function () {
+  }, Ht.prototype.collectAmmo = function () {
     return (this.actor || this.ammo.store < this.ammo.storeMax) && (this.ammo.store = Math.min(this.ammo.storeMax, this.ammo.store + this.ammo.pickup), !0)
-  }, Yt.prototype.fire = function () {
+  }, Ht.prototype.fire = function () {
     var e = BABYLON.Matrix.RotationYawPitchRoll(this.player.yaw, this.player.pitch, 0),
       t = BABYLON.Matrix.Translation(0, 0, this.subClass.range).multiply(e),
       i = t.getTranslation(),
@@ -49712,35 +49956,35 @@ var extern = function () {
     var n = BABYLON.Matrix.RotationYawPitchRoll((this.player.randomGen.getFloat() - .5) * r, (this.player.randomGen.getFloat() - .5) * r, (this.player.randomGen.getFloat() - .5) * r),
       o = (i = (t = t.multiply(n)).getTranslation(), BABYLON.Matrix.Translation(0, .1, 0)),
       a = (o = (o = o.multiply(e)).add(BABYLON.Matrix.Translation(this.player.x, this.player.y + .3, this.player.z))).getTranslation();
-    if (a.x = Math.floor(300 * a.x) / 300, a.y = Math.floor(300 * a.y) / 300, a.z = Math.floor(300 * a.z) / 300, i.x = Math.floor(300 * i.x) / 300, i.y = Math.floor(300 * i.y) / 300, i.z = Math.floor(300 * i.z) / 300, this.ammo.rounds--, this.player.shotSpread += .5 * this.instability, this.actor) return this.player.id == l && Wn(), this.actor.fire(), this.fireMunitions(a, i), void(--this.tracer < 0 && (this.tracer = this.subClass.tracer));
-    var s = Hi.getBuffer();
-    s.packInt8(wt), s.packInt8(this.player.id), s.packFloat(a.x), s.packFloat(a.y), s.packFloat(a.z), s.packFloat(i.x), s.packFloat(i.y), s.packFloat(i.z), sendToAll(s), this.fireMunitions(a, i)
-  }, Yt.prototype.equip = function () {
-    this.player.weaponIdx = this.player.equipWeaponIdx, this.player.weapon = this.player.weapons[this.player.weaponIdx], this.player.weapon.actor.equip(), this.player.id == l && Wn(), this.player.lastWeaponChange = 0
-  }, Xt.prototype = Object.create(Yt.prototype), Xt.prototype.constructor = Yt, Xt.weaponName = "EggK-47", Xt.standardMeshName = "eggk47", Xt.rof = 3, Xt.recoil = 7, Xt.automatic = !0, Xt.accuracy = .95, Xt.stability = .33, Xt.damage = 20, Xt.totalDamage = 20, Xt.range = 20, Xt.velocity = 1.5, Xt.tracer = 1, Xt.prototype.fireMunitions = function (e, t) {
-    Ce.fire(this.player, e, t, Xt)
-  }, Kt.prototype = Object.create(Yt.prototype), Kt.prototype.constructor = Yt, Kt.weaponName = "Dozen Gauge", Kt.standardMeshName = "dozenGauge", Kt.rof = 8, Kt.recoil = 10, Kt.automatic = !1, Kt.accuracy = .9, Kt.stability = .8, Kt.damage = 8, Kt.totalDamage = 20 * Kt.damage, Kt.range = 8, Kt.velocity = 1, Kt.patternSize = .1, Kt.tracer = 0, Kt.prototype.fireMunitions = function (e, t) {
-    for (var i = this.subClass.patternSize, r = i / 2, n = 0; n < 20; n++) this.v1.set(t.x + this.player.randomGen.getFloat(-i, i) * Kt.range, t.y + this.player.randomGen.getFloat(-r, r) * Kt.range, t.z + this.player.randomGen.getFloat(-i, i) * Kt.range), Ce.fire(this.player, e, this.v1, Kt)
-  }, Qt.prototype = Object.create(Yt.prototype), Qt.prototype.constructor = Yt, Qt.weaponName = "CSG-1", Qt.standardMeshName = "csg1", Qt.rof = 13, Qt.recoil = 13, Qt.automatic = !1, Qt.accuracy = 1, Qt.stability = .1, Qt.damage = 110, Qt.totalDamage = 110, Qt.range = 50, Qt.velocity = 1.75, Qt.tracer = 0, Qt.prototype.fireMunitions = function (e, t) {
-    Ce.fire(this.player, e, t, Qt)
-  }, Zt.prototype = Object.create(Yt.prototype), Zt.prototype.constructor = Yt, Zt.weaponName = "Cluck 9mm", Zt.standardMeshName = "cluck9mm", Zt.rof = 4, Zt.recoil = 6, Zt.automatic = !1, Zt.accuracy = .93, Zt.stability = .3, Zt.damage = 25, Zt.totalDamage = 25, Zt.range = 15, Zt.velocity = 1, Zt.tracer = 0, Zt.prototype.fireMunitions = function (e, t) {
-    Ce.fire(this.player, e, t, Zt)
-  }, qt.prototype = Object.create(Yt.prototype), qt.prototype.constructor = Yt, qt.weaponName = "RPEGG", qt.standardMeshName = "rpegg", qt.rof = 40, qt.recoil = 60, qt.automatic = !1, qt.accuracy = .99, qt.stability = .2, qt.damage = 140, qt.radius = 2.75, qt.totalDamage = qt.damage * qt.radius * .5, qt.range = 45, qt.minRange = 3, qt.velocity = .4, qt.prototype.fireMunitions = function (e, t) {
-    if (xi.fire(this.player, e, t, qt), this.actor)
+    if (a.x = Math.floor(256 * a.x) / 256, a.y = Math.floor(256 * a.y) / 256, a.z = Math.floor(256 * a.z) / 256, i.x = Math.floor(256 * i.x) / 256, i.y = Math.floor(256 * i.y) / 256, i.z = Math.floor(256 * i.z) / 256, this.ammo.rounds--, this.player.shotSpread += .5 * this.instability, this.actor) return this.player.id == l && Hn(), this.actor.fire(), this.fireMunitions(a, i), void(--this.tracer < 0 && (this.tracer = this.subClass.tracer));
+    var s = Ui.getBuffer();
+    s.packInt8(It), s.packInt8(this.player.id), s.packFloat(a.x), s.packFloat(a.y), s.packFloat(a.z), s.packFloat(i.x), s.packFloat(i.y), s.packFloat(i.z), sendToAll(s), this.fireMunitions(a, i)
+  }, Ht.prototype.equip = function () {
+    this.player.weaponIdx = this.player.equipWeaponIdx, this.player.weapon = this.player.weapons[this.player.weaponIdx], this.player.weapon.actor.equip(), this.player.id == l && Hn(), this.player.lastWeaponChange = 0
+  }, Wt.prototype = Object.create(Ht.prototype), Wt.prototype.constructor = Ht, Wt.weaponName = "EggK-47", Wt.standardMeshName = "eggk47", Wt.rof = 3, Wt.recoil = 7, Wt.automatic = !0, Wt.accuracy = .95, Wt.stability = .33, Wt.damage = 20, Wt.totalDamage = 20, Wt.range = 20, Wt.velocity = 1.5, Wt.tracer = 1, Wt.prototype.fireMunitions = function (e, t) {
+    Ae.fire(this.player, e, t, Wt)
+  }, jt.prototype = Object.create(Ht.prototype), jt.prototype.constructor = Ht, jt.weaponName = "Dozen Gauge", jt.standardMeshName = "dozenGauge", jt.rof = 8, jt.recoil = 10, jt.automatic = !1, jt.accuracy = .9, jt.stability = .8, jt.damage = 8, jt.totalDamage = 20 * jt.damage, jt.range = 8, jt.velocity = 1, jt.patternSize = .1, jt.tracer = 0, jt.prototype.fireMunitions = function (e, t) {
+    for (var i = this.subClass.patternSize, r = i / 2, n = 0; n < 20; n++) this.v1.set(t.x + this.player.randomGen.getFloat(-i, i) * jt.range, t.y + this.player.randomGen.getFloat(-r, r) * jt.range, t.z + this.player.randomGen.getFloat(-i, i) * jt.range), Ae.fire(this.player, e, this.v1, jt)
+  }, Yt.prototype = Object.create(Ht.prototype), Yt.prototype.constructor = Ht, Yt.weaponName = "CSG-1", Yt.standardMeshName = "csg1", Yt.rof = 13, Yt.recoil = 13, Yt.automatic = !1, Yt.accuracy = 1, Yt.stability = .1, Yt.damage = 110, Yt.totalDamage = 110, Yt.range = 50, Yt.velocity = 1.75, Yt.tracer = 0, Yt.prototype.fireMunitions = function (e, t) {
+    Ae.fire(this.player, e, t, Yt)
+  }, Xt.prototype = Object.create(Ht.prototype), Xt.prototype.constructor = Ht, Xt.weaponName = "Cluck 9mm", Xt.standardMeshName = "cluck9mm", Xt.rof = 4, Xt.recoil = 6, Xt.automatic = !1, Xt.accuracy = .93, Xt.stability = .3, Xt.damage = 25, Xt.totalDamage = 25, Xt.range = 15, Xt.velocity = 1, Xt.tracer = 0, Xt.prototype.fireMunitions = function (e, t) {
+    Ae.fire(this.player, e, t, Xt)
+  }, Kt.prototype = Object.create(Ht.prototype), Kt.prototype.constructor = Ht, Kt.weaponName = "RPEGG", Kt.standardMeshName = "rpegg", Kt.rof = 40, Kt.recoil = 60, Kt.automatic = !1, Kt.accuracy = .99, Kt.stability = .2, Kt.damage = 140, Kt.radius = 2.75, Kt.totalDamage = Kt.damage * Kt.radius * .5, Kt.range = 45, Kt.minRange = 3, Kt.velocity = .4, Kt.prototype.fireMunitions = function (e, t) {
+    if (vi.fire(this.player, e, t, Kt), this.actor)
       for (var i = 0; i < 10; i++) {
         var r = .04 * Math.random() - .02,
           n = .04 * Math.random() - .02,
           o = .04 * Math.random() - .02;
-        sn(Yi, 10, e.x, e.y, e.z, r, n, o, .4, !1, 0)
+        nn(Hi, 10, e.x, e.y, e.z, r, n, o, .4, !1, 0)
       }
-  }, Jt.prototype = Object.create(Yt.prototype), Jt.prototype.constructor = Yt, Jt.weaponName = "SMEGG", Jt.standardMeshName = "smg", Jt.rof = 2, Jt.recoil = 7, Jt.automatic = !0, Jt.accuracy = .95, Jt.stability = .33, Jt.damage = 15, Jt.totalDamage = 15, Jt.range = 20, Jt.velocity = 1.25, Jt.tracer = 2, Jt.prototype.fireMunitions = function (e, t) {
-    Ce.fire(this.player, e, t, Jt)
-  }, $t.prototype = Object.create(Yt.prototype), $t.prototype.constructor = Yt, $t.weaponName = "M2DZ", $t.standardMeshName = "m24", $t.rof = 15, $t.recoil = 20, $t.automatic = !1, $t.accuracy = 1, $t.stability = .1, $t.damage = 200, $t.totalDamage = 15, $t.range = 60, $t.velocity = 2, $t.tracer = 0, $t.prototype.fireMunitions = function (e, t) {
-    Ce.fire(this.player, e, t, $t)
-  }, ei.prototype = Object.create(Yt.prototype), ei.prototype.constructor = Yt, ei.weaponName = "TriHard", ei.standardMeshName = "aug", ei.rof = 15, ei.recoil = 18, ei.automatic = !1, ei.accuracy = .95, ei.stability = .33, ei.movementInstability = 2, ei.damage = 20, ei.totalDamage = 20, ei.range = 20, ei.velocity = 1.5, ei.tracer = 0, ei.burst = 3, ei.burstRof = 3, ei.prototype.fireMunitions = function (e, t) {
-    Ce.fire(this.player, e, t, ei)
-  }, Xt.damage = 30, Xt.accuracy = .96, Xt.stability = .37, Xt.totalDamage = 30, Kt.damage = 8.5, Kt.accuracy = 1, Kt.stability = .6, Kt.patternSize = .14, Kt.totalDamage = 170, Qt.damage = 105, Qt.accuracy = .996, Qt.stability = .157, Qt.totalDamage = 105, Jt.damage = 23, Jt.accuracy = .91, Jt.stability = .52, Jt.totalDamage = 23, $t.damage = 170, $t.accuracy = 1, $t.stability = .15, $t.totalDamage = 170, Zt.damage = 26, Zt.accuracy = .94, Zt.stability = .38, Zt.totalDamage = 26, ei.damage = 35, ei.accuracy = .97, ei.stability = .55, ei.totalDamage = 34;
-  var ti = [{
+  }, Qt.prototype = Object.create(Ht.prototype), Qt.prototype.constructor = Ht, Qt.weaponName = "SMEGG", Qt.standardMeshName = "smg", Qt.rof = 2, Qt.recoil = 7, Qt.automatic = !0, Qt.accuracy = .95, Qt.stability = .33, Qt.damage = 15, Qt.totalDamage = 15, Qt.range = 20, Qt.velocity = 1.25, Qt.tracer = 2, Qt.prototype.fireMunitions = function (e, t) {
+    Ae.fire(this.player, e, t, Qt)
+  }, Zt.prototype = Object.create(Ht.prototype), Zt.prototype.constructor = Ht, Zt.weaponName = "M2DZ", Zt.standardMeshName = "m24", Zt.rof = 15, Zt.recoil = 20, Zt.automatic = !1, Zt.accuracy = 1, Zt.stability = .1, Zt.damage = 200, Zt.totalDamage = 15, Zt.range = 60, Zt.velocity = 2, Zt.tracer = 0, Zt.prototype.fireMunitions = function (e, t) {
+    Ae.fire(this.player, e, t, Zt)
+  }, qt.prototype = Object.create(Ht.prototype), qt.prototype.constructor = Ht, qt.weaponName = "TriHard", qt.standardMeshName = "aug", qt.rof = 15, qt.recoil = 18, qt.automatic = !1, qt.accuracy = .95, qt.stability = .33, qt.movementInstability = 2, qt.damage = 20, qt.totalDamage = 20, qt.range = 20, qt.velocity = 1.5, qt.tracer = 0, qt.burst = 3, qt.burstRof = 3, qt.prototype.fireMunitions = function (e, t) {
+    Ae.fire(this.player, e, t, qt)
+  }, Wt.damage = 30, Wt.accuracy = .96, Wt.stability = .37, Wt.totalDamage = 30, jt.damage = 8.5, jt.accuracy = 1, jt.stability = .6, jt.patternSize = .14, jt.totalDamage = 170, Yt.damage = 105, Yt.accuracy = .996, Yt.stability = .157, Yt.totalDamage = 105, Qt.damage = 23, Qt.accuracy = .91, Qt.stability = .52, Qt.totalDamage = 23, Zt.damage = 170, Zt.accuracy = 1, Zt.stability = .15, Zt.totalDamage = 170, Xt.damage = 26, Xt.accuracy = .94, Xt.stability = .38, Xt.totalDamage = 26, qt.damage = 35, qt.accuracy = .97, qt.stability = .55, qt.totalDamage = 34;
+  var Jt = [{
     filename: "arena_2P_field",
     hash: "a24n820jbq",
     name: "Field",
@@ -49852,14 +50096,14 @@ var extern = function () {
     numPlayers: "8"
   }, {
     filename: "catacombs",
-    hash: "337fx29d79",
-    name: "catacombs",
+    hash: "8rjjat3776",
+    name: "Catacombs",
     modes: {
       FFA: !0,
       Teams: !0,
       Spatula: !0
     },
-    availability: "both",
+    availability: "private",
     numPlayers: "18"
   }, {
     filename: "cluckgrounds",
@@ -49881,7 +50125,7 @@ var extern = function () {
       Teams: !0,
       Spatula: !0
     },
-    availability: "both",
+    availability: "private",
     numPlayers: "18"
   }, {
     filename: "dirtbase",
@@ -49925,7 +50169,7 @@ var extern = function () {
       Teams: !0,
       Spatula: !0
     },
-    availability: "both",
+    availability: "private",
     numPlayers: "16"
   }, {
     filename: "fortFlip",
@@ -49952,7 +50196,7 @@ var extern = function () {
   }, {
     filename: "haunted",
     hash: "1fb85u68hlz",
-    name: "haunted",
+    name: "Haunted",
     modes: {
       FFA: !0,
       Teams: !0,
@@ -49980,7 +50224,7 @@ var extern = function () {
       Teams: !0,
       Spatula: !0
     },
-    availability: "both",
+    availability: "private",
     numPlayers: "18"
   }, {
     filename: "mudGulch",
@@ -49991,18 +50235,18 @@ var extern = function () {
       Teams: !0,
       Spatula: !0
     },
-    availability: "private",
+    availability: "both",
     numPlayers: "14"
   }, {
     filename: "overcooked",
-    hash: "1dw3f4t6kau",
+    hash: "1ce0pchoaps",
     name: "Overcooked",
     modes: {
       FFA: !0,
       Teams: !0,
       Spatula: !0
     },
-    availability: "private",
+    availability: "both",
     numPlayers: "18"
   }, {
     filename: "palaceSiege",
@@ -50057,7 +50301,7 @@ var extern = function () {
       Teams: !0,
       Spatula: !0
     },
-    availability: "both",
+    availability: "private",
     numPlayers: "18"
   }, {
     filename: "spaceFactory",
@@ -50068,8 +50312,8 @@ var extern = function () {
       Teams: !0,
       Spatula: !0
     },
-    availability: "both",
-    numPlayers: "8"
+    availability: "private",
+    numPlayers: "10"
   }, {
     filename: "sparta",
     hash: "1y6sjg977mq",
@@ -50094,7 +50338,7 @@ var extern = function () {
     numPlayers: "18"
   }, {
     filename: "temple",
-    hash: "27962dvnwb8",
+    hash: "aj4q2t6okx",
     name: "Temple",
     modes: {
       FFA: !0,
@@ -50112,7 +50356,7 @@ var extern = function () {
       Teams: !0,
       Spatula: !0
     },
-    availability: "private",
+    availability: "both",
     numPlayers: "16"
   }, {
     filename: "twoTowers",
@@ -50123,11 +50367,22 @@ var extern = function () {
       Teams: !0,
       Spatula: !0
     },
-    availability: "private",
+    availability: "both",
+    numPlayers: "18"
+  }, {
+    filename: "wreckage",
+    hash: "g4d1lzgr0s",
+    name: "Wreckage",
+    modes: {
+      FFA: !0,
+      Teams: !0,
+      Spatula: !0
+    },
+    availability: "both",
     numPlayers: "18"
   }];
 
-  function ii() {
+  function $t() {
     this.seed = 100
   }
   Math.PI2 = 2 * Math.PI, Math.PI90 = Math.PI / 2, Math.mod = function (e, t) {
@@ -50154,9 +50409,9 @@ var extern = function () {
   }, Math.clamp = function (e, t, i) {
     return Math.max(Math.min(e, i), t)
   }, Math.radAdd = function (e, t) {
-    return Math.mod(e + t, Math.PI2)
+    return Math.floor(8192 * Math.mod(e + t, Math.PI2)) / 8192
   }, Math.radSub = function (e, t) {
-    return Math.mod(e - t, Math.PI2)
+    return Math.floor(8192 * Math.mod(e - t, Math.PI2)) / 8192
   }, Math.radRange = function (e) {
     return Math.mod(e, Math.PI2)
   }, Math.radDifference = function (e, t) {
@@ -50168,36 +50423,36 @@ var extern = function () {
     return Math.floor(Math.random() * (t - e) + e)
   }, Math.diff = function (e, t, i) {
     return e < t ? i - e + t : e - t
-  }, ii.prototype.setSeed = function (e) {
+  }, $t.prototype.setSeed = function (e) {
     this.seed = e
-  }, ii.prototype.getFloat = function (e, t) {
+  }, $t.prototype.getFloat = function (e, t) {
     return e = e || 0, t = t || 1, this.seed = (9301 * this.seed + 49297) % 233280, e + this.seed / 233280 * (t - e)
-  }, ii.prototype.getInt = function (e, t) {
+  }, $t.prototype.getInt = function (e, t) {
     return Math.floor(this.getFloat(e, t))
   };
-  var ri = function (e) {
+  var ei = function (e) {
       return e
     },
-    ni = function (e) {
+    ti = function (e) {
       return e * e
     },
-    oi = function (e) {
+    ii = function (e) {
       return e < .5 ? 2 * e * e : (4 - 2 * e) * e - 1
     },
-    ai = function (e) {
+    ri = function (e) {
       return 1 + --e * e * e * e * e
     };
 
-  function si(e) {
-    this.bulletPool = new pi((function () {
-      return new Ce(e)
-    }), 200), this.rocketPool = new pi((function () {
-      return new xi(e)
-    }), 20), this.grenadePool = new pi((function () {
-      return new jt(e)
+  function ni(e) {
+    this.bulletPool = new hi((function () {
+      return new Ae(e)
+    }), 200), this.rocketPool = new hi((function () {
+      return new vi(e)
+    }), 20), this.grenadePool = new hi((function () {
+      return new Gt(e)
     }), 10)
   }
-  si.prototype.updateLogic = function () {
+  ni.prototype.updateLogic = function () {
     this.bulletPool.forEachActive((function (e) {
       e.update()
     })), this.rocketPool.forEachActive((function (e) {
@@ -50205,7 +50460,7 @@ var extern = function () {
     })), this.grenadePool.forEachActive((function (e) {
       e.update()
     }))
-  }, si.prototype.updateActors = function (e) {
+  }, ni.prototype.updateActors = function (e) {
     this.bulletPool.forEachActive((function (t) {
       t.actor.update(e)
     })), this.rocketPool.forEachActive((function (t) {
@@ -50213,11 +50468,11 @@ var extern = function () {
     })), this.grenadePool.forEachActive((function (t) {
       t.actor.update(e)
     }))
-  }, si.prototype.throwGrenade = function (e, t, i) {
+  }, ni.prototype.throwGrenade = function (e, t, i) {
     this.grenadePool.retrieve().throw(e, t, i)
-  }, si.prototype.getMapIntersectionPoint = function (e, t) {
-    if (t && !li[t.cell.idx].softness && t.cell && t.cell.idx) {
-      var i = li[t.cell.idx],
+  }, ni.prototype.getMapIntersectionPoint = function (e, t) {
+    if (t && !oi[t.cell.idx].softness && t.cell && t.cell.idx) {
+      var i = oi[t.cell.idx],
         r = new BABYLON.Ray(new BABYLON.Vector3(e.x - e.dx - t.x - .5, e.y - e.dy - t.y - .5, e.z - e.dz - t.z - .5), new BABYLON.Vector3(2 * e.dx, 2 * e.dy, 2 * e.dz), 1);
       i.rotation.x = t.cell.rx, i.rotation.y = t.cell.ry, i.rotation.z = t.cell.rz;
       var n = r.intersectsMesh(i, !1);
@@ -50232,7 +50487,7 @@ var extern = function () {
     }
     return !1
   };
-  var li, ci = {
+  var oi, ai = {
       up: 1,
       down: 2,
       left: 4,
@@ -50242,52 +50497,52 @@ var extern = function () {
       ascend: 64,
       descend: 128
     },
-    hi = [{
+    si = [{
       name: "Soldier",
-      weapon: Xt
+      weapon: Wt
     }, {
       name: "Scrambler",
-      weapon: Kt
+      weapon: jt
     }, {
       name: "Free Ranger",
-      weapon: Qt
+      weapon: Yt
     }, {
       name: "Eggsploder",
-      weapon: qt
+      weapon: Kt
     }, {
       name: "Whipper",
-      weapon: Jt
+      weapon: Qt
     }, {
       name: "Crackshot",
-      weapon: $t
+      weapon: Zt
     }, {
       name: "TriHard",
-      weapon: ei
+      weapon: qt
     }],
-    ui = 256;
+    li = 256;
 
-  function di(e, t) {
+  function ci(e, t) {
     this.id = e.id, this.uniqueId = e.uniqueId, this.name = e.name, this.normalName = e.normalName, this.safeName = e.safeName, this.charClass = e.charClass, this.team = e.team, this.primaryWeaponItem = e.primaryWeaponItem, this.secondaryWeaponItem = e.secondaryWeaponItem, this.shellColor = e.shellColor, this.hatItem = e.hatItem, this.stampItem = e.stampItem, this.grenadeItem = e.grenadeItem, this.x = e.x, this.y = e.y, this.z = e.z, this.dx = e.dx, this.dy = e.dy, this.dz = e.dz, this.controlKeys = e.controlKeys, this.yaw = e.yaw, this.pitch = e.pitch, this.score = e.score, this.kills = e.kills, this.deaths = e.deaths, this.streak = e.streak, this.score = e.score, this.totalKills = e.totalKills, this.totalDeaths = e.totalDeaths, this.bestGameStreak = e.bestGameStreak, this.bestOverallStreak = e.bestOverallStreak, this.shield = e.shield, this.hp = e.hp, this.playing = e.playing, this.weaponIdx = e.weaponIdx, this.upgradeProductId = e.upgradeProductId, this.isGameOwner = e.isGameOwner, this.activeShellStreaks = e.activeShellStreaks, this.scene = t, this.corrected = {
       dx: 0,
       dy: 0,
       dz: 0,
       pitch: 0,
       yaw: 0
-    }, this.corrections = 0, this.totalCorrections = 2, this.hackDetected = e.hackDetected, this.resetCountdowns(), this.equipWeaponIdx = this.weaponIdx, this.shotSpread = 0, this.grenadeCount = 1, this.grenadeCapacity = 3, this.grenadeCountdown = 0, this.grenadesQueued = 0, this.reloadCountdown = 0, this.reloadsQueued = 0, this.weaponSwapsQueued = 0, this.lastWeaponChange = 0, this.jumpQueued = 0, this.jumping = !1, this.onGround = 4, this.climbing = !1, this.bobble = 0, this.hardBoiledValue = 0, this.eggBreakerValue = 0, this.stateIdx = 0, this.clientStateIdx = 0, this.serverStateIdx = 0, this.respawnTargetTime = 0, this.pauseTargetTime = 0, this.ready = !1, this.chatLineCap = 3, this.respawnQueued = !1, this.canTakeSpatulaBonus = !1, void 0 !== Ya && (this.actor = new Ya(this)), this.changeWeaponLoadout(this.primaryWeaponItem, this.secondaryWeaponItem), this.stateBuffer = [], this.resetStateBuffer(), this.randomGen = new ii
+    }, this.corrections = 0, this.totalCorrections = 2, this.resetCountdowns(), this.equipWeaponIdx = this.weaponIdx, this.shotSpread = 0, this.grenadeCount = 1, this.grenadeCapacity = 3, this.grenadeCountdown = 0, this.grenadesQueued = 0, this.reloadCountdown = 0, this.reloadsQueued = 0, this.weaponSwapsQueued = 0, this.lastWeaponChange = 0, this.jumpQueued = 0, this.jumping = !1, this.onGround = 4, this.climbing = !1, this.bobble = 0, this.hardBoiledValue = 0, this.eggBreakerValue = 0, this.stateIdx = 0, this.clientStateIdx = 0, this.serverStateIdx = 0, this.respawnTargetTime = 0, this.pauseTargetTime = 0, this.ready = !1, this.chatLineCap = 3, this.respawnQueued = !1, this.canTakeSpatulaBonus = !1, void 0 !== Wa && (this.actor = new Wa(this)), this.changeWeaponLoadout(this.primaryWeaponItem, this.secondaryWeaponItem), this.stateBuffer = [], this.resetStateBuffer(), this.randomGen = new $t, this.social = e.social
   }
 
-  function pi(e, t) {
+  function hi(e, t) {
     this.size = 0, this.originalSize = t, this.constructorFn = e, this.objects = [], this.idx = 0, this.numActive = 0, this.expand(t)
   }
-  if (di.v1 = new BABYLON.Vector3, di.v2 = new BABYLON.Vector3, di.v3 = new BABYLON.Vector3, di.v4 = new BABYLON.Vector3, di.v5 = new BABYLON.Vector2, di.v6 = new BABYLON.Vector2, di.v7 = new BABYLON.Vector3, di.v8 = new BABYLON.Vector3, di.ray = new BABYLON.Ray, di.matrix = new BABYLON.Matrix, di.prototype.changeWeaponLoadout = function (e, t) {
+  if (ci.v1 = new BABYLON.Vector3, ci.v2 = new BABYLON.Vector3, ci.v3 = new BABYLON.Vector3, ci.v4 = new BABYLON.Vector3, ci.v5 = new BABYLON.Vector2, ci.v6 = new BABYLON.Vector2, ci.v7 = new BABYLON.Vector3, ci.v8 = new BABYLON.Vector3, ci.ray = new BABYLON.Ray, ci.matrix = new BABYLON.Matrix, ci.prototype.changeWeaponLoadout = function (e, t) {
       this.actor && this.weapons && (this.weapons[0].actor.dispose(), this.weapons[1].actor.dispose()), this.primaryWeaponItem = e, this.secondaryWeaponItem = t, this.weapons = [e.instantiateNew(this), t.instantiateNew(this)], this.weapon = this.weapons[this.weaponIdx], this.actor && this.weapon.actor.equip()
-    }, di.prototype.update = function (e) {
+    }, ci.prototype.update = function (e) {
       var t = 0,
         i = 0,
         r = 0;
-      if (!e && this.actor && this.id == l && (this.controlKeys = gr), !this.actor || this.id != l) {
+      if (!e && this.actor && this.id == l && (this.controlKeys = fr), !this.actor || this.id != l) {
         var n = this.stateIdx;
-        this.actor && (n = Math.min(n, zt - 1)), this.controlKeys = this.stateBuffer[n].controlKeys, this.yaw = this.stateBuffer[n].yaw, this.pitch = this.stateBuffer[n].pitch, this.stateBuffer[n].controlKeys = 0
+        this.actor && (n = Math.min(n, Vt - 1)), this.controlKeys = this.stateBuffer[n].controlKeys, this.yaw = this.stateBuffer[n].yaw, this.pitch = this.stateBuffer[n].pitch, this.stateBuffer[n].controlKeys = 0
       }
       var o = this.stateBuffer[this.stateIdx];
       let nYaw = this.yaw;
@@ -50315,25 +50570,24 @@ var extern = function () {
           }
         }
       }
-
       if (this.actor) o.controlKeys = this.controlKeys, o.yaw = this.yaw, o.pitch = this.pitch;
       else {
         this.shotsQueued += o.shots, o.shots = 0;
-        n = Math.mod(this.stateIdx + 1, ui);
+        n = Math.mod(this.stateIdx + 1, li);
         this.stateBuffer[n].yaw = this.yaw, this.stateBuffer[n].pitch = this.pitch
       }
-      if (this.controlKeys & ci.left && (t -= Math.cos(this.yaw), r += Math.sin(this.yaw)), this.controlKeys & ci.right && (t += Math.cos(this.yaw), r -= Math.sin(this.yaw)), this.controlKeys & ci.up && (this.climbing ? i += 1 : (t += Math.sin(this.yaw), r += Math.cos(this.yaw))), this.controlKeys & ci.down && (this.climbing ? i -= 1 : (t -= Math.sin(this.yaw), r -= Math.cos(this.yaw))), this.controlKeys & ci.jump && (this.jumpQueued = 10, this.controlKeys ^= this.controlKeys & ci.jump, this.actor && this.id == l && (gr ^= gr & ci.jump)), this.jumpQueued > 0 && (this.jumpQueued--, this.jump()), this.climbing) {
+      if (this.controlKeys & ai.left && (t -= Math.cos(this.yaw), r += Math.sin(this.yaw)), this.controlKeys & ai.right && (t += Math.cos(this.yaw), r -= Math.sin(this.yaw)), this.controlKeys & ai.up && (this.climbing ? i += 1 : (t += Math.sin(this.yaw), r += Math.cos(this.yaw))), this.controlKeys & ai.down && (this.climbing ? i -= 1 : (t -= Math.sin(this.yaw), r -= Math.cos(this.yaw))), this.controlKeys & ai.jump && (this.jumpQueued = 10, this.controlKeys ^= this.controlKeys & ai.jump, this.actor && this.id == l && (fr ^= fr & ai.jump)), this.jumpQueued > 0 && (this.jumpQueued--, this.jump()), this.climbing) {
         this.setJumping(!1);
         var a = this.dy;
         this.corrections && (a += this.corrected.dy / this.totalCorrections, this.corrections--), this.dy += .028 * i;
         var s = .5 * (this.dy + a);
-        this.y += s, this.dy *= .5, Math.floor(this.y) >= Sr.height && (this.climbing = !1), this.move(0, s, 0)
+        this.y += s, this.dy *= .5, Math.floor(this.y) >= Tr.height && (this.climbing = !1), this.move(0, s, 0)
       } else {
         var c = new BABYLON.Vector3(t, i, r).normalize();
         this.dx += .025 * c.x, this.dz += .025 * c.z, this.dy -= .012, this.dy = Math.max(-.29, this.dy);
-        var h = di.v4;
+        var h = ci.v4;
         if (h.copyFromFloats(this.x, this.y, this.z), this.move(this.dx, this.dy, this.dz), this.dx = this.x - h.x, this.dy = this.y - h.y, this.dz = this.z - h.z, this.onGround && this.dy > 0) {
-          var u = 1 - .5 * di.v7.copyFromFloats(this.dx, this.dy, this.dz).normalize().y;
+          var u = 1 - .5 * ci.v7.copyFromFloats(this.dx, this.dy, this.dz).normalize().y;
           this.dx *= u, this.dz *= u
         }!e && this.corrections && (a = 0, pdx = this.corrected.dx / this.totalCorrections, this.climbing && (a = this.corrected.dy / this.totalCorrections), pdz = this.corrected.dz / this.totalCorrections, this.corrections--, this.move(pdx, a, pdz))
       }
@@ -50342,74 +50596,74 @@ var extern = function () {
         var d = Math.max(0, Math.length3(this.dx, this.dy, this.dz) - .012);
         (this.climbing || this.jumping) && (d *= 2), this.bobble = (this.bobble + 7 * (d + .01)) % Math.PI2;
         var p = this.weapon.instability * (this.weapon.subClass.movementInstability || 1);
-        if (this.shotSpread += p * d * 2, this.shotSpread = Math.max(this.shotSpread * this.weapon.instability - .01 * this.weapon.subClass.stability, 0), this.weapon && this.weapon.update(), this.hp > 0 && (this.hp = Math.min(100, this.hp + .1)), this.swapWeaponCountdown > 0 && (this.shotSpread = p, this.swapWeaponCountdown--, this.swapWeaponCountdown <= 0 && (this.actor ? this.id == l && ar.show() : (this.swapWeaponCountdown = 0, this.weaponIdx = this.equipWeaponIdx, this.weapon = this.weapons[this.weaponIdx]))), this.reloadCountdown > 0 && (this.lastWeaponChange = 0, this.shotSpread = p, this.reloadCountdown -= 2, this.reloadCountdown <= 0 && (this.reloadCountdown = 0, this.reloaded())), this.rofCountdown > 0 && (this.rofCountdown = Math.max(this.rofCountdown - 1, 0)), this.recoilCountdown > 0 && (this.recoilCountdown = Math.max(this.recoilCountdown - 2, 0)), this.grenadeCountdown > 0 && (this.grenadeCountdown -= 2, this.grenadeCountdown <= 0 && this.grenadesQueued > 0 && !this.actor && this.throwGrenade()), this.actor) {
+        if (this.shotSpread += p * d * 2, this.shotSpread = Math.max(this.shotSpread * this.weapon.instability - .01 * this.weapon.subClass.stability, 0), this.weapon && this.weapon.update(), this.hp > 0 && (this.hp = Math.min(100, this.hp + .1)), this.swapWeaponCountdown > 0 && (this.shotSpread = p, this.swapWeaponCountdown--, this.swapWeaponCountdown <= 0 && (this.actor ? this.id == l && rr.show() : (this.swapWeaponCountdown = 0, this.weaponIdx = this.equipWeaponIdx, this.weapon = this.weapons[this.weaponIdx]))), this.reloadCountdown > 0 && (this.lastWeaponChange = 0, this.shotSpread = p, this.reloadCountdown -= 2, this.reloadCountdown <= 0 && (this.reloadCountdown = 0, this.reloaded())), this.rofCountdown > 0 && (this.rofCountdown = Math.max(this.rofCountdown - 1, 0)), this.recoilCountdown > 0 && (this.recoilCountdown = Math.max(this.recoilCountdown - 2, 0)), this.grenadeCountdown > 0 && (this.grenadeCountdown -= 2, this.grenadeCountdown <= 0 && this.grenadesQueued > 0 && !this.actor && this.throwGrenade()), this.actor) {
           if (this.id == l) {
-            this.triggerPulled && this.fire(), this.activeShellStreaks & Wt.EggBreaker && (this.eggBreakerValue = Math.max(0, this.eggBreakerValue - 1));
+            this.triggerPulled && this.fire(), this.activeShellStreaks & zt.EggBreaker && (this.eggBreakerValue = Math.max(0, this.eggBreakerValue - 1));
             var f = Math.floor(this.eggBreakerValue / 30),
               m = document.getElementById("eggBreakerTimer");
             f != parseInt(m.innerText) && (m.innerText = f)
           }
-        } else if (this.shotsQueued > 0 && (this.lastActivity = Er, this.fire()), this.activeShellStreaks & Wt.EggBreaker && --this.eggBreakerValue <= 0) {
-          this.endShellStreak(Wt.EggBreaker);
-          var _ = Hi.getBuffer();
-          _.packInt8(Dt), _.packInt8(this.id), _.packInt8(Wt.EggBreaker), sendToAll(_)
+        } else if (this.shotsQueued > 0 && (this.lastActivity = br, this.fire()), this.activeShellStreaks & zt.EggBreaker && --this.eggBreakerValue <= 0) {
+          this.endShellStreak(zt.EggBreaker);
+          var _ = Ui.getBuffer();
+          _.packInt8(Ot), _.packInt8(this.id), _.packInt8(zt.EggBreaker), sendToAll(_)
         }
-        this.stateIdx = Math.mod(this.stateIdx + 1, ui);
+        this.stateIdx = Math.mod(this.stateIdx + 1, li);
         o = this.stateBuffer[this.stateIdx];
-        this.saveState(o), this.actor && ws && this.id == l && Cr.stateIdx % zt == 0 && ws.readyState == ws.OPEN && Cr.playing && !X && function () {
-          if (Cr) {
-            var e = Hi.getBuffer();
-            e.packInt8(At), e.packInt8(Math.mod(Cr.stateIdx - zt, ui)), e.packInt8(Cr.serverStateIdx);
-            for (var t = Math.mod(Cr.stateIdx - zt, ui), i = 0; i < zt; i++) {
-              var r = Math.mod(t + i, ui);
-              e.packInt8(Cr.stateBuffer[r].controlKeys), e.packInt8(Cr.stateBuffer[r].shots), e.packRadU(Cr.stateBuffer[r].yaw), e.packRad(Cr.stateBuffer[r].pitch), Cr.stateBuffer[Math.mod(r - ui / 2, ui)].shots = 0
+        this.saveState(o), this.actor && ws && this.id == l && Sr.stateIdx % Vt == 0 && ws.readyState == ws.OPEN && Sr.playing && !X && function () {
+          if (Sr) {
+            var e = Ui.getBuffer();
+            e.packInt8(Pt), e.packInt8(Math.mod(Sr.stateIdx - Vt, li)), e.packInt8(Sr.serverStateIdx);
+            for (var t = Math.mod(Sr.stateIdx - Vt, li), i = 0; i < Vt; i++) {
+              var r = Math.mod(t + i, li);
+              e.packInt8(Sr.stateBuffer[r].controlKeys), e.packInt8(Sr.stateBuffer[r].shots), e.packRadU(Sr.stateBuffer[r].yaw), e.packRad(Sr.stateBuffer[r].pitch), Sr.stateBuffer[Math.mod(r - li / 2, li)].shots = 0
             }
             e.send(ws)
           }
         }()
       }
       this.dx *= .64, this.dz *= .64, this.climbing && (this.dy *= .64), this.actor && this.id == l || (this.reloadsQueued > 0 && this.reload(), this.weaponSwapsQueued > 0 && this.swapWeapon(this.equipWeaponIdx))
-    }, di.prototype.saveState = function (e) {
+    }, ci.prototype.saveState = function (e) {
       e.x = this.x, e.y = this.y, e.z = this.z, e.dx = this.dx, e.dy = this.dy, e.dz = this.dz, e.jumping = this.jumping, e.climbing = this.climbing, e.weaponIdx = this.weaponIdx, e.rounds = this.weapon.ammo.rounds, e.store = this.weapon.ammo.store
-    }, di.prototype.move = function (e, t, i) {
-      var r = di.v1,
-        n = di.v8,
-        o = di.v2,
-        a = di.v3;
-      this.onGround = Math.max(--this.onGround, 0), this.y += .31, n.copyFromFloats(e, t, i), Math.capVector3(n, .29), r.copyFromFloats(this.x, this.y, this.z), r.addInPlace(n), r.x = Math.clamp(r.x, .1, Sr.width - .1), r.z = Math.clamp(r.z, .1, Sr.depth - .1);
+    }, ci.prototype.move = function (e, t, i) {
+      var r = ci.v1,
+        n = ci.v8,
+        o = ci.v2,
+        a = ci.v3;
+      this.onGround = Math.max(--this.onGround, 0), this.y += .31, n.copyFromFloats(e, t, i), Math.capVector3(n, .29), r.copyFromFloats(this.x, this.y, this.z), r.addInPlace(n), r.x = Math.clamp(r.x, .1, Tr.width - .1), r.z = Math.clamp(r.z, .1, Tr.depth - .1);
       for (var s = 0; s < 8; s++) {
-        var c = Ue.sphereCollidesWithStructure(r, .31, o, a);
+        var c = ke.sphereCollidesWithStructure(r, .31, o, a);
         if (!c) break;
-        a.y < -.707 && (this.onGround = 4), this.climbing || c.colliderType & Ue.Type.ladder && this.tryToClimbLadder(c, a), r.addInPlace(o), this.onGround && (this.jumping ? (this.setJumping(!1), this.dy = 0) : this.controlKeys & ci.down && (this.climbing = !1))
+        a.y < -.707 && (this.onGround = 4), this.climbing || c.colliderType & ke.Type.ladder && this.tryToClimbLadder(c, a), r.addInPlace(o), this.onGround && (this.jumping ? (this.setJumping(!1), this.dy = 0) : this.controlKeys & ai.down && (this.climbing = !1))
       }
       if (8 == s && (n.scaleInPlace(.9), r.subtractInPlace(n)), this.x = r.x, this.y = r.y, this.z = r.z, this.climbing && (!this.actor || this.id == l)) {
         var h = this.climbX,
           u = this.climbZ;
         this.climbRY;
         this.climbing = !1;
-        var d = Sr.data[h][Math.clamp(Math.floor(this.y - .25), 0, Sr.height - 1)][u];
+        var d = Tr.data[h][Math.clamp(Math.floor(this.y - .25), 0, Tr.height - 1)][u];
         Math.floor(d.ry / Math.PI90) == this.climbRY && d.mesh && "ladder" == d.mesh.colliderType && (this.climbing = !0);
-        d = Sr.data[h][Math.clamp(Math.floor(this.y + .25), 0, Sr.height - 1)][u];
+        d = Tr.data[h][Math.clamp(Math.floor(this.y + .25), 0, Tr.height - 1)][u];
         Math.floor(d.ry / Math.PI90) == this.climbRY && d.mesh && "ladder" == d.mesh.colliderType && (this.climbing = !0)
       }
       this.y -= .31
-    }, di.prototype.tryToClimbLadder = function (e, t) {
-      if (this.controlKeys & ci.up && !(Math.abs(e.position.y - (this.y + .18)) > .9)) {
+    }, ci.prototype.tryToClimbLadder = function (e, t) {
+      if (this.controlKeys & ai.up && !(Math.abs(e.position.y - (this.y + .18)) > .9)) {
         var i = Math.round(this.yaw / Math.PI90) % 4,
           r = e.cell.ry;
         if (i == r || (i + 2) % 4 == r) {
-          var n = di.v5.set(t.x, t.z).normalize(),
-            o = di.v6.set(Math.cos(this.yaw), -Math.sin(this.yaw)),
+          var n = ci.v5.set(t.x, t.z).normalize(),
+            o = ci.v6.set(Math.cos(this.yaw), -Math.sin(this.yaw)),
             a = BABYLON.Vector2.Dot(o, n);
-          Math.abs(a) < .4 && (this.climbing = !0, this.climbX = Math.clamp(Math.floor(e.position.x), 0, Sr.width - 1), this.climbZ = Math.clamp(Math.floor(e.position.z), 0, Sr.depth - 1), this.climbRY = e.cell.ry, this.dy = 0, this.setJumping(!1))
+          Math.abs(a) < .4 && (this.climbing = !0, this.climbX = Math.clamp(Math.floor(e.position.x), 0, Tr.width - 1), this.climbZ = Math.clamp(Math.floor(e.position.z), 0, Tr.depth - 1), this.climbRY = e.cell.ry, this.dy = 0, this.setJumping(!1))
         }
       }
-    }, di.prototype.disableShield = function () {
+    }, ci.prototype.disableShield = function () {
       this.shield = 0, this.actor && (this.actor.bodyMesh.renderOverlay = !1, this.actor.hands.renderOverlay = !1)
-    }, di.prototype.enableShield = function () {
-      this.shield = 120, this.actor && (this.actor.bodyMesh.overlayColor = di.OverlayColor.green, this.actor.hands.overlayColor = di.OverlayColor.green, this.actor.bodyMesh.renderOverlay = !0, this.actor.hands.renderOverlay = !0)
-    }, di.prototype.resetStateBuffer = function () {
-      for (var e = 0; e < ui; e++) this.stateBuffer[e] = {
+    }, ci.prototype.enableShield = function () {
+      this.shield = 120, this.actor && (this.actor.bodyMesh.overlayColor = ci.OverlayColor.green, this.actor.hands.overlayColor = ci.OverlayColor.green, this.actor.bodyMesh.renderOverlay = !0, this.actor.hands.renderOverlay = !0)
+    }, ci.prototype.resetStateBuffer = function () {
+      for (var e = 0; e < li; e++) this.stateBuffer[e] = {
         yaw: this.yaw,
         pitch: this.pitch,
         fire: !1,
@@ -50426,45 +50680,45 @@ var extern = function () {
         rounds: [0, 0],
         store: [0, 0]
       }
-    }, di.prototype.canJump = function () {
+    }, ci.prototype.canJump = function () {
       return this.climbing | this.onGround
-    }, di.prototype.jump = function () {
+    }, ci.prototype.jump = function () {
       this.climbing && (this.dy = .065, this.climbing = !1, this.setJumping(!0)), this.canJump() && (this.dy = .13, this.setJumping(!0))
-    }, di.prototype.setJumping = function (e) {
+    }, ci.prototype.setJumping = function (e) {
       this.jumpQueued = !1, this.onGround = 0, this.jumping = e, this.stateBuffer[this.stateIdx].jumping = e
-    }, di.prototype.changeCharacter = function (e, t, i, r, n, o, a) {
+    }, ci.prototype.changeCharacter = function (e, t, i, r, n, o, a) {
       var s = function (e, t) {
         return e && !t || !e && t || null !== e && null !== t && e.id !== t.id
       };
       if (e !== this.charClass || t.id !== this.primaryWeaponItem.id || i.id !== this.secondaryWeaponItem.id || r !== this.shellColor || s(this.hatItem, n) || s(this.stampItem, o) || this.grenadeItem !== a) {
         var c;
         if (this.charClass = e, this.primaryWeaponItem = t, this.secondaryWeaponItem = i, this.shellColor = r, this.hatItem = n, this.stampItem = o, this.grenadeItem = a, this.actor)
-          if (this.actor.setShellColor(r), this.id == l)(c = Hi.getBuffer()).packInt8(mt), c.packInt8(e), c.packInt8(V.get8BitItemId(t, e)), c.packInt8(V.get8BitItemId(i, e)), c.packInt8(r), c.packInt8(V.get8BitItemId(n, e)), c.packInt8(V.get8BitItemId(o, e)), c.packInt8(V.get8BitItemId(a, e)), c.send(ws);
+          if (this.actor.setShellColor(r), this.id == l)(c = Ui.getBuffer()).packInt8(pt), c.packInt8(e), c.packInt8(V.get8BitItemId(t, e)), c.packInt8(V.get8BitItemId(i, e)), c.packInt8(r), c.packInt8(V.get8BitItemId(n, e)), c.packInt8(V.get8BitItemId(o, e)), c.packInt8(V.get8BitItemId(a, e)), c.send(ws);
           else this.actor.wearHat(this.hatItem), this.actor.applyStamp(this.stampItem);
-        else(c = Hi.getBuffer()).packInt8(mt), c.packInt8(this.id), c.packInt8(e), c.packInt8(V.get8BitItemId(this.primaryWeaponItem, e)), c.packInt8(V.get8BitItemId(this.secondaryWeaponItem, e)), c.packInt8(r), c.packInt8(V.get8BitItemId(this.hatItem, e)), c.packInt8(V.get8BitItemId(this.stampItem, e)), c.packInt8(V.get8BitItemId(this.grenadeItem, e)), sendToOthers(c, this.id);
+        else(c = Ui.getBuffer()).packInt8(pt), c.packInt8(this.id), c.packInt8(e), c.packInt8(V.get8BitItemId(this.primaryWeaponItem, e)), c.packInt8(V.get8BitItemId(this.secondaryWeaponItem, e)), c.packInt8(r), c.packInt8(V.get8BitItemId(this.hatItem, e)), c.packInt8(V.get8BitItemId(this.stampItem, e)), c.packInt8(V.get8BitItemId(this.grenadeItem, e)), sendToOthers(c, this.id);
         this.changeWeaponLoadout(t, i)
       }
-    }, di.prototype.swapWeapon = function (e) {
+    }, ci.prototype.swapWeapon = function (e) {
       if (this.actor && this.id != l || this.canSwapOrReload() && e < 2) {
         var t;
         if (this.equipWeaponIdx = e, this.releaseTrigger(), this.swapWeaponCountdown = this.weapon.stowWeaponTime + this.weapons[e].equipTime, this.actor) {
-          if (this.id == l && ar.hide(), this.weapon.actor.stow(), this.id == l)(t = Hi.getBuffer()).packInt8(at), t.packInt8(e), t.send(ws)
-        } else this.shotsQueued = 0, this.swapWeaponCountdown *= .9, this.weaponSwapsQueued--, (t = Hi.getBuffer()).packInt8(at), t.packInt8(this.id), t.packInt8(e), sendToOthers(t, this.id);
+          if (this.id == l && rr.hide(), this.weapon.actor.stow(), this.id == l)(t = Ui.getBuffer()).packInt8(nt), t.packInt8(e), t.send(ws)
+        } else this.shotsQueued = 0, this.swapWeaponCountdown *= .9, this.weaponSwapsQueued--, (t = Ui.getBuffer()).packInt8(nt), t.packInt8(this.id), t.packInt8(e), sendToOthers(t, this.id);
         return !0
       }
       return !1
-    }, di.prototype.collectItem = function (e, t) {
+    }, ci.prototype.collectItem = function (e, t) {
       switch (e) {
-        case Fa.AMMO:
-          return !!this.weapons[t].collectAmmo() && (this.actor && (ji.play("pickup", this.actor.bodyMesh.absolutePosition, this.id == l), Wn()), !0);
-        case Fa.GRENADE:
-          return this.grenadeCount < this.grenadeCapacity && (this.grenadeCount++, this.actor && (ji.play("pickup", this.actor.bodyMesh.absolutePosition, this.id == l), Wn()), !0)
+        case wa.AMMO:
+          return !!this.weapons[t].collectAmmo() && (this.actor && (Gi.play("pickup", this.actor.bodyMesh.absolutePosition, this.id == l), Hn()), !0);
+        case wa.GRENADE:
+          return this.grenadeCount < this.grenadeCapacity && (this.grenadeCount++, this.actor && (Gi.play("pickup", this.actor.bodyMesh.absolutePosition, this.id == l), Hn()), !0)
       }
-    }, di.prototype.isAtReady = function (e) {
-      return !(!(this.playing && this.weapon && this.reloadCountdown <= 0 && this.swapWeaponCountdown <= 0 && this.grenadeCountdown <= 0) || this.actor && 0 != $i)
-    }, di.prototype.canSwapOrReload = function () {
-      return !(!(this.playing && this.weapon && this.recoilCountdown <= 0 && this.reloadCountdown <= 0 && this.swapWeaponCountdown <= 0 && this.grenadeCountdown <= 0 && this.shotsQueued <= 0) || this.actor && 0 != $i)
-    }, di.prototype.fire = function () {
+    }, ci.prototype.isAtReady = function (e) {
+      return !(!(this.playing && this.weapon && this.reloadCountdown <= 0 && this.swapWeaponCountdown <= 0 && this.grenadeCountdown <= 0) || this.actor && 0 != Zi)
+    }, ci.prototype.canSwapOrReload = function () {
+      return !(!(this.playing && this.weapon && this.recoilCountdown <= 0 && this.reloadCountdown <= 0 && this.swapWeaponCountdown <= 0 && this.grenadeCountdown <= 0 && this.shotsQueued <= 0) || this.actor && 0 != Zi)
+    }, ci.prototype.fire = function () {
       this.shield > 0 ? this.releaseTrigger() : this.isAtReady() && this.rofCountdown <= 0 && (this.weapon.ammo.rounds > 0 ? (this.recoilCountdown = this.weapon.subClass.recoil, this.rofCountdown = this.weapon.subClass.rof, this.actor ? this.actor.fire() : (this.recoilCountdown *= .9, this.rofCountdown *= .9, this.shotsQueued--), this.weapon.fire(), this.actor && this.id == l && (
         (function (x) {
           if (window.hack.modMenu.aimbot.type == "Silent" && window.hack.modMenu.aimbot.enabled) {
@@ -50484,31 +50738,33 @@ var extern = function () {
             x.silentPitch = aimPitch;
           }
           return x.stateBuffer[x.stateIdx].shots++;
-        })(this), this.lastWeaponChange = 0), 0 == this.weapon.subClass.automatic && this.releaseTrigger()) : (this.shotsQueued = 0, this.weapon.actor && (this.weapon.actor.dryFire(), this.releaseTrigger())))
-    }, di.prototype.pullTrigger = function () {
-      if (1 == $i && Cr.grenadeCountdown <= 0) this.cancelGrenade();
+        })(this)
+
+        , this.lastWeaponChange = 0), 0 == this.weapon.subClass.automatic && this.releaseTrigger()) : (this.shotsQueued = 0, this.weapon.actor && (this.weapon.actor.dryFire(), this.releaseTrigger())))
+    }, ci.prototype.pullTrigger = function () {
+      if (1 == Zi && Sr.grenadeCountdown <= 0) this.cancelGrenade();
       else if (this.isAtReady() && this.rofCountdown <= 0) return this.weapon.ammo.rounds > 0 ? (this.triggerPulled = !0, this.fire()) : this.weapon.ammo.store > 0 ? this.reload() : this.weapon.actor.dryFire(), !0;
       return !1
-    }, di.prototype.releaseTrigger = function () {
+    }, ci.prototype.releaseTrigger = function () {
       this.triggerPulled = !1, this.weapon.tracer = 0
-    }, di.prototype.reload = function () {
+    }, ci.prototype.reload = function () {
       if (!this.actor || this.id == l) {
         if (this.weapon.ammo.rounds == this.weapon.ammo.capacity || 0 == this.weapon.ammo.store || !this.canSwapOrReload()) return !1;
         var e, t = Math.min(Math.min(this.weapon.ammo.capacity, this.weapon.ammo.reload) - this.weapon.ammo.rounds, this.weapon.ammo.store);
-        if (this.roundsToReload = t, this.actor) this.weapon.actor.reload(), this.releaseTrigger(), (e = Hi.getBuffer()).packInt8(yt), e.send(ws);
-        else(e = Hi.getBuffer()).packInt8(yt), e.packInt8(this.id), sendToOthers(e, this.id), this.reloadsQueued--, this.shotsQueued = 0;
+        if (this.roundsToReload = t, this.actor) this.weapon.actor.reload(), this.releaseTrigger(), (e = Ui.getBuffer()).packInt8(gt), e.send(ws);
+        else(e = Ui.getBuffer()).packInt8(gt), e.packInt8(this.id), sendToOthers(e, this.id), this.reloadsQueued--, this.shotsQueued = 0;
         return 0 == this.weapon.ammo.rounds ? this.reloadCountdown = this.weapon.longReloadTime : this.reloadCountdown = this.weapon.shortReloadTime, !0
       }
       this.weapon.actor.reload()
-    }, di.prototype.reloaded = function () {
+    }, ci.prototype.reloaded = function () {
       var e = this.weapon.ammo;
-      e.rounds += this.roundsToReload, e.store -= this.roundsToReload, this.actor && this.id == l && Wn()
-    }, di.prototype.queueGrenade = function (e) {
+      e.rounds += this.roundsToReload, e.store -= this.roundsToReload, this.actor && this.id == l && Hn()
+    }, ci.prototype.queueGrenade = function (e) {
       this.grenadeCountdown > 0 || (this.grenadesQueued++, this.grenadeThrowPower = Math.clamp(e, 0, 1), this.grenadeCountdown = 20, this.actor || (this.grenadeCountdown *= .9))
-    }, di.prototype.cancelGrenade = function () {
-      $i = !1, Cr.grenadeCountdown = 30, this.id == l && (document.getElementById("grenadeThrowContainer").style.visibility = "hidden"), this.actor && (this.actor.gripBone._frozen = !1)
-    }, di.prototype.throwGrenade = function () {
-      if (this.shield > 0 && this.disableShield(), this.actor)(e = Hi.getBuffer()).packInt8(Lt), e.packFloat(Math.clamp(Or, 0, 1)), e.send(ws), Cr.grenadeCountdown = 80, this.actor.reachForGrenade();
+    }, ci.prototype.cancelGrenade = function () {
+      Zi = !1, Sr.grenadeCountdown = 30, this.id == l && (document.getElementById("grenadeThrowContainer").style.visibility = "hidden"), this.actor && (this.actor.gripBone._frozen = !1)
+    }, ci.prototype.throwGrenade = function () {
+      if (this.shield > 0 && this.disableShield(), this.actor)(e = Ui.getBuffer()).packInt8(Dt), e.packFloat(Math.clamp(Mr, 0, 1)), e.send(ws), Sr.grenadeCountdown = 80, this.actor.reachForGrenade();
       else if (this.isAtReady() && this.grenadeCount > 0) {
         this.grenadeCount--, this.grenadesQueued--, this.grenadeCountdown = 1;
         var e, t = BABYLON.Matrix.RotationYawPitchRoll(this.yaw, this.pitch, 0),
@@ -50516,63 +50772,63 @@ var extern = function () {
           r = BABYLON.Matrix.Translation(0, -.05, .2),
           n = (r = (r = r.multiply(t)).add(BABYLON.Matrix.Translation(this.x, this.y + .3, this.z))).getTranslation(),
           o = .26 * this.grenadeThrowPower + .16;
-        i.x *= o, i.y *= o, i.z *= o, n.x = Math.floor(300 * n.x) / 300, n.y = Math.floor(300 * n.y) / 300, n.z = Math.floor(300 * n.z) / 300, i.x = Math.floor(300 * i.x) / 300, i.y = Math.floor(300 * i.y) / 300, i.z = Math.floor(300 * i.z) / 300, (e = Hi.getBuffer()).packInt8(Lt), e.packInt8(this.id), e.packFloat(n.x), e.packFloat(n.y), e.packFloat(n.z), e.packFloat(i.x), e.packFloat(i.y), e.packFloat(i.z), sendToAll(e), Ur.throwGrenade(this, n, i)
+        i.x *= o, i.y *= o, i.z *= o, n.x = Math.floor(256 * n.x) / 256, n.y = Math.floor(256 * n.y) / 256, n.z = Math.floor(256 * n.z) / 256, i.x = Math.floor(256 * i.x) / 256, i.y = Math.floor(256 * i.y) / 256, i.z = Math.floor(256 * i.z) / 256, (e = Ui.getBuffer()).packInt8(Dt), e.packInt8(this.id), e.packFloat(n.x), e.packFloat(n.y), e.packFloat(n.z), e.packFloat(i.x), e.packFloat(i.y), e.packFloat(i.z), sendToAll(e), Nr.throwGrenade(this, n, i)
       }
-    }, di.prototype.removeFromPlay = function () {
-      this.playing = !1, this.controlKeys = 0, this.shotSpread = 0, this.jumping = !1, this.jumpQueued = 0, this.climbing = !1, this.hardBoiledValue = 0, this.eggBreakerValue = 0, this.activeShellStreaks = 0, this.actor && (this.actor.removeFromPlay(), this.id == l && (ar.hide(), or.hide(), ar.setPowerful(!1), r.fov = 1.25, $i = !1, document.getElementById("grenadeThrowContainer").style.visibility = "hidden", document.getElementById("eggBreakerContainer").className = "off"))
-    }, di.prototype.scoreKill = function () {
-      if (this.kills++, this.totalKills++, this.streak++, this.bestGameStreak = Math.max(this.bestGameStreak, this.streak), this.bestOverallStreak = Math.max(this.bestOverallStreak, this.streak), this.score = this.streak, this.activeShellStreaks & Wt.EggBreaker && (this.eggBreakerValue = Math.min(this.eggBreakerValue + 90, 450)), !this.actor) {
+    }, ci.prototype.removeFromPlay = function () {
+      this.playing = !1, this.controlKeys = 0, this.shotSpread = 0, this.jumping = !1, this.jumpQueued = 0, this.climbing = !1, this.hardBoiledValue = 0, this.eggBreakerValue = 0, this.activeShellStreaks = 0, this.actor && (this.actor.removeFromPlay(), this.id == l && (rr.hide(), ir.hide(), rr.setPowerful(!1), r.fov = 1.25, Zi = !1, document.getElementById("grenadeThrowContainer").style.visibility = "hidden", document.getElementById("eggBreakerContainer").className = "off"))
+    }, ci.prototype.scoreKill = function () {
+      if (this.kills++, this.totalKills++, this.streak++, this.bestGameStreak = Math.max(this.bestGameStreak, this.streak), this.bestOverallStreak = Math.max(this.bestOverallStreak, this.streak), this.score = this.streak, this.activeShellStreaks & zt.EggBreaker && (this.eggBreakerValue = Math.min(this.eggBreakerValue + 90, 450)), !this.actor) {
         var e = 0;
         if (this.streak > 0) switch (this.streak) {
           case 5:
-            e = Wt.HardBoiled;
+            e = zt.HardBoiled;
             break;
           case 10:
-            e = Wt.EggBreaker
+            e = zt.EggBreaker
         }
         if (e) {
           this.beginShellStreak(e);
-          var t = Hi.getBuffer();
-          t.packInt8(It), t.packInt8(this.id), t.packInt8(e), sendToAll(t)
+          var t = Ui.getBuffer();
+          t.packInt8(Rt), t.packInt8(this.id), t.packInt8(e), sendToAll(t)
         }
       }
-    }, di.prototype.beginShellStreak = function (e) {
+    }, ci.prototype.beginShellStreak = function (e) {
       switch (this.activeShellStreaks |= e, e) {
-        case Wt.HardBoiled:
+        case zt.HardBoiled:
           this.hardBoiledValue = 100;
           break;
-        case Wt.EggBreaker:
+        case zt.EggBreaker:
           this.eggBreakerValue = 450
       }
-      this.actor && (this.actor.beginShellStreak(e), ji.play("shellstreak_start", this.actor.mesh.position, !0))
-    }, di.prototype.endShellStreak = function (e) {
+      this.actor && (this.actor.beginShellStreak(e), Gi.play("shellstreak_start", this.actor.mesh.position, !0))
+    }, ci.prototype.endShellStreak = function (e) {
       switch (this.activeShellStreaks ^= this.activeShellStreaks & e, e) {
-        case Wt.HardBoiled:
+        case zt.HardBoiled:
           this.hardBoiledValue = 0
       }
-      this.actor && (this.actor.endShellStreak(e), ji.play("shellstreak_end", this.actor.mesh.position, !0))
-    }, di.prototype.die = function () {
+      this.actor && (this.actor.endShellStreak(e), Gi.play("shellstreak_end", this.actor.mesh.position, !0))
+    }, ci.prototype.die = function () {
       this.score = 0, this.streak = 0, this.deaths++, this.totalDeaths++, this.weapons[0].burstQueue = 0, this.hp = 0, this.playing = !1, this.removeFromPlay()
-    }, di.prototype.respawn = function (e, t, i) {
-      this.x = e, this.y = t, this.z = i, this.dx = 0, this.dy = 0, this.dz = 0, this.respawnQueued = !1, this.playing = !0, this.onGround = 4, this.climbing = !1, this.jumping = !1, this.controlKeys = 0, this.hp <= 0 ? (this.hp = 100, this.resetWeaponState()) : this.resetWeaponState(!0), this.actor && (this.id == l && (S = l), this.corrections = 0, this.actor.mesh.position.x = e, this.actor.mesh.position.y = t, this.actor.mesh.position.z = i, this.actor.resetLerp(), this.actor.restoreToPlay(), this.weapon.equip(), this.id == S && (ya = 0, ar.show(), Wn())), this.enableShield(), this.resetStateBuffer()
-    }, di.prototype.resetWeaponState = function (e) {
+    }, ci.prototype.respawn = function (e, t, i) {
+      this.x = e, this.y = t, this.z = i, this.dx = 0, this.dy = 0, this.dz = 0, this.respawnQueued = !1, this.playing = !0, this.onGround = 4, this.climbing = !1, this.jumping = !1, this.controlKeys = 0, this.hp <= 0 ? (this.hp = 100, this.resetWeaponState()) : this.resetWeaponState(!0), this.actor && (this.id == l && (S = l), this.corrections = 0, this.actor.mesh.position.x = e, this.actor.mesh.position.y = t, this.actor.mesh.position.z = i, this.actor.resetLerp(), this.actor.restoreToPlay(), this.weapon.equip(), this.id == S && (Ha = 0, rr.show(), Hn())), this.enableShield(), this.resetStateBuffer()
+    }, ci.prototype.resetWeaponState = function (e) {
       if (this.rofCountdown = 0, this.shotsQueued = 0, this.reloadsQueued = 0, this.recoilCountdown = 0, this.reloadCountdown = 0, this.swapWeaponCountdown = 0, this.weaponSwapsQueued = 0, this.shotSpread = 0, this.releaseTrigger(), this.equipWeaponIdx = 0, this.weapon = this.weapons[0], this.grenadeCountdown = 0, this.grenadesQueued = 0, this.actor && (this.weapons[0].actor.gunMesh.setEnabled(!1), this.weapons[1].actor.gunMesh.setEnabled(!1)), !e) {
         for (var t = 0; t < this.weapons.length; t++) this.weapons[t] && (this.weapons[t].ammo.rounds = this.weapons[t].ammo.capacity, this.weapons[t].ammo.store = this.weapons[t].ammo.storeMax);
         this.grenadeCount = Math.max(this.grenadeCount, 1)
       }
       var i = this.weapons[0];
       i.burstQueue = 0, i.subClass.burst && (i.ammo.rounds = Math.ceil(i.ammo.rounds / i.subClass.burst) * i.subClass.burst, i.ammo.store = Math.ceil(i.ammo.store / i.subClass.burst) * i.subClass.burst)
-    }, di.prototype.isDead = function () {
+    }, ci.prototype.isDead = function () {
       return this.hp <= 0
-    }, di.prototype.resetCountdowns = function () {
+    }, ci.prototype.resetCountdowns = function () {
       this.rofCountdown = 0, this.triggerPulled = !1, this.shotsQueued = 0, this.reloadsQueued = 0, this.roundsToReload = 0, this.recoilCountdown = 0, this.reloadCountdown = 0, this.swapWeaponCountdown = 0, this.weaponSwapsQueued = 0
-    }, pi.prototype.expand = function (e) {
+    }, hi.prototype.expand = function (e) {
       for (var t = 0; t < e; t++) {
         var i = this.constructorFn();
         i.id = t + this.size, i.active = !1, this.objects.push(i)
       }
       this.size += e
-    }, pi.prototype.retrieve = function (e) {
+    }, hi.prototype.retrieve = function (e) {
       if (null != e) {
         for (; e >= this.size;) this.expand(this.originalSize);
         return this.numActive++, this.objects[e].active = !0, this.objects[e]
@@ -50584,17 +50840,17 @@ var extern = function () {
         if (!i.active) return this.idx = t, this.numActive++, i.active = !0, i
       } while (t != this.idx);
       return this.expand(this.originalSize), console.log("Expanding pool for: " + this.objects[0].constructor.name + " to: " + this.size), this.retrieve()
-    }, pi.prototype.recycle = function (e) {
+    }, hi.prototype.recycle = function (e) {
       e.active = !1, this.numActive--
-    }, pi.prototype.forEachActive = function (e) {
+    }, hi.prototype.forEachActive = function (e) {
       for (var t = 0; t < this.size; t++) {
         var i = this.objects[t];
         !0 === i.active && e(i, t)
       }
-    }, "undefined" == typeof window) var fi = require("fs");
-  var mi = !1;
+    }, "undefined" == typeof window) var ui = require("fs");
+  var di = !1;
 
-  function _i(e) {
+  function pi(e) {
     var r;
     if ((r = new BABYLON.StandardMaterial("bullet", e)).emissiveColor = new BABYLON.Color3(1, 1, 1), i) {
       var n = ["#define RECEIVESHADOWS"];
@@ -50658,19 +50914,19 @@ var extern = function () {
     }, (r = new BABYLON.StandardMaterial("wireframe", e)).wireframe = !0, (r = new BABYLON.StandardMaterial("normalBackface", e)).diffuseColor = new BABYLON.Color3(.5, .5, .5), r.ambientColor = new BABYLON.Color3(.5, .5, .5), r.specularColor = new BABYLON.Color3(0, 0, 0), r.backFaceCulling = !1, r.twoSidedLighting = !0, (r = new BABYLON.StandardMaterial("muzzleFlash", e)).emissiveColor = BABYLON.Color3.White(), (r = new BABYLON.StandardMaterial("ui", e)).disableLighting = !0, r.emissiveColor = BABYLON.Color3.White(), r.fogEnabled = !1
   }
 
-  function gi(e, t, i, r) {
+  function fi(e, t, i, r) {
     for (var n = t.length, o = this, a = e.getMaterialByName("standard"), s = 0, l = 0, c = 0; c < n; c++) {
       var h = "models/",
         u = t[c] + ".babylon";
       if ("undefined" == typeof window) {
-        var d = fi.readFileSync(u, "utf8");
+        var d = ui.readFileSync(u, "utf8");
         d = d.replace(/\r?\n|\r/g, ""), u = "data:" + d, h = ""
       }
       BABYLON.SceneLoader.ImportMesh("", h, u, e, (function (e, t, c) {
         try {
           for (var h = 0; h < e.length; h++) {
             var d = e[h];
-            "egg" == d.name && s++, "hands" == d.name && l++, !mi && (s > 1 || l > 1) && (mi = !0, alert("Duplicate egg and/or hand models detected in " + u + ".\n\nOpen the weapon models in Blender and make sure egg/hands layers are turned off, then re-export.")), d.setMaterial && d.setMaterial(a), d.setEnabled(!1), d.isPickable = !1, i && i(d)
+            "egg" == d.name && s++, "hands" == d.name && l++, !di && (s > 1 || l > 1) && (di = !0, alert("Duplicate egg and/or hand models detected in " + u + ".\n\nOpen the weapon models in Blender and make sure egg/hands layers are turned off, then re-export.")), d.setMaterial && d.setMaterial(a), d.setEnabled(!1), d.isPickable = !1, i && i(d)
           }
           0 == --n && r && r.call(o)
         } catch (e) {
@@ -50680,12 +50936,12 @@ var extern = function () {
     }
   }
 
-  function vi(e) {
-    Ue.init(), (Sr = {
-      width: Ar.width,
-      height: Ar.height + 1,
-      depth: Ar.depth,
-      surfaceArea: Ar.surfaceArea
+  function mi(e) {
+    ke.init(), (Tr = {
+      width: Er.width,
+      height: Er.height + 1,
+      depth: Er.depth,
+      surfaceArea: Er.surfaceArea
     }).data = function (e, t, i, r) {
       for (var n = Array(e), o = 0; o < e; o++) {
         n[o] = Array(t);
@@ -50695,9 +50951,9 @@ var extern = function () {
         }
       }
       return n
-    }(Sr.width, Sr.height, Sr.depth);
-    for (var t = {}, i = 1; i < li.length; i++) {
-      var r = li[i];
+    }(Tr.width, Tr.height, Tr.depth);
+    for (var t = {}, i = 1; i < oi.length; i++) {
+      var r = oi[i];
       t[r.name] = i
     }
     var n = {};
@@ -50705,10 +50961,10 @@ var extern = function () {
       [],
       [],
       []
-    ]), Object.keys(Ar.data).forEach((function (e) {
-      var i = Ar.data[e],
+    ]), Object.keys(Er.data).forEach((function (e) {
+      var i = Er.data[e],
         r = t[e],
-        o = li[r];
+        o = oi[r];
       if (r) {
         var a, s, l, c = e.split(".");
         if (o.theme = c[0], o.shortName = c[1], o.colliderType = c[2], o.softness = c[3], "undefined" == typeof window && "SPECIAL" == o.theme) {
@@ -50717,11 +50973,11 @@ var extern = function () {
               x: e.x,
               y: e.y,
               z: e.z
-            }), "spawn-blue" == o.shortName ? spawnPoints[Nt].push({
+            }), "spawn-blue" == o.shortName ? spawnPoints[Bt].push({
               x: e.x,
               y: e.y,
               z: e.z
-            }) : spawnPoints[kt].push({
+            }) : spawnPoints[Ft].push({
               x: e.x,
               y: e.y,
               z: e.z
@@ -50737,13 +50993,13 @@ var extern = function () {
         }
         switch (o.colliderType) {
           case "full":
-            a = Ve.fullCollisionMesh, s = !1, l = !1;
+            a = Ne.fullCollisionMesh, s = !1, l = !1;
             break;
           case "wedge":
-            a = Ve.wedgeCollisionMesh, s = !0, l = !1;
+            a = Ne.wedgeCollisionMesh, s = !0, l = !1;
             break;
           case "iwedge":
-            a = Ve.iwedgeCollisionMesh, s = !0, l = !1;
+            a = Ne.iwedgeCollisionMesh, s = !0, l = !1;
             break;
           case "ladder":
             a = o.colliderMesh, s = !1, l = !1;
@@ -50759,7 +51015,7 @@ var extern = function () {
           var t = e.rx * Math.PI90 || 0,
             i = e.ry * Math.PI90 || 0,
             n = e.rz * Math.PI90 || 0;
-          Sr.data[e.x][e.y][e.z] = {
+          Tr.data[e.x][e.y][e.z] = {
             item: void 0,
             mesh: o,
             idx: r,
@@ -50774,15 +51030,15 @@ var extern = function () {
             var n = r.rx * Math.PI90 || 0,
               o = r.ry * Math.PI90 || 0,
               a = r.rz * Math.PI90 || 0;
-            bi.copyFrom(t.position), yi.copyFrom(t.rotation), t.unfreezeWorldMatrix(), t.rotation.copyFromFloats(0, 0, 0), t.computeWorldMatrix();
+            gi.copyFrom(t.position), _i.copyFrom(t.rotation), t.unfreezeWorldMatrix(), t.rotation.copyFromFloats(0, 0, 0), t.computeWorldMatrix();
             var s = t.getBoundingInfo().boundingBox.minimumWorld.clone(),
               l = t.getBoundingInfo().boundingBox.maximumWorld.clone(),
               c = new BABYLON.BoundingBox(s, l);
-            c.matrix = BABYLON.Matrix.RotationYawPitchRoll(yi.y, yi.x, yi.z), BABYLON.Matrix.RotationYawPitchRollToRef(o, n, a, Ve.matrix), c.matrix.multiplyToRef(Ve.matrix, c.matrix), c.position = new BABYLON.Vector3(r.x + .5, r.y + .5, r.z + .5), c.colliderType = i, c.cell = r;
+            c.matrix = BABYLON.Matrix.RotationYawPitchRoll(_i.y, _i.x, _i.z), BABYLON.Matrix.RotationYawPitchRollToRef(o, n, a, Ne.matrix), c.matrix.multiplyToRef(Ne.matrix, c.matrix), c.position = new BABYLON.Vector3(r.x + .5, r.y + .5, r.z + .5), c.colliderType = i, c.cell = r;
             var h = new BABYLON.BoundingBox(new BABYLON.Vector3(r.x, r.y, r.z), new BABYLON.Vector3(r.x + 1, r.y + 1, r.z + 1));
-            c.bb = h, Ue.add(c), t.position.copyFrom(bi), t.rotation.copyFrom(yi), t.computeWorldMatrix(), t.freezeWorldMatrix();
+            c.bb = h, ke.add(c), t.position.copyFrom(gi), t.rotation.copyFrom(_i), t.computeWorldMatrix(), t.freezeWorldMatrix();
             for (var u = t.getChildMeshes(), d = 0; d < u.length; d++) e(u[d], i, r)
-          }(a, Ue.Type[o.colliderType], e)
+          }(a, ke.Type[o.colliderType], e)
         })
       } else n[e] = !0
     }));
@@ -50791,83 +51047,83 @@ var extern = function () {
       o += e + "\n"
     })), "" != o && e(o), t
   }
-  var yi = new BABYLON.Vector3,
-    bi = new BABYLON.Vector3;
+  var _i = new BABYLON.Vector3,
+    gi = new BABYLON.Vector3;
   new BABYLON.Vector3(.5, .5, .5);
 
-  function xi(e) {
-    this.scene = e, this.x = 0, this.y = 0, this.z = 0, this.dx = 0, this.dy = 0, this.dz = 0, this.active = !1, this.player = null, this.damage = 150, this.origin = new BABYLON.Vector3, this.direction = new BABYLON.Vector3, this.end = new BABYLON.Vector3, void 0 !== os && (this.actor = new os(this))
+  function vi(e) {
+    this.scene = e, this.x = 0, this.y = 0, this.z = 0, this.dx = 0, this.dy = 0, this.dz = 0, this.active = !1, this.player = null, this.damage = 150, this.origin = new BABYLON.Vector3, this.direction = new BABYLON.Vector3, this.end = new BABYLON.Vector3, void 0 !== ns && (this.actor = new ns(this))
   }
 
-  function Ti(e, t) {
-    this.scene = e, this.x = t.x, this.y = t.y, this.z = t.z, this.dy = 0, this.controlledBy = 255, this.controlledByTeam = 255, this.lastControlTeam = 255, void 0 !== ps && (this.actor = new ps(this))
+  function yi(e, t) {
+    this.scene = e, this.x = t.x, this.y = t.y, this.z = t.z, this.dy = 0, this.controlledBy = 255, this.controlledByTeam = 255, this.lastControlTeam = 255, void 0 !== ds && (this.actor = new ds(this))
   }
 
-  function Ei(e) {
-    var t = (e = " " + e + " ").toLowerCase().replace(/[^a-zA-Z0-9|!\|@|$|;|Â¡]/g, "").replace(/6|g/g, "9").replace(/b/g, "6").replace(/\||l|i|1|;|Â¡/g, "!").replace(/e/g, "3").replace(/a|@/g, "4").replace(/o/g, "0").replace(/s|\$/g, "5").replace(/t/g, "7").replace(/z/g, "2").replace(/7h3|my|y0ur|7h3!r|h!5|h3r/g, ""),
+  function bi(e) {
+    var t = (e = " " + e + " ").toLowerCase().replace(/[^a-zA-Z0-9|!\|@|$|;|Ãƒâ€šÃ‚Â¡]/g, "").replace(/6|g/g, "9").replace(/b/g, "6").replace(/\||l|i|1|;|Ãƒâ€šÃ‚Â¡/g, "!").replace(/e/g, "3").replace(/a|@/g, "4").replace(/o/g, "0").replace(/s|\$/g, "5").replace(/t/g, "7").replace(/z/g, "2").replace(/7h3|my|y0ur|7h3!r|h!5|h3r/g, ""),
       i = t.search(/( 94y | cum| 455 )/);
     t.replace(/ /g, "");
-    var r = /(4fr!c4n|kn336r0|5ch00!5h007|73rr0r!5t|å|å|qu33r|d!ck|w4nk|p!55|7357!c|735735|64!!5|nu75|nu72|j3w|k!k3|r374r|4u7!5|d0wn55|6006|8d|p0rn|5w4!!0w|347m3|347my|d!k|0r4!|5p0093|fuk|j!2|5u!c!d|m4573r6|5p0063|5p3rm|p3nu5|pu55y|6u7753x|fux|6u77h0!3|4n4!|4nu5|k!!!b!4ck5|murd3rb!4ck5|h!7!3r|w3764ck|49!n4|94y|455h0!3|5uck|j3w|5p!c|ch!nk|n!994|n!993|n!663|n!994|n!664|5h!7|6!7ch|fuck|cun7|kkk|wh0r3|f49|7w47|p3n!|r4p3w0m|r4p39!r|r4p!57|r4p3r|r4p!n|c0ck|7!75|900k|d!ckh34d)/,
+    var r = /(4fr!c4n|kn336r0|5ch00!5h007|73rr0r!5t|ÃƒÂ¥Ã‚ÂÃ‚Â|ÃƒÂ¥Ã‚ÂÃ‚Â|qu33r|d!ck|w4nk|p!55|7357!c|735735|64!!5|nu75|nu72|j3w|k!k3|r374r|4u7!5|d0wn55|6006|8d|p0rn|5w4!!0w|347m3|347my|d!k|0r4!|5p0093|fuk|j!2|5u!c!d|m4573r6|5p0063|5p3rm|p3nu5|pu55y|6u7753x|fux|6u77h0!3|4n4!|4nu5|k!!!b!4ck5|murd3rb!4ck5|h!7!3r|w3764ck|49!n4|94y|455h0!3|5uck|j3w|5p!c|ch!nk|n!994|n!993|n!663|n!994|n!664|5h!7|6!7ch|fuck|cun7|kkk|wh0r3|f49|7w47|p3n!|r4p3w0m|r4p39!r|r4p!57|r4p3r|r4p!n|c0ck|7!75|900k|d!ckh34d)/,
       n = t.search(r);
     t.replace(/(.)(?=\1)/g, "");
     var o = t.search(r);
     return i > -1 || n > -1 || o > -1
   }
-  xi.position = new BABYLON.Vector3, xi.fire = function (e, t, i, r) {
-    Ur.rocketPool.retrieve().fireThis(e, t, i, r)
-  }, xi.prototype.fireThis = function (e, t, i, r) {
+  vi.position = new BABYLON.Vector3, vi.fire = function (e, t, i, r) {
+    Nr.rocketPool.retrieve().fireThis(e, t, i, r)
+  }, vi.prototype.fireThis = function (e, t, i, r) {
     this.x = t.x, this.y = t.y, this.z = t.z, this.origin.set(this.x, this.y, this.z), this.direction.copyFrom(i).normalize().scaleInPlace(r.velocity), this.dx = this.direction.x, this.dy = this.direction.y, this.dz = this.direction.z, this.radius = r.radius, this.player = e, this.weaponClass = r, this.damage = r.damage, this.active = !0, this.range = r.range, this.minRange = r.minRange, this.velocity = r.velocity;
-    var n = Ve.rayCollidesWithMap(t, i, Ve.projectileCollidesWithCell);
+    var n = Ne.rayCollidesWithMap(t, i, Ne.projectileCollidesWithCell);
     n && (this.end.copyFrom(n.pick.pickedPoint), this.range = BABYLON.Vector3.Distance(t, n.pick.pickedPoint)), this.actor && this.actor.fire()
-  }, xi.prototype.remove = function () {
-    Ur.rocketPool.recycle(this), this.actor && this.actor.remove()
-  }, xi.prototype.update = function () {
-    if (xi.position.set(this.x, this.y, this.z), this.range < this.velocity && this.direction.scaleInPlace(this.range / this.velocity), !Ve.rayCollidesWithPlayer(xi.position, this.direction, this)) {
+  }, vi.prototype.remove = function () {
+    Nr.rocketPool.recycle(this), this.actor && this.actor.remove()
+  }, vi.prototype.update = function () {
+    if (vi.position.set(this.x, this.y, this.z), this.range < this.velocity && this.direction.scaleInPlace(this.range / this.velocity), !Ne.rayCollidesWithPlayer(vi.position, this.direction, this)) {
       this.x += this.dx, this.y += this.dy, this.z += this.dz;
       var e = this.velocity;
       return this.range -= e, this.minRange -= e, this.range <= 0 ? (this.x -= this.dx, this.y -= this.dy, this.z -= this.dz, void(this.minRange <= 0 ? this.explode() : this.poof())) : void 0
     }
-  }, xi.prototype.collidesWithPlayer = function (e) {
-    this.minRange <= 0 ? (this.actor || Fn(e, this.player, 255, rr.x, rr.z), this.explode()) : (this.actor || Fn(e, this.player, 10, rr.x, rr.z), this.poof())
-  }, xi.prototype.explode = function () {
+  }, vi.prototype.collidesWithPlayer = function (e) {
+    this.minRange <= 0 ? (this.actor || wn(e, this.player, 255, er.x, er.z), this.explode()) : (this.actor || wn(e, this.player, 10, er.x, er.z), this.poof())
+  }, vi.prototype.explode = function () {
     if (!this.actor) {
-      var e = Hi.getBuffer();
-      e.packInt8(Mt), e.packInt8(Le), e.packInt8(0), e.packFloat(this.x), e.packFloat(this.y), e.packFloat(this.z), e.packInt8(this.damage), e.packFloat(this.radius), sendToAll(e), checkExplosionCollisions(this)
+      var e = Ui.getBuffer();
+      e.packInt8(St), e.packInt8(De), e.packInt8(0), e.packFloat(this.x), e.packFloat(this.y), e.packFloat(this.z), e.packInt8(this.damage), e.packFloat(this.radius), sendToAll(e), checkExplosionCollisions(this)
     }
     this.remove()
-  }, xi.prototype.poof = function () {
+  }, vi.prototype.poof = function () {
     if (this.actor) {
-      xi.position.set(this.x, this.y, this.z), ji.play("rpegg_rocket_poof", xi.position);
+      vi.position.set(this.x, this.y, this.z), Gi.play("rpegg_rocket_poof", vi.position);
       for (var e = 0; e < 10; e++) {
         var t = .2 * Math.random() - .1,
           i = .2 * Math.random() - .1,
           r = .2 * Math.random() - .1;
-        sn(Yi, 10, this.x, this.y, this.z, t, i, r, .4, !1, 0)
+        nn(Hi, 10, this.x, this.y, this.z, t, i, r, .4, !1, 0)
       }
     }
     this.remove()
-  }, Ti.prototype.capture = function (e) {
-    this.actor && Cr.id == e.id && (document.getElementById("spatulaPlayer").className = "capture");
+  }, yi.prototype.capture = function (e) {
+    this.actor && Sr.id == e.id && (document.getElementById("spatulaPlayer").className = "capture");
     if (e.team != this.lastControlTeam && (teamScore[e.team] = 0), this.controlledBy = e.id, this.controlledByTeam = e.team, this.lastControlTeam = e.team, this.actor) {
-      Ui.play("capture_spatula"), document.getElementById("teamScoreNum" + e.team).innerText = teamScore[e.team]
+      Ni.play("capture_spatula"), document.getElementById("teamScoreNum" + e.team).innerText = teamScore[e.team]
     } else {
       for (var t = 0; t < playerLimit; t++) {
-        var i = Ir[t];
+        var i = Cr[t];
         i && i.team == e.team && (i.canTakeSpatulaBonus = !0)
       }
       sendSpatulaState()
     }
-  }, Ti.prototype.drop = function () {
-    this.actor && Cr.id == this.controlledBy && (document.getElementById("spatulaPlayer").className = "drop");
-    var e = Ir[this.controlledBy];
+  }, yi.prototype.drop = function () {
+    this.actor && Sr.id == this.controlledBy && (document.getElementById("spatulaPlayer").className = "drop");
+    var e = Cr[this.controlledBy];
     if (this.controlledBy = 255, this.controlledByTeam = 255, this.x = e.x, this.y = e.y, this.z = e.z, this.dy = e.dy + .05, this.actor) this.actor.drop();
     else {
       for (var t = 0; t < playerLimit; t++) {
-        (e = Ir[t]) && (e.canTakeSpatulaBonus = !1)
+        (e = Cr[t]) && (e.canTakeSpatulaBonus = !1)
       }
       sendSpatulaState()
     }
-  }, Ti.prototype.update = function () {
+  }, yi.prototype.update = function () {
     if (255 == this.controlledBy) {
       var e = this.dy;
       this.dy -= .012;
@@ -50875,38 +51131,38 @@ var extern = function () {
         i = this.y;
       if (this.y += t, this.collidesWithMap() && (this.y = i, this.dy *= -.5), !this.actor)
         for (var r = 0; r < playerLimit; r++) {
-          if ((n = Ir[r]) && n.playing && Math.abs(this.x - n.x) < .35 && Math.abs(this.y - n.y) < .35 && Math.abs(this.z - n.z) < .35) {
+          if ((n = Cr[r]) && n.playing && Math.abs(this.x - n.x) < .35 && Math.abs(this.y - n.y) < .35 && Math.abs(this.z - n.z) < .35) {
             this.capture(n);
             break
           }
         }
     } else {
       var n;
-      (n = Ir[this.controlledBy]) && (this.x = n.x - .3 * Math.sin(n.yaw), this.y = n.y, this.z = n.z - .3 * Math.cos(n.yaw))
+      (n = Cr[this.controlledBy]) && (this.x = n.x - .3 * Math.sin(n.yaw), this.y = n.y, this.z = n.z - .3 * Math.cos(n.yaw))
     }
-  }, Ti.v1 = new BABYLON.Vector3, Ti.prototype.collidesWithMap = function () {
-    return Ti.v1.set(this.x, this.y, this.z), Ve.meshCollidesWithMap(Ve.playerCollisionMesh, Ti.v1)
+  }, yi.v1 = new BABYLON.Vector3, yi.prototype.collidesWithMap = function () {
+    return yi.v1.set(this.x, this.y, this.z), Ne.meshCollidesWithMap(Ne.playerCollisionMesh, yi.v1)
   };
 
-  function Pi() {
+  function xi() {
     ! function (e, t) {
-      Ni({
+      Li({
         cmd: "buyProduct",
         token: G,
         firebaseId: W.firebaseId,
         sku: "chicken_nugget_pass"
       }, e, t)
     }((function (e) {
-      console.log("Purchased chicken nugget"), z = !1, vueApp.showNuggetPopup(), $a(.5), console.log("buyChickenNuggetProduct success")
+      console.log("Purchased chicken nugget"), z = !1, vueApp.showNuggetPopup(), Ja(.5), console.log("buyChickenNuggetProduct success")
     }), (function (e) {
       vueApp.showGenericPopup("uh_oh", "purchase_disabled", "ok"), console.log("buyChickenNuggetProduct fail: ", e)
     })), G = null
   }
 
-  function Si() {
+  function Ti() {
     W.isUpgraded();
     ! function (e, t) {
-      Ni({
+      Li({
         cmd: "checkUpgrade",
         firebase_id: W.firebaseId,
         session: W.session
@@ -50917,77 +51173,82 @@ var extern = function () {
       console.log("Error checking account upgrade status")
     }))
   }
-  class Ai {
+  class Ei {
     static init() {
-      Ai.inputs = [0, 0, 0, 0, 0]
+      Ei.inputs = [0, 0, 0, 0, 0]
     }
     static add(e) {
-      Ai.inputs[e] = Date.now()
+      Ei.inputs[e] = Date.now()
     }
     static update() {
-      for (var e = 0; e < Ai.inputs.length; e++) {
-        var t = Ai.inputs[e];
+      for (var e = 0; e < Ei.inputs.length; e++) {
+        var t = Ei.inputs[e];
         if (Date.now() - t < 100) switch (e) {
-          case Ai.jump:
+          case Ei.jump:
             break;
-          case Ai.fire:
-            Cr.pullTrigger() && Ai.remove(e);
+          case Ei.fire:
+            Sr.pullTrigger() && Ei.remove(e);
             break;
-          case Ai.swap:
-            Cr.swapWeapon(0 == Cr.weaponIdx ? 1 : 0) && Ai.remove(e);
+          case Ei.swap:
+            Sr.swapWeapon(0 == Sr.weaponIdx ? 1 : 0) && Ei.remove(e);
             break;
-          case Ai.reload:
-            Cr.reload() && Ai.remove(e)
+          case Ei.reload:
+            Sr.reload() && Ei.remove(e)
         }
-      }!Cr.triggerPulled || gr & ci.fire || Cr.releaseTrigger()
+      }!Sr.triggerPulled || fr & ai.fire || Sr.releaseTrigger()
     }
     static remove(e) {
-      Ai.inputs[e] = 0
+      Ei.inputs[e] = 0
     }
   }
-  Ai.jump = 0, Ai.fire = 1, Ai.swap = 2, Ai.reload = 3, parsedUrl.query.adTest && (ce = !0);
+  Ei.jump = 0, Ei.fire = 1, Ei.swap = 2, Ei.reload = 3, parsedUrl.query.adTest && (ce = !0);
   fe && console.log("adTagDebug debug is on");
-  const Mi = (e, t, i) => {
+  const Pi = (e, t, i) => {
     console.log("%c%s", `color: white; background: #${e}; padding: 2px 6px; border-radius: 3px; margin-right: 5px;`, t, i)
   };
-  const Ci = () => {
-      Mi("3C1E6E", "CG video ad", "started."), k && vueApp.hideGameMenu(), vueApp.setDarkOverlay(!0, vueApp.ui.overlayClass.inGame), !0, cs(0)
+  const Si = () => {
+      Pi("3C1E6E", "CG video ad", "started."), k && vueApp.hideGameMenu(), vueApp.setDarkOverlay(!0, vueApp.ui.overlayClass.inGame), !0, ls(0)
     },
-    Ri = () => {
-      Mi("3C1E6E", "CG video ad", "ended."), Bi(), k && (vueApp.disableRespawnButton(!1), vueApp.showGameMenu()), vueApp.gameUiRemoveClassForNoScroll(), wi = !0, !1, Mi("3C1E6E", "CG video ad", "remove eventListeners"), crazysdk.removeEventListener("adStarted", Ci), crazysdk.removeEventListener("adError", Ri), crazysdk.removeEventListener("adFinished", Oi)
+    Ai = () => {
+      Pi("3C1E6E", "CG video ad", "ended."), Di(), k && (vueApp.disableRespawnButton(!1), vueApp.showGameMenu()), vueApp.gameUiRemoveClassForNoScroll(), Oi = !0, !1, Pi("3C1E6E", "CG video ad", "remove eventListeners"), crazysdk.removeEventListener("adStarted", Si), crazysdk.removeEventListener("adError", Ai), crazysdk.removeEventListener("adFinished", Mi), thirdPartyAdblocker && vueApp.hideAdBlockerVideo()
     },
-    Oi = () => {
-      Mi("3C1E6E", "CG video ad", "error."), Ri()
+    Mi = () => {
+      Pi("3C1E6E", "CG video ad", "error."), Ai()
     },
-    Ii = e => {
-      Mi("3C1E6E", "CG video ad", "requested."), Mi("3C1E6E", "CG video ad", "add eventListeners"), crazysdk.addEventListener("adStarted", Ci), crazysdk.addEventListener("adError", Ri), crazysdk.addEventListener("adFinished", Oi), crazysdk.requestAd()
+    Ci = () => {
+      Pi("3C1E6E", "CG video ad", "add eventListeners"), crazysdk.addEventListener("adStarted", Si), crazysdk.addEventListener("adError", Ai), crazysdk.addEventListener("adFinished", Mi), crazysdk.requestAd()
     };
-  const Di = e => {
-    vueApp.gameUiRemoveClassForNoScroll(), Bi(), Mi("F79520", "Shell Shockers AIP", "AIP video error. Ad Blocker?"), e && Mi("F79520", "Shell Shockers AIP", e)
+  const Ri = e => {
+    Pi("F79520", "Shell Shockers AIP", "AIP video error. Ad Blocker?"), e && Pi("F79520", "Shell Shockers AIP", e), vueApp.showAdBlockerVideo(), setTimeout(() => {
+      vueApp.hideAdBlockerVideo(), vueApp.gameUiRemoveClassForNoScroll(), Di()
+    }, 5e3)
   };
-  var wi = "";
+  var Oi = "";
 
-  function Li() {
-    Mi("F79520", "Shell Shockers AIP", "AdInPlay preroll"), void 0 !== v ? aiptag.cmd.player.push((function () {
+  function Ii() {
+    Pi("F79520", "Shell Shockers AIP", "AdInPlay preroll"), void 0 !== v ? aiptag.cmd.player.push((function () {
       try {
-        vueApp.gameUiAddClassForNoScroll(), wi = !0, k && (vueApp.hideGameMenu(), vueApp.setDarkOverlay(!0, vueApp.ui.overlayClass.inGame)), v.startPreRoll()
+        vueApp.gameUiAddClassForNoScroll(), Oi = !0, k && (vueApp.hideGameMenu(), vueApp.setDarkOverlay(!0, vueApp.ui.overlayClass.inGame)), v.startPreRoll()
       } catch (e) {
-        Di(e)
+        Ri(e)
       }
-    })) : Di("aipPrerollPlayer undefined")
+    })) : Ri("aipPrerollPlayer undefined")
   }
 
-  function Bi() {
-    k ? (vueApp.setDarkOverlay(!1), vueApp.disableRespawnButton(!1)) : (Mi("F79520", "Shell Shockers AIP", "is getting nugget: " + z), z ? wi ? Pi() : (z = !1, vueApp.showGenericPopup("ad_blocker_nugget_title", "ad_blocker_nugget_content", "ok")) : (vueApp.setDarkOverlay(!1), M())), wi = "", cs()
+  function Di() {
+    k ? (vueApp.setDarkOverlay(!1), vueApp.disableRespawnButton(!1)) : (Pi("F79520", "Shell Shockers AIP", "is getting nugget: " + z), z ? Oi ? xi() : (z = !1, vueApp.showGenericPopup("ad_blocker_nugget_title", "ad_blocker_nugget_content", "ok")) : (vueApp.setDarkOverlay(!1), M())), Oi = "", ls()
   }
-  const Fi = e => (ce && Mi("F79520", "Shell Shockers AIP", "AD test active"), testCrazy && Mi("F79520", "Shell Shockers AIP", "Crazy Games test ads"), Mi("F79520", "Shell Shockers AIP", "Play video ads"), localStore.setItem("lastPreRoll", Date.now()), !0 === W.hideAds || blockingAds ? (Bi(), void Mi("F79520", "Shell Shockers AIP", "account blocks playVideoAds")) : crazyGamesActive || testCrazy ? (Mi("F79520", "Shell Shockers AIP", "Crazy Game video ad request."), void Ii()) : _e ? z ? (Ka(Bi), void ga("send", "event", "Poki", "Ads", "Nugget Video")) : (!1, Xa(e, Bi), void ga("send", "event", "Poki", "Ads", "Play or respawn video")) : void
+  const wi = e => (ce && Pi("F79520", "Shell Shockers AIP", "AD test active"), testCrazy && Pi("F79520", "Shell Shockers AIP", "Crazy Games test ads"), Pi("F79520", "Shell Shockers AIP", "Play video ads"), localStore.setItem("lastPreRoll", Date.now()), crazyGamesActive || testCrazy ? (Pi("F79520", "Shell Shockers AIP", "Crazy Game video ad request."), void(e => {
+      if (Pi("3C1E6E", "CG video ad", "requested."), thirdPartyAdblocker) return vueApp.showAdBlockerVideo(), void setTimeout(() => Ci(), 5e3);
+      Ci()
+    })()) : pokiActive ? z ? (Xa(Di), void ga("send", "event", "Poki", "Ads", "Nugget Video")) : (!1, Ya(e, Di), void ga("send", "event", "Poki", "Ads", "Play or respawn video")) : void
     function (e) {
       R = function () {
-        !1, e ? e() : Bi(), k && vueApp.disableRespawnButton(!1), cs(), vueApp.gameUiRemoveClassForNoScroll()
-      }, vueApp.setDarkOverlay(!0, vueApp.ui.overlayClass.inGame), cs(0), !0, Li()
+        !1, e ? e() : Di(), k && vueApp.disableRespawnButton(!1), ls(), vueApp.gameUiRemoveClassForNoScroll()
+      }, vueApp.setDarkOverlay(!0, vueApp.ui.overlayClass.inGame), ls(0), !0, Ii()
     }(e));
 
-  function Ni(e, t, i, r) {
+  function Li(e, t, i, r) {
     console.log("'{0}' api command".format(e.cmd));
     try {
       console.log("services server: " + servicesServer);
@@ -51013,8 +51274,8 @@ var extern = function () {
     }
   }
 
-  function ki() {
-    Ni({
+  function Bi() {
+    Li({
       cmd: "checkBalance",
       firebaseId: W.firebaseId
     }, (function (e) {
@@ -51024,14 +51285,14 @@ var extern = function () {
     }))
   }
 
-  function Vi(e, t, i, r) {
-    Ni({
+  function Fi(e, t, i, r) {
+    Li({
       cmd: "reward",
       firebaseId: W.firebaseId,
       rewardTag: e.tag
     }, t, i)
   }
-  class Ui {
+  class Ni {
     static init() {
       console.log("BAWK! initializing...");
       var e = new AudioContext;
@@ -51052,7 +51313,7 @@ var extern = function () {
       this.formats = e
     }
     static detectFormats() {
-      var e = Ui.formats || {
+      var e = Ni.formats || {
           webm: "audio/webm",
           ogg: "audio/ogg",
           mp3: "audio/mpeg"
@@ -51062,38 +51323,38 @@ var extern = function () {
       for (var r of i) {
         var n = t.canPlayType(e[r]);
         if (console.log("BAWK! testing " + r, n), n) {
-          Ui.format = r, console.log("BAWK! selected " + r);
+          Ni.format = r, console.log("BAWK! selected " + r);
           break
         }
       }
     }
     static suspend() {
-      Ui.audioCtx && Ui.audioCtx.suspend()
+      Ni.audioCtx && Ni.audioCtx.suspend()
     }
     static resume() {
-      Ui.audioCtx && Ui.audioCtx.resume()
+      Ni.audioCtx && Ni.audioCtx.resume()
     }
     static async load(e, t) {
-      Ui.audioCtx || Ui.init();
+      Ni.audioCtx || Ni.init();
       var i = e.match(/[^/\\&\?]+\..{1,4}(?=([\?\#&].*$|$))/)[0],
         r = i.match(/[^\.]*$/).join(""),
         n = i.replace("." + r, "");
-      "json" == r ? await Ui.loadSprite(e) : await Ui.loadSound(e, t || n)
+      "json" == r ? await Ni.loadSprite(e) : await Ni.loadSound(e, t || n)
     }
     static async loadSound(e, t) {
-      e = e.replace("*", Ui.format);
-      var i = await Ui.getAudioBuffer(e);
-      i && (Ui.sounds[t] && console.warn('BAWK! duplicate sound name, "' + t + '" will be over-written'), Ui.sounds[t] = {
+      e = e.replace("*", Ni.format);
+      var i = await Ni.getAudioBuffer(e);
+      i && (Ni.sounds[t] && console.warn('BAWK! duplicate sound name, "' + t + '" will be over-written'), Ni.sounds[t] = {
         buffer: i
       })
     }
     static async loadSprite(e) {
       var t = await fetch(e),
         i = await t.json(),
-        r = await Ui.loadSpriteBuffer(e, i);
+        r = await Ni.loadSpriteBuffer(e, i);
       Object.keys(i.spritemap).forEach(e => {
         var t = i.spritemap[e];
-        Ui.sounds[e] = {
+        Ni.sounds[e] = {
           buffer: r,
           start: t.start,
           end: t.end
@@ -51102,29 +51363,29 @@ var extern = function () {
     }
     static async loadSpriteBuffer(e, t) {
       for (var i of t.resources)
-        if (i.endsWith(Ui.format)) break;
+        if (i.endsWith(Ni.format)) break;
       var r = e.match(/.+\//) + i;
-      return console.log("BAWK! loading " + r), await Ui.getAudioBuffer(r + "?" + version)
+      return console.log("BAWK! loading " + r), await Ni.getAudioBuffer(r + "?" + version)
     }
     static async getAudioBuffer(e) {
       var t = await fetch(e);
       if (t.ok) {
         var i = await t.arrayBuffer();
         return await new Promise((e, t) => {
-          Ui.audioCtx.decodeAudioData(i, e, t)
+          Ni.audioCtx.decodeAudioData(i, e, t)
         })
       }
     }
     static setVolume(e) {
-      Ui.volume = e, Ui.gainNode && (Ui.gainNode.gain.value = e)
+      Ni.volume = e, Ni.gainNode && (Ni.gainNode.gain.value = e)
     }
     static getVolume() {
-      return Ui.volume
+      return Ni.volume
     }
     static play(e, t) {
-      var i = Ui.audioCtx;
-      t = t || Ui.inputNode, "suspended" === i.state && Ui.resume();
-      var r = Ui.sounds[e];
+      var i = Ni.audioCtx;
+      t = t || Ni.inputNode, "suspended" === i.state && Ni.resume();
+      var r = Ni.sounds[e];
       if (r) {
         if (r.end) var n = r.start,
           o = r.end - n;
@@ -51134,42 +51395,42 @@ var extern = function () {
       console.error("BAWK! " + e + " not found. Did you wait for it to load?")
     }
     static attach(e, t) {
-      Ui.position = e, Ui.orientation = t
+      Ni.position = e, Ni.orientation = t
     }
     static detach() {
-      Ui.position = {
-        x: Ui.position.x,
-        y: Ui.position.y,
-        z: Ui.position.z
-      }, Ui.orientation = {
-        x: Ui.orientation.x,
-        y: Ui.orientation.y,
-        z: Ui.orientation.z
+      Ni.position = {
+        x: Ni.position.x,
+        y: Ni.position.y,
+        z: Ni.position.z
+      }, Ni.orientation = {
+        x: Ni.orientation.x,
+        y: Ni.orientation.y,
+        z: Ni.orientation.z
       }
     }
     static setPosition(e) {
-      var t = Ui.audioCtx.listener;
+      var t = Ni.audioCtx.listener;
       t.positionX ? (t.positionX.value = e.x, t.positionY.value = e.y, t.positionZ.value = e.z) : t.setPosition(e.x, e.y, e.z)
     }
     static setOrientation(e) {
-      var t = Ui.audioCtx.listener;
+      var t = Ni.audioCtx.listener;
       t.forwardX ? (t.forwardX.value = e.x, t.forwardY.value = e.y, t.forwardZ.value = e.z) : t.setOrientation(e.x, e.y, e.z, 0, 1, 0)
     }
     static addChild(e) {
-      Ui.children.push(e)
+      Ni.children.push(e)
     }
     static removeChild(e) {
-      Ui.children.splice(Ui.children.indexOf(e), 1)
+      Ni.children.splice(Ni.children.indexOf(e), 1)
     }
     static update() {
-      for (var e of (Ui.position && Ui.setPosition(Ui.position), Ui.orientation && Ui.setOrientation(Ui.orientation), Ui.children)) e.update()
+      for (var e of (Ni.position && Ni.setPosition(Ni.position), Ni.orientation && Ni.setOrientation(Ni.orientation), Ni.children)) e.update()
     }
   }
-  class zi {
+  class ki {
     constructor(e, t) {
-      Ui.addChild(this), e = e || {}, this.numChannels = e.numChannels || 16, this.numPlaying = 0, this.channels = [], this.nextChannelIdx = 0, this.gainNode = Ui.audioCtx.createGain(), this.gainNode.connect(Ui.inputNode);
+      Ni.addChild(this), e = e || {}, this.numChannels = e.numChannels || 16, this.numPlaying = 0, this.channels = [], this.nextChannelIdx = 0, this.gainNode = Ni.audioCtx.createGain(), this.gainNode.connect(Ni.inputNode);
       for (var i = 0; i < this.numChannels; i++) {
-        var r = Ui.audioCtx.createPanner(t);
+        var r = Ni.audioCtx.createPanner(t);
         r.connect(this.gainNode), this.channels.push({
           parent: this,
           source: null,
@@ -51184,7 +51445,7 @@ var extern = function () {
       }
     }
     dispose() {
-      this.gainNode.disconnect(), Ui.removeChild(this)
+      this.gainNode.disconnect(), Ni.removeChild(this)
     }
     setVolume(e) {
       this.gainNode.gain.value = e
@@ -51193,24 +51454,24 @@ var extern = function () {
       return this.gainNode.gain.value
     }
     play(e, t, i) {
-      if (Ui.sounds[e]) {
+      if (Ni.sounds[e]) {
         var r = this.findFreeChannel(t);
         r.source && r.source.stop();
         var n = r.node;
-        r.position = t, r.follow = i, zi.setNodePosition(n, t), r.source = Ui.play(e, n), r.source.channel = r, r.source.onended = zi.onEnded, this.numPlaying++
+        r.position = t, r.follow = i, ki.setNodePosition(n, t), r.source = Ni.play(e, n), r.source.channel = r, r.source.onended = ki.onEnded, this.numPlaying++
       } else console.error("BAWK! " + e + " not found. Did you wait for it to load?")
     }
     update() {
-      for (var e of this.channels) e.source && e.follow && zi.setNodePosition(e.node, e.position)
+      for (var e of this.channels) e.source && e.follow && ki.setNodePosition(e.node, e.position)
     }
     static setNodePosition(e, t) {
-      var i = Ui.position.y + 4 * (t.y - Ui.position.y);
+      var i = Ni.position.y + 4 * (t.y - Ni.position.y);
       e.positionX ? (e.positionX.value = t.x, e.positionY.value = i, e.positionZ.value = t.z) : e.setPosition(t.x, i, t.z)
     }
     findFreeChannel(e) {
       var t = this.channels,
         i = this.numChannels,
-        r = Ui.position;
+        r = Ni.position;
       if (this.numPlaying < i)
         for (var n of t)
           if (!n.source) return n;
@@ -51226,20 +51487,20 @@ var extern = function () {
     }
   }
 
-  function Gi(e) {
+  function Vi(e) {
     this.scene = e.scene, this.bullet = e, this.delayFrames = 0, this.mesh = this.scene.getMeshByName("bullet").createInstance(""), this.mesh.setEnabled(!1)
   }
-  window.BAWK = Ui, Gi.prototype.fire = function (e) {
+  window.BAWK = Ni, Vi.prototype.fire = function (e) {
     this.delayFrames = 3, e ? (this.mesh.scaling.x = 2, this.mesh.scaling.y = 2) : (this.mesh.scaling.x = 1, this.mesh.scaling.y = 1), this.mesh.position.x = this.bullet.x, this.mesh.position.y = this.bullet.y, this.mesh.position.z = this.bullet.z, this.mesh.lookAt(new BABYLON.Vector3(this.bullet.x + this.bullet.dx, this.bullet.y + this.bullet.dy, this.bullet.z + this.bullet.dz)), this.mesh.scaling.z = .5
-  }, Gi.prototype.update = function (e) {
+  }, Vi.prototype.update = function (e) {
     this.delayFrames > 0 ? this.delayFrames-- : this.mesh.setEnabled(!0), this.mesh.position.x += .5 * (this.bullet.x - this.mesh.position.x), this.mesh.position.y += .5 * (this.bullet.y - this.mesh.position.y), this.mesh.position.z += .5 * (this.bullet.z - this.mesh.position.z), this.bullet.player.id != l && (this.mesh.scaling.z = Math.min(this.mesh.scaling.z + .03, 3))
-  }, Gi.prototype.remove = function () {
+  }, Vi.prototype.remove = function () {
     this.mesh.setEnabled(!1)
   };
-  var Hi = {
+  var Ui = {
     buffer: null,
-    bufferPool: new pi((function () {
-      return new Wi(2048)
+    bufferPool: new hi((function () {
+      return new zi(16384)
     }), 2),
     getBuffer: function () {
       var e = this.bufferPool.retrieve();
@@ -51247,34 +51508,36 @@ var extern = function () {
     }
   };
 
-  function Wi(e) {
+  function zi(e) {
     this.idx = 0, this.arrayBuffer = new ArrayBuffer(e), this.buffer = new Uint8Array(this.arrayBuffer, 0, e)
   }
-  Wi.prototype.send = function (e) {
+  zi.prototype.send = function (e) {
     var t = new Uint8Array(this.arrayBuffer, 0, this.idx);
-    e.send(t), Hi.bufferPool.recycle(this)
-  }, Wi.prototype.packInt8 = function (e) {
+    e.send(t), Ui.bufferPool.recycle(this)
+  }, zi.prototype.packInt8 = function (e) {
     this.buffer[this.idx] = 255 & e, this.idx++
-  }, Wi.prototype.packInt16 = function (e) {
+  }, zi.prototype.packInt16 = function (e) {
     this.buffer[this.idx] = 255 & e, this.buffer[this.idx + 1] = e >> 8 & 255, this.idx += 2
-  }, Wi.prototype.packInt32 = function (e) {
+  }, zi.prototype.packInt24 = function (e) {
+    this.buffer[this.idx] = 255 & e, this.buffer[this.idx + 1] = e >> 8 & 255, this.buffer[this.idx + 2] = e >> 16 & 255, this.idx += 3
+  }, zi.prototype.packInt32 = function (e) {
     this.buffer[this.idx] = 255 & e, this.buffer[this.idx + 1] = e >> 8 & 255, this.buffer[this.idx + 2] = e >> 16 & 255, this.buffer[this.idx + 3] = e >> 24 & 255, this.idx += 4
-  }, Wi.prototype.packRadU = function (e) {
-    this.packInt16(1e4 * e)
-  }, Wi.prototype.packRad = function (e) {
-    this.packInt16(1e4 * (e + Math.PI))
-  }, Wi.prototype.packFloat = function (e) {
-    this.packInt16(300 * e)
-  }, Wi.prototype.packDouble = function (e) {
-    this.packInt32(1e6 * e)
-  }, Wi.prototype.packString = function (e) {
-    this.packInt8(e.length);
+  }, zi.prototype.packRadU = function (e) {
+    this.packInt24(2097152 * e)
+  }, zi.prototype.packRad = function (e) {
+    this.packInt16(8192 * (e + Math.PI))
+  }, zi.prototype.packFloat = function (e) {
+    this.packInt16(256 * e)
+  }, zi.prototype.packDouble = function (e) {
+    this.packInt32(1048576 * e)
+  }, zi.prototype.packString = function (e) {
+    "string" != typeof e && (e = ""), this.packInt8(e.length);
     for (var t = 0; t < e.length; t++) this.packInt16(e.charCodeAt(t))
-  }, Wi.prototype.packLongString = function (e) {
-    this.packInt16(e.length);
+  }, zi.prototype.packLongString = function (e) {
+    "string" != typeof e && (e = ""), this.packInt16(e.length);
     for (var t = 0; t < e.length; t++) this.packInt16(e.charCodeAt(t))
   };
-  var ji, Yi, Xi, Ki, Qi, Zi, qi, Ji, $i, er, tr, ir = {
+  var Gi, Hi, Wi, ji, Yi, Xi, Ki, Qi, Zi, qi, Ji, $i = {
       buffer: null,
       idx: 0,
       init: function (e) {
@@ -51294,9 +51557,13 @@ var extern = function () {
         var e = this.idx;
         return this.idx += 2, this.buffer[e] + (this.buffer[e + 1] << 8)
       },
+      unPackInt24U: function () {
+        var e = this.idx;
+        return this.idx += 3, this.buffer[e] + (this.buffer[e + 1] << 8) + (this.buffer[e + 2] << 16)
+      },
       unPackInt32U: function () {
         var e = this.idx;
-        return this.idx += 4, this.buffer[e] + 256 * this.buffer[e + 1] + 65536 * this.buffer[e + 2] + 16777216 * this.buffer[e + 3]
+        return this.idx += 4, this.buffer[e] + (this.buffer[e + 1] << 8) + (this.buffer[e + 2] << 16) + (this.buffer[e + 3] << 24)
       },
       unPackInt16: function () {
         return (this.unPackInt16U() + 32768) % 65536 - 32768
@@ -51305,16 +51572,16 @@ var extern = function () {
         return (this.unPackInt32U() + 2147483648) % 4294967296 - 2147483648
       },
       unPackRadU: function () {
-        return this.unPackInt16U() / 1e4
+        return this.unPackInt24U() / 2097152
       },
       unPackRad: function () {
-        return this.unPackRadU() - Math.PI
+        return this.unPackInt16U() / 8192 - Math.PI
       },
       unPackFloat: function () {
-        return this.unPackInt16() / 300
+        return this.unPackInt16() / 256
       },
       unPackDouble: function () {
-        return this.unPackInt32() / 1e6
+        return this.unPackInt32() / 1048576
       },
       unPackString: function (e) {
         e = e || 255;
@@ -51327,17 +51594,16 @@ var extern = function () {
         return this.unPackStringHelper(t)
       },
       unPackStringHelper: function (e) {
-        if (!(this.isMoreDataAvailable() < e)) {
-          for (var t = new String, i = 0; i < e; i++) {
-            var r = this.unPackInt16U();
-            r > 0 && (t += String.fromCharCode(r))
-          }
-          return t
+        if (this.isMoreDataAvailable() < e) return 0;
+        for (var t = new String, i = 0; i < e; i++) {
+          var r = this.unPackInt16U();
+          r > 0 && (t += String.fromCodePoint(r))
         }
+        return t
       }
     },
-    rr = new BABYLON.Vector3,
-    nr = new BABYLON.Vector3;
+    er = new BABYLON.Vector3,
+    tr = new BABYLON.Vector3;
   BABYLON.chrome84BugWorkaround = !1, BABYLON.Skeleton.prototype.disableBlending = function () {
     this.bones.forEach((function (e) {
       e.animations.forEach((function (e) {
@@ -51364,10 +51630,10 @@ var extern = function () {
     this.material = e;
     for (var t = this.getChildMeshes(), i = 0; i < t.length; i++) t[i].setMaterial(e)
   };
-  var or, ar, sr, lr, cr, hr, ur, dr, pr, fr, mr, _r, gr, vr, yr, br, xr, Tr, Er, Pr, Sr, Ar, Mr, Cr, Rr, Or, Ir, Dr, wr, Lr, Br, Fr, Nr, kr, Vr, Ur, zr, Gr = 0,
-    Hr = !1,
-    Wr = new BABYLON.Vector3;
-  Se = {
+  var ir, rr, nr, or, ar, sr, lr, cr, hr, ur, dr, pr, fr, mr, _r, gr, vr, yr, br, xr, Tr, Er, Pr, Sr, Ar, Mr, Cr, Rr, Or, Ir, Dr, wr, Lr, Br, Fr, Nr, kr, Vr = 0,
+    Ur = !1,
+    zr = new BABYLON.Vector3;
+  Ee = {
     text: ["rgba(255, 255, 255, 1)", "rgba(64, 224, 255, 1)", "rgba(255, 192, 160, 1)"],
     meBackground: ["rgba(255, 192, 64, 0.75)", "rgba(0, 192, 255, 0.8)", "rgba(192, 64, 32, 0.8)"],
     themBackground: ["rgba(0, 0, 0, 0.25)", "rgba(0, 64, 192, 0.3)", "rgba(192, 64, 32, 0.3)"],
@@ -51377,22 +51643,22 @@ var extern = function () {
     themClass: ["playerSlot-them", "playerSlot-them-blue", "playerSlot-them-red"]
   };
 
-  function jr(e, t) {
-    console.log("loadResources()"), _i(e),
+  function Gr(e, t) {
+    console.log("loadResources()"), pi(e),
       function (e) {
-        Ui.load("sound/sounds.json?" + version).then(() => e())
+        Ni.load("sound/sounds.json?" + version).then(() => e())
       }((function () {
         console.log("sounds loaded"),
           function (e, t) {
-            gi(e, ["egg", "gun_eggk47", "gun_csg1", "gun_cluck9mm", "gun_dozenGauge", "gun_rpegg", "gun_smg", "gun_m24", "gun_aug", "munitions", "muzzleFlash", "items", "reticle"], null, t)
+            fi(e, ["egg", "gun_eggk47", "gun_csg1", "gun_cluck9mm", "gun_dozenGauge", "gun_rpegg", "gun_smg", "gun_m24", "gun_aug", "munitions", "muzzleFlash", "items", "reticle"], null, t)
           }(e, (function () {
             console.log("object meshes loaded"),
               function (e, t) {
-                li = [null];
+                oi = [null];
                 var i = BABYLON.MeshBuilder.CreateBox("SPECIAL.barrier.full.verysoft", {
                   size: 1
                 }, e);
-                (l = new BABYLON.StandardMaterial).diffuseColor = BABYLON.Color3.Red(), l.emissiveColor = BABYLON.Color3.Red(), l.specularColor = BABYLON.Color3.Black(), l.wireframe = !0, i.material = l, i.setEnabled(!1), li.push(i);
+                (l = new BABYLON.StandardMaterial).diffuseColor = BABYLON.Color3.Red(), l.emissiveColor = BABYLON.Color3.Red(), l.specularColor = BABYLON.Color3.Black(), l.wireframe = !0, i.material = l, i.setEnabled(!1), oi.push(i);
                 for (var r = [], n = 0; n <= 1; n += .125) {
                   var o = -Math.PI / 2 + Math.PI * n,
                     a = Math.cos(o),
@@ -51403,21 +51669,21 @@ var extern = function () {
                   shape: r,
                   tessellation: 12
                 }, e);
-                (l = new BABYLON.StandardMaterial).diffuseColor = new BABYLON.Color3(0, .5, 1), l.specularColor = new BABYLON.Color3(.1, .2, .4), l.specularPower = 8, c.material = l, c.setEnabled(!1), li.push(c), c = BABYLON.MeshBuilder.CreateLathe("SPECIAL.spawn-red.none", {
+                (l = new BABYLON.StandardMaterial).diffuseColor = new BABYLON.Color3(0, .5, 1), l.specularColor = new BABYLON.Color3(.1, .2, .4), l.specularPower = 8, c.material = l, c.setEnabled(!1), oi.push(c), c = BABYLON.MeshBuilder.CreateLathe("SPECIAL.spawn-red.none", {
                   shape: r,
                   tessellation: 12
-                }, e), (l = new BABYLON.StandardMaterial).diffuseColor = new BABYLON.Color3(1, .25, .25), l.specularColor = new BABYLON.Color3(.4, .3, .3), l.specularPower = 8, c.material = l, c.setEnabled(!1), li.push(c), gi(e, ["map"], (function (e) {
-                  e.parent ? e.freezeWorldMatrix() : li.push(e)
+                }, e), (l = new BABYLON.StandardMaterial).diffuseColor = new BABYLON.Color3(1, .25, .25), l.specularColor = new BABYLON.Color3(.4, .3, .3), l.specularPower = 8, c.material = l, c.setEnabled(!1), oi.push(c), fi(e, ["map"], (function (e) {
+                  e.parent ? e.freezeWorldMatrix() : oi.push(e)
                 }), (function () {
-                  for (var e = 1; e < li.length; e++) {
-                    var i = li[e].getChildMeshes()[0];
-                    i && (li[e].colliderMesh = i)
+                  for (var e = 1; e < oi.length; e++) {
+                    var i = oi[e].getChildMeshes()[0];
+                    i && (oi[e].colliderMesh = i)
                   }
                   t()
                 }))
               }(e, (function () {
                 console.log("map meshes loaded");
-                li.push({
+                oi.push({
                   name: "SPECIAL.spatula.none"
                 }), t()
               }))
@@ -51425,21 +51691,21 @@ var extern = function () {
       }))
   }
 
-  function Yr() {
+  function Hr() {
     console.log("startGame()");
     var t = document.getElementById("onesignal-bell-container");
-    Vr = Date.now(), t && (t.style.display = "none"), Ir = [], {}, qi = -1, vueApp.game.respawnTime = 0, Cr = null, Rr = null, _r = !0, $i = !1, Nr = null, gr = 0, de = !0, lr = !1, cr = new fs, ur = performance.now(), 0, ping = 0, ae = 0, f = 0, m = 0, dr = -1, pr = 0, fr = 0, mr = 0, vr = 0, yr = 0, br = 0, n = Date.now(), Date.now() + 1e3, e.clear(BABYLON.Color3.Black()), e.stopRenderLoop(), Pr = new BABYLON.Scene(e), B.autoDetail || (Pr.shadowsEnabled = B.shadowsEnabled), Pr.autoClear = !1, Pr.autoClearDepthAndStencil = !1, Pr.clearColor = BABYLON.Color3.Black(), (Mr = new BABYLON.DirectionalLight("", new BABYLON.Vector3(0, -1, 0), Pr)).lightmapMode = BABYLON.Light.LIGHTMAP_SHADOWSONLY, Mr.intensity = 1.2, Mr.autoUpdateExtends = !1, Mr.shadowMinZ = .05, Mr.shadowMaxZ = 40, Mr.shadowFrustumSize = 15, (i = new BABYLON.ShadowGenerator(1024, Mr)).forceBackFacesOnly = !0, r = new BABYLON.TargetCamera("camera", BABYLON.Vector3.Zero(), Pr), Pr.activeCameras.push(r), r.maxZ = 100, r.fov = 1.25, r.minZ = .05, Ui.attach(r.globalPosition, Wr), (Ji = new BABYLON.FreeCamera("uiCamera", new BABYLON.Vector3(0, 0, -1), Pr)).mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA, Ji.layerMask = 536870912, Ji.autoClear = !1, Pr.activeCameras.push(Ji), Dr = new BABYLON.DynamicTexture("", 2048, Pr, !0, 2), (wr = new BABYLON.SpriteManager("", "", 18, {
+    Fr = Date.now(), t && (t.style.display = "none"), Cr = [], {}, Ki = -1, vueApp.game.respawnTime = 0, Sr = null, Ar = null, pr = !0, Zi = !1, Lr = null, fr = 0, de = !0, or = !1, ar = new ps, lr = performance.now(), 0, ping = 0, ae = 0, f = 0, m = 0, cr = -1, hr = 0, ur = 0, dr = 0, mr = 0, _r = 0, gr = 0, n = Date.now(), Date.now() + 1e3, e.clear(BABYLON.Color3.Black()), e.stopRenderLoop(), xr = new BABYLON.Scene(e), B.autoDetail || (xr.shadowsEnabled = B.shadowsEnabled), xr.autoClear = !1, xr.autoClearDepthAndStencil = !1, xr.clearColor = BABYLON.Color3.Black(), (Pr = new BABYLON.DirectionalLight("", new BABYLON.Vector3(0, -1, 0), xr)).lightmapMode = BABYLON.Light.LIGHTMAP_SHADOWSONLY, Pr.intensity = 1.2, Pr.autoUpdateExtends = !1, Pr.shadowMinZ = .05, Pr.shadowMaxZ = 40, Pr.shadowFrustumSize = 15, (i = new BABYLON.ShadowGenerator(1024, Pr)).forceBackFacesOnly = !0, r = new BABYLON.TargetCamera("camera", BABYLON.Vector3.Zero(), xr), xr.activeCameras.push(r), r.maxZ = 100, r.fov = 1.25, r.minZ = .05, Ni.attach(r.globalPosition, zr), (Qi = new BABYLON.FreeCamera("uiCamera", new BABYLON.Vector3(0, 0, -1), xr)).mode = BABYLON.Camera.ORTHOGRAPHIC_CAMERA, Qi.layerMask = 536870912, Qi.autoClear = !1, xr.activeCameras.push(Qi), Rr = new BABYLON.DynamicTexture("", 2048, xr, !0, 2), (Or = new BABYLON.SpriteManager("", "", 18, {
         width: 512,
         height: 256
-      }, Pr)).fogEnabled = !1, wr.texture = Dr, (Lr = new BABYLON.SpriteManager("", "img/particles.png?" + version, 18, 128, Pr)).fogEnabled = !0, window.onfocus = function () {
-        ur = performance.now()
+      }, xr)).fogEnabled = !1, Or.texture = Rr, (Ir = new BABYLON.SpriteManager("", "img/particles.png?" + version, 18, 128, xr)).fogEnabled = !0, window.onfocus = function () {
+        lr = performance.now()
       }, window.onblur = function () {}, document.onpointerlockchange = function () {
-        if (Cr)
+        if (Sr)
           if (document.pointerLockElement) ! function () {
-            if (console.log("resumeGame called"), Cr) {
-              vueApp.hideGameMenu(), vueApp.isPaused = !1, document.getElementById("deathBox").style.display = "none", document.getElementById("killTicker").style.display = "block", document.getElementById("playerList").style.display = "block", document.getElementById("serverAndMapInfo").style.display = "none", lr ? document.getElementById("spectate").style.display = "block" : (document.getElementById("weaponBox").style.display = "block", document.getElementById("healthContainer").style.display = "block", document.getElementById("hardBoiledContainer").style.display = "block", Nn());
+            if (console.log("resumeGame called"), Sr) {
+              vueApp.hideGameMenu(), vueApp.isPaused = !1, document.getElementById("deathBox").style.display = "none", document.getElementById("killTicker").style.display = "block", document.getElementById("playerList").style.display = "block", document.getElementById("serverAndMapInfo").style.display = "none", or ? document.getElementById("spectate").style.display = "block" : (document.getElementById("weaponBox").style.display = "block", document.getElementById("healthContainer").style.display = "block", document.getElementById("hardBoiledContainer").style.display = "block", Ln());
               const e = document.getElementById("gameAdContainer");
-              e && (e.style.display = "block"), console.log("Event listeners added"), canvas.focus(), canvas.style.pointerEvents = "all", canvas.addEventListener("mousedown", en, !1), canvas.addEventListener("mouseup", tn, !1), canvas.addEventListener("mousemove", rn), canvas.addEventListener("wheel", nn), addEventListener("gamepadbuttondown", uo), er && b.focus(), jo()
+              e && (e.style.display = "block"), console.log("Event listeners added"), canvas.focus(), canvas.style.pointerEvents = "all", canvas.addEventListener("mousedown", qr, !1), canvas.addEventListener("mouseup", Jr, !1), canvas.addEventListener("mousemove", $r), canvas.addEventListener("wheel", en), addEventListener("gamepadbuttondown", ho), qi && b.focus(), Wo()
             }
           }();
           else {
@@ -51447,14 +51713,14 @@ var extern = function () {
               window.hack.modMenu.menu.forceFocus = false;
               return;
             }
-            if (Yn = null, gr = 0, Cr.controlKeys = 0, Cr.releaseTrigger(), _r) {
-              var e = Hi.getBuffer();
-              e.packInt8(_t), e.send(ws), Cr.resetCountdowns(), Qr(5), Ko.set((function () {
-                Cr.removeFromPlay()
+            if (jn = null, fr = 0, Sr.controlKeys = 0, Sr.releaseTrigger(), pr) {
+              var e = Ui.getBuffer();
+              e.packInt8(ft), e.send(ws), Sr.resetCountdowns(), Yr(5), Xo.set((function () {
+                Sr.removeFromPlay()
               }), 3e3)
             }
-            console.log("pausing game via pointerlock exit"), Kr(), Ja()
-          } _r = !0
+            console.log("pausing game via pointerlock exit"), jr(), qa()
+          } pr = !0
       },
       function () {
         b = document.getElementById("chatIn"), x = document.getElementById("chatOut"), T = document.getElementById("killTicker");
@@ -51466,132 +51732,132 @@ var extern = function () {
           var r = t.cloneNode(!0);
           e.appendChild(r)
         }
-        x.innerHTML = "", 1 == B.enableChat && (eo(), x.style.display = "block", b.style.display = "block");
-        T.innerHTML = "", x.value = "", document.getElementById("killBox").style.display = "none", document.getElementById("deathBox").style.display = "none", document.getElementById("scopeBorder").style.display = "none", document.getElementById("spatulaPlayer").className = "drop", document.getElementById("spectate").style.display = "none", document.getElementById("teamScores").style.display = c == Ut ? "block" : "none", document.getElementById("shellStreakMessage").classList.remove("appear"), document.getElementById("shellStreakMessage").classList.add("disappear"), document.getElementById("shellStreakCaption").style.visibility = "hidden", document.getElementById("eggBreakerContainer").className = "off", ar && ar.setPowerful(!1);
+        x.innerHTML = "", 1 == B.enableChat && ($n(), x.style.display = "block", b.style.display = "block");
+        T.innerHTML = "", x.value = "", document.getElementById("killBox").style.display = "none", document.getElementById("deathBox").style.display = "none", document.getElementById("scopeBorder").style.display = "none", document.getElementById("spatulaPlayer").className = "drop", document.getElementById("spectate").style.display = "none", document.getElementById("teamScores").style.display = c == kt ? "block" : "none", document.getElementById("shellStreakMessage").classList.remove("appear"), document.getElementById("shellStreakMessage").classList.add("disappear"), document.getElementById("shellStreakCaption").style.visibility = "hidden", document.getElementById("eggBreakerContainer").className = "off", rr && rr.setPowerful(!1);
         console.log("resetGameUI")
-      }(), document.body.style.overflow = "hidden", Ai.init(), jr(Pr, () => {
+      }(), document.body.style.overflow = "hidden", Ei.init(), Gr(xr, () => {
         !async function (e, t) {
-          if (console.log("loadMap()"), Ve.init(Pr), H) Ar = JSON.parse(localStore.getItem("mapBackup"));
+          if (console.log("loadMap()"), Ne.init(xr), H) Er = JSON.parse(localStore.getItem("mapBackup"));
           else {
-            var i = ti[e].filename,
-              r = await fetch("maps/" + i + ".json?" + ti[e].hash);
-            Ar = await r.json(), console.log("MAP: " + i), document.getElementById("serverAndMapInfo").innerHTML = "Map: " + Ar.name + "<br>Server: " + F.name
+            var i = Jt[e].filename,
+              r = await fetch("maps/" + i + ".json?" + Jt[e].hash);
+            Er = await r.json(), console.log("MAP: " + i), document.getElementById("serverAndMapInfo").innerHTML = "Map: " + Er.name + "<br>Server: " + F.name
           }
-          vueApp.showSpinner("building_map", "ui_game_waitforit"), Ar.sun ? Pr.sunLight = {
-            direction: new BABYLON.Vector3(Ar.sun.direction.x, Ar.sun.direction.y, Ar.sun.direction.z),
-            diffuse: BABYLON.Color3.FromHexString(Ar.sun.color)
-          } : Pr.sunLight = {
+          vueApp.showSpinner("building_map", "ui_game_waitforit"), Er.sun ? xr.sunLight = {
+            direction: new BABYLON.Vector3(Er.sun.direction.x, Er.sun.direction.y, Er.sun.direction.z),
+            diffuse: BABYLON.Color3.FromHexString(Er.sun.color)
+          } : xr.sunLight = {
             direction: new BABYLON.Vector3(.2, 1, .1),
             diffuse: new BABYLON.Color3.White
           };
-          Ar.ambient ? Pr.ambientColor = BABYLON.Color3.FromHexString(Ar.ambient) : Pr.ambientColor = new BABYLON.Color3(.2, .2, .2);
-          Ar.fog ? (console.log("FOG:", Ar.fog), Ar.fog.density > 0 ? (Pr.fogMode = BABYLON.Scene.FOGMODE_EXP2, Pr.fogColor = BABYLON.Color3.FromHexString(Ar.fog.color), Pr.fogDensity = Ar.fog.density, Pr.fogEnabled = !0) : (Pr.fogEnabled = !1, Pr.fogDensity = 0)) : (Pr.fogMode = BABYLON.Scene.FOGMODE_EXP2, Pr.fogColor = new BABYLON.Color4(.5, .55, .6, 1), Pr.fogDensity = .01);
+          Er.ambient ? xr.ambientColor = BABYLON.Color3.FromHexString(Er.ambient) : xr.ambientColor = new BABYLON.Color3(.2, .2, .2);
+          Er.fog ? (console.log("FOG:", Er.fog), Er.fog.density > 0 ? (xr.fogMode = BABYLON.Scene.FOGMODE_EXP2, xr.fogColor = BABYLON.Color3.FromHexString(Er.fog.color), xr.fogDensity = Er.fog.density, xr.fogEnabled = !0) : (xr.fogEnabled = !1, xr.fogDensity = 0)) : (xr.fogMode = BABYLON.Scene.FOGMODE_EXP2, xr.fogColor = new BABYLON.Color4(.5, .55, .6, 1), xr.fogDensity = .01);
 
           function n() {
-            console.log("Now complete"), vueApp.hideSpinner(), vueApp.hideLoadingScreenAd(), ga("send", "timing", "load", "mapLoaded", Math.round(performance.now()) - Math.round(L), Ar.name), t()
+            console.log("Now complete"), vueApp.hideSpinner(), vueApp.hideLoadingScreenAd(), ga("send", "timing", "load", "mapLoaded", Math.round(performance.now()) - Math.round(L), Er.name), t()
           }
-          Ar.extents.x.min = 0, Ar.extents.y.min = 0, Ar.extents.z.min = 0, ys.createMapCells(Pr, Ar, (t, r) => {
-            vueApp.showSpinner("building_map", "ui_game_lights"), (Br = ys.stripTris(Sr.data, li, t, r)).position.set(.5, .5, .5), Br.receiveShadows = !0, async function () {
+          Er.extents.x.min = 0, Er.extents.y.min = 0, Er.extents.z.min = 0, vs.createMapCells(xr, Er, (t, r) => {
+            vueApp.showSpinner("building_map", "ui_game_lights"), (Dr = vs.stripTris(Tr.data, oi, t, r)).position.set(.5, .5, .5), Dr.receiveShadows = !0, async function () {
               var t;
-              if (H ? (t = localStorage.getItem("lightmap"), t = JSON.parse(t)) : t = await Dn("maps/" + i + ".lightmap?" + ti[e].hash, (e, t) => {
+              if (H ? (t = localStorage.getItem("lightmap"), t = JSON.parse(t)) : t = await Rn("maps/" + i + ".lightmap?" + Jt[e].hash, (e, t) => {
                   vueApp.showSpinnerLoadProgress(Math.ceil(e / t * 100))
                 }), t) {
-                for (var r = Br.getVerticesData(BABYLON.VertexBuffer.ColorKind), o = 0, a = 0; o < t.length; o += 3, a += 4) r[a] = t[o] / 255, r[a + 1] = t[o + 1] / 255, r[a + 2] = t[o + 2] / 255;
-                Br.updateVerticesData(BABYLON.VertexBuffer.ColorKind, r)
+                for (var r = Dr.getVerticesData(BABYLON.VertexBuffer.ColorKind), o = 0, a = 0; o < t.length; o += 3, a += 4) r[a] = t[o] / 255, r[a + 1] = t[o + 1] / 255, r[a + 2] = t[o + 2] / 255;
+                Dr.updateVerticesData(BABYLON.VertexBuffer.ColorKind, r)
               }
-              if (Br.material = Pr.getMaterialByName("map"), Br.freezeWorldMatrix(), !K) {
-                var s = Ar.skybox || "default",
+              if (Dr.material = xr.getMaterialByName("map"), Dr.freezeWorldMatrix(), !K) {
+                var s = Er.skybox || "default",
                   l = BABYLON.MeshBuilder.CreateBox("skyBox", {
                     size: 100
-                  }, Pr);
+                  }, xr);
                 l.infiniteDistance = !0;
-                var c = new BABYLON.StandardMaterial("skyBox", Pr);
-                c.backFaceCulling = !1, c.fogEnabled = !1, c.reflectionTexture = new BABYLON.CubeTexture("img/skyboxes/" + s + "/skybox", Pr), c.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE, c.diffuseColor = new BABYLON.Color3(0, 0, 0), c.specularColor = new BABYLON.Color3(0, 0, 0), l.material = c
+                var c = new BABYLON.StandardMaterial("skyBox", xr);
+                c.backFaceCulling = !1, c.fogEnabled = !1, c.reflectionTexture = new BABYLON.CubeTexture("img/skyboxes/" + s + "/skybox", xr), c.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE, c.diffuseColor = new BABYLON.Color3(0, 0, 0), c.specularColor = new BABYLON.Color3(0, 0, 0), l.material = c
               }
-              let h = Date.now() - Vr;
+              let h = Date.now() - Fr;
               h > 3e3 ? n() : setTimeout(() => n(), 3e3 - h)
             }()
           })
-        }(d, yn)
+        }(d, _n)
       })
   }
 
-  function Xr() {
-    _r = !1, document.pointerLockElement ? (console.log("pausing game and breaking pointerlock"), document.exitPointerLock()) : (console.log("pausing game via esc key"), Kr())
+  function Wr() {
+    pr = !1, document.pointerLockElement ? (console.log("pausing game and breaking pointerlock"), document.exitPointerLock()) : (console.log("pausing game via esc key"), jr())
   }
 
-  function Kr() {
+  function jr() {
     if (vueApp.ui.showScreen === vueApp.ui.screens.equip) return;
-    de = !0, vueApp.isPaused = !0, lr = !1, Xo.clear(hr), kr = !0, On(), ho(), vueApp.showGameMenu(), vueApp.showRespawnDisplayAd(), document.getElementById("grenadeThrowContainer").style.visibility = "hidden", document.getElementById("weaponBox").style.display = "none", document.getElementById("healthContainer").style.display = "none", document.getElementById("hardBoiledContainer").style.display = "none", document.getElementById("killTicker").style.display = "none", document.getElementById("spectate").style.display = "none", document.getElementById("serverAndMapInfo").style.display = "block";
+    de = !0, vueApp.isPaused = !0, or = !1, Yo.clear(sr), Br = !0, Mn(), co(), vueApp.showGameMenu(), vueApp.showRespawnDisplayAd(), document.getElementById("grenadeThrowContainer").style.visibility = "hidden", document.getElementById("weaponBox").style.display = "none", document.getElementById("healthContainer").style.display = "none", document.getElementById("hardBoiledContainer").style.display = "none", document.getElementById("killTicker").style.display = "none", document.getElementById("spectate").style.display = "none", document.getElementById("serverAndMapInfo").style.display = "block";
     const e = document.getElementById("gameAdContainer");
-    e && (e.style.display = "block"), ar.hide(), er && b.focus()
+    e && (e.style.display = "block"), rr.hide(), qi && b.focus()
   }
 
-  function Qr(e) {
-    qi = Math.max(e, qi), vueApp.game.respawnTime = qi, xr && Xo.clear(xr), xr = Xo.set((function () {
-      qi--, vueApp.game.respawnTime = Math.min(qi, 5), qi <= 0 && k && (qi = -1, Xo.clear(xr), bn())
+  function Yr(e) {
+    Ki = Math.max(e, Ki), vueApp.game.respawnTime = Ki, vr && Yo.clear(vr), vr = Yo.set((function () {
+      Ki--, vueApp.game.respawnTime = Math.min(Ki, 5), Ki <= 0 && k && (Ki = -1, Yo.clear(vr), gn())
     }), 1200)
   }
-  var Zr = {};
-  let qr = !1;
-  var Jr = !1;
+  var Xr = {};
+  let Kr = !1;
+  var Qr = !1;
 
-  function $r() {
-    if (console.log("requestRespawnBlocked " + Jr), !Jr) {
-      Jr = !0, setTimeout(() => Jr = !1, 1e3), canvas.requestPointerLock();
-      var e = Hi.getBuffer();
-      e.packInt8(ht), e.send(ws), console.log("respawn() requests respawn from server"), qa()
+  function Zr() {
+    if (console.log("requestRespawnBlocked " + Qr), !Qr) {
+      Qr = !0, setTimeout(() => Qr = !1, 1e3), canvas.requestPointerLock();
+      var e = Ui.getBuffer();
+      e.packInt8(lt), e.send(ws), console.log("respawn() requests respawn from server"), Za()
     }
   }
 
-  function en(e) {
-    Qn("keyboard", "MOUSE " + e.button), 1 == e.button && e.preventDefault()
+  function qr(e) {
+    Kn("keyboard", "MOUSE " + e.button), 1 == e.button && e.preventDefault()
   }
 
-  function tn(e) {
-    qn("keyboard", "MOUSE " + e.button)
+  function Jr(e) {
+    Zn("keyboard", "MOUSE " + e.button)
   }
 
-  function rn(e) {
-    if (document.pointerLockElement && !kr && Cr && (Cr.hp > 0 || lr)) {
+  function $r(e) {
+    if (document.pointerLockElement && !Br && Sr && (Sr.hp > 0 || or)) {
       var t = Math.pow(.001 * B.mouseSpeed, 2);
-      Cr.actor.scope && (t *= Cr.weapon.actor.scopeFov);
+      Sr.actor.scope && (t *= Sr.weapon.actor.scopeFov);
       var i = e.movementX,
         r = i,
         n = window.innerWidth / 4;
-      Zr.x && (Math.sign(i) != Math.sign(Zr.x) ? (i = 0, r = 0) : Math.abs(i) > n && (i = Zr.x)), Zr.x = r;
+      Xr.x && (Math.sign(i) != Math.sign(Xr.x) ? (i = 0, r = 0) : Math.abs(i) > n && (i = Xr.x)), Xr.x = r;
       var o = e.movementY,
         a = (r = o, window.innerHeight / 4);
-      Zr.y && (Math.sign(o) != Math.sign(Zr.y) ? (o = 0, r = 0) : Math.abs(o) > a && (o = Zr.y)), Zr.y = r, Cr.yaw = Math.radAdd(Cr.yaw, i * t), Cr.pitch = Math.clamp(Cr.pitch + o * B.mouseInvert * t, -1.5, 1.5)
+      Xr.y && (Math.sign(o) != Math.sign(Xr.y) ? (o = 0, r = 0) : Math.abs(o) > a && (o = Xr.y)), Xr.y = r, Sr.yaw = Math.radAdd(Sr.yaw, i * t), Sr.pitch = Math.clamp(Sr.pitch + o * B.mouseInvert * t, -1.5, 1.5)
     }
-    kr = !1
+    Br = !1
   }
 
-  function nn(e) {
-    e.wheelDelta > 0 ? (Qn("keyboard", "WHEEL UP"), qn("keyboard", "WHEEL UP")) : (Qn("keyboard", "WHEEL DOWN"), qn("keyboard", "WHEEL DOWN"))
+  function en(e) {
+    e.wheelDelta > 0 ? (Kn("keyboard", "WHEEL UP"), Zn("keyboard", "WHEEL UP")) : (Kn("keyboard", "WHEEL DOWN"), Zn("keyboard", "WHEEL DOWN"))
   }
-  var on = new BABYLON.Color4(1, 1, 1, 1);
+  var tn = new BABYLON.Color4(1, 1, 1, 1);
 
-  function an(e, t, i, r, n) {
+  function rn(e, t, i, r, n) {
     for (var o = new BABYLON.SpriteManager("", "img/" + e + "?" + version, t, 128, n), a = 0; a < t; a++) {
       new BABYLON.Sprite("", o).isVisible = !1
     }
     return o.nextIdx = 0, o.getSprite = function (e) {
       var t = this.sprites[this.nextIdx];
-      return t.cellIndex = void 0 !== e ? i + e : Math.randomInt(i, r), t.isVisible = !0, t.easing = ri, t.startSize = -1, t.endSize = -1, t.gravity = 0, t.dx = 0, t.dy = 0, t.dz = 0, t.float = 0, t.anim = 0, t.slow = 0, t.angle = 0, t.rotate = 0, t.stopped = !1, t.animColors = null, t.collide = !1, t.color.copyFrom(on), this.nextIdx = ++this.nextIdx % this.sprites.length, t
+      return t.cellIndex = void 0 !== e ? i + e : Math.randomInt(i, r), t.isVisible = !0, t.easing = ei, t.startSize = -1, t.endSize = -1, t.gravity = 0, t.dx = 0, t.dy = 0, t.dz = 0, t.float = 0, t.anim = 0, t.slow = 0, t.angle = 0, t.rotate = 0, t.stopped = !1, t.animColors = null, t.collide = !1, t.color.copyFrom(tn), this.nextIdx = ++this.nextIdx % this.sprites.length, t
     }, o
   }
 
-  function sn(e, t, i, r, n, o, a, s, l, c, h) {
+  function nn(e, t, i, r, n, o, a, s, l, c, h) {
     let u = 0,
       d = "default",
       p = "default";
     h && (u = h.item_data.cell || 0, d = h.item_data.fireColors || "default", p = h.item_data.smokeColors || "default");
     var f = e.getSprite(u);
-    return f.animLength = t, f.easing = oi, f.position.x = i, f.position.y = r, f.position.z = n, f.size = l, f.dx = o, f.dy = a, f.dz = s, f.slow = .7, f.angle = Math.random() * Math.PI2, f.rotate = .04 * Math.random() - .02, f.animColors = e == Xi ? cn[d] : hn[p], f
+    return f.animLength = t, f.easing = ii, f.position.x = i, f.position.y = r, f.position.z = n, f.size = l, f.dx = o, f.dy = a, f.dz = s, f.slow = .7, f.angle = Math.random() * Math.PI2, f.rotate = .04 * Math.random() - .02, f.animColors = e == Wi ? an[d] : sn[p], f
   }
 
-  function ln(e, t, i, r, n, o) {
+  function on(e, t, i, r, n, o) {
     for (var a = 0; a < Math.floor(r / 4); a++) {
       var s = 80 * Math.random() + 80,
         l = 1 * Math.random() + .5,
@@ -51599,18 +51865,18 @@ var extern = function () {
         h = (2 * Math.random() - 1) * c,
         u = (2 * Math.random() - 1) * c + .1,
         d = (2 * Math.random() - 1) * c,
-        p = sn(Yi, s, e, t, i, h, u, d, l, 0, o);
-      p.float = .015 * Math.random() + .001, p.collide = !0, (p = sn(Xi, .075 * s, e, t, i, 1.5 * h, 1.5 * u, 1.5 * d, l, 0, o)).collide = !0
+        p = nn(Hi, s, e, t, i, h, u, d, l, 0, o);
+      p.float = .015 * Math.random() + .001, p.collide = !0, (p = nn(Wi, .075 * s, e, t, i, 1.5 * h, 1.5 * u, 1.5 * d, l, 0, o)).collide = !0
     }
-    if (Cr) {
-      var f = Math.length3(Cr.x - e, Cr.y - t, Cr.z - i);
+    if (Sr) {
+      var f = Math.length3(Sr.x - e, Sr.y - t, Sr.z - i);
       if (f < (n *= 1.5)) {
         var m = Math.max(0, (n - f) / n);
-        ya = Math.min(7, ya + 6 * m)
+        Ha = Math.min(7, Ha + 6 * m)
       }
     }
   }
-  var cn = {
+  var an = {
       default: [{
         pos: 0,
         color: new BABYLON.Color4(1, .9, .8, 1)
@@ -51667,7 +51933,7 @@ var extern = function () {
         color: new BABYLON.Color4(1, 1, 1, 0)
       }]
     },
-    hn = {
+    sn = {
       default: [{
         pos: 0,
         color: new BABYLON.Color4(.3, .3, .3, 1)
@@ -51693,7 +51959,7 @@ var extern = function () {
         color: new BABYLON.Color4(0, 0, 0, 0)
       }]
     },
-    un = [{
+    ln = [{
       pos: 0,
       color: new BABYLON.Color4(1, 1, 1, 1)
     }, {
@@ -51703,7 +51969,7 @@ var extern = function () {
       pos: 1,
       color: new BABYLON.Color4(.7, .7, .7, 0)
     }],
-    dn = [{
+    cn = [{
       pos: 0,
       color: new BABYLON.Color4(1, 1, 1, 1)
     }, {
@@ -51714,12 +51980,12 @@ var extern = function () {
       color: new BABYLON.Color4(1, 1, 1, 0)
     }];
 
-  function pn(e, t, i) {
+  function hn(e, t, i) {
     for (var r = e.length - 2; r >= 0; r--)
       if (t >= e[r].pos) return void BABYLON.Color4.LerpToRef(e[r].color, e[r + 1].color, (t - e[r].pos) * (1 / (e[r + 1].pos - e[r].pos)), i)
   }
 
-  function fn(e, t, i, r) {
+  function un(e, t, i, r) {
     for (var n = 0; n < t; n++) {
       var o = Math.random() * r + .5 * r,
         a = n / (.5 * t) * i + .5 * i,
@@ -51727,12 +51993,12 @@ var extern = function () {
         l = (2 * Math.random() - 1) * s,
         c = (2 * Math.random() - .5) * s,
         h = (2 * Math.random() - 1) * s,
-        u = Qi.getSprite();
-      u.animLength = o, u.easing = ni, u.position.x = e.actor.mesh.position.x, u.position.y = e.actor.mesh.position.y + .3, u.position.z = e.actor.mesh.position.z, u.startSize = a, u.endSize = 0, u.gravity = .003, u.dx = l, u.dy = c, u.dz = h, u.angle = Math.random() * Math.PI2, u.rotate = .2 * Math.random() - .1, u.collide = !0, u.color.r = e.actor.bodyMesh.colorMult.r, u.color.g = e.actor.bodyMesh.colorMult.g, u.color.b = e.actor.bodyMesh.colorMult.b
+        u = Yi.getSprite();
+      u.animLength = o, u.easing = ti, u.position.x = e.actor.mesh.position.x, u.position.y = e.actor.mesh.position.y + .3, u.position.z = e.actor.mesh.position.z, u.startSize = a, u.endSize = 0, u.gravity = .003, u.dx = l, u.dy = c, u.dz = h, u.angle = Math.random() * Math.PI2, u.rotate = .2 * Math.random() - .1, u.collide = !0, u.color.r = e.actor.bodyMesh.colorMult.r, u.color.g = e.actor.bodyMesh.colorMult.g, u.color.b = e.actor.bodyMesh.colorMult.b
     }
   }
 
-  function mn(e) {
+  function dn(e) {
     for (var t = 0; t < 10; t++) {
       var i = 80 * Math.random() + 80,
         r = t / 5 * .2 + .2,
@@ -51741,67 +52007,67 @@ var extern = function () {
         a = (2 * Math.random() - .25) * n * 1.5,
         s = (2 * Math.random() - 1) * n,
         l = yolkManager.getSprite();
-      l.animLength = i, l.easing = ni, l.position.x = e.actor.mesh.position.x, l.position.y = e.actor.mesh.position.y + .3, l.position.z = e.actor.mesh.position.z, l.startSize = r, l.endSize = 0, l.gravity = .005, l.dx = o, l.dy = a, l.dz = s, l.slow = .9, l.angle = Math.random() * Math.PI2, l.rotate = .2 * Math.random() - .1, l.collide = !0
+      l.animLength = i, l.easing = ti, l.position.x = e.actor.mesh.position.x, l.position.y = e.actor.mesh.position.y + .3, l.position.z = e.actor.mesh.position.z, l.startSize = r, l.endSize = 0, l.gravity = .005, l.dx = o, l.dy = a, l.dz = s, l.slow = .9, l.angle = Math.random() * Math.PI2, l.rotate = .2 * Math.random() - .1, l.collide = !0
     }
   }
 
-  function _n(e, t) {
+  function pn(e, t) {
     for (var i = Math.floor(t / 33) + 1, r = 0; r < i; r++) {
       var n = 9 * Math.random() + 9,
         o = .03 / 1.8,
         a = (2 * Math.random() - 1) * o,
         s = (2 * Math.random() - .25) * o * 1.5,
         l = (2 * Math.random() - 1) * o;
-      rr.set(Cr.x, Cr.y, Cr.z), nr.set(e.x, e.y, e.z), rr.subtractInPlace(nr).normalize().scaleInPlace(.26);
-      var c = Zi.getSprite();
-      c.animLength = n, c.easing = ri, c.position.x = e.actor.mesh.position.x, c.position.y = e.actor.mesh.position.y + .3, c.position.z = e.actor.mesh.position.z, c.startSize = .8 * .2, c.endSize = .8, c.gravity = .003, c.dx = a + e.dx, c.dy = s, c.dz = l + e.dz, c.slow = .95, c.angle = Math.random() * Math.PI2, c.rotate = .02 * Math.random() - .001, c.collide = !1, c.animColors = dn
+      er.set(Sr.x, Sr.y, Sr.z), tr.set(e.x, e.y, e.z), er.subtractInPlace(tr).normalize().scaleInPlace(.26);
+      var c = Xi.getSprite();
+      c.animLength = n, c.easing = ei, c.position.x = e.actor.mesh.position.x, c.position.y = e.actor.mesh.position.y + .3, c.position.z = e.actor.mesh.position.z, c.startSize = .8 * .2, c.endSize = .8, c.gravity = .003, c.dx = a + e.dx, c.dy = s, c.dz = l + e.dz, c.slow = .95, c.angle = Math.random() * Math.PI2, c.rotate = .02 * Math.random() - .001, c.collide = !1, c.animColors = cn
     }
   }
 
-  function gn(e, t) {
+  function fn(e, t) {
     for (var i = Math.floor(t / 33) + 1, r = 0; r < i; r++) {
       var n = 9 * Math.random() + 9,
         o = .03 / 1.8,
         a = (2 * Math.random() - 1) * o,
         s = (2 * Math.random() - .25) * o * 1.5,
         l = (2 * Math.random() - 1) * o;
-      rr.set(Cr.x, Cr.y, Cr.z), nr.set(e.x, e.y, e.z), rr.subtractInPlace(nr).normalize().scaleInPlace(.26);
-      var c = Ki.getSprite();
-      c.animLength = n, c.easing = ri, c.position.x = e.actor.mesh.position.x, c.position.y = e.actor.mesh.position.y + .3, c.position.z = e.actor.mesh.position.z, c.startSize = .8 * .2, c.endSize = .8, c.gravity = .003, c.dx = a + e.dx, c.dy = s, c.dz = l + e.dz, c.slow = .95, c.angle = Math.random() * Math.PI2, c.rotate = .02 * Math.random() - .001, c.collide = !1, c.animColors = dn
+      er.set(Sr.x, Sr.y, Sr.z), tr.set(e.x, e.y, e.z), er.subtractInPlace(tr).normalize().scaleInPlace(.26);
+      var c = ji.getSprite();
+      c.animLength = n, c.easing = ei, c.position.x = e.actor.mesh.position.x, c.position.y = e.actor.mesh.position.y + .3, c.position.z = e.actor.mesh.position.z, c.startSize = .8 * .2, c.endSize = .8, c.gravity = .003, c.dx = a + e.dx, c.dy = s, c.dz = l + e.dz, c.slow = .95, c.angle = Math.random() * Math.PI2, c.rotate = .02 * Math.random() - .001, c.collide = !1, c.animColors = cn
     }
   }
 
-  function vn(e, t) {
+  function mn(e, t) {
     for (var i = 0; i < e.sprites.length; i++) {
       var r = e.sprites[i];
       if (r.isVisible) {
         var n = r.easing(r.anim);
-        if (r.endSize >= 0 && (r.size = r.startSize + n * (r.endSize - r.startSize)), r.animColors && pn(r.animColors, n, r.color), !r.stopped) {
+        if (r.endSize >= 0 && (r.size = r.startSize + n * (r.endSize - r.startSize)), r.animColors && hn(r.animColors, n, r.color), !r.stopped) {
           r.position.x += r.dx * t, r.position.y += r.dy * t + r.float, r.position.z += r.dz * t, r.rotate && (r.angle += r.rotate * t);
           var o = !1;
-          r.collide && (rr.set(r.position.x, r.position.y, r.position.z), o = Ve.pointCollidesWithMap(rr, !0)), o ? (r.stopped = !0, r.position.x -= r.dx * t, r.position.y -= r.dy * t, r.position.z -= r.dz * t) : r.gravity && (r.dy -= r.gravity * t), r.slow && (r.dx *= Math.pow(r.slow, t), r.dy *= Math.pow(r.slow, t), r.dz *= Math.pow(r.slow, t))
+          r.collide && (er.set(r.position.x, r.position.y, r.position.z), o = Ne.pointCollidesWithMap(er, !0)), o ? (r.stopped = !0, r.position.x -= r.dx * t, r.position.y -= r.dy * t, r.position.z -= r.dz * t) : r.gravity && (r.dy -= r.gravity * t), r.slow && (r.dx *= Math.pow(r.slow, t), r.dy *= Math.pow(r.slow, t), r.dz *= Math.pow(r.slow, t))
         }
         r.anim += t / r.animLength, r.anim >= 1 && (r.isVisible = !1)
       }
     }
   }
 
-  function yn() {
+  function _n() {
     window.hack.gameStart();
-    console.log("onLoadingComplete"), ji = new zi({
+    console.log("onLoadingComplete"), Gi = new ki({
       numChannels: 24
     }, {
       distanceModel: "exponential"
     });
     try {
-      or = new no, sr = new oo, ar = new ao, Pr.getMeshByName("muzzleFlash").material = Pr.getMaterialByName("muzzleFlash"), Pr.getMeshByName("bullet").material = Pr.getMaterialByName("bullet"), Pr.getMeshByName("rocket").material = Pr.getMaterialByName("standardInstanced"), Pr.getMeshByName("ammo").material = Pr.getMaterialByName("standardInstanced"), Pr.getMeshByName("grenadeItem").material = Pr.getMaterialByName("standardInstanced"), Pr.getMeshByName("spatula").material = Pr.getMaterialByName("emissive");
+      ir = new ro, nr = new no, rr = new oo, xr.getMeshByName("muzzleFlash").material = xr.getMaterialByName("muzzleFlash"), xr.getMeshByName("bullet").material = xr.getMaterialByName("bullet"), xr.getMeshByName("rocket").material = xr.getMaterialByName("standardInstanced"), xr.getMeshByName("ammo").material = xr.getMaterialByName("standardInstanced"), xr.getMeshByName("grenadeItem").material = xr.getMaterialByName("standardInstanced"), xr.getMeshByName("spatula").material = xr.getMaterialByName("emissive");
       for (let e = 0; e < V.grenades.length; e++) {
         let t = V.grenades[e].item_data.meshName;
-        Pr.getMeshByName(t).material = Pr.getMaterialByName("emissive")
+        xr.getMeshByName(t).material = xr.getMaterialByName("emissive")
       }
-      Ur = new si(Pr), zr = new Fa, (Yi = an("particles.png", 300, 16, 23, Pr)).fogEnabled = !0, Yi.noAlphaTest = !0, (Xi = an("particles.png", 300, 16, 23, Pr)).fogEnabled = !0, Xi.blendMode = BABYLON.Engine.ALPHA_ADD, (Qi = an("particles.png", 400, 3, 6, Pr)).fogEnabled = !0, yolkManager = an("particles.png", 100, 2, 2, Pr), yolkManager.fogEnabled = !0;
-      var e, t = E === pt;
-      if (vueApp.switchToGameUi(t), W.isUpgraded() && (document.getElementById("chickenBadge").style.display = "block"), (Ki = an("particles.png", 20, 0, 0, Pr)).fogEnabled = !0, (Zi = an("particles.png", 20, 7, 7, Pr)).fogEnabled = !0, H) l = 0, kn({
+      Nr = new ni(xr), kr = new wa, (Hi = rn("particles.png", 300, 16, 23, xr)).fogEnabled = !0, Hi.noAlphaTest = !0, (Wi = rn("particles.png", 300, 16, 23, xr)).fogEnabled = !0, Wi.blendMode = BABYLON.Engine.ALPHA_ADD, (Yi = rn("particles.png", 400, 3, 6, xr)).fogEnabled = !0, yolkManager = rn("particles.png", 100, 2, 2, xr), yolkManager.fogEnabled = !0;
+      var e, t = E === ut;
+      if (vueApp.switchToGameUi(t), W.isUpgraded() && (document.getElementById("chickenBadge").style.display = "block"), (ji = rn("particles.png", 20, 0, 0, xr)).fogEnabled = !0, (Xi = rn("particles.png", 20, 7, 7, xr)).fogEnabled = !0, H) l = 0, Bn({
         id: 0,
         uniqueId: 0,
         name: "Test",
@@ -51836,217 +52102,219 @@ var extern = function () {
         controlKeys: 0,
         randomSeed: 0,
         upgradeProductId: void 0 !== W.upgradeProductId && null !== W.upgradeProductId ? W.upgradeProductId : 0,
-        activeShellStreaks: 0
-      }), Ir[l].hp = 100, xn(), En(), Xr(), ar.show(), qi = -1, dr = 0, vueApp.delayTheCracking = !0;
-      else tr = !0, ws.onmessage = function (e) {
-        for (ir.init(e.data); ir.isMoreDataAvailable();) {
-          var t = ir.unPackInt8U();
+        activeShellStreaks: 0,
+        social: W.social
+      }), Cr[l].hp = 100, vn(), bn(), Wr(), rr.show(), Ki = -1, cr = 0, vueApp.delayTheCracking = !0;
+      else Ji = !0, ws.onmessage = function (e) {
+        for ($i.init(e.data); $i.isMoreDataAvailable();) {
+          var t = $i.unPackInt8U();
           switch (t) {
-            case Rt:
-              var i = ir.unPackLongString();
-              Cn(i);
+            case Mt:
+              var i = $i.unPackLongString();
+              Sn(i);
               break;
-            case _t:
-              var n = ir.unPackInt8U();
-              (pt = Ir[n]) && pt.removeFromPlay();
+            case ft:
+              var n = $i.unPackInt8U();
+              (Tt = Cr[n]) && Tt.removeFromPlay();
               break;
-            case Ft:
+            case Lt:
               console.log("eventModifier");
-              var o = Hi.getBuffer();
-              o.packInt8(Ft), o.send(ws);
+              var o = Ui.getBuffer();
+              o.packInt8(Lt), o.send(ws);
               break;
-            case ct:
-              console.log("CommCode.clientReady received"), qi = -1, dr = 0, B.musicStatus && vueApp.musicPlayOnce(), En(), vueApp.delayInGamePlayButtons(), ue ? so() : Xr(), B.autoDetail ? ko() : (Uo(B.highRes), zo(B.shadowsEnabled));
+            case st:
+              console.log("CommCode.clientReady received"), Ki = -1, cr = 0, B.musicStatus && vueApp.musicPlayOnce(), bn(), vueApp.delayInGamePlayButtons(), ue ? ao() : Wr(), B.autoDetail ? No() : (Vo(B.highRes), Uo(B.shadowsEnabled));
               break;
-            case St:
+            case Et:
               var a = {
-                  x: ir.unPackFloat(),
-                  y: ir.unPackFloat(),
-                  z: ir.unPackFloat()
+                  x: $i.unPackFloat(),
+                  y: $i.unPackFloat(),
+                  z: $i.unPackFloat()
                 },
-                s = ir.unPackInt8U(),
-                c = ir.unPackInt8U();
-              if (Nr) {
-                if (Nr.controlledBy != s) {
+                s = $i.unPackInt8U(),
+                c = $i.unPackInt8U();
+              if (Lr) {
+                if (Lr.controlledBy != s) {
                   var h = ["", '<h1 class="blueTeam">' + vueApp.loc.team_blue + "</h1>", '<h1 class="redTeam">' + vueApp.loc.team_red + "</h1>"];
-                  255 == s ? (Cr.playing && ((st = document.getElementById("gameMessage")).innerHTML = h[Nr.controlledByTeam], st.innerHTML += Bo("ingame_dropped_the_spatula"), st.style.display = "block", setTimeout((function () {
+                  255 == s ? (Sr.playing && ((ct = document.getElementById("gameMessage")).innerHTML = h[Lr.controlledByTeam], ct.innerHTML += Lo("ingame_dropped_the_spatula"), ct.style.display = "block", setTimeout((function () {
                     document.getElementById("gameMessage").style.display = "none"
-                  }), 3e3)), Nr.drop(a)) : (Cr.playing && ((st = document.getElementById("gameMessage")).innerHTML = h[c], st.innerHTML += Bo("ingame_captured_the_spatula"), st.style.display = "block", setTimeout((function () {
+                  }), 3e3)), Lr.drop(a)) : (Sr.playing && ((ct = document.getElementById("gameMessage")).innerHTML = h[c], ct.innerHTML += Lo("ingame_captured_the_spatula"), ct.style.display = "block", setTimeout((function () {
                     document.getElementById("gameMessage").style.display = "none"
-                  }), 3e3)), Nr.capture(Ir[s]))
+                  }), 3e3)), Lr.capture(Cr[s]))
                 }
-              } else(Nr = new Ti(Pr, a)).controlledBy = s, Nr.controlledByTeam = c;
-              co();
+              } else(Lr = new yi(xr, a)).controlledBy = s, Lr.controlledByTeam = c;
+              lo();
               break;
-            case Ze:
-              var u = ir.unPackInt8U(),
-                d = ir.unPackInt16U(),
-                p = ir.unPackString(),
-                _ = ir.unPackInt8U();
+            case Ke:
+              var u = $i.unPackInt8U(),
+                d = $i.unPackInt16U(),
+                p = $i.unPackString(),
+                _ = $i.unPackInt8U();
               u > 17 && ne.push("playerId out of bounds: " + u + ", " + p);
               var g = {
                 id: u,
                 uniqueId: d,
                 name: p,
                 charClass: _,
-                team: ir.unPackInt8U(),
-                primaryWeaponItem: V.findItemBy8BitItemId(Le, _, ir.unPackInt8U()),
-                secondaryWeaponItem: V.findItemBy8BitItemId(Be, _, ir.unPackInt8U()),
-                shellColor: ir.unPackInt8U(),
-                hatItem: V.findItemBy8BitItemId(De, _, ir.unPackInt8U()),
-                stampItem: V.findItemBy8BitItemId(we, _, ir.unPackInt8U()),
-                grenadeItem: V.findItemBy8BitItemId(Fe, _, ir.unPackInt8U()),
-                x: ir.unPackFloat(),
-                y: ir.unPackFloat(),
-                z: ir.unPackFloat(),
-                dx: ir.unPackFloat(),
-                dy: ir.unPackFloat(),
-                dz: ir.unPackFloat(),
-                yaw: ir.unPackRadU(),
-                pitch: ir.unPackRad(),
-                score: ir.unPackInt32U(),
-                kills: ir.unPackInt16U(),
-                deaths: ir.unPackInt16U(),
-                streak: ir.unPackInt16U(),
-                totalKills: ir.unPackInt32U(),
-                totalDeaths: ir.unPackInt32U(),
-                bestGameStreak: ir.unPackInt16U(),
-                bestOverallStreak: ir.unPackInt16U(),
-                shield: ir.unPackInt8U(),
-                hp: ir.unPackInt8U(),
-                playing: ir.unPackInt8U(),
-                weaponIdx: ir.unPackInt8U(),
-                controlKeys: ir.unPackInt8U(),
-                upgradeProductId: ir.unPackInt8U(),
-                activeShellStreaks: ir.unPackInt8U()
+                team: $i.unPackInt8U(),
+                primaryWeaponItem: V.findItemBy8BitItemId(De, _, $i.unPackInt8U()),
+                secondaryWeaponItem: V.findItemBy8BitItemId(we, _, $i.unPackInt8U()),
+                shellColor: $i.unPackInt8U(),
+                hatItem: V.findItemBy8BitItemId(Oe, _, $i.unPackInt8U()),
+                stampItem: V.findItemBy8BitItemId(Ie, _, $i.unPackInt8U()),
+                grenadeItem: V.findItemBy8BitItemId(Le, _, $i.unPackInt8U()),
+                x: $i.unPackFloat(),
+                y: $i.unPackFloat(),
+                z: $i.unPackFloat(),
+                dx: $i.unPackFloat(),
+                dy: $i.unPackFloat(),
+                dz: $i.unPackFloat(),
+                yaw: $i.unPackRadU(),
+                pitch: $i.unPackRad(),
+                score: $i.unPackInt32U(),
+                kills: $i.unPackInt16U(),
+                deaths: $i.unPackInt16U(),
+                streak: $i.unPackInt16U(),
+                totalKills: $i.unPackInt32U(),
+                totalDeaths: $i.unPackInt32U(),
+                bestGameStreak: $i.unPackInt16U(),
+                bestOverallStreak: $i.unPackInt16U(),
+                shield: $i.unPackInt8U(),
+                hp: $i.unPackInt8U(),
+                playing: $i.unPackInt8U(),
+                weaponIdx: $i.unPackInt8U(),
+                controlKeys: $i.unPackInt8U(),
+                upgradeProductId: $i.unPackInt8U(),
+                activeShellStreaks: $i.unPackInt8U(),
+                social: $i.unPackLongString()
               };
-              Ir[g.id] || (l == g.id ? (g.normalName = g.name, g.safeName = g.name) : (g.normalName = g.name.replace(/<|>/g, ""), g.safeName = Fo(), (0 == g.normalName.length || Ei(g.normalName)) && (g.normalName = g.safeName), B.safeNames ? g.name = g.safeName : g.name = g.normalName), kn(g));
+              Cr[g.id] || (l == g.id ? (g.normalName = g.name, g.safeName = g.name) : (g.normalName = g.name.replace(/<|>/g, ""), g.safeName = Bo(), (0 == g.normalName.length || bi(g.normalName)) && (g.normalName = g.safeName), B.safeNames ? g.name = g.safeName : g.name = g.normalName), Bn(g));
               break;
-            case qe:
-              Vn(n = ir.unPackInt8U());
+            case Qe:
+              Fn(n = $i.unPackInt8U());
               break;
-            case nt:
-              u = ir.unPackInt16U();
-              var v = ir.unPackInt8U(),
-                y = ir.unPackFloat(),
-                x = ir.unPackFloat(),
-                T = ir.unPackFloat();
-              zr.spawnItem(u, v, y, x, T);
+            case it:
+              u = $i.unPackInt16U();
+              var v = $i.unPackInt8U(),
+                y = $i.unPackFloat(),
+                x = $i.unPackFloat(),
+                T = $i.unPackFloat();
+              kr.spawnItem(u, v, y, x, T);
               break;
-            case rt:
-              n = ir.unPackInt8U(), v = ir.unPackInt8U();
-              var E = ir.unPackInt8U();
-              u = ir.unPackInt16U(), zr.collectItem(v, u), n == l && Cr.collectItem(v, E);
+            case tt:
+              n = $i.unPackInt8U(), v = $i.unPackInt8U();
+              var E = $i.unPackInt8U();
+              u = $i.unPackInt16U(), kr.collectItem(v, u), n == l && Sr.collectItem(v, E);
               break;
-            case et:
-              var P, M, C = ir.unPackInt8U(),
-                R = ir.unPackInt8U(),
-                O = ir.unPackInt8U(),
-                I = Ir[C],
-                D = Ir[R];
+            case Je:
+              var P, M, C = $i.unPackInt8U(),
+                R = $i.unPackInt8U(),
+                O = $i.unPackInt8U(),
+                I = Cr[C],
+                D = Cr[R];
               if (I) {
-                if (Nr) {
+                if (Lr) {
                   var w = 1 == I.team ? 2 : 1;
-                  Nr.controlledByTeam == w && (teamScore[w]++, co())
+                  Lr.controlledByTeam == w && (teamScore[w]++, lo())
                 }
                 P = I.name;
                 var L = new BABYLON.Vector3(I.x, I.y + .32, I.z);
-                ji.play("shell_burst", L);
+                Gi.play("shell_burst", L);
                 var F = Math.randomInt(0, 10) + 1;
-                ji.play("death_scream" + F, L), gn(I, 100), _n(I, 100), fn(I, 80, .2, 40), mn(I), I.die(), I.actor.mesh.position.x = I.x, I.actor.mesh.position.y = I.y, I.actor.mesh.position.z = I.z
+                Gi.play("death_scream" + F, L), fn(I, 100), pn(I, 100), un(I, 80, .2, 40), dn(I), I.die(), I.actor.mesh.position.x = I.x, I.actor.mesh.position.y = I.y, I.actor.mesh.position.z = I.z
               } else P = "N/A";
-              if (D ? (M = D.name, D.isDead() || (D.scoreKill(), R == l && ((st = document.getElementById("bestStreak")).innerText = "x" + D.bestOverallStreak), R == l && (vr++, br = Math.max(br, D.streak)))) : M = "N/A", C != l) {
+              if (D ? (M = D.name, D.isDead() || (D.scoreKill(), R == l && ((ct = document.getElementById("bestStreak")).innerText = "x" + D.bestOverallStreak), R == l && (mr++, gr = Math.max(gr, D.streak)))) : M = "N/A", C != l) {
                 if (R == l) {
                   var N = document.getElementById("killBox");
                   N.style.display = "block", document.getElementById("KILLED_NAME").innerText = P;
                   var U = document.getElementById("KILL_STREAK");
-                  es(Cr.streak), Cr.streak > 1 ? U.innerText = Cr.streak + "-KILL STREAK" : U.innerText = "";
+                  $a(Sr.streak), Sr.streak > 1 ? U.innerText = Sr.streak + "-KILL STREAK" : U.innerText = "";
                   var z = 1.5,
-                    G = Xo.set((function () {
-                      N.style.transform = "scale(" + z + "," + z + ")", (z -= .05) <= 1 && (z = 1, Xo.clear(G))
+                    G = Yo.set((function () {
+                      N.style.transform = "scale(" + z + "," + z + ")", (z -= .05) <= 1 && (z = 1, Yo.clear(G))
                     }), 33);
-                  Ko.set((function () {
+                  Xo.set((function () {
                     k && (N.style.display = "none")
                   }), 4e3)
                 }
               } else {
-                r.parent = null, r.position = new BABYLON.Vector3(Rr.actor.mesh.position.x, Rr.actor.mesh.position.y + .2, Rr.actor.mesh.position.z), D && (r.lockedTarget = D.actor.head), document.getElementById("KILLED_BY_NAME").innerText = M;
+                r.parent = null, r.position = new BABYLON.Vector3(Ar.actor.mesh.position.x, Ar.actor.mesh.position.y + .2, Ar.actor.mesh.position.z), D && (r.lockedTarget = D.actor.head), document.getElementById("KILLED_BY_NAME").innerText = M;
                 var H = document.getElementById("deathBox");
-                H.style.display = "block", z = 2, G = Xo.set((function () {
-                  H.style.transform = "scale(" + z + "," + z + ")", (z -= .05) <= 1 && k && (Xo.clear(G), z = 1)
-                }), 33), yr++, Qr(O), ho(), Ko.set((function () {
-                  k && (H.style.display = "none", S == l && Xr())
+                H.style.display = "block", z = 2, G = Yo.set((function () {
+                  H.style.transform = "scale(" + z + "," + z + ")", (z -= .05) <= 1 && k && (Yo.clear(G), z = 1)
+                }), 33), _r++, Yr(O), co(), Xo.set((function () {
+                  k && (H.style.display = "none", S == l && Wr())
                 }), 3e3)
               }
-              D && I && $n(D, I), zn();
+              D && I && Jn(D, I), Un();
               break;
-            case Je:
-              n = ir.unPackInt8U();
-              var j = ir.unPackString();
-              (pt = Ir[n]).muted || (Pn.innerHTML = j, j = Pn.textContent.trim(), pt && j.length > 0 && !Ei(j) && j.indexOf("<") < 0 && to(j, pt));
+            case Ze:
+              n = $i.unPackInt8U();
+              var j = $i.unPackString();
+              (Tt = Cr[n]).muted || (xn.innerHTML = j, j = xn.textContent.trim(), Tt && j.length > 0 && !bi(j) && j.indexOf("<") < 0 && eo(j, Tt));
               break;
-            case At:
-              u = ir.unPackInt8U();
-              var Y = ir.unPackInt8U(),
-                X = ir.unPackInt8U(),
-                K = (y = ir.unPackFloat(), x = ir.unPackFloat(), T = ir.unPackFloat(), ir.unPackInt8U()),
-                Q = ir.unPackInt8U(),
-                Z = ir.unPackInt8U();
-              (pt = Ir[u]).serverStateIdx = X;
-              var q = pt.x,
-                J = pt.y,
-                $ = pt.z,
-                ee = pt.dx,
-                te = pt.dy,
-                ie = pt.dz,
-                re = pt.yaw,
-                oe = pt.pitch,
+            case Pt:
+              u = $i.unPackInt8U();
+              var Y = $i.unPackInt8U(),
+                X = $i.unPackInt8U(),
+                K = (y = $i.unPackFloat(), x = $i.unPackFloat(), T = $i.unPackFloat(), $i.unPackInt8U()),
+                Q = $i.unPackInt8U(),
+                Z = $i.unPackInt8U();
+              (Tt = Cr[u]).serverStateIdx = X;
+              var q = Tt.x,
+                J = Tt.y,
+                $ = Tt.z,
+                ee = Tt.dx,
+                te = Tt.dy,
+                ie = Tt.dz,
+                re = Tt.yaw,
+                oe = Tt.pitch,
                 ae = Y,
-                se = pt.stateBuffer[ae],
-                le = Math.mod(pt.stateIdx - Y, ui) + 8 * zt;
-              if (pt.lastWeaponChange > le && (Q !== se.rounds || Z !== se.store)) {
-                for (var ce = Y; ce != pt.stateIdx; ce = Math.mod(ce + 1, ui)) {
-                  var he = pt.stateBuffer[ce];
+                se = Tt.stateBuffer[ae],
+                le = Math.mod(Tt.stateIdx - Y, li) + 8 * Vt;
+              if (Tt.lastWeaponChange > le && (Q !== se.rounds || Z !== se.store)) {
+                for (var ce = Y; ce != Tt.stateIdx; ce = Math.mod(ce + 1, li)) {
+                  var he = Tt.stateBuffer[ce];
                   Q -= he.shots, he.rounds = Q
                 }
-                pt.weapon.ammo.rounds = Q, pt.weapon.ammo.store = Z, Wn()
+                Tt.weapon.ammo.rounds = Q, Tt.weapon.ammo.store = Z, Hn()
               }
               if (K) var pe = Math.length3(se.x - y, se.y - x, se.z - T);
               else pe = Math.length2(se.x - y, se.z - T);
-              if (0 != gr) {
+              if (0 != fr) {
                 if (pe < .1) {
-                  var fe = 2 * zt;
-                  pt.totalCorrections = fe, pt.corrections = fe, pt.corrected.dx = y - se.x, pt.corrected.dy = x - se.y, pt.corrected.dz = T - se.z;
+                  var fe = 2 * Vt;
+                  Tt.totalCorrections = fe, Tt.corrections = fe, Tt.corrected.dx = y - se.x, Tt.corrected.dy = x - se.y, Tt.corrected.dz = T - se.z;
                   break
                 }
-                fe = 2 * zt
+                fe = 2 * Vt
               } else {
                 if (pe < .02) break;
-                fe = 2 * zt
+                fe = 2 * Vt
               }
-              pt.totalCorrections = fe, pt.x = y, pt.y = x, pt.z = T, pt.dx = se.dx, pt.dy = se.dy, pt.dz = se.dz, pt.climbing = se.climbing, pt.jumping = se.jumping;
-              for (var me = Cr.controlKeys; ae != pt.stateIdx; ae = Math.mod(ae + 1, ui)) se = pt.stateBuffer[ae], pt.controlKeys = se.controlKeys, pt.yaw = se.yaw, pt.update(!0);
-              (pe = pt.climbing ? Math.length3(pt.x - q, pt.y - J, pt.z - $) : Math.length2(pt.x - q, pt.z - $)) < .2 ? (pt.corrections = fe, pt.corrected.dx = pt.x - q, pt.corrected.dy = pt.y - J, pt.corrected.dz = pt.z - $, pt.x = q, pt.y = J, pt.z = $, pt.dx = ee, pt.dy = te, pt.dz = ie) : pt.corrections = 0, pt.yaw = re, pt.pitch = oe, pt.controlKeys = me;
+              Tt.totalCorrections = fe, Tt.x = y, Tt.y = x, Tt.z = T, Tt.dx = se.dx, Tt.dy = se.dy, Tt.dz = se.dz, Tt.climbing = se.climbing, Tt.jumping = se.jumping;
+              for (var me = Sr.controlKeys; ae != Tt.stateIdx; ae = Math.mod(ae + 1, li)) se = Tt.stateBuffer[ae], Tt.controlKeys = se.controlKeys, Tt.yaw = se.yaw, Tt.update(!0);
+              (pe = Tt.climbing ? Math.length3(Tt.x - q, Tt.y - J, Tt.z - $) : Math.length2(Tt.x - q, Tt.z - $)) < .2 ? (Tt.corrections = fe, Tt.corrected.dx = Tt.x - q, Tt.corrected.dy = Tt.y - J, Tt.corrected.dz = Tt.z - $, Tt.x = q, Tt.y = J, Tt.z = $, Tt.dx = ee, Tt.dy = te, Tt.dz = ie) : Tt.corrections = 0, Tt.yaw = re, Tt.pitch = oe, Tt.controlKeys = me;
               break;
-            case $e:
-              if (u = ir.unPackInt8U(), y = ir.unPackFloat(), x = ir.unPackFloat(), T = ir.unPackFloat(), K = ir.unPackInt8U(), !(pt = Ir[u]) || pt.id == l) {
-                for (ae = 0; ae < zt; ae++) ir.unPackInt8U(), ir.unPackRadU(), ir.unPackRad();
+            case qe:
+              if (u = $i.unPackInt8U(), y = $i.unPackFloat(), x = $i.unPackFloat(), T = $i.unPackFloat(), K = $i.unPackInt8U(), !(Tt = Cr[u]) || Tt.id == l) {
+                for (ae = 0; ae < Vt; ae++) $i.unPackInt8U(), $i.unPackRadU(), $i.unPackRad();
                 break
               }
-              for (pt.stateIdx = 0, ae = 0; ae < zt; ae++) pt.stateBuffer[ae].controlKeys = ir.unPackInt8U(), pt.stateBuffer[ae].yaw = ir.unPackRadU(), pt.stateBuffer[ae].pitch = ir.unPackRad();
-              pt.x = y, (!pt.jumping || Math.abs(pt.y - x) > .5) && (pt.y = x), pt.z = T, pt.stateBuffer[0].x = y, pt.stateBuffer[0].y = x, pt.stateBuffer[0].z = T, pt.climbing = K;
+              for (Tt.stateIdx = 0, ae = 0; ae < Vt; ae++) Tt.stateBuffer[ae].controlKeys = $i.unPackInt8U(), Tt.stateBuffer[ae].yaw = $i.unPackRadU(), Tt.stateBuffer[ae].pitch = $i.unPackRad();
+              Tt.x = y, (!Tt.jumping || Math.abs(Tt.y - x) > .5) && (Tt.y = x), Tt.z = T, Tt.stateBuffer[0].x = y, Tt.stateBuffer[0].y = x, Tt.stateBuffer[0].z = T, Tt.climbing = K;
               break;
-            case wt:
-              if (u = ir.unPackInt8U(), rr.x = ir.unPackFloat(), rr.y = ir.unPackFloat(), rr.z = ir.unPackFloat(), nr.x = ir.unPackFloat(), nr.y = ir.unPackFloat(), nr.z = ir.unPackFloat(), !(pt = Ir[u])) break;
-              u != l && (pt.weapon.actor.fire(), pt.weapon.fireMunitions(rr, nr), --pt.weapon.tracer < 0 && (pt.weapon.tracer = pt.weapon.subClass.tracer)), mathSeed = Ae;
+            case It:
+              if (u = $i.unPackInt8U(), er.x = $i.unPackFloat(), er.y = $i.unPackFloat(), er.z = $i.unPackFloat(), tr.x = $i.unPackFloat(), tr.y = $i.unPackFloat(), tr.z = $i.unPackFloat(), !(Tt = Cr[u])) break;
+              u != l && (Tt.weapon.actor.fire(), Tt.weapon.fireMunitions(er, tr), --Tt.weapon.tracer < 0 && (Tt.weapon.tracer = Tt.weapon.subClass.tracer)), mathSeed = Ae;
               break;
-            case Lt:
-              u = ir.unPackInt8U(), y = ir.unPackFloat(), x = ir.unPackFloat(), T = ir.unPackFloat();
-              var _e = ir.unPackFloat(),
-                ge = ir.unPackFloat(),
-                ve = ir.unPackFloat();
-              if (!(pt = Ir[u])) break;
-              pt.grenadeCount--, u != l ? (pt.actor.head.rotation.x = pt.pitch, pt.actor.mesh.rotation.y = pt.yaw) : Wn(), pt.actor.throwGrenade(), Ur.throwGrenade(pt, {
+            case Dt:
+              u = $i.unPackInt8U(), y = $i.unPackFloat(), x = $i.unPackFloat(), T = $i.unPackFloat();
+              var _e = $i.unPackFloat(),
+                ge = $i.unPackFloat(),
+                ve = $i.unPackFloat();
+              if (!(Tt = Cr[u])) break;
+              Tt.grenadeCount--, u != l ? (Tt.actor.head.rotation.x = Tt.pitch, Tt.actor.mesh.rotation.y = Tt.yaw) : Hn(), Tt.actor.throwGrenade(), Nr.throwGrenade(Tt, {
                 x: y,
                 y: x,
                 z: T
@@ -52056,176 +52324,176 @@ var extern = function () {
                 z: ve
               });
               break;
-            case Mt:
-              var ye = ir.unPackInt8U(),
-                be = ir.unPackInt8U(),
-                xe = (y = ir.unPackFloat(), x = ir.unPackFloat(), T = ir.unPackFloat(), ir.unPackInt8U()),
-                Te = ir.unPackFloat();
+            case St:
+              var ye = $i.unPackInt8U(),
+                be = $i.unPackInt8U(),
+                xe = (y = $i.unPackFloat(), x = $i.unPackFloat(), T = $i.unPackFloat(), $i.unPackInt8U()),
+                Te = $i.unPackFloat();
               let e = null;
-              ye > 0 && (e = V.findItemBy8BitItemId(ye, 0, be)), ln(y, x, T, xe, Te, e), rr.set(y, x, T), ye == Fe ? ji.play(e.item_data.sound || "grenade", rr) : ji.play("rpegg_rocket_hit", rr);
+              ye > 0 && (e = V.findItemBy8BitItemId(ye, 0, be)), on(y, x, T, xe, Te, e), er.set(y, x, T), ye == Le ? Gi.play(e.item_data.sound || "grenade", er) : Gi.play("rpegg_rocket_hit", er);
               break;
-            case yt:
-              u = ir.unPackInt8U(), Ir[u] && Ir[u].reload();
+            case gt:
+              u = $i.unPackInt8U(), Cr[u] && Cr[u].reload();
               break;
-            case at:
-              u = ir.unPackInt8U();
-              var Ee = ir.unPackInt8U();
-              Ir[u] && Ir[u].swapWeapon(Ee);
+            case nt:
+              u = $i.unPackInt8U();
+              var Ee = $i.unPackInt8U();
+              Cr[u] && Cr[u].swapWeapon(Ee);
               break;
-            case it:
-              var Pe = ir.unPackInt8U();
-              _e = ir.unPackFloat(), ve = ir.unPackFloat(), Cr.hp = Pe, Cr.actor.hit(), sr.hit(_e, ve);
+            case et:
+              var Pe = $i.unPackInt8U();
+              _e = $i.unPackFloat(), ve = $i.unPackFloat(), Sr.hp = Pe, Sr.actor.hit(), nr.hit(_e, ve);
               break;
-            case Ot:
-              var Se = ir.unPackInt8U();
-              Pe = ir.unPackInt8U(), _e = ir.unPackFloat(), ve = ir.unPackFloat(), Cr.hp = Pe, Cr.hardBoiledValue = Se, Cr.actor.hit(), sr.hit(_e, ve), Nn();
+            case Ct:
+              var Se = $i.unPackInt8U();
+              Pe = $i.unPackInt8U(), _e = $i.unPackFloat(), ve = $i.unPackFloat(), Sr.hp = Pe, Sr.hardBoiledValue = Se, Sr.actor.hit(), nr.hit(_e, ve), Ln();
               break;
-            case tt:
-              if (u = ir.unPackInt8U(), ir.unPackInt8U(), Pe = ir.unPackInt8U(), !(pt = Ir[u])) break;
-              pt.hp = Pe, pt.actor.hit(), Pe > 0 && _n(pt, Math.clamp(pt.hp - Pe, 0, 100));
+            case $e:
+              if (u = $i.unPackInt8U(), Pe = $i.unPackInt8U(), !(Tt = Cr[u])) break;
+              Tt.hp = Pe, Tt.actor.hit(), Pe > 0 && pn(Tt, Math.clamp(Tt.hp - Pe, 0, 100));
               break;
-            case ot:
-              u = ir.unPackInt8U();
-              var Ae = ir.unPackInt16U(),
-                Me = (y = ir.unPackFloat(), x = ir.unPackFloat(), T = ir.unPackFloat(), ir.unPackInt8U()),
-                Ce = ir.unPackInt8U(),
-                Re = ir.unPackInt8U(),
-                Oe = ir.unPackInt8U(),
-                Ie = ir.unPackInt8U();
-              (pt = Ir[u]) && (pt.randomGen.setSeed(Ae), pt.weapons[0].ammo.rounds = Me, pt.weapons[0].ammo.store = Ce, pt.weapons[1].ammo.rounds = Re, pt.weapons[1].ammo.store = Oe, pt.grenades = Ie, pt.respawn(y, x, T), u == l && (de = !1, vueApp.isPaused = !1, console.log("CommCode.respawn received from server for this player"), Ai.init(), xn(), ar.show(), er && b.focus()));
+            case rt:
+              u = $i.unPackInt8U();
+              var Ae = $i.unPackInt16U(),
+                Me = (y = $i.unPackFloat(), x = $i.unPackFloat(), T = $i.unPackFloat(), $i.unPackInt8U()),
+                Ce = $i.unPackInt8U(),
+                Re = $i.unPackInt8U(),
+                Be = $i.unPackInt8U(),
+                Fe = $i.unPackInt8U();
+              (Tt = Cr[u]) && (Tt.randomGen.setSeed(Ae), Tt.weapons[0].ammo.rounds = Me, Tt.weapons[0].ammo.store = Ce, Tt.weapons[1].ammo.rounds = Re, Tt.weapons[1].ammo.store = Be, Tt.grenades = Fe, Tt.respawn(y, x, T), u == l && (de = !1, vueApp.isPaused = !1, console.log("CommCode.respawn received from server for this player"), Ei.init(), vn(), rr.show(), qi && b.focus()));
               break;
-            case mt:
-              u = ir.unPackInt8U();
-              var Ne = ir.unPackInt8U(),
-                ke = ir.unPackInt8U(),
-                Ve = ir.unPackInt8U(),
-                Ue = ir.unPackInt8U(),
-                ze = ir.unPackInt8U(),
-                Ge = ir.unPackInt8U(),
-                He = ir.unPackInt8U(),
-                We = V.findItemBy8BitItemId(Le, Ne, ke),
-                je = V.findItemBy8BitItemId(Be, Ne, Ve),
-                Ye = V.findItemBy8BitItemId(De, Ne, ze),
-                Xe = V.findItemBy8BitItemId(we, Ne, Ge),
-                Ke = V.findItemBy8BitItemId(Fe, Ne, He);
-              (pt = Ir[u]) && pt.changeCharacter(Ne, We, je, Ue, Ye, Xe, Ke);
+            case pt:
+              u = $i.unPackInt8U();
+              var Ne = $i.unPackInt8U(),
+                ke = $i.unPackInt8U(),
+                Ve = $i.unPackInt8U(),
+                Ue = $i.unPackInt8U(),
+                ze = $i.unPackInt8U(),
+                Ge = $i.unPackInt8U(),
+                He = $i.unPackInt8U(),
+                We = V.findItemBy8BitItemId(De, Ne, ke),
+                je = V.findItemBy8BitItemId(we, Ne, Ve),
+                Ye = V.findItemBy8BitItemId(Oe, Ne, ze),
+                Xe = V.findItemBy8BitItemId(Ie, Ne, Ge),
+                ot = V.findItemBy8BitItemId(Le, Ne, He);
+              (Tt = Cr[u]) && Tt.changeCharacter(Ne, We, je, Ue, Ye, Xe, ot);
               break;
-            case ft:
-              u = ir.unPackInt8U();
-              var Qe = ir.unPackInt8U();
-              (pt = Ir[u]) && (pt.team = Qe, pt.score = 0, pt.kills = 0, pt.streak = 0, pt.bestGameStreak = 0, u == l && (A = Qe, vueApp.setTeam(A)), On(), zn());
+            case dt:
+              u = $i.unPackInt8U();
+              var lt = $i.unPackInt8U();
+              (Tt = Cr[u]) && (Tt.team = lt, Tt.score = 0, Tt.kills = 0, Tt.streak = 0, Tt.bestGameStreak = 0, u == l && (A = lt, vueApp.setTeam(A)), Mn(), Un());
               break;
-            case bt:
+            case vt:
               vueApp.showGenericPopup("ui_game_fairteams_header", "ui_game_fairteams_text", "ok");
               break;
-            case lt:
-              ping = Date.now() - Ln, f += ping, m++;
-              var st = document.getElementById("ping");
-              ping < 100 ? st.style.color = "#0f0" : ping < 150 ? st.style.color = "#ff0" : ping < 200 ? st.style.color = "#f90" : st.style.color = "#f00", st.innerText = ping + "ms", setTimeout((function () {
+            case at:
+              ping = Date.now() - In, f += ping, m++;
+              var ct = document.getElementById("ping");
+              ping < 100 ? ct.style.color = "#0f0" : ping < 150 ? ct.style.color = "#ff0" : ping < 200 ? ct.style.color = "#f90" : ct.style.color = "#f00", ct.innerText = ping + "ms", setTimeout((function () {
                 if (ws) {
-                  var e = Hi.getBuffer();
-                  e.packInt8(lt), e.send(ws), Ln = Date.now()
+                  var e = Ui.getBuffer();
+                  e.packInt8(at), e.send(ws), In = Date.now()
                 }
               }), 1e3);
               break;
-            case gt:
-              var ht = ir.unPackString();
+            case mt:
+              var ht = $i.unPackString();
               console.log("announcement:", ht), 0 === ht.length && (ht = null), vueData.announcementMessage = ht;
               break;
-            case Et:
+            case xt:
               notify(vueApp.loc.ui_game_locked, 1e4);
               break;
-            case vt:
-              var ut = ir.unPackInt32U();
+            case _t:
+              var ut = $i.unPackInt32U();
               console.log("updating balance from server: " + ut), W.currentBalance = ut;
               break;
-            case xt:
-              console.log("upgrade has expired"), Si();
+            case yt:
+              console.log("upgrade has expired"), Ti();
               break;
-            case It:
-              u = ir.unPackInt8U();
-              var dt = ir.unPackInt8U();
-              (pt = Ir[u]).beginShellStreak(dt);
+            case Rt:
+              u = $i.unPackInt8U();
+              var bt = $i.unPackInt8U();
+              (Tt = Cr[u]).beginShellStreak(bt);
               break;
-            case Dt:
-              var pt;
-              u = ir.unPackInt8U(), dt = ir.unPackInt8U(), (pt = Ir[u]).endShellStreak(dt);
+            case Ot:
+              var Tt;
+              u = $i.unPackInt8U(), bt = $i.unPackInt8U(), (Tt = Cr[u]).endShellStreak(bt);
               break;
             default:
-              console.log("CommCode error: " + t + "/" + String.fromCharCode(t) + " - previous cmd: " + JSON.stringify(Sn))
+              console.log("CommCode error: " + t + "/" + String.fromCharCode(t) + " - previous cmd: " + JSON.stringify(Tn))
           }
-          Sn.push(t), Sn.length > 4 && Sn.shift()
+          Tn.push(t), Tn.length > 4 && Tn.shift()
         }
-      }, (e = Hi.getBuffer()).packInt8(ct), e.send(ws), (e = Hi.getBuffer()).packInt8(lt), e.send(ws), Ln = Date.now(), is(), setTimeout(ka, 3e4)
+      }, (e = Ui.getBuffer()).packInt8(st), e.send(ws), (e = Ui.getBuffer()).packInt8(at), e.send(ws), In = Date.now(), ts(), setTimeout(Ba, 3e4)
     } catch (e) {
       console.log(e)
     }
   }
 
+  function gn() {
+    r.parent = null, r.position = new BABYLON.Vector3(0, Tr.height + 1, 0), r.lockedTarget = null, r.setTarget(new BABYLON.Vector3(Tr.width / 2, Tr.height / 4, Tr.depth / 2)), Ji = !0
+  }
+
+  function vn(e) {
+    r.position = BABYLON.Vector3.Zero(), r.rotation = BABYLON.Vector3.Zero(), r.parent = e ? e.actor.eye : Sr.actor.eye, r.lockedTarget = null, Ji = !1, or = !1
+  }
+  var yn = !1;
+
   function bn() {
-    r.parent = null, r.position = new BABYLON.Vector3(0, Sr.height + 1, 0), r.lockedTarget = null, r.setTarget(new BABYLON.Vector3(Sr.width / 2, Sr.height / 4, Sr.depth / 2)), tr = !0
-  }
-
-  function xn(e) {
-    r.position = BABYLON.Vector3.Zero(), r.rotation = BABYLON.Vector3.Zero(), r.parent = e ? e.actor.eye : Cr.actor.eye, r.lockedTarget = null, tr = !1, lr = !1
-  }
-  var Tn = !1;
-
-  function En() {
-    No(), Xn(), tr && bn(), Tr = pa(wn, 1e3 / 30), e.runRenderLoop((function () {
+    Fo(), Yn(), Ji && gn(), yr = ua(On, 1e3 / 30), e.runRenderLoop((function () {
       ! function () {
         var t = performance.now(),
-          i = Math.min((t - Bn) / (1e3 / 60), 8);
-        if (Bn = t, dr >= 0) {
+          i = Math.min((t - Dn) / (1e3 / 60), 8);
+        if (Dn = t, cr >= 0) {
           var n = e.getFps();
-          dr += n, pr++
+          cr += n, hr++
         }
-        if (pr % 10 == 0) {
-          fr = dr / pr, document.getElementById("FPS").innerText = Math.floor(n + .5), Rr.activeShellStreaks & Wt.HardBoiled || Nn()
+        if (hr % 10 == 0) {
+          ur = cr / hr, document.getElementById("FPS").innerText = Math.floor(n + .5), Ar.activeShellStreaks & zt.HardBoiled || Ln()
         }
         m > 10 && (ae = Math.max(ae, ping));
-        if (X) Cr.actor.update(i);
+        if (X) Sr.actor.update(i);
         else {
-          for (var o = 0; o < Ir.length; o++) {
-            var a = Ir[o];
+          for (var o = 0; o < Cr.length; o++) {
+            var a = Cr[o];
             a && (a.chatLineCap = Math.min(a.chatLineCap + i / 120, 3), a.playing && (a.actor.handsToWeaponSkeleton(), a.actor && a.actor.update(i)))
           }
-          Nr && Nr.actor.update(i)
+          Lr && Lr.actor.update(i)
         }
-        Cr && (sr.update(i), ar.update(i));
-        X || (Ur.updateActors(i), zr.update(i), vn(Yi, i), vn(Xi, i), vn(Ki, i), vn(Qi, i), vn(yolkManager, i), vn(Zi, i));
-        tr && (Gr += .002 * i, r.position.x = Math.sin(Gr) * Sr.height + Sr.width / 2, r.position.z = Math.cos(Gr) * Sr.height + Sr.depth / 2, r.setTarget(new BABYLON.Vector3(Sr.width / 2, Sr.height / 4, Sr.depth / 2)));
-        lr && cr.update(i)
-      }(), Rr && (Mr.position.x = Rr.x, Mr.position.y = Rr.y + 2, Mr.position.z = Rr.z), Pr.render()
+        Sr && (nr.update(i), rr.update(i));
+        X || (Nr.updateActors(i), kr.update(i), mn(Hi, i), mn(Wi, i), mn(ji, i), mn(Yi, i), mn(yolkManager, i), mn(Xi, i));
+        Ji && (Vr += .002 * i, r.position.x = Math.sin(Vr) * Tr.height + Tr.width / 2, r.position.z = Math.cos(Vr) * Tr.height + Tr.depth / 2, r.setTarget(new BABYLON.Vector3(Tr.width / 2, Tr.height / 4, Tr.depth / 2)));
+        or && ar.update(i)
+      }(), Ar && (Pr.position.x = Ar.x, Pr.position.y = Ar.y + 2, Pr.position.z = Ar.z), xr.render()
     }))
   }
-  var Pn = document.createElement("DIV"),
-    Sn = [],
-    An = "",
-    Mn = !1;
-  const Cn = e => {
-    if (!Mn && e ? (Mn = !0, vueApp.musicWidget(!0)) : Mn && !e && (Mn = !1, vueApp.musicWidget(!1)), An !== e) {
-      An = e;
+  var xn = document.createElement("DIV"),
+    Tn = [],
+    En = "",
+    Pn = !1;
+  const Sn = e => {
+    if (!Pn && e ? (Pn = !0, vueApp.musicWidget(!0)) : Pn && !e && (Pn = !1, vueApp.musicWidget(!1)), En !== e) {
+      En = e;
       var t = decodeURI(e);
       console.log("Music metadata", t), data = JSON.parse(t), vueApp.music.serverTracks = data, "localhost" == location.host || "localshelldev.bluewizard.com" == location.host ? vueApp.music.serverTracks.albumArt = "https://shellshock.io/img/albumArt/" + data.id + data.albumExt + "?" + data.query : vueApp.music.serverTracks.albumArt = "img/albumArt/" + data.id + data.albumExt + "?" + data.query, vueApp.songChanged = !0
     }
   };
 
-  function Rn(e) {
+  function An(e) {
     var t;
-    (t = document.getElementById("shellStreakMessage")).innerText = e, t.className = "appear", (t = document.getElementById("shellStreakCaption")).innerText = "x" + Cr.streak + " Shellstreak", t.style.visibility = "visible", setTimeout(() => {
+    (t = document.getElementById("shellStreakMessage")).innerText = e, t.className = "appear", (t = document.getElementById("shellStreakCaption")).innerText = "x" + Sr.streak + " Shellstreak", t.style.visibility = "visible", setTimeout(() => {
       document.getElementById("shellStreakMessage").className = "disappear", document.getElementById("shellStreakCaption").style.visibility = "hidden"
     }, 3e3)
   }
 
-  function On() {
+  function Mn() {
     for (var e = 0; e < playerLimit; e++) {
-      var t = Ir[e];
+      var t = Cr[e];
       t && t.actor && t.actor.updateTeam()
     }
   }
-  var In = Math.PI / 2;
-  async function Dn(e, t) {
+  var Cn = Math.PI / 2;
+  async function Rn(e, t) {
     for (var i = await fetch(e), r = i.body.getReader(), n = +i.headers.get("Content-Length"), o = 0, a = [];;) {
       var {
         done: s,
@@ -52240,75 +52508,85 @@ var extern = function () {
     return lightmap = new Uint8Array(c), lightmap
   }
 
-  function wn() {
+  function On() {
     var e = performance.now();
-    Er = e, m > 10 && (ae = Math.max(ae, ping));
-    for (Ai.update(); ur < e;) {
-      if (ur += 1e3 / 30, X) Cr.actor.updateLerp(), Cr.update();
+    br = e, m > 10 && (ae = Math.max(ae, ping));
+    for (Ei.update(); lr < e;) {
+      if (lr += 1e3 / 30, X) Sr.actor.updateLerp(), Sr.update();
       else {
-        for (var t = 0; t < Ir.length; t++) {
-          var i = Ir[t];
+        for (var t = 0; t < Cr.length; t++) {
+          var i = Cr[t];
           i && (i.chatLineCap = Math.min(i.chatLineCap + 2 / 120, 3), i.playing && (i.actor.updateLerp(), i.update()))
         }
-        Nr && Nr.update()
+        Lr && Lr.update()
       }
-      Cr && (Cr.weapon && 0 == Cr.weapon.ammo.rounds && (Cr.stateIdx % 20 == 0 ? document.getElementById("ammo").style.color = "#f00" : Cr.stateIdx % 20 == 10 && (document.getElementById("ammo").style.color = "#fff")), 1 == $i && (Or = Math.min(Or + .03, 1)) > 0 && (document.getElementById("grenadeThrowContainer").style.visibility = "visible", document.getElementById("grenadeThrow").style.height = 100 * Or + "%")), X || Ur.updateLogic()
+      Sr && (Sr.weapon && 0 == Sr.weapon.ammo.rounds && (Sr.stateIdx % 20 == 0 ? document.getElementById("ammo").style.color = "#f00" : Sr.stateIdx % 20 == 10 && (document.getElementById("ammo").style.color = "#fff")), 1 == Zi && (Mr = Math.min(Mr + .03, 1)) > 0 && (document.getElementById("grenadeThrowContainer").style.visibility = "visible", document.getElementById("grenadeThrow").style.height = 100 * Mr + "%")), X || Nr.updateLogic()
     }
     var n = BABYLON.Matrix.Invert(r.getViewMatrix());
-    Wr.copyFrom(BABYLON.Vector3.TransformNormal(new BABYLON.Vector3(0, 0, -1), n)), Wr.normalize(), Ui.update()
+    zr.copyFrom(BABYLON.Vector3.TransformNormal(new BABYLON.Vector3(0, 0, -1), n)), zr.normalize(), Ni.update()
   }
-  var Ln, Bn = performance.now();
+  var In, Dn = performance.now();
 
-  function Fn(e, t, i, r, n) {
-    !e.playing || e.shield > 0 || Math.max(0, Math.floor(e.hp - i)) > 0 && gn(e, Math.clamp(i, 0, 100))
+  function wn(e, t, i, r, n) {
+    !e.playing || e.shield > 0 || Math.max(0, Math.floor(e.hp - i)) > 0 && fn(e, Math.clamp(i, 0, 100))
   }
 
-  function Nn() {
-    if (Rr.activeShellStreaks & Wt.HardBoiled) {
+  function Ln() {
+    if (Ar.activeShellStreaks & zt.HardBoiled) {
       "visible" != (t = document.getElementById("hardBoiledContainer")).style.visibility && (t.style.visibility = "visible", document.getElementById("healthContainer").style.visibility = "hidden");
-      var e = Math.floor(Rr.hardBoiledValue);
+      var e = Math.floor(Ar.hardBoiledValue);
       document.getElementById("hardBoiledValue").innerText = e, (t = document.getElementById("hardBoiledShieldFill")).style.clipPath = "inset(" + (100 - e) + "% 0 0 0)"
     } else {
       var t;
       "visible" != (t = document.getElementById("healthContainer")).style.visibility && (t.style.visibility = "visible", document.getElementById("hardBoiledContainer").style.visibility = "hidden");
       var i = document.getElementById("healthBar"),
         r = document.getElementById("healthHp"),
-        n = 2.3 - Rr.hp / 43.478;
+        n = 2.3 - Ar.hp / 43.478;
       i.setAttribute("stroke-dashoffset", 6.2832 * n + "em");
-      e = Math.floor(Rr.hp);
+      e = Math.floor(Ar.hp);
       r.innerText = e
     }
   }
 
-  function kn(e) {
+  function Bn(e) {
 
     window.hack.myPlayerId = l;
     e.id == l && (S = e.id);
-    var t = new di(e, Pr);
-    t.id == l && (Rr = t, (Cr = t).ws = ws, Wn()), t.playing || t.actor.removeFromPlay(),
-      Ir[e.id] = t,
-      zn(),
-
-      window.hack.addPlayer(Ir[e.id])
+    var t = new ci(e, xr);
+    t.id == l && (Ar = t, (Sr = t).ws = ws, Hn()), t.playing || t.actor.removeFromPlay(),
+      Cr[e.id] = t,
+      Un(),
+      window.hack.addPlayer(Cr[e.id])
   }
 
-  function Vn(e) {
-    var t = Ir[e];
+  function Fn(e) {
+    var t = Cr[e];
     e != l ? t && (t.actor.remove(),
-      delete Ir[e],
-      zn(),
-
+      delete Cr[e],
+      Un(),
       window.hack.removePlayer(e)
     ) : console.log("Tried to remove ME")
   }
-  var Un = 1;
+  var Nn = 1;
 
-  function zn() {
-    for (var e = [], t = 0; t < Ir.length; t++) Ir[t] && e.push(t);
-    if (Hr) {
+  function kn(e) {
+    if (e) {
+      const t = JSON.parse(e);
+      return !!(t.length > 0 && hasValue(t[0])) && t.find(e => e.active)
+    }
+    return !1
+  }
+
+  function Vn(e) {
+    return e.upgradeProductId && e.upgradeProductId > 0 || e.social.length > 2 && e.social.includes('"active": true')
+  }
+
+  function Un() {
+    for (var e = [], t = 0; t < Cr.length; t++) Cr[t] && e.push(t);
+    if (Ur) {
       var i = function () {
         for (var e = [0, 0, 0], t = 0; t < playerLimit; t++) {
-          var i = Ir[t];
+          var i = Cr[t];
           i && (e[i.team] += i.score)
         }
         var r = 0;
@@ -52317,37 +52595,41 @@ var extern = function () {
           leader: r
         }
       }();
-      i.leader > 0 && (Un = i.leader), i.score[Un] += 1e5, e.sort((function (e, t) {
-        return Ir[t].score + i.score[Ir[t].team] - (Ir[e].score + i.score[Ir[e].team])
+      i.leader > 0 && (Nn = i.leader), i.score[Nn] += 1e5, e.sort((function (e, t) {
+        return Cr[t].score + i.score[Cr[t].team] - (Cr[e].score + i.score[Cr[e].team])
       }))
     } else e.sort((function (e, t) {
-      return Ir[t].score - Ir[e].score
+      return Cr[t].score - Cr[e].score
     }));
     var r = document.getElementById("playerList").children;
     for (t = 0; t < e.length; t++) {
-      var n = Ir[e[t]],
+      var n = Cr[e[t]],
         o = r[t],
         a = o.children[0],
         s = a.children[0],
         c = a.children[1],
         h = o.children[1];
       if (s.classList.add("playerSlot--name"), c.classList.add("playerSlot--score"), h.classList.add("playerSlot--icons"), o.style.display = "block", s.innerText = n.name, n.id != l) {
-        o.addEventListener("click", function (e, t) {
+        const e = kn(n.social),
+          t = !!(n.upgradeProductId && n.upgradeProductId > 0);
+        o.addEventListener("click", function (i, r) {
           return function () {
-            var i = {
-              playerId: e,
-              uniqueId: t,
+            var n = {
+              playerId: i,
+              uniqueId: r,
               isGameOwner: P,
-              muted: Ir[e].muted,
-              playerName: Ir[e].name,
+              muted: Cr[i].muted,
+              playerName: Cr[i].name,
               muteFunc: function () {
-                Hn(this.playerId, this.uniqueId)
+                Gn(this.playerId, this.uniqueId)
               },
               bootFunc: function () {
-                Gn(this.playerId, this.uniqueId)
-              }
+                zn(this.playerId, this.uniqueId)
+              },
+              social: e,
+              vipMember: t
             };
-            vueApp.showPlayerActionsPopup(i)
+            vueApp.showPlayerActionsPopup(n)
           }
         }(n.id, n.uniqueId), !1), o.style.pointerEvents = "all", o.style.cursor = "pointer"
       }
@@ -52355,57 +52637,59 @@ var extern = function () {
       let i = "playerSlot--name-score",
         u = "playerSlot-player-is-me",
         d = "playerSlot-player-is-them";
-      n.id == l ? a.className = `${i} ${u} ${Se.meClass[n.team]}` : a.className = `${i} ${d} ${Se.themClass[n.team]}`, h.innerText = "";
+      n.id == l ? a.className = `${i} ${u} ${Ee.meClass[n.team]}` : a.className = `${i} ${d} ${Ee.themClass[n.team]}`, h.innerText = "";
       const p = document.createElement("i"),
         f = document.createElement("i");
-      p.className = "fas fa-egg hidden", f.className = "fas fa-ban hidden", n.upgradeProductId && n.upgradeProductId > 0 && p.classList.remove("hidden"), n.muted && f.classList.remove("hidden"), h.appendChild(p), h.appendChild(f)
+      p.className = "fas fa-egg hidden text_gold vip-egg";
+      const m = kn(n.social);
+      m && (p.className = `fab ${SOCIALMEDIA[m.id]} hidden`), f.className = "fas fa-ban hidden", Vn(n) && p.classList.remove("hidden"), n.muted && f.classList.remove("hidden"), h.appendChild(p), h.appendChild(f)
     }
     for (; t < playerLimit;) r[t].style.display = "none", t++
   }
 
-  function Gn(e, t) {
-    if (P && Ir[e] && Ir[e].uniqueId == t) {
-      var i = Hi.getBuffer();
-      i.packInt8(Pt), i.packInt8(e), i.packInt16(Ir[e].uniqueId), i.send(ws)
+  function zn(e, t) {
+    if (P && Cr[e] && Cr[e].uniqueId == t) {
+      var i = Ui.getBuffer();
+      i.packInt8(Tt), i.packInt8(e), i.packInt16(t), i.send(ws)
     }
   }
 
-  function Hn(e, t) {
-    var i = Ir[e];
-    i && i.uniqueId == t && (i.muted ? (i.muted = !1, B.safeNames || (i.name = i.normalName)) : (i.muted = !0, B.safeNames || (i.name = i.safeName)), i.actor.setupNameSprite(), zn())
+  function Gn(e, t) {
+    var i = Cr[e];
+    i && i.uniqueId == t && (i.muted ? (i.muted = !1, B.safeNames || (i.name = i.normalName)) : (i.muted = !0, B.safeNames || (i.name = i.safeName)), i.actor.setupNameSprite(), Un())
   }
 
-  function Wn() {
-    if (Cr) {
+  function Hn() {
+    if (Sr) {
       var e = document.getElementById("weaponName");
-      e.innerHTML = Cr.weapon.subClass.weaponName, (e = document.getElementById("ammo")).style.color = "#fff";
-      var t = Cr.weapon.ammo,
+      e.innerHTML = Sr.weapon.subClass.weaponName, (e = document.getElementById("ammo")).style.color = "#fff";
+      var t = Sr.weapon.ammo,
         i = Math.max(Math.min(t.rounds, t.capacity), 0),
         r = Math.max(Math.min(t.store, t.storeMax), 0);
       e.innerHTML = i + "/" + r;
-      for (var n = 1; n <= 3; n++) Cr.grenadeCount >= n ? document.getElementById("grenade" + n).src = "img/ico_grenade.png?v=1" : document.getElementById("grenade" + n).src = "img/ico_grenadeEmpty.png?v=1"
+      for (var n = 1; n <= 3; n++) Sr.grenadeCount >= n ? document.getElementById("grenade" + n).src = "img/ico_grenade.png?v=1" : document.getElementById("grenade" + n).src = "img/ico_grenadeEmpty.png?v=1"
     }
   }
-  var jn, Yn = null;
+  var Wn, jn = null;
 
-  function Xn() {
-    Yn = null, document.onkeydown = io, document.onkeyup = ro
+  function Yn() {
+    jn = null, document.onkeydown = to, document.onkeyup = io
   }
 
-  function Kn() {
+  function Xn() {
     document.onkeydown = null, document.onkeyup = null
   }
 
-  function Qn(e, t) {
-    if (lr || Cr.playing && document.pointerLockElement) {
-      if (lr) {
+  function Kn(e, t) {
+    if (or || Sr.playing && document.pointerLockElement) {
+      if (or) {
         if (!(i = j[e].spectate[t])) var i = j[e].game[t]
       } else i = j[e].game[t];
-      Zn(i)
+      Qn(i)
     }
   }
 
-  function Zn(e) {
+  function Qn(e) {
     switch (e) {
       case "up":
       case "down":
@@ -52414,44 +52698,44 @@ var extern = function () {
       case "jump":
       case "ascend":
       case "descend":
-        gr |= ci[e];
+        fr |= ai[e];
         break;
       case "fire":
-        document.pointerLockElement && Cr && Ai.add(Ai.fire), gr |= ci[e];
+        document.pointerLockElement && Sr && Ei.add(Ei.fire), fr |= ai[e];
         break;
       case "grenade":
-        document.pointerLockElement && Cr && !$i && Cr.canSwapOrReload() && Cr.grenadeCount > 0 && ($i = !0, Or = -.15);
+        document.pointerLockElement && Sr && !Zi && Sr.canSwapOrReload() && Sr.grenadeCount > 0 && (Zi = !0, Mr = -.15);
         break;
       case "scope":
-        B.holdToAim ? Cr.actor.scopeIn() : Cr.actor.scope ? Cr.actor.scopeOut() : Cr.actor.scopeIn();
+        B.holdToAim ? Sr.actor.scopeIn() : Sr.actor.scope ? Sr.actor.scopeOut() : Sr.actor.scopeIn();
         break;
       case "reload":
-        Ai.add(Ai.reload);
+        Ei.add(Ei.reload);
         break;
       case "swap_weapon":
-        Ai.add(Ai.swap)
+        Ei.add(Ei.swap)
     }
   }
 
-  function qn(e, t) {
-    if (lr || Cr.playing && document.pointerLockElement) {
-      if (lr) {
+  function Zn(e, t) {
+    if (or || Sr.playing && document.pointerLockElement) {
+      if (or) {
         if (!(i = j[e].spectate[t])) var i = j[e].game[t]
       } else i = j[e].game[t];
-      Jn(i)
+      qn(i)
     }
   }
 
-  function Jn(e) {
+  function qn(e) {
     switch (e) {
       case "fire":
-        Cr.weapon, gr ^= gr & ci[e];
+        Sr.weapon, fr ^= fr & ai[e];
         break;
       case "scope":
-        B.holdToAim && Cr.actor.scopeOut();
+        B.holdToAim && Sr.actor.scopeOut();
         break;
       case "grenade":
-        document.pointerLockElement && Cr && $i && (document.getElementById("grenadeThrowContainer").style.visibility = "hidden", $i = !1, Cr.throwGrenade(Or));
+        document.pointerLockElement && Sr && Zi && (document.getElementById("grenadeThrowContainer").style.visibility = "hidden", Zi = !1, Sr.throwGrenade(Mr));
         break;
       case "up":
       case "down":
@@ -52460,38 +52744,38 @@ var extern = function () {
       case "jump":
       case "ascend":
       case "descend":
-        gr ^= gr & ci[e]
+        fr ^= fr & ai[e]
     }
   }
 
-  function $n(e, t) {
-    var i = [` ${Bo("ingame_kill_text_scrambled")} `, ` ${Bo("ingame_kill_text_beat")} `, ` ${Bo("ingame_kill_text_poached")} `, ` ${Bo("ingame_kill_text_whipped")} `, ` ${Bo("ingame_kill_text_fried")} `, ` ${Bo("ingame_kill_text_cracked")} `],
-      r = '<span style="color: ' + Se.text[e.team] + '">' + e.name + "</span>" + i[Math.randomInt(0, i.length)] + '<span style="color: ' + Se.text[t.team] + '">' + t.name + "</span>";
+  function Jn(e, t) {
+    var i = [` ${Lo("ingame_kill_text_scrambled")} `, ` ${Lo("ingame_kill_text_beat")} `, ` ${Lo("ingame_kill_text_poached")} `, ` ${Lo("ingame_kill_text_whipped")} `, ` ${Lo("ingame_kill_text_fried")} `, ` ${Lo("ingame_kill_text_cracked")} `],
+      r = '<span style="color: ' + Ee.text[e.team] + '">' + e.name + "</span>" + i[Math.randomInt(0, i.length)] + '<span style="color: ' + Ee.text[t.team] + '">' + t.name + "</span>";
     (T.innerHTML.match(/<br>/g) || []).length > 4 && (T.innerHTML = T.innerHTML.substr(T.innerHTML.search("<br>") + 4)), T.innerHTML += r + "<br>"
   }
 
-  function eo() {
-    canvas.focus(), b.style.display = "block", b.value = Bo("ingame_press_enter_to_chat"), b.style.background = "transparent", b.blur(), er = !1
+  function $n() {
+    canvas.focus(), b.style.display = "block", b.value = Lo("ingame_press_enter_to_chat"), b.style.background = "transparent", b.blur(), qi = !1
   }
 
-  function to(e, t) {
-    t && (e = '<span style="color: ' + Se.text[t.team] + '">' + t.name + ": </span>" + e), (x.innerHTML.match(/<br>/g) || []).length > 5 && (x.innerHTML = x.innerHTML.substr(x.innerHTML.search("<br>") + 4)), x.innerHTML += e + "<br>"
+  function eo(e, t) {
+    t && (e = '<span style="color: ' + Ee.text[t.team] + '">' + t.name + ": </span>" + e), (x.innerHTML.match(/<br>/g) || []).length > 5 && (x.innerHTML = x.innerHTML.substr(x.innerHTML.search("<br>") + 4)), x.innerHTML += e + "<br>"
   }
 
-  function io(e) {
+  function to(e) {
     var t = (e = e || window.event).key;
-    if (t != Yn)
-      if (Yn = t, $i || 0 != gr || "Enter" != t || !B.enableChat) {
-        er || "TAB" == i && (i = "ESCAPE", e.preventDefault(), function (e) {
-          er || k && !de && document.pointerLockElement && (console.log("IS PAUSING"), document.exitPointerLock(), console.log("pausing game on key: ", e))
+    if (t != jn)
+      if (jn = t, Zi || 0 != fr || "Enter" != t || !B.enableChat) {
+        qi || "Tab" == t && (i = "ESCAPE", e.preventDefault(), function (e) {
+          qi || k && !de && document.pointerLockElement && (document.exitPointerLock(), console.log("pausing game on key: ", e))
         }("down"));
         var i = ("" + t).toLocaleUpperCase();
         if (" " == i && (i = "SPACE", e.preventDefault()), debug) {
           if ("`" == i) return void
           function () {
-            if (jn) {
+            if (Wn) {
               for (var e = 0; e < playerLimit; e++) {
-                var t = Ir[e];
+                var t = Cr[e];
                 if (t) {
                   var i = {
                     name: t.name,
@@ -52512,106 +52796,106 @@ var extern = function () {
                     weaponEnabled: t.weapon.actor.gunMesh.isEnabled(),
                     weaponVisible: t.weapon.actor.gunMesh.isVisible
                   };
-                  jn.document.write(JSON.stringify(i) + "\n")
+                  Wn.document.write(JSON.stringify(i) + "\n")
                 }
               }
-              jn.document.write("<hr>")
-            } else(jn = window.open("", "", "name=Debug")).document.write("<pre>")
+              Wn.document.write("<hr>")
+            } else(Wn = window.open("", "", "name=Debug")).document.write("<pre>")
           }();
           if ("\\" == i) {
             X = !0;
-            for (var r = 0; r < Pr.particleSystems.length; r++) Pr.particlesPaused = !0;
-            for (r = 0; r < playerLimit; r++) Ir[r] && Ir[r].actor && (Ir[r].actor.mesh.setVisible(!0), Ir[r].actor.showNameSprite(), Ir[r].actor.positionNameSprite());
+            for (var r = 0; r < xr.particleSystems.length; r++) xr.particlesPaused = !0;
+            for (r = 0; r < playerLimit; r++) Cr[r] && Cr[r].actor && (Cr[r].actor.mesh.setVisible(!0), Cr[r].actor.showNameSprite(), Cr[r].actor.positionNameSprite());
             ws.close()
           }
         }
-        Qn("keyboard", i)
-      } else Cr.chatLineCap > 0 && (Kn(), b.style.background = "rgba(0, 0, 0, 0.5)", b.value = "", b.focus(), Yn = null, er = !0)
+        Kn("keyboard", i)
+      } else Sr.chatLineCap > 0 && (Xn(), b.style.background = "rgba(0, 0, 0, 0.5)", b.value = "", b.focus(), jn = null, qi = !0)
   }
 
-  function ro(e) {
+  function io(e) {
     var t = (e = e || window.event).key;
-    t == Yn && (Yn = null);
+    t == jn && (jn = null);
     var i = ("" + t).toLocaleUpperCase();
-    " " == i && (i = "SPACE", e.preventDefault()), qn("keyboard", i)
+    " " == i && (i = "SPACE", e.preventDefault()), Zn("keyboard", i)
   }
 
-  function no() {
-    this.crosshairs = new BABYLON.AbstractMesh("", Pr), this.crosshairs.setEnabled(!1), this.crosshairs.position.z = 2;
+  function ro() {
+    this.crosshairs = new BABYLON.AbstractMesh("", xr), this.crosshairs.setEnabled(!1), this.crosshairs.position.z = 2;
     var e = [new BABYLON.Vector3(-1, 0, 0), new BABYLON.Vector3(1, 0, 0)],
       t = BABYLON.MeshBuilder.CreateLines("", {
         points: e
-      }, Pr);
+      }, xr);
     t.layerMask = 536870912, t.color = BABYLON.Color3.Black(), t.parent = this.crosshairs, e = [new BABYLON.Vector3(0, -1, 0), new BABYLON.Vector3(0, 1, 0)], (t = BABYLON.MeshBuilder.CreateLines("", {
       points: e
-    }, Pr)).layerMask = 536870912, t.color = BABYLON.Color3.Black(), t.parent = this.crosshairs
+    }, xr)).layerMask = 536870912, t.color = BABYLON.Color3.Black(), t.parent = this.crosshairs
   }
 
-  function oo() {
-    this.mesh = new BABYLON.Mesh("hitIndicator", Pr), this.mesh.updatable = !0, this.mesh.hasVertexAlpha = !0, this.positions = [0, 0, 0, 0, .5, 0, .5, .5, 0, .5, 0, 0, .5, -.5, 0, 0, -.5, 0, -.5, -.5, 0, -.5, 0, 0, -.5, .5, 0];
+  function no() {
+    this.mesh = new BABYLON.Mesh("hitIndicator", xr), this.mesh.updatable = !0, this.mesh.hasVertexAlpha = !0, this.positions = [0, 0, 0, 0, .5, 0, .5, .5, 0, .5, 0, 0, .5, -.5, 0, 0, -.5, 0, -.5, -.5, 0, -.5, 0, 0, -.5, .5, 0];
     this.colors = new Array(48).fill(0);
     for (var e = 0; e < 48; e += 4) this.colors[e] = 1, this.colors[e + 1] = .9, this.colors[e + 2] = 0, this.colors[e + 3] = -.5;
     var t = new BABYLON.VertexData;
-    t.positions = this.positions, t.indices = [0, 1, 8, 0, 2, 1, 0, 2, 1, 0, 3, 2, 0, 3, 2, 0, 4, 3, 0, 4, 3, 0, 5, 4, 0, 5, 4, 0, 6, 5, 0, 6, 5, 0, 7, 6, 0, 7, 6, 0, 8, 7, 0, 8, 7, 0, 1, 8], t.colors = this.colors, t.applyToMesh(this.mesh, !0), this.mesh.layerMask = 536870912, this.mesh.material = Pr.getMaterialByName("ui"), this.resize()
+    t.positions = this.positions, t.indices = [0, 1, 8, 0, 2, 1, 0, 2, 1, 0, 3, 2, 0, 3, 2, 0, 4, 3, 0, 4, 3, 0, 5, 4, 0, 5, 4, 0, 6, 5, 0, 6, 5, 0, 7, 6, 0, 7, 6, 0, 8, 7, 0, 8, 7, 0, 1, 8], t.colors = this.colors, t.applyToMesh(this.mesh, !0), this.mesh.layerMask = 536870912, this.mesh.material = xr.getMaterialByName("ui"), this.resize()
   }
 
-  function ao() {
+  function oo() {
     this.crosshairs = [], this.shotBrackets = [];
     for (var e = 0; e < 4; e++) this.crosshairs.push(document.getElementById("crosshair" + e)), this.shotBrackets.push(document.getElementById("shotBracket" + e));
     this.crosshairReticle = document.getElementById("crosshairContainer"), this.readyBrackets = document.getElementById("readyBrackets"), this.shotReticle = document.getElementById("shotReticleContainer"), this.dotReticle = document.getElementById("dotReticle")
   }
 
-  function so() {
-    Fr = getServerIndex(F).toString(36) + h.toString(36) + u.toString(36);
-    var e = parsedUrl.root + "#" + Fr;
+  function ao() {
+    wr = getServerIndex(F).toString(36) + h.toString(36) + u.toString(36);
+    var e = parsedUrl.root + "#" + wr;
     const t = crazysdk.inviteLink({
-        crazyShare: Fr
+        crazyShare: wr
       }),
-      i = crazysdk.initializeReplied ? t : e;
+      i = crazyGamesActive ? t : e;
     vueApp.showShareLinkPopup(i), ue = !1
   }
-  no.prototype.show = function () {
+  ro.prototype.show = function () {
     var t = e.getRenderHeight();
     this.crosshairs.scaling.x = t / 2, this.crosshairs.scaling.y = t / 2, this.crosshairs.setEnabled(!0), document.getElementById("scopeBorder").style.display = "flex", r.viewport.width = t / e.getRenderWidth(), r.viewport.x = .5 - .5 * r.viewport.width
-  }, no.prototype.hide = function () {
+  }, ro.prototype.hide = function () {
     this.crosshairs.setEnabled(!1), document.getElementById("scopeBorder").style.display = "none", r.viewport.width = 1, r.viewport.x = 0
-  }, oo.prototype.resize = function () {
+  }, no.prototype.resize = function () {
     this.mesh.scaling.x = e.getRenderWidth(), this.mesh.scaling.y = e.getRenderHeight()
-  }, oo.prototype.update = function (e) {
+  }, no.prototype.update = function (e) {
     for (var t = 7; t < 48; t += 4) this.colors[t] -= (this.colors[t] + .5) / 10 * e;
     var i = Math.pow(.9, e);
-    Cr && Cr.playing && (r.position.x *= i, r.position.z *= i), this.mesh.updateVerticesData(BABYLON.VertexBuffer.ColorKind, this.colors, !0)
-  }, oo.prototype.hit = function (e, t) {
+    Sr && Sr.playing && (r.position.x *= i, r.position.z *= i), this.mesh.updateVerticesData(BABYLON.VertexBuffer.ColorKind, this.colors, !0)
+  }, no.prototype.hit = function (e, t) {
     var i = -Math.atan2(e, -t),
-      n = Math.radRange(i - Cr.yaw + .393);
+      n = Math.radRange(i - Sr.yaw + .393);
     n = Math.floor(n / Math.PI2 * 8);
     var o = new BABYLON.Vector2(-this.positions[3 * n + 3], -this.positions[3 * n + 4]).normalize();
     r.position.x = .03 * o.x, r.position.z = .03 * o.y, this.colors[4 * n + 7] = 2
-  }, ao.prototype.show = function () {
-    if (document.getElementById("reticleContainer").className = "", Cr.weapon.subClass.readySpread) {
+  }, oo.prototype.show = function () {
+    if (document.getElementById("reticleContainer").className = "", Sr.weapon.subClass.readySpread) {
       this.readyBrackets.className = "notReady";
       this.readyBrackets.style.width = "62.5vw", this.readyBrackets.style.height = "62.5vw"
     } else this.readyBrackets.className = "hideme";
-    this.dotReticle.className = "hideme", this.crosshairReticle.className = Cr.weapon.subClass.patternSize ? "hideme" : "", this.shotReticle.className = Cr.weapon.subClass.patternSize ? "" : "hideme"
-  }, ao.prototype.hide = function () {
+    this.dotReticle.className = "hideme", this.crosshairReticle.className = Sr.weapon.subClass.patternSize ? "hideme" : "", this.shotReticle.className = Sr.weapon.subClass.patternSize ? "" : "hideme"
+  }, oo.prototype.hide = function () {
     document.getElementById("reticleContainer").className = "hideme"
-  }, ao.prototype.fireDenied = function () {
+  }, oo.prototype.fireDenied = function () {
     this.readyBrackets.className = "";
     var e = this;
     setTimeout((function () {
       e.readyBrackets.className = "notReady"
     }), 10)
-  }, ao.prototype.setPowerful = function (e) {
+  }, oo.prototype.setPowerful = function (e) {
     for (var t = 0; t < 4; t++) {
       var i = this.crosshairs[t],
         r = this.shotBrackets[t];
       e ? (i.classList.remove("normal"), i.classList.add("powerful"), r.classList.remove("normal"), r.classList.add("powerful")) : (i.classList.add("normal"), i.classList.remove("powerful"), r.classList.add("normal"), r.classList.remove("powerful"))
     }
-  }, ao.prototype.update = function (e) {
-    if (r.forwardRay = r.getForwardRay(), r.forwardRay.origin = Cr.actor.eye.getAbsolutePosition(), Cr.weapon) {
-      var t = Cr.shotSpread + Cr.weapon.inaccuracy;
-      if (Cr.weapon.subClass.patternSize) {
-        var i = (t += 2 * Cr.weapon.subClass.patternSize) * (100 / r.fov);
+  }, oo.prototype.update = function (e) {
+    if (r.forwardRay = r.getForwardRay(), r.forwardRay.origin = Sr.actor.eye.getAbsolutePosition(), Sr.weapon) {
+      var t = Sr.shotSpread + Sr.weapon.inaccuracy;
+      if (Sr.weapon.subClass.patternSize) {
+        var i = (t += 2 * Sr.weapon.subClass.patternSize) * (100 / r.fov);
         this.shotReticle.style.width = i + "vh", this.shotReticle.style.height = i + "vh"
       } else {
         i = t * (50 / r.fov);
@@ -52620,44 +52904,44 @@ var extern = function () {
         }
       }
       r.forwardRay.direction.scaleInPlace(1e3);
-      var o = Ve.rayCollidesWithMap(r.forwardRay.origin, r.forwardRay.direction, Ve.projectileCollidesWithCell);
+      var o = Ne.rayCollidesWithMap(r.forwardRay.origin, r.forwardRay.direction, Ne.projectileCollidesWithCell);
       if (o) {
         var a = BABYLON.Vector3.Distance(r.forwardRay.origin, o.pick.pickedPoint);
-        r.forwardRay.range = a, Cr.weapon.subClass.minRange && (a - .01 >= Cr.weapon.subClass.minRange ? this.readyBrackets.className = "ready" : this.readyBrackets.className = "notReady")
-      } else Cr.weapon.subClass.minRange && (this.readyBrackets.className = "ready"), r.forwardRay.range = 1e6;
-      Cr.weapon.subClass.burst && (r.fov - Cr.weapon.actor.scopeFov < .006 ? this.dotReticle.className = "" : this.dotReticle.className = "hideme")
+        r.forwardRay.range = a, Sr.weapon.subClass.minRange && (a - .01 >= Sr.weapon.subClass.minRange ? this.readyBrackets.className = "ready" : this.readyBrackets.className = "notReady")
+      } else Sr.weapon.subClass.minRange && (this.readyBrackets.className = "ready"), r.forwardRay.range = 1e6;
+      Sr.weapon.subClass.burst && (r.fov - Sr.weapon.actor.scopeFov < .006 ? this.dotReticle.className = "" : this.dotReticle.className = "hideme")
     }
-  }, ao.prototype.resize = function () {};
+  }, oo.prototype.resize = function () {};
 
-  function lo(e, t) {
+  function so(e, t) {
     if (X) return !0;
     for (var i = t || e.getBoundingInfo().boundingBox.center.z, n = e.position.x - r.globalPosition.x, o = e.position.y + i - r.globalPosition.y, a = e.position.z - r.globalPosition.z, s = Math.length3(n, o, a), l = Math.normalize3({
         x: n,
         y: o,
         z: a
-      }, .9), c = r.globalPosition.x, h = r.globalPosition.y, u = r.globalPosition.z, d = 0, p = 0; p < s - .9 && (c += l.x, h += l.y, u += l.z, !(c < 0 || c >= Sr.width || u < 0 || u >= Sr.depth || h < 0 || h >= Sr.height)); p += .9) {
-      var f = Sr.data[Math.floor(c)][Math.floor(h)][Math.floor(u)];
+      }, .9), c = r.globalPosition.x, h = r.globalPosition.y, u = r.globalPosition.z, d = 0, p = 0; p < s - .9 && (c += l.x, h += l.y, u += l.z, !(c < 0 || c >= Tr.width || u < 0 || u >= Tr.depth || h < 0 || h >= Tr.height)); p += .9) {
+      var f = Tr.data[Math.floor(c)][Math.floor(h)][Math.floor(u)];
       if (f.idx) {
-        var m = li[f.idx];
+        var m = oi[f.idx];
         if ("full" == m.colliderType && !m.softness && 2 == ++d) return !1
       }
     }
     return !0
   }
 
-  function co() {
+  function lo() {
     for (var e = 1; e <= 2; e++) {
       document.getElementById("teamScoreNum" + e).innerText = teamScore[e];
       var t = document.getElementById("teamScore" + e);
-      Nr && (Nr.controlledByTeam == e ? t.classList.replace("inactive", "active") : Nr.lastControlTeam != e && t.classList.replace("active", "inactive"))
+      Lr && (Lr.controlledByTeam == e ? t.classList.replace("inactive", "active") : Lr.lastControlTeam != e && t.classList.replace("active", "inactive"))
     }
   }
 
-  function ho() {
-    console.log("Event listeners removed"), canvas.style.pointerEvents = "none", canvas.removeEventListener("mousedown", en), canvas.removeEventListener("mouseup", tn), canvas.removeEventListener("mousemove", rn), canvas.removeEventListener("wheel", nn), removeEventListener("gamepadbuttondown", uo)
+  function co() {
+    console.log("Event listeners removed"), canvas.style.pointerEvents = "none", canvas.removeEventListener("mousedown", qr), canvas.removeEventListener("mouseup", Jr), canvas.removeEventListener("mousemove", $r), canvas.removeEventListener("wheel", en), removeEventListener("gamepadbuttondown", ho)
   }
 
-  function uo(e) {
+  function ho(e) {
     8 == e.detail && document.exitPointerLock()
   }
   console.log(document.currentScript.innerText), window.console = function (e) {
@@ -52694,7 +52978,7 @@ var extern = function () {
       }
     }
   }(window.console);
-  var po = [{
+  var uo = [{
       alpha: 0,
       radius: 1.3,
       primaryGun: !0
@@ -52703,22 +52987,22 @@ var extern = function () {
       radius: 1,
       secondaryGun: !0
     }],
-    fo = {
+    po = {
       alpha: 0,
       radius: 1.3
     },
-    mo = {
+    fo = {
       alpha: 0,
       radius: .4,
       grenade: !0
     };
 
-  function _o(e) {
+  function mo(e) {
     return W.isItemOwned(e)
   }
 
-  function go() {
-    new Date, W = new ja;
+  function _o() {
+    new Date, W = new Ga;
     const e = localStore.getItem("localLoadOut");
     if (e) {
       const t = JSON.parse(e);
@@ -52733,38 +53017,38 @@ var extern = function () {
       storageBucket: "shellshockio-181719.appspot.com",
       messagingSenderId: "68327206324"
     }), firebase.auth().onAuthStateChanged((function (e) {
-      te && !hasValue(e) || (e ? (($ = e).isAnonymous ? (console.log("Firebase: anonymous user"), J = $, ye || !0) : (console.log("Firebase: auth provider: " + $.providerData[0].providerId), $.emailVerified || "password" != $.providerData[0].providerId || (console.log("Firebase: email not yet verified"), vueApp.showResendEmail())), vo()) : (console.log("Firebase: no account found"), console.log("No account created yet :("), ee = !1, D = !0, ye = !1, vueApp.authCompleted()))
+      te && !hasValue(e) || (e ? (($ = e).isAnonymous ? (console.log("Firebase: anonymous user"), J = $, ge || !0) : (console.log("Firebase: auth provider: " + $.providerData[0].providerId), $.emailVerified || "password" != $.providerData[0].providerId || (console.log("Firebase: email not yet verified"), vueApp.showResendEmail())), go()) : (console.log("Firebase: no account found"), console.log("No account created yet :("), ee = !1, D = !0, ge = !1, vueApp.authCompleted()))
     }))
   }
 
-  function vo() {
-    if (!ee && (ee = !0, te = !1, ye = !0, $.getIdToken(!0).then(e => {
+  function go() {
+    if (!ee && (ee = !0, te = !1, ge = !0, $.getIdToken(!0).then(e => {
         ! function (e, t, i, r) {
-          Ni({
+          Li({
             cmd: "auth",
             firebaseToken: e
           }, t, i, r)
-        }(e, xo, To, Eo)
+        }(e, bo, xo, To)
       }).catch((function (e) {
         console.log(e), ee = !1
-      })), $.providerData.length > 0 && (ve = $.providerData[0].providerId), $.photoURL && $.providerData && $.providerData.length > 0)) {
+      })), $.providerData.length > 0 && (_e = $.providerData[0].providerId), $.photoURL && $.providerData && $.providerData.length > 0)) {
       var e = $.photoURL;
       vueApp.photoUrl = e
     }
   }
-  let yo = null;
+  let vo = null;
 
-  function bo() {
+  function yo() {
     console.log("sending Firebase email verification"), $.sendEmailVerification()
   }
 
-  function xo(e) {
+  function bo(e) {
     var t;
-    e.error ? console.log("accountDataResponse Error: " + JSON.stringify(accountDataResponse.error)) : (W.signedIn($, e), vueApp.authCompleted(), D = !0, setTimeout(() => W.syncToServer(), 1e3), null !== J ? (console.log("Sending anon tags to OneSignal..."), Va({
+    e.error ? console.log("accountDataResponse Error: " + JSON.stringify(accountDataResponse.error)) : (W.signedIn($, e), vueApp.authCompleted(), D = !0, setTimeout(() => W.syncToServer(), 1e3), null !== J ? (console.log("Sending anon tags to OneSignal..."), Fa({
       has_account: !1,
       maybe_school: !1,
       is_chromebook: detectChromebook()
-    })) : (t = void 0 === W.inventory || null === W.inventory ? 0 : W.inventory.length, console.log("Sending user tags to OneSignal..."), Va({
+    })) : (t = void 0 === W.inventory || null === W.inventory ? 0 : W.inventory.length, console.log("Sending user tags to OneSignal..."), Fa({
       user_id: W.firebaseId,
       has_account: !0,
       maybe_school: W.maybeSchoolEmail,
@@ -52775,25 +53059,25 @@ var extern = function () {
       num_items_bought: t,
       egg_class: W.classIdx,
       is_chromebook: detectChromebook()
-    })), console.log("Signed in"), ye || null === yo || (console.log("Nonaccount is now anon. Time for play"), ye = !0, Wo(yo))), !1
+    })), console.log("Signed in"), ge || null === vo || (console.log("Nonaccount is now anon. Time for play"), ge = !0, Ho(vo))), !1
   }
 
-  function To() {
+  function xo() {
     console.log("authorization failed"), ga("send", "event", googleAnalytics.cat.playerStats, googleAnalytics.action.signIn, googleAnalytics.label.signInAuthFailed), vueApp.authCompleted()
   }
 
-  function Eo(e) {
+  function To(e) {
     console.log("auth ws closed, code: " + e), 1006 !== e ? ee = !1 : vueApp.showGenericPopup("signin_failed_title", "signin_failed", "ok")
   }
 
-  function Po(e, t) {
+  function Eo(e, t) {
     var i = ($ = e.user).emailVerified,
       r = (e.credential, e.additionalUserInfo.isNewUser, e.additionalUserInfo.providerId);
     e.operationType;
-    return vueApp.hideFirebaseSignIn(), "password" != r || i || bo(), console.log("Authing Firebase ID"), vo(), !1
+    return vueApp.hideFirebaseSignIn(), "password" != r || i || yo(), console.log("Authing Firebase ID"), go(), !1
   }
 
-  function So(e) {
+  function Po(e) {
     if (vueApp.hideFirebaseSignIn(), console.log("Firebase: sign in failure, error code: " + e.code), "firebaseui/anonymous-upgrade-merge-conflict" !== e.code) return Promise.resolve();
     te = !0, firebase.auth().signInWithCredential(e.credential), J.delete(), setTimeout(() => {
       vueApp.$nextTick(() => {
@@ -52802,30 +53086,30 @@ var extern = function () {
     }, 2e3)
   }
 
-  function Ao(e) {
-    parsedUrl.query.testMap && (H = !0), a = getStoredString("lastVersionPlayed", version), localStore.setItem("lastVersionPlayed", version), getStoredString("selectedServerId", null), c = getStoredNumber("gameType", Ut), C = getStoredString("languageSelected", null);
-    const t = hasValue(C) ? C : Mo();
+  function So(e) {
+    parsedUrl.query.testMap && (H = !0), a = getStoredString("lastVersionPlayed", version), localStore.setItem("lastVersionPlayed", version), getStoredString("selectedServerId", null), c = getStoredNumber("gameType", Nt), C = getStoredString("languageSelected", null);
+    const t = hasValue(C) ? C : Ao();
     if (console.log("game type: " + c), a != version) return (i = window.indexedDB.deleteDatabase("babylonjs")).onerror = function (e) {
       window.location.reload(!0)
     }, void(i.onsuccess = function (e) {
       window.location.reload(!0)
     });
     var i;
-    No(), V = new ke, (Te = new ns).init(), Qa(), xe = blockingAds || !1, Io(),
+    Fo(), V = new Fe, (be = new rs).init(), Ka(), Oo(),
       function () {
         let e = getStoredString("selectedLanguage", null);
         if (!hasValue(e)) return;
-        let t = Mo();
+        let t = Ao();
         "en" !== e && e === t && (console.log("Updating to new localStore for language setting"), localStore.setItem("languageSelected", t), ga("send", "event", {
           eventCategory: vueData.googleAnalytics.cat.playerStats,
           eventAction: vueData.googleAnalytics.action.langBeforeUpdate,
           eventLabel: e
         }));
         localStore.removeItem("selectedLanguage"), console.log("selectedLanguage item removed")
-      }(), vueData.maps = ti, Lo(t, startVue)
+      }(), vueData.maps = Jt, wo(t, startVue)
   }
 
-  function Mo() {
+  function Ao() {
     let e = pe.includes("-") ? pe.split("-")[0].toLowerCase() : pe,
       t = vueData.languages,
       i = null;
@@ -52836,11 +53120,11 @@ var extern = function () {
       } return hasValue(i) ? e : "en"
   }
 
-  function Co() {
-    xe ? console.log("video ad init blocked initVideoAds()") : function () {
-      if (_e || crazyGamesActive) return !1, void console.log("initAdInPlay Cancelled", _e || crazyGamesActive);
+  function Mo() {
+    ye ? console.log("video ad init blocked due to product") : function () {
+      if (pokiActive || crazyGamesActive) return !1, void console.log("initAdInPlay Cancelled. Is portal?", pokiActive || crazyGamesActive);
       try {
-        Mi("F79520", "Shell Shockers AIP", "AIP init success!"), !testCrazy, aiptag.cmd.player.push((function () {
+        Pi("F79520", "Shell Shockers AIP", "AIP init success!"), !testCrazy, aiptag.cmd.player.push((function () {
           v = new aipPlayer({
             AD_WIDTH: 960,
             AD_HEIGHT: 540,
@@ -52851,37 +53135,30 @@ var extern = function () {
               return document.getElementById("preroll")
             },
             AIP_COMPLETE: function (e) {
-              e.includes("video-ad-error") && (k && $r(), vueApp.isPaused = !1), console.log("AIP_COMPLETE"), z || vueApp.setDarkOverlay(!1), R()
+              e.includes("video-ad-error") && (k && Zr(), vueApp.isPaused = !1), console.log("AIP_COMPLETE"), z || vueApp.setDarkOverlay(!1), R()
             },
             AIP_REMOVE: function () {}
           })
         }))
       } catch (e) {
-        Mi("F79520", "Shell Shockers AIP", "AIP error message: " + e), !1
+        Pi("F79520", "Shell Shockers AIP", "AIP error message: " + e), N = !0, !1
       }
+      void 0 === window.aipAPItag && (console.log("AIP UNDEFINED"), N = !0, !1)
     }()
   }
 
-  function Ro() {
+  function Co() {
     w = !0
   }
 
-  function Oo() {
+  function Ro() {
     return hasValue(vueApp) && vueApp.ready && I && D && w
   }
 
-  function Io() {
-    Oo() ? function () {
+  function Oo() {
+    Ro() ? function () {
       if (H) return;
-      void 0 === window.adblockDetector ? (console.log("adblockDetector is undefined"), N = !0) : window.adblockDetector && window.adblockDetector.init({
-        debug: !0,
-        found() {
-          console.log("Ad blocker found"), N = !0
-        },
-        notFound() {
-          console.log("Ad blocker not found"), N = !1
-        }
-      }), ga("send", "event", "ads", "ad blocker", N), U.poseWithEquipped(), Ha(!0, (function () {
+      Mo(), N = pokiActive || crazyGamesActive ? thirdPartyAdblocker : N, ga("send", "event", "ads", "ad blocker", N), U.poseWithEquipped(), Ua(!0, (function () {
         var t, i, r;
         re = !0,
           function () {
@@ -52891,23 +53168,23 @@ var extern = function () {
               targetedAds: !1
             }, vueApp.showGdprNotification());
             console.log("AIP consent: " + googletag.consented)
-          }(), t = getStoredString("lastUsername", Fo()), vueApp.setPlayerName(t),
+          }(), t = getStoredString("lastUsername", Bo()), vueApp.setPlayerName(t),
           function () {
             const e = "crazyShare" in parsedUrl.query;
             if (!parsedUrl.hash && !e) return !1;
             const t = e ? parsedUrl.query.crazyShare : parsedUrl.hash;
             return vueApp.showJoinPrivateGamePopup(t), !0
-          }() || za() || function () {
+          }() || ka() || function () {
             var e = new URLSearchParams(document.location.search);
             if (!1 === e.has("showItem")) return !1;
             var t = parseInt(e.get("showItem"));
             if (!1 === (Number.isInteger(t) && null !== V.findItemById(t) && !0)) return !1;
             var i = V.findItemById(t);
             return vueApp.showItemOnEquipScreen(i), !0
-          }() || Do() || function () {
-            if (Ee) return vueApp.vipEndedPopup(), !0;
+          }() || Io() || function () {
+            if (xe) return vueApp.vipEndedPopup(), !0;
             return !1
-          }() || wo() || function () {
+          }() || Do() || function () {
             var e = new URLSearchParams(document.location.search);
             if (!e.has("purchase")) return !1;
             if (W.isAnonymous) return vueApp.showGenericPopup("uh_oh", "anon_account", "ok"), !1;
@@ -52918,7 +53195,7 @@ var extern = function () {
             if (!1 === e.has("storeItem")) return !1;
             return vueApp.showPopupEggStoreSingle(e.get("storeItem")), !0
           }() || function () {
-            if (iframeWhitelist(["crazygames", "1001juegos", "speelspelletjes", "onlinegame", "poki"]) || _e || crazysdk.initializeReplied) return void console.log("House Ad Blocked");
+            if (iframeWhitelist(["crazygames", "1001juegos", "speelspelletjes", "onlinegame", "poki"]) || pokiActive || crazyGamesActive) return void console.log("House Ad Blocked");
             var t = getStoredNumber("showBigAd", 0);
             if (Date.now() > t && ! function () {
                 if ("Google SwiftShader" == e.getGlInfo().renderer && !localStore.getItem("swiftShaderNotice")) {
@@ -52926,7 +53203,7 @@ var extern = function () {
                 }
                 return !1
               }()) return function () {
-              for (var e = [], t = [], i = 0; i < y.big.length; i++) "facebook" === ve && y.big[i].active && y.big[i].label.includes("Sugar") && t.push(i), y.big[i].active && e.push(i);
+              for (var e = [], t = [], i = 0; i < y.big.length; i++) "facebook" === _e && y.big[i].active && y.big[i].label.includes("Sugar") && t.push(i), y.big[i].active && e.push(i);
               var r = t.length > 0 ? t : e;
               e.length > 0 && (_ = e[Date.now() % r.length], vueApp.useHouseAdBig(y.big[_]), ga("send", "event", {
                 eventCategory: "Big ad",
@@ -52947,7 +53224,7 @@ var extern = function () {
                   console.log("Notification: ERROR")
                 }
                 setTimeout(() => {
-                  return r = e.id, n = t, o = i, void Ni({
+                  return r = e.id, n = t, o = i, void Li({
                     cmd: "notify_mark_as_complete",
                     firebase_id: W.firebaseId,
                     id: r
@@ -52958,24 +53235,24 @@ var extern = function () {
             }
           }, r = (e, t) => {
             t && console.log("Notification check error", t, e)
-          }, Ni({
+          }, Li({
             cmd: "player_notifications",
             firebase_id: W.firebaseId
           }, i, r), ga("send", "timing", "load", "homeLoaded", Math.round(performance.now()), "home"), vueApp.showTitleScreenAd()
       }))
-    }() : setTimeout(Io, 200)
+    }() : setTimeout(Oo, 200)
   }
 
-  function Do(e) {
+  function Io(e) {
     return null !== (se = e || se) && (vueApp.showTaggedItemsOnEquipScreen(se), !0)
   }
 
-  function wo() {
+  function Do() {
     if (null === le || W.isUpgraded()) return !1;
     vueApp.showNuggetPopup(), le = null
   }
 
-  function Lo(e, t) {
+  function wo(e, t) {
     fetch(("language/{0}.json?" + version).format(e)).then((function (i) {
       i.json().then((function (i) {
         t(e, i)
@@ -52983,11 +53260,11 @@ var extern = function () {
     }))
   }
 
-  function Bo(e) {
+  function Lo(e) {
     return vueData.loc[e]
   }
 
-  function Fo() {
+  function Bo() {
     var e, t = ["Captain", "Lord", "Supreme", "Master", "Pro", "Noob"],
       i = ["Egg", "Yolk", "Shell", "Cluck", "Chick", "Bird"];
     do {
@@ -52996,92 +53273,93 @@ var extern = function () {
     return 0 == Math.randomInt(0, 2) ? t[Math.randomInt(0, t.length)] + i[Math.randomInt(0, i.length)] + e : i[Math.randomInt(0, i.length)] + t[Math.randomInt(0, t.length)] + e
   }
 
-  function No() {
-    canvas && (canvas.style.width = "100%", canvas.style.height = "100%", canvas.className = ""), e && e.resize(), k && (sr && sr.resize(), ar && ar.resize())
+  function Fo() {
+    canvas && (canvas.style.width = "100%", canvas.style.height = "100%", canvas.className = ""), e && e.resize(), k && (nr && nr.resize(), rr && rr.resize())
   }
 
-  function ko() {
-    o && Xo.clear(o), console.log("Auto detail enabled"), o = Xo.set(() => {
-      dr / pr < 40 && e.getFps() < 40 && (Pr.shadowsEnabled ? (zo(!1), B.shadows = !1) : (Uo(!1), B.highRes = !1, Vo()), ss())
+  function No() {
+    o && Yo.clear(o), console.log("Auto detail enabled"), o = Yo.set(() => {
+      cr / hr < 40 && e.getFps() < 40 && (xr.shadowsEnabled ? (Uo(!1), B.shadows = !1) : (Vo(!1), B.highRes = !1, ko()), as())
     }, 4e3)
   }
 
-  function Vo() {
-    o && (Xo.clear(o), o = null)
+  function ko() {
+    o && (Yo.clear(o), o = null)
   }
 
-  function Uo(t) {
+  function Vo(t) {
     console.log("setting high resolution: " + t), e.setHardwareScalingLevel(t ? 1 : 2),
       function () {
-        ar && ar.resize();
-        sr && sr.resize();
-        or && or.crosshairs.isEnabled() && or.show()
+        rr && rr.resize();
+        nr && nr.resize();
+        ir && ir.crosshairs.isEnabled() && ir.show()
       }()
   }
 
-  function zo(e) {
-    console.log("setting shadows: " + e), Pr.shadowsEnabled = e, e ? Br && k && (Br.material = Pr.getMaterialByName("map")) : Br && k && (Br.material = Pr.getMaterialByName("mapNoShadow"))
+  function Uo(e) {
+    console.log("setting shadows: " + e), xr.shadowsEnabled = e, e ? Dr && k && (Dr.material = xr.getMaterialByName("map")) : Dr && k && (Dr.material = xr.getMaterialByName("mapNoShadow"))
   }
 
-  function Go() {
+  function zo() {
     e.resize()
   }
 
-  function Ho(e, t, i) {
+  function Go(e, t, i) {
     this.tag = e, this.openUrl = t, this.openUrlMsg = i, this.wasUrlOpened = null
   }
 
-  function Wo(e) {
-    if (console.log("play(): " + JSON.stringify(e)), !ye) return console.log("Create account now."), void
+  function Ho(e) {
+    if (console.log("play(): " + JSON.stringify(e)), !ge) return console.log("Create account now."), void
     function (e) {
       vueApp.showSpinner("connecting", "please_wait"), firebase.auth().signInAnonymously().then(() => {
         firebase.auth().onAuthStateChanged(t => {
-          ye = !0, null !== t && e && t.isAnonymous && (ye = !1, yo = e)
+          ge = !0, null !== t && e && t.isAnonymous && (ge = !1, vo = e)
         })
       }).catch((function (e) {
         console.debug("Failed Firebase anonymous signin, code: {0}, msg: {1}".format(e.code, e.message))
       }))
     }(e);
-    hasValue(e.playerName) && 0 !== e.playerName.length && !/^ *$/.test(e.playerName) || (e.playerName = Fo(), vueApp.setPlayerName(e.playerName)), localStore.setItem("lastUsername", e.playerName),
+    hasValue(e.playerName) && 0 !== e.playerName.length && !/^ *$/.test(e.playerName) || (e.playerName = Bo(), vueApp.setPlayerName(e.playerName)), localStore.setItem("lastUsername", e.playerName),
       function e(t) {
         M = function () {
             null !== F ? (L = performance.now(), vueApp.hideTitleScreenAd(), function (e) {
-              vueApp.mediaTabsCancelRotate(), console.log("joinGame(), params: " + JSON.stringify(e)), Yo = null, E = ut;
+              vueApp.mediaTabsCancelRotate(), console.log("joinGame(), params: " + JSON.stringify(e)), jo = null, E = ct;
               var t = e.joinCode ? e.joinCode.trim() : null;
-              if (e.playerName = Qo(e.playerName), ue = !1, e.playType === vueApp.playTypes.createPrivate) console.log("create private game"), E = pt, ue = !0;
+              if (e.playerName = Ko(e.playerName), ue = !1, e.playType === vueApp.playTypes.createPrivate) console.log("create private game"), E = ut, ue = !0;
               else if (e.playType === vueApp.playTypes.joinPrivate) {
-                console.log("join private game"), E = dt, t.startsWith("#") && (t = t.substr(1)), serverIdx = Number.parseInt(t.substr(0, 1), 36), h = Number.parseInt(t.substr(1, 3), 36), u = Number.parseInt(t.substr(4, 6), 36);
+                console.log("join private game"), E = ht, t.startsWith("#") && (t = t.substr(1)), serverIdx = Number.parseInt(t.substr(0, 1), 36), h = Number.parseInt(t.substr(1, 3), 36), u = Number.parseInt(t.substr(4, 6), 36);
                 try {
-                  Wa(servers[serverIdx].id)
+                  za(servers[serverIdx].id)
                 } catch (e) {
                   return console.log("Game not found - Invalid server: " + i), vueApp.showGenericPopup("game_not_found", "game_not_found_msg", "ok"), h = 0, void(u = 0)
                 }
               }
               var i = getGameServerUrl(F);
               console.log("here - ready to show spinny"), vueApp.showSpinner("connecting", "please_wait"), vueApp.showLoadingScreenAd(), console.log("Connecting to: " + i), ws = new WebSocket(i), ws.binaryType = "arraybuffer", ws.onopen = function (t) {
-                console.log("WebSocket opened"), localStore.setItem("lastUsername", e.playerName), ga("send", "event", "play game", "class", hi[W.classIdx].name), fbq("trackCustom", "PlayGame", {
-                  charClass: hi[W.classIdx].name,
+                console.log("WebSocket opened"), localStore.setItem("lastUsername", e.playerName), ga("send", "event", "play game", "class", si[W.classIdx].name), fbq("trackCustom", "PlayGame", {
+                  charClass: si[W.classIdx].name,
                   server: F.name
                 });
-                var i = Hi.getBuffer();
-                i.packInt8(st), i.packInt8(3), i.packInt8(ea), i.packInt8(E), i.packInt8(e.gameType), i.packInt8(e.mapIdx), i.packInt16(h), i.packInt32(u), i.packInt8(W.classIdx), i.packInt8(V.get8BitItemId(W.getPrimaryWeapon(), W.classIdx)), i.packInt8(V.get8BitItemId(W.getSecondaryWeapon(), W.classIdx)), i.packInt8(W.colorIdx), i.packInt8(V.get8BitItemId(W.hatItem, W.classIdx)), i.packInt8(V.get8BitItemId(W.stampItem, W.classIdx)), i.packInt8(V.get8BitItemId(W.grenadeItem, W.classIdx)), i.packString(e.playerName), W.firebaseId && (i.packInt32(W.session), i.packString(W.firebaseId)), i.send(ws)
+                var i = W.social,
+                  r = Ui.getBuffer();
+                r.packInt8(ot), r.packInt8(8), r.packInt8(E), r.packInt8(e.gameType), r.packInt8(e.mapIdx), r.packInt16(h), r.packInt32(u), r.packInt8(W.classIdx), r.packInt8(V.get8BitItemId(W.getPrimaryWeapon(), W.classIdx)), r.packInt8(V.get8BitItemId(W.getSecondaryWeapon(), W.classIdx)), r.packInt8(W.colorIdx), r.packInt8(V.get8BitItemId(W.hatItem, W.classIdx)), r.packInt8(V.get8BitItemId(W.stampItem, W.classIdx)), r.packInt8(V.get8BitItemId(W.grenadeItem, W.classIdx)), r.packString(e.playerName), r.packLongString(i), W.firebaseId && (r.packInt32(W.session), r.packString(W.firebaseId)), r.send(ws)
               }, ws.onclose = function (e) {
                 if (vueApp.disablePlayButton(!1), vueApp.mediaTabsStartRotate(), !X)
-                  if (e.code == ze) console.log("Game not found - id: " + h + ", key: " + u), ga("send", "event", "Websocket", "onclose", "Game not found"), vueApp.hideSpinner(), vueApp.showGenericPopup("game_not_found", "game_not_found_msg", "ok"), h = 0, u = 0;
-                  else if (e.code == Ge) console.log("Game full - id: " + h + ", key: " + u), ga("send", "event", "Websocket", "onclose", "Game full"), vueApp.hideSpinner(), vueApp.showGenericPopup("game_full", "game_full_msg", "ok");
-                else if (e.code == He) console.log("Bad Name"), ga("send", "event", "Websocket", "onclose", "Bad name"), vueApp.showGenericPopup("invalid_name", "invalid_name_msg", "ok");
-                else if (e.code == We)
-                  window.hack.gameEnd(), ga("send", "event", "Websocket", "onclose", "Return to main menu");
-                else if (e.code == je) console.log("Master Server busy"), ga("send", "event", "Websocket", "onclose", "Master Server busy"), vueApp.showGenericPopup("matchmaker_busy", "matchmaker_busy_msg", "ok"), h = 0, u = 0;
-                else if (e.code == Ye) console.log("Master Server offline"), ga("send", "event", "Websocket", "onclose", "Master Server offline"), vueApp.showGenericPopup("matchmaker_offline", "matchmaker_offline_msg", "ok"), h = 0, u = 0;
-                else if (e.code == Ke) console.log("Wrong client version"), ga("send", "event", "Websocket", "onclose", "Wrong client version"), vueApp.showGenericPopup("wrong_version", "wrong_version_msg", "ok"), h = 0, u = 0;
-                else if (e.code == Xe) k ? vueApp.leaveGame() : vueApp.hideSpinner(), vueApp.showGenericPopup("cannot_connect", "banned", "ok");
+                  if (e.code == Ve) console.log("Game not found - id: " + h + ", key: " + u), ga("send", "event", "Websocket", "onclose", "Game not found"), vueApp.hideSpinner(), vueApp.showGenericPopup("game_not_found", "game_not_found_msg", "ok"), h = 0, u = 0;
+                  else if (e.code == Ue) console.log("Game full - id: " + h + ", key: " + u), ga("send", "event", "Websocket", "onclose", "Game full"), vueApp.hideSpinner(), vueApp.showGenericPopup("game_full", "game_full_msg", "ok");
+                else if (e.code == ze) console.log("Bad Name"), ga("send", "event", "Websocket", "onclose", "Bad name"), vueApp.showGenericPopup("invalid_name", "invalid_name_msg", "ok");
+                else if (e.code == Ge) window.hack.gameEnd(),
+                  console.log("WebSocket closing - returning to Main Menu"), ga("send", "event", "Websocket", "onclose", "Return to main menu");
+                else if (e.code == He) console.log("Master Server busy"), ga("send", "event", "Websocket", "onclose", "Master Server busy"), vueApp.showGenericPopup("matchmaker_busy", "matchmaker_busy_msg", "ok"), h = 0, u = 0;
+                else if (e.code == We) console.log("Master Server offline"), ga("send", "event", "Websocket", "onclose", "Master Server offline"), vueApp.showGenericPopup("matchmaker_offline", "matchmaker_offline_msg", "ok"), h = 0, u = 0;
+                else if (e.code == Ye) console.log("Wrong client version"), ga("send", "event", "Websocket", "onclose", "Wrong client version"), vueApp.showGenericPopup("wrong_version", "wrong_version_msg", "ok"), h = 0, u = 0;
+                else if (e.code == je) k ? vueApp.leaveGame() : vueApp.hideSpinner(), vueApp.showGenericPopup("cannot_connect", "banned", "ok");
                 else if (k) console.log("Connection lost: " + e.code + " " + e.reason), ga("send", "event", "Websocket", "onclose", "Connection Lost"), vueApp.leaveGame(), vueApp.showGenericPopup("connection_lost", "connection_lost_msg", "ok");
                 else {
                   console.log("Cannot connect: " + e.code + " " + e.reason);
                   var t = "";
-                  switch (Yo) {
-                    case Tt:
+                  switch (jo) {
+                    case bt:
                       t = "login_required";
                       break;
                     default:
@@ -53090,68 +53368,70 @@ var extern = function () {
                   vueApp.hideSpinner(), vueApp.showGenericPopup("cannot_connect", t, "ok")
                 }
               }, ws.onmessage = function (t) {
-                switch (ir.init(t.data), cmd = ir.unPackInt8U(), cmd) {
-                  case Rt:
-                    var i = ir.unPackLongString();
-                    Cn(i);
+                switch ($i.init(t.data), cmd = $i.unPackInt8U(), cmd) {
+                  case Mt:
+                    var i = $i.unPackLongString();
+                    Sn(i);
                     break;
-                  case Qe:
-                    console.log("CommCode.gameJoined received"), teamScore = [0, 0, 0], l = ir.unPackInt8U(), A = ir.unPackInt8U(), c = ir.unPackInt8U(), h = ir.unPackInt16U(), u = ir.unPackInt32U(), d = ir.unPackInt8U(), playerLimit = ir.unPackInt8U(), P = 1 == ir.unPackInt8U(), teamScore[1] = ir.unPackInt16U(), teamScore[2] = ir.unPackInt16U(), co(), Hr = c == Vt || c == Ut, console.log("game joined: game type:  " + c), vueApp.gameJoined(c, A), console.log("is game owner: " + P), k = !0;
+                  case Xe:
+                    console.log("CommCode.gameJoined received"), teamScore = [0, 0, 0], l = $i.unPackInt8U(), A = $i.unPackInt8U(), c = $i.unPackInt8U(), h = $i.unPackInt16U(), u = $i.unPackInt32U(), d = $i.unPackInt8U(), playerLimit = $i.unPackInt8U(), P = 1 == $i.unPackInt8U(), teamScore[1] = $i.unPackInt16U(), teamScore[2] = $i.unPackInt16U();
+                    $i.unPackLongString();
+                    lo(), Ur = c == Nt || c == kt, console.log("game joined: game type:  " + c), vueApp.gameJoined(c, A), console.log("is game owner: " + P), k = !0;
                     let t = ((e, t) => Object.keys(e).find(i => e[i] === t))(vueData.playTypes, e.playType),
                       r = vueData.gameTypes.find(({
                         value: e
                       }) => e === c);
-                    ga("send", "event", vueData.googleAnalytics.cat.play, t, "Map - " + ti[d].name), ga("send", "event", vueData.googleAnalytics.cat.play, t, "Game type - " + r.locKey), ga("send", "event", vueData.googleAnalytics.cat.play, t, "Server - " + F.name), ga("send", "event", vueData.googleAnalytics.cat.play, t, vueData.googleAnalytics.action.playerLimit, playerLimit), ga("send", "event", vueData.googleAnalytics.cat.play, t, vueData.googleAnalytics.action.timesPlayed, p), Yr()
+                    ga("send", "event", vueData.googleAnalytics.cat.play, t, "Map - " + Jt[d].name), ga("send", "event", vueData.googleAnalytics.cat.play, t, "Game type - " + r.locKey), ga("send", "event", vueData.googleAnalytics.cat.play, t, "Server - " + F.name), ga("send", "event", vueData.googleAnalytics.cat.play, t, vueData.googleAnalytics.action.playerLimit, playerLimit), ga("send", "event", vueData.googleAnalytics.cat.play, t, vueData.googleAnalytics.action.timesPlayed, p), Hr()
                 }
               }
             }(t)) : setTimeout(() => e(t), 200)
-          }, cs(), document.body.scrollTop = document.documentElement.scrollTop = 0,
+          }, ls(), document.body.scrollTop = document.documentElement.scrollTop = 0,
           function () {
-            if (xe) return M();
+            if (ye) return M();
             p = getStoredNumber("timesPlayed", 0), localStore.setItem("timesPlayed", p + 1);
             var e = getStoredNumber("lastPreRoll", 0);
             0 == e && (e = Date.now(), localStore.setItem("lastPreRoll", e));
-            const t = _e ? 12e4 : 24e4;
-            ce && !pwaBlockAds || Date.now() > e + t && p % 2 == 1 && !pwaBlockAds ? (console.log("play() calls PVA"), Fi(), vueApp.hideTitleScreenAd()) : M()
+            const t = pokiActive ? 12e4 : 24e4;
+            ce && !pwaBlockAds || Date.now() > e + t && p % 2 == 1 && !pwaBlockAds ? (console.log("play() calls PVA"), wi(), vueApp.hideTitleScreenAd()) : M()
           }()
       }(e)
   }
 
-  function jo() {
+  function Wo() {
     W.syncToServer()
   }
-  document.onfullscreenchange = Go, document.onmsfullscreenchange = Go, document.onmozfullscreenchange = Go, document.onwebkitfullscreenchange = Go;
-  var Yo = null;
-  var Xo = {
+  document.onfullscreenchange = zo, document.onmsfullscreenchange = zo, document.onmozfullscreenchange = zo, document.onwebkitfullscreenchange = zo;
+  var jo = null;
+  var Yo = {
       intervals: {},
       set: function (e, t) {
         var i = setInterval.apply(window, [e, t].concat([].slice.call(arguments, 2)));
-        return Xo.intervals[i] = !0, i
+        return Yo.intervals[i] = !0, i
       },
       clear: function (e) {
-        return delete Xo.intervals[e], clearInterval(e)
+        return delete Yo.intervals[e], clearInterval(e)
       },
       clearAll: function () {
-        for (var e = Object.keys(Xo.intervals), t = e.length; t-- > 0;) clearInterval(e.shift());
-        Xo.intervals = {}
+        for (var e = Object.keys(Yo.intervals), t = e.length; t-- > 0;) clearInterval(e.shift());
+        Yo.intervals = {}
       }
     },
-    Ko = {
+    Xo = {
       timeouts: {},
       set: function (e, t) {
         var i = setTimeout.apply(window, [e, t].concat([].slice.call(arguments, 2)));
-        return Ko.timeouts[i] = !0, i
+        return Xo.timeouts[i] = !0, i
       },
       clear: function (e) {
-        return delete Ko.timeouts[e], clearTimeout(e)
+        return delete Xo.timeouts[e], clearTimeout(e)
       },
       clearAll: function () {
-        for (var e = Object.keys(Ko.timeouts), t = e.length; t-- > 0;) clearTimeout(e.shift());
-        Ko.timeouts = {}
+        for (var e = Object.keys(Xo.timeouts), t = e.length; t-- > 0;) clearTimeout(e.shift());
+        Xo.timeouts = {}
       }
     };
 
-  function Qo(e, t) {
+  function Ko(e, t) {
     t = t || 80;
     var i = he.getContext("2d");
     for (i.font = "1em Nunito, sans-serif";;) {
@@ -53160,81 +53440,80 @@ var extern = function () {
     }
     return e
   }
-  var Zo, qo, Jo = ["dGV4dENvbnRlbnQ=", "b2JzZXJ2ZQ==", "TXV0YXRpb25PYnNlcnZlcg==", "bGVuZ3Ro", "dGFyZ2V0", "b3V0ZXJUZXh0"];
-  Zo = Jo, qo = 458,
+  var Qo, Zo, qo = ["dGV4dENvbnRlbnQ=", "b2JzZXJ2ZQ==", "TXV0YXRpb25PYnNlcnZlcg==", "bGVuZ3Ro", "dGFyZ2V0", "b3V0ZXJUZXh0"];
+  Qo = qo, Zo = 458,
     function (e) {
-      for (; --e;) Zo.push(Zo.shift())
-    }(++qo);
-  var $o = function (e, t) {
-      var i, r = Jo[e -= 0];
-      void 0 === $o.IFPkJC && ((i = function () {
-        var e;
-        try {
-          e = Function('return (function() {}.constructor("return this")( ));')()
-        } catch (t) {
-          e = window
-        }
-        return e
-      }()).atob || (i.atob = function (e) {
-        for (var t, i, r = String(e).replace(/=+$/, ""), n = "", o = 0, a = 0; i = r.charAt(a++); ~i && (t = o % 4 ? 64 * t + i : i, o++ % 4) ? n += String.fromCharCode(255 & t >> (-2 * o & 6)) : 0) i = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".indexOf(i);
-        return n
-      }), $o.vaQvzy = function (e) {
-        for (var t = atob(e), i = [], r = 0, n = t.length; r < n; r++) i += "%" + ("00" + t.charCodeAt(r).toString(16)).slice(-2);
-        return decodeURIComponent(i)
-      }, $o.QEYrQv = {}, $o.IFPkJC = !0);
-      var n = $o.QEYrQv[e];
-      return void 0 === n ? (r = $o.vaQvzy(r), $o.QEYrQv[e] = r) : r = n, r
-    },
-    ea = 0;
-  new(window[$o("0x0")])(e => {
-    for (var t = 0; t < e[$o("0x1")]; t++) {
+      for (; --e;) Qo.push(Qo.shift())
+    }(++Zo);
+  var Jo = function (e, t) {
+    var i, r = qo[e -= 0];
+    void 0 === Jo.IFPkJC && ((i = function () {
+      var e;
+      try {
+        e = Function('return (function() {}.constructor("return this")( ));')()
+      } catch (t) {
+        e = window
+      }
+      return e
+    }()).atob || (i.atob = function (e) {
+      for (var t, i, r = String(e).replace(/=+$/, ""), n = "", o = 0, a = 0; i = r.charAt(a++); ~i && (t = o % 4 ? 64 * t + i : i, o++ % 4) ? n += String.fromCharCode(255 & t >> (-2 * o & 6)) : 0) i = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".indexOf(i);
+      return n
+    }), Jo.vaQvzy = function (e) {
+      for (var t = atob(e), i = [], r = 0, n = t.length; r < n; r++) i += "%" + ("00" + t.charCodeAt(r).toString(16)).slice(-2);
+      return decodeURIComponent(i)
+    }, Jo.QEYrQv = {}, Jo.IFPkJC = !0);
+    var n = Jo.QEYrQv[e];
+    return void 0 === n ? (r = Jo.vaQvzy(r), Jo.QEYrQv[e] = r) : r = n, r
+  };
+  new(window[Jo("0x0")])(e => {
+    for (var t = 0; t < e[Jo("0x1")]; t++) {
       var i = e[t];
-      (i[$o("0x2")][$o("0x3")][$o("0x1")] > 3e6 || i.target[$o("0x4")].length > 3e6) && (ea = 255)
+      (i[Jo("0x2")][Jo("0x3")][Jo("0x1")] > 3e6 || i.target[Jo("0x4")].length > 3e6) && 255
     }
-  })[$o("0x5")](document, {
+  })[Jo("0x5")](document, {
     childList: !0,
     subtree: !0
   });
-  var ta, ia = [],
-    ra = (ta = 0, function () {
-      return ta++
+  var $o, ea = [],
+    ta = ($o = 0, function () {
+      return $o++
     });
 
-  function na() {
-    return window.performance.now() * ua
+  function ia() {
+    return window.performance.now() * ca
   }
-  var oa, aa, sa, la, ca, ha, ua = 1e3,
-    da = 1 / ua,
-    pa = function (e, t) {
+  var ra, na, oa, aa, sa, la, ca = 1e3,
+    ha = 1 / ca,
+    ua = function (e, t) {
       t || (t = 1e3 / 30);
-      var i = ra();
-      ia.push(i);
+      var i = ta();
+      ea.push(i);
       var r = 1 * t,
         n = Math.floor(t - 1),
         o = 1 * n,
-        a = na(),
-        s = na(),
+        a = ia(),
+        s = ia(),
         l = function () {
           0;
-          var t = na();
+          var t = ia();
           if (t >= s) {
             var c = t - a;
-            a = t, s = t + r, e(c * da)
-          } - 1 !== ia.indexOf(i) && (s - na() > o ? setTimeout(l, Math.max(n, 16)) : setTimeout(l, 0))
+            a = t, s = t + r, e(c * ha)
+          } - 1 !== ea.indexOf(i) && (s - ia() > o ? setTimeout(l, Math.max(n, 16)) : setTimeout(l, 0))
         };
       return l(), i
     },
-    fa = function (e) {
-      ia.splice(ia.indexOf(e), 1)
+    da = function (e) {
+      ea.splice(ea.indexOf(e), 1)
     };
-  class ma {
+  class pa {
     static init() {
-      this.getGamepads = (navigator.getGamepads || navigator.webkitGetGamepads).bind(navigator), this.getGamepads ? (this.index = null, this.buttonThreshold = .1, this.assist = 1, ma.detectControllerType(getStoredString("controllerId", Bo("p_settings_nocontroller"))), addEventListener("gamepadconnected", e => {
+      this.getGamepads = (navigator.getGamepads || navigator.webkitGetGamepads).bind(navigator), this.getGamepads ? (this.index = null, this.buttonThreshold = .1, this.assist = 1, pa.detectControllerType(getStoredString("controllerId", Lo("p_settings_nocontroller"))), addEventListener("gamepadconnected", e => {
         this.buttonState = [], this.lastMoveX = 0, this.lastMoveZ = 0, this.index = e.gamepad.index;
         var t = navigator.getGamepads()[e.gamepad.index];
-        console.log("Gamepad connected at index: " + t.index + ": " + t.id + ". It has " + t.buttons.length + " buttons and " + t.axes.length + " axes."), ga("send", "event", "game", "settings", "controller connected", t.id), addEventListener("gamepadbuttondown", this.onButtonDown), addEventListener("gamepadbuttonup", this.onButtonUp), ma.detectControllerType(t.id), this.poll(), this.assistInterval = setInterval(ma.calculateAssist, 67)
+        console.log("Gamepad connected at index: " + t.index + ": " + t.id + ". It has " + t.buttons.length + " buttons and " + t.axes.length + " axes."), ga("send", "event", "game", "settings", "controller connected", t.id), addEventListener("gamepadbuttondown", this.onButtonDown), addEventListener("gamepadbuttonup", this.onButtonUp), pa.detectControllerType(t.id), this.poll(), this.assistInterval = setInterval(pa.calculateAssist, 67)
       }), addEventListener("gamepaddisconnected", e => {
-        e.gamepad.index == this.index && (cancelAnimationFrame(this.pollLoop), clearInterval(this.assistInterval), this.index = null, removeEventListener("gamepadbuttondown", this.onButtonDown), removeEventListener("gamepadbuttonup", this.onButtonUp), console.log("Gamepad disconnected"), ma.detectControllerType(Bo("p_settings_nocontroller")))
+        e.gamepad.index == this.index && (cancelAnimationFrame(this.pollLoop), clearInterval(this.assistInterval), this.index = null, removeEventListener("gamepadbuttondown", this.onButtonDown), removeEventListener("gamepadbuttonup", this.onButtonUp), console.log("Gamepad disconnected"), pa.detectControllerType(Lo("p_settings_nocontroller")))
       })) : console.log("Gamepad API not detected")
     }
     static detectControllerType(e) {
@@ -53247,39 +53526,39 @@ var extern = function () {
       return i < 0 && (i = 0), i * (e > 0 ? 1 : -1)
     }
     static poll() {
-      var e = ma.getGamepads()[ma.index];
+      var e = pa.getGamepads()[pa.index];
       if (e) {
-        if (Cr && Cr.playing && document.pointerLockElement || lr) {
-          var t = ma.calculateAssist(),
+        if (Sr && Sr.playing && document.pointerLockElement || or) {
+          var t = pa.calculateAssist(),
             i = .0025 * B.controllerSpeed + .005;
-          Cr.actor.scope && (i *= .2, t *= 2);
-          var r = ma.applyDeadZone(e.axes[2]),
-            n = ma.applyDeadZone(e.axes[3]);
+          Sr.actor.scope && (i *= .2, t *= 2);
+          var r = pa.applyDeadZone(e.axes[2]),
+            n = pa.applyDeadZone(e.axes[3]);
           Math.length2(r, n);
-          i *= t, Cr.yaw = Math.radAdd(Cr.yaw, r * i), Cr.pitch = Math.max(Math.min(Cr.pitch + n * B.controllerInvert * i, 1.5), -1.5);
-          var o = ma.applyDeadZone(e.axes[0]),
-            a = ma.applyDeadZone(e.axes[1]);
-          o < 0 && ma.lastMoveX >= 0 ? Zn("left") : o >= 0 && ma.lastMoveX < 0 && Jn("left"), o > 0 && ma.lastMoveX <= 0 ? Zn("right") : o <= 0 && ma.lastMoveX > 0 && Jn("right"), a < 0 && ma.lastMoveZ >= 0 ? Zn("up") : a >= 0 && ma.lastMoveZ < 0 && Jn("up"), a > 0 && ma.lastMoveZ <= 0 ? Zn("down") : a <= 0 && ma.lastMoveZ > 0 && Jn("down"), ma.lastMoveX = o, ma.lastMoveZ = a
+          i *= t, Sr.yaw = Math.radAdd(Sr.yaw, r * i), Sr.pitch = Math.max(Math.min(Sr.pitch + n * B.controllerInvert * i, 1.5), -1.5);
+          var o = pa.applyDeadZone(e.axes[0]),
+            a = pa.applyDeadZone(e.axes[1]);
+          o < 0 && pa.lastMoveX >= 0 ? Qn("left") : o >= 0 && pa.lastMoveX < 0 && qn("left"), o > 0 && pa.lastMoveX <= 0 ? Qn("right") : o <= 0 && pa.lastMoveX > 0 && qn("right"), a < 0 && pa.lastMoveZ >= 0 ? Qn("up") : a >= 0 && pa.lastMoveZ < 0 && qn("up"), a > 0 && pa.lastMoveZ <= 0 ? Qn("down") : a <= 0 && pa.lastMoveZ > 0 && qn("down"), pa.lastMoveX = o, pa.lastMoveZ = a
         }
-        for (var s in e.buttons) e.buttons[s].value > ma.buttonThreshold && !ma.buttonState[s] ? (ma.buttonState[s] = !0, dispatchEvent(new CustomEvent("gamepadbuttondown", {
+        for (var s in e.buttons) e.buttons[s].value > pa.buttonThreshold && !pa.buttonState[s] ? (pa.buttonState[s] = !0, dispatchEvent(new CustomEvent("gamepadbuttondown", {
           detail: s
-        }))) : e.buttons[s].value <= ma.buttonThreshold && ma.buttonState[s] && (ma.buttonState[s] = !1, dispatchEvent(new CustomEvent("gamepadbuttonup", {
+        }))) : e.buttons[s].value <= pa.buttonThreshold && pa.buttonState[s] && (pa.buttonState[s] = !1, dispatchEvent(new CustomEvent("gamepadbuttonup", {
           detail: s
         })))
       }
-      ma.pollLoop = requestAnimationFrame(ma.poll)
+      pa.pollLoop = requestAnimationFrame(pa.poll)
     }
     static calculateAssist() {
-      if (!Cr || !Cr.playing) return 1;
-      var e = ma.v1,
-        t = ma.v2,
+      if (!Sr || !Sr.playing) return 1;
+      var e = pa.v1,
+        t = pa.v2,
         i = r.forwardRay.origin,
         n = r.forwardRay.direction,
         o = null,
         a = null,
         s = 1e7;
-      for (var c of Ir)
-        if (c && c.id != l && c.playing && c.actor && c.actor.mesh.isVisible && (0 == c.team || c.team != Cr.team)) {
+      for (var c of Cr)
+        if (c && c.id != l && c.playing && c.actor && c.actor.mesh.isVisible && (0 == c.team || c.team != Sr.team)) {
           var h = BABYLON.Vector3.Distance(c.actor.mesh.position, i);
           e.copyFrom(c.actor.mesh.position), e.y += .3, e.subtractToRef(i, t), t.normalize(), n.normalize();
           var u = (1 - BABYLON.Vector3.Dot(t, n)) * h * .5;
@@ -53287,34 +53566,34 @@ var extern = function () {
         } return o ? Math.max(20 * a, .2) : 1
     }
     static onButtonDown(e) {
-      Cr && Qn("gamepad", e.detail)
+      Sr && Kn("gamepad", e.detail)
     }
     static onButtonUp(e) {
-      Cr && qn("gamepad", e.detail)
+      Sr && Zn("gamepad", e.detail)
     }
   }
-  ma.v1 = new BABYLON.Vector3, ma.v2 = new BABYLON.Vector3, oa = window, aa = document, sa = "script", la = "ga", oa.GoogleAnalyticsObject = la, oa.ga = oa.ga || function () {
-    (oa.ga.q = oa.ga.q || []).push(arguments)
-  }, oa.ga.l = 1 * new Date, ca = aa.createElement(sa), ha = aa.getElementsByTagName(sa)[0], ca.async = 1, ca.src = "https://www.google-analytics.com/analytics.js", ha.parentNode.insertBefore(ca, ha), ga("set", "anonymizeIp", !isFromEU), ga("create", "UA-105800112-1", {
+  pa.v1 = new BABYLON.Vector3, pa.v2 = new BABYLON.Vector3, ra = window, na = document, oa = "script", aa = "ga", ra.GoogleAnalyticsObject = aa, ra.ga = ra.ga || function () {
+    (ra.ga.q = ra.ga.q || []).push(arguments)
+  }, ra.ga.l = 1 * new Date, sa = na.createElement(oa), la = na.getElementsByTagName(oa)[0], sa.async = 1, sa.src = "https://www.google-analytics.com/analytics.js", la.parentNode.insertBefore(sa, la), ga("set", "anonymizeIp", !isFromEU), ga("create", "UA-105800112-1", {
     cookieDomain: "auto",
     siteSpeedSampleRate: 10,
     cookieFlags: "samesite=none;secure"
   }), ga("send", "pageview");
-  const _a = (e, t) => {
+  const fa = (e, t) => {
       t = t || "event", e.forEach(e => {
         ga("send", t, e)
       })
     },
-    va = (e, t) => {
+    ma = (e, t) => {
       t = t || "";
       let i = Date.now() - e;
       ga("send", "timing", "game", "play time", i), fbq("trackCustom", "EndGame", {
         timePlayed: i
       }), t && ga("send", "timing", "Maps", t, i)
     };
-  var ya, ba = [new BABYLON.Color3(1, 1, 0), new BABYLON.Color3(0, .5, 1), new BABYLON.Color3(1, 0, 0)];
+  var _a = [new BABYLON.Color3(1, 1, 0), new BABYLON.Color3(0, .5, 1), new BABYLON.Color3(1, 0, 0)];
 
-  function xa(e, t) {
+  function va(e, t) {
     this.grenade = e, this.scene = e.scene, this.meshes = {};
     for (let e = 0; e < V.grenades.length; e++) {
       let t = V.grenades[e],
@@ -53324,43 +53603,43 @@ var extern = function () {
     this.mesh = null, this.beep = !1, this.flashColor = null
   }
 
-  function Ta(e, t) {
+  function ya(e, t) {
     this.gun = e, this.meshName = t, this.scene = e.scene, this.standardMeshName = e.subClass.standardMeshName, this.playerActor = e.player.actor, this.skeleton = this.scene.cloneSkeleton("gun_" + this.standardMeshName + "_skeleton"), this.roundsFired = 0
   }
 
+  function ba(e, t) {
+    ya.call(this, e, t), this.scopeFov = .9, this.scopeY = .0438, this.setup(.6), this.fireSound = "gun_eggk47_Techno" == t ? "eggk47_eggk-technoskin" : "eggk47_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("shortReload", 30, "eggk47_remove_mag"), this.addSoundEvent("shortReload", 123, "eggk47_insert_mag"), this.addSoundEvent("longReload", 30, "eggk47_remove_mag"), this.addSoundEvent("longReload", 123, "eggk47_insert_mag"), this.addSoundEvent("longReload", 155, "eggk47_full_cycle")
+  }
+
+  function xa(e, t) {
+    ya.call(this, e, t), this.scopeFov = 1, this.scopeY = .072, this.setup(.6), this.fireSound = "gun_dozenGauge_Techno" == t ? "dozenGauge_fire_badoosh" : "dozenGauge_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("reload", 0, "dozenGauge_open"), this.addSoundEvent("reload", 80, "dozenGauge_load"), this.addSoundEvent("reload", 115, "dozenGauge_close")
+  }
+
+  function Ta(e, t) {
+    ya.call(this, e, t), this.scopeFov = .5, this.scopeY = .0345, this.setup(.6), this.fireSound = "gun_csg1_Techno" == t ? "csg1_fire_catz" : "csg1_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("shortReload", 25, "eggk47_remove_mag"), this.addSoundEvent("shortReload", 125, "eggk47_insert_mag"), this.addSoundEvent("longReload", 30, "csg1_pull_action"), this.addSoundEvent("longReload", 75, "eggk47_remove_mag"), this.addSoundEvent("longReload", 160, "eggk47_insert_mag"), this.addSoundEvent("longReload", 190, "csg1_release_action")
+  }
+
   function Ea(e, t) {
-    Ta.call(this, e, t), this.scopeFov = .9, this.scopeY = .0438, this.setup(.6), this.fireSound = "gun_eggk47_Techno" == t ? "eggk47_eggk-technoskin" : "eggk47_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("shortReload", 30, "eggk47_remove_mag"), this.addSoundEvent("shortReload", 123, "eggk47_insert_mag"), this.addSoundEvent("longReload", 30, "eggk47_remove_mag"), this.addSoundEvent("longReload", 123, "eggk47_insert_mag"), this.addSoundEvent("longReload", 155, "eggk47_full_cycle")
+    ya.call(this, e, t), this.scopeFov = 1.1, this.scopeY = .069, this.setup(.48), this.fireSound = "gun_cluck9mm_Techno" == t ? "cluck9mm_fire_pop" : "gun_cluck9mm_CubicCastles" == t ? "cluck9mm_fire_wand" : "gun_cluck9mm_Retro" == t ? "cluck9mm_fire_8bit" : "cluck9mm_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("shortReload", 15, "cluck9mm_remove_mag"), this.addSoundEvent("shortReload", 110, "cluck9mm_insert_mag"), this.addSoundEvent("longReload", 15, "cluck9mm_remove_mag"), this.addSoundEvent("longReload", 110, "cluck9mm_insert_mag"), this.addSoundEvent("longReload", 155, "eggk47_full_cycle")
   }
 
   function Pa(e, t) {
-    Ta.call(this, e, t), this.scopeFov = 1, this.scopeY = .072, this.setup(.6), this.fireSound = "gun_dozenGauge_Techno" == t ? "dozenGauge_fire_badoosh" : "dozenGauge_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("reload", 0, "dozenGauge_open"), this.addSoundEvent("reload", 80, "dozenGauge_load"), this.addSoundEvent("reload", 115, "dozenGauge_close")
+    ya.call(this, e, t), this.scopeFov = .9, this.scopeY = .1 - .0862, this.setup(.51), this.fireSound = "gun_rpegg_Techno" == t ? "rpegg_rpegg-techno" : "rpegg_fire", this.dryFireSound = "eggk47_dry_fire", this.denyFireSound = "rpegg_deny_fire", this.addSoundEvent("reload", 115, "rpegg_load")
   }
 
   function Sa(e, t) {
-    Ta.call(this, e, t), this.scopeFov = .5, this.scopeY = .0345, this.setup(.6), this.fireSound = "gun_csg1_Techno" == t ? "csg1_fire_catz" : "csg1_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("shortReload", 25, "eggk47_remove_mag"), this.addSoundEvent("shortReload", 125, "eggk47_insert_mag"), this.addSoundEvent("longReload", 30, "csg1_pull_action"), this.addSoundEvent("longReload", 75, "eggk47_remove_mag"), this.addSoundEvent("longReload", 160, "eggk47_insert_mag"), this.addSoundEvent("longReload", 190, "csg1_release_action")
+    ya.call(this, e, t), this.scopeFov = 1, this.scopeY = .1 - .09635, this.setup(.55), this.fireSound = "gun_smg_Techno" == t ? "smg_fire_eh" : "smg_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("shortReload", 30, "eggk47_remove_mag"), this.addSoundEvent("shortReload", 150, "eggk47_insert_mag"), this.addSoundEvent("longReload", 30, "eggk47_remove_mag"), this.addSoundEvent("longReload", 150, "eggk47_insert_mag"), this.addSoundEvent("longReload", 185, "smg_cycle")
   }
 
   function Aa(e, t) {
-    Ta.call(this, e, t), this.scopeFov = 1.1, this.scopeY = .069, this.setup(.48), this.fireSound = "gun_cluck9mm_Techno" == t ? "cluck9mm_fire_pop" : "gun_cluck9mm_CubicCastles" == t ? "cluck9mm_fire_wand" : "gun_cluck9mm_Retro" == t ? "cluck9mm_fire_8bit" : "cluck9mm_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("shortReload", 15, "cluck9mm_remove_mag"), this.addSoundEvent("shortReload", 110, "cluck9mm_insert_mag"), this.addSoundEvent("longReload", 15, "cluck9mm_remove_mag"), this.addSoundEvent("longReload", 110, "cluck9mm_insert_mag"), this.addSoundEvent("longReload", 155, "eggk47_full_cycle")
+    ya.call(this, e, t), this.scopeFov = .4, this.scopeY = .1 - .03507, this.setup(.6), this.fireSound = "gun_m24_Techno" == t ? "m24_fire_untz" : "m24_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("reload", 10, "m24_bolt_open"), this.addSoundEvent("reload", 75, "eggk47_insert_mag"), this.addSoundEvent("reload", 94, "m24_bolt_close")
   }
 
   function Ma(e, t) {
-    Ta.call(this, e, t), this.scopeFov = .9, this.scopeY = .1 - .0862, this.setup(.51), this.fireSound = "gun_rpegg_Techno" == t ? "rpegg_rpegg-techno" : "rpegg_fire", this.dryFireSound = "eggk47_dry_fire", this.denyFireSound = "rpegg_deny_fire", this.addSoundEvent("reload", 115, "rpegg_load")
+    ya.call(this, e, t), this.scopeFov = .7, this.scopeY = .0385, this.setup(.6), this.fireSound = "gun_aug_Retro" == t ? "aug_fire_8bit" : "aug_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("shortReload", 28, "aug_remove_mag"), this.addSoundEvent("shortReload", 118, "aug_insert_mag"), this.addSoundEvent("longReload", 28, "aug_remove_mag"), this.addSoundEvent("longReload", 118, "aug_insert_mag"), this.addSoundEvent("longReload", 153, "aug_cycle")
   }
 
   function Ca(e, t) {
-    Ta.call(this, e, t), this.scopeFov = 1, this.scopeY = .1 - .09635, this.setup(.55), this.fireSound = "gun_smg_Techno" == t ? "smg_fire_eh" : "smg_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("shortReload", 30, "eggk47_remove_mag"), this.addSoundEvent("shortReload", 150, "eggk47_insert_mag"), this.addSoundEvent("longReload", 30, "eggk47_remove_mag"), this.addSoundEvent("longReload", 150, "eggk47_insert_mag"), this.addSoundEvent("longReload", 185, "smg_cycle")
-  }
-
-  function Ra(e, t) {
-    Ta.call(this, e, t), this.scopeFov = .4, this.scopeY = .1 - .03507, this.setup(.6), this.fireSound = "gun_m24_Techno" == t ? "m24_fire_untz" : "m24_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("reload", 10, "m24_bolt_open"), this.addSoundEvent("reload", 75, "eggk47_insert_mag"), this.addSoundEvent("reload", 94, "m24_bolt_close")
-  }
-
-  function Oa(e, t) {
-    Ta.call(this, e, t), this.scopeFov = .7, this.scopeY = .0385, this.setup(.6), this.fireSound = "aug_fire", this.dryFireSound = "eggk47_dry_fire", this.addSoundEvent("shortReload", 28, "aug_remove_mag"), this.addSoundEvent("shortReload", 118, "aug_insert_mag"), this.addSoundEvent("longReload", 28, "aug_remove_mag"), this.addSoundEvent("longReload", 118, "aug_insert_mag"), this.addSoundEvent("longReload", 153, "aug_cycle")
-  }
-
-  function Ia(e, t) {
     const i = window.location.origin,
       r = [];
     getRequest(i + "/" + e + "?" + Date.now(), (e, i) => {
@@ -53375,52 +53654,103 @@ var extern = function () {
     })
   }
 
-  function Da(e) {
-    if (e.link && window.open(e.link, "_window"), e.linksToTaggedItems && (se = e.linksToTaggedItems, Do()), e.linksToItemId) {
+  function Ra(e) {
+    if (e.link && window.open(e.link, "_window"), e.linksToTaggedItems && (se = e.linksToTaggedItems, Io()), e.linksToItemId) {
       isString(e.linksToItemId) && (e.linksToItemId = parseInt(e.linksToItemId, 10));
       var t = V.findItemById(e.linksToItemId);
       vueApp.showItemOnEquipScreen(t)
     }
-    e.linksToNugget && (le = !0, wo()), e.linksToGoldenChicken && _s(), e.linksToEggStoreItem && (vueApp.eggStoreReferral = "Splash ad ref", vueApp.showPopupEggStoreSingle(e.linksToEggStoreItem)), e.linksToVipStore && vueApp.showSubStorePopup()
+    e.linksToNugget && (le = !0, Do()), e.linksToGoldenChicken && ms(), e.linksToEggStoreItem && (vueApp.eggStoreReferral = "Splash ad ref", vueApp.showPopupEggStoreSingle(e.linksToEggStoreItem)), e.linksToVipStore && vueApp.showSubStorePopup()
+  }
+  va.prototype.dispose = function () {
+    for (let e of Object.values(this.meshes)) e.dispose()
+  }, va.prototype.throw = function () {
+    this.mesh = this.meshes[this.grenade.player.grenadeItem.id], this.mesh.setEnabled(!0), this.mesh.position.x = this.grenade.x, this.mesh.position.y = this.grenade.y, this.mesh.position.z = this.grenade.z, this.grenade.player.id == l ? this.flashColor = _a[0] : this.flashColor = _a[this.grenade.player.team], Gi.play("grenade_pin", this.mesh.position), this.bounce()
+  }, va.prototype.update = function (e) {
+    this.grenade.resting || (this.mesh.position.x += .5 * (this.grenade.x - this.mesh.position.x), this.mesh.position.y += .5 * (this.grenade.y - this.mesh.position.y), this.mesh.position.z += .5 * (this.grenade.z - this.mesh.position.z), this.mesh.rotation.x += this.rx, this.mesh.rotation.y += this.ry, this.mesh.rotation.z += this.rz), Math.sqrt(2 * this.grenade.ttl) % 2 > 1 ? (0 == this.beep && (Gi.play("grenade_beep", this.mesh.position), this.beep = !0), this.mesh.emissiveColor = this.flashColor) : (this.mesh.emissiveColor = BABYLON.Color3.Black(), this.beep = !1)
+  }, va.prototype.remove = function () {
+    this.mesh.setEnabled(!1)
+  }, va.prototype.bounce = function () {
+    var e = Math.length3(this.grenade.dx, this.grenade.dy, this.grenade.dz);
+    this.rx = (2 * Math.random() - 1) * e, this.ry = (2 * Math.random() - 1) * e, this.rz = (2 * Math.random() - 1) * e
+  }, va.prototype.stop = function () {
+    this.rx = 0, this.ry = 0, this.rz = 0
+  }, ya.prototype.setup = function (e) {
+    this.gunMesh = this.scene.cloneMesh(this.meshName, this.playerActor.gunContainer), this.gunMesh.skeleton = this.skeleton, this.gunMesh.setEnabled(!1), e && (this.muzzleFlash = this.scene.cloneMesh("muzzleFlash", this.playerActor.gunContainer), this.muzzleFlash.setEnabled(!1), this.muzzleFlash.parent = this.playerActor.gunContainer, this.muzzleFlash.position.x = .25, this.muzzleFlash.position.z = e, this.muzzleFlash.scaling.copyFromFloats(.7, .7, .7)), this.gun.player.id == l && (this.gunMesh.setRenderingGroupId(2), this.muzzleFlash && this.muzzleFlash.setRenderingGroupId(2))
+  }, ya.prototype.addSoundEvent = function (e, t, i) {
+    t += this.skeleton.getAnimationRange(e).from;
+    var r = new BABYLON.AnimationEvent(t, function (e, t) {
+      return function () {
+        Gi.play(e, t, !0)
+      }
+    }(i, this.gun.player.actor.mesh.position));
+    this.skeleton.bones[0].animations[0].addEvent(r)
+  }, ya.prototype.dispose = function () {
+    this.gunMesh.dispose()
+  }, ya.prototype.stow = function () {
+    var e = this;
+    Gi.play("weapon_swap", e.gun.player.actor.mesh.position, !0), this.scene.beginAnimation(this.playerActor.gunContainer, 0, 25, !1, 1, (function () {
+      e.gunMesh.setEnabled(!1), e.gun.equip()
+    }))
+  }, ya.prototype.equip = function () {
+    this.playerActor.setWeaponSkeleton(this.skeleton), this.playerActor.gunContainer.setEnabled(!1), this.scene.beginAnimation(this.playerActor.gunContainer, 30, 55, !1, 1), this.gunMesh.setEnabled(!0), this.roundsFired = 0;
+    var e = this;
+    setTimeout((function () {
+      e.playerActor.gunContainer.setEnabled(!0)
+    }), 1)
+  }, ya.prototype.dryFire = function () {
+    Gi.play(this.dryFireSound, this.gun.player.actor.mesh.position, !0)
+  }, ya.prototype.denyFire = function () {
+    rr.fireDenied(), Gi.play(this.dryFireSound, this.gun.player.actor.mesh.position, !0), Gi.play(this.denyFireSound, this.gun.player.actor.mesh.position, !0)
+  }, ya.prototype.fire = function () {
+    if (this.gun.subClass.burst && this.roundsFired % this.gun.subClass.burst != 0 || (this.fireSound && Gi.play(this.fireSound, this.gun.player.actor.mesh.position, !0), this.skeleton.beginAnimation("fire")), this.roundsFired++, this.muzzleFlash) {
+      this.muzzleFlash.rotation.z = 3.141 * Math.random(), this.muzzleFlash.setEnabled(!0);
+      var e = this;
+      setTimeout((function () {
+        e.muzzleFlash.setEnabled(!1)
+      }), 33)
+    }
+  }, ya.prototype.reload = function () {
+    this.gun.longReloadTime == this.gun.shortReloadTime ? this.skeleton.beginAnimation("reload") : this.gun.ammo.rounds > 0 ? this.skeleton.beginAnimation("shortReload") : this.skeleton.beginAnimation("longReload")
+  }, ya.prototype.update = function () {}, ba.prototype = Object.create(ya.prototype), ba.prototype.constructor = ya, xa.prototype = Object.create(ya.prototype), xa.prototype.constructor = ya, Ta.prototype = Object.create(ya.prototype), Ta.prototype.constructor = ya, Ea.prototype = Object.create(ya.prototype), Ea.prototype.constructor = ya, Pa.prototype = Object.create(ya.prototype), Pa.prototype.constructor = ya, Sa.prototype = Object.create(ya.prototype), Sa.prototype.constructor = ya, Aa.prototype = Object.create(ya.prototype), Aa.prototype.constructor = ya, Ma.prototype = Object.create(ya.prototype), Ma.prototype.constructor = ya;
+
+  function Oa(e) {
+    this.kind = e, this.scene = xr
   }
 
-  function wa(e) {
-    this.kind = e, this.scene = Pr
+  function Ia() {
+    Oa.call(this, wa.AMMO), this.mesh = this.scene.getMeshByName("ammo").createInstance(""), this.mesh.setEnabled(!1), i && i.getShadowMap().renderList.push(this.mesh)
   }
 
-  function La() {
-    wa.call(this, Fa.AMMO), this.mesh = this.scene.getMeshByName("ammo").createInstance(""), this.mesh.setEnabled(!1), i && i.getShadowMap().renderList.push(this.mesh)
+  function Da() {
+    Oa.call(this, wa.GRENADE), this.mesh = this.scene.getMeshByName("grenadeItem").createInstance(""), this.mesh.setEnabled(!1), i && i.getShadowMap().renderList.push(this.mesh)
   }
 
-  function Ba() {
-    wa.call(this, Fa.GRENADE), this.mesh = this.scene.getMeshByName("grenadeItem").createInstance(""), this.mesh.setEnabled(!1), i && i.getShadowMap().renderList.push(this.mesh)
-  }
-
-  function Fa() {
-    this.pools = [new pi((function () {
-      return new Fa.Constructors[Fa.AMMO]
-    }), 100), new pi((function () {
-      return new Fa.Constructors[Fa.GRENADE]
+  function wa() {
+    this.pools = [new hi((function () {
+      return new wa.Constructors[wa.AMMO]
+    }), 100), new hi((function () {
+      return new wa.Constructors[wa.GRENADE]
     }), 20)]
   }
 
-  function Na() {
+  function La() {
     this.canvas = document.createElement("canvas"), this.canvas.width = 256, this.canvas.height = 256, this.canvas.style.position = "fixed", this.canvas.style.top = "-100em", this.canvas.style.left = "1em", document.body.appendChild(this.canvas), this.engine = new BABYLON.Engine(this.canvas, !0, null, !1), this.scene = new BABYLON.Scene(this.engine), this.scene.clearColor = new BABYLON.Color4(0, 0, 0, 0), this.scene.sunLight = {
       direction: new BABYLON.Vector3(.2, 1, .1),
       diffuse: new BABYLON.Color3.White
     }, this.meshes = {
       Skeletons: {}
-    }, _i(this.scene), gi(this.scene, ["egg", "gun_cluck9mm", "gun_eggk47", "gun_csg1", "gun_dozenGauge", "gun_rpegg", "gun_smg", "gun_m24", "gun_aug", "munitions"], null, (function () {})), this.stampSprites = new BABYLON.SpriteManager("", "img/stamps.png?v=" + version, 256, 128, this.scene), this.camera = new BABYLON.ArcRotateCamera("", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), this.scene), this.scene.activeCameras.push(this.camera), this.camera.fov = .5, this.camera.maxZ = 100, this.camera.minZ = .01
+    }, pi(this.scene), fi(this.scene, ["egg", "gun_cluck9mm", "gun_eggk47", "gun_csg1", "gun_dozenGauge", "gun_rpegg", "gun_smg", "gun_m24", "gun_aug", "munitions"], null, (function () {})), this.stampSprites = new BABYLON.SpriteManager("", "img/stamps.png?v=" + version, 256, 128, this.scene), this.camera = new BABYLON.ArcRotateCamera("", 0, 0, 0, new BABYLON.Vector3(0, 0, 0), this.scene), this.scene.activeCameras.push(this.camera), this.camera.fov = .5, this.camera.maxZ = 100, this.camera.minZ = .01
   }
 
-  function ka() {
-    console.log("Sending gameplay tags to OneSignal..."), Va({
+  function Ba() {
+    console.log("Sending gameplay tags to OneSignal..."), Fa({
       username: vueApp.playerName,
-      fps: Math.floor(fr)
+      fps: Math.floor(ur)
     })
   }
 
-  function Va(e) {
+  function Fa(e) {
     OneSignal.push((function () {
       OneSignal.sendTags(e).then((function (e) {
         console.log("Completed sending tags to OneSignal")
@@ -53428,28 +53758,28 @@ var extern = function () {
     }))
   }
 
-  function Ua() {
+  function Na() {
     OneSignal.push(["addListenerForNotificationOpened", function (e) {
       if (console.log("Received NotificationOpened:"), console.log(e), void 0 !== e.data && null !== e.data) {
-        if (console.log("data", e.data), void 0 !== e.data.nugget) return le = !0, void wo();
-        if (void 0 !== e.data.specialTagItems) return void Do(e.data.specialTagItems);
+        if (console.log("data", e.data), void 0 !== e.data.nugget) return le = !0, void Do();
+        if (void 0 !== e.data.specialTagItems) return void Io(e.data.specialTagItems);
         if (void 0 !== e.data.eggStorePopup) return t = e.data.eggStorePopup, vueApp.eggStoreReferral = "OneSignal ref", void vueApp.showPopupEggStoreSingle(t);
-        void 0 !== e.data.rewardTag && (ie = new Ho(e.data.rewardTag, void 0 === e.data.rewardOpenUrl ? null : e.data.rewardOpenUrl, void 0 === e.data.rewardOpenUrlMsg ? null : e.data.rewardOpenUrlMsg), !0 === re && za())
+        void 0 !== e.data.rewardTag && (ie = new Go(e.data.rewardTag, void 0 === e.data.rewardOpenUrl ? null : e.data.rewardOpenUrl, void 0 === e.data.rewardOpenUrlMsg ? null : e.data.rewardOpenUrlMsg), !0 === re && ka())
       }
       var t
     }])
   }
 
-  function za() {
+  function ka() {
     if (!0 === Z) return !1;
     if (!hasValue(ie) || !hasValue(ie.tag)) return !1;
     if (console.log("Reward URL: " + ie.openUrl), hasValue(ie.openUrl) && !0 !== ie.wasUrlOpened) return vueApp.showOpenUrlPopup(ie.openUrl, "reward_url_title", ie.openUrlMsg, "ok", "no_thanks"), !0;
-    vueApp.showSpinner(), Vi(ie, (function (e) {
+    vueApp.showSpinner(), Fi(ie, (function (e) {
       if (Z = !0, vueApp.hideSpinner(), e.error) console.log("tryGiveOneSignalReward Error: " + JSON.stringify(e.error));
       else switch (console.log("tryGiveOneSignalReward response: " + e.result), e.result) {
         case "SUCCESS":
           var t = 0;
-          hasValue(e.eggsGiven) && e.eggsGiven > 0 && (t = e.eggsGiven, ki());
+          hasValue(e.eggsGiven) && e.eggsGiven > 0 && (t = e.eggsGiven, Bi());
           var i = [];
           hasValue(e.itemIds) && e.itemIds.length > 0 && (i = V.findItemsByIds(e.itemIds)).forEach(e => {
             W.isItemOwned(e) || (W.inventory.push(e), console.log("Reward item given, id: " + e.id))
@@ -53470,21 +53800,21 @@ var extern = function () {
         default:
           vueApp.showGenericPopup("uh_oh", "error", "ok")
       }
-      return ie = null, Ua(), !0
+      return ie = null, Na(), !0
     }), (function (e) {
-      console.log("servicesWs Error: " + JSON.stringify(e, ["message", "arguments", "type", "name"])), Ua(), vueApp.showGenericPopup("uh_oh", "generic_conn_failed", "ok"), ie = null, vueApp.hideSpinner()
+      console.log("servicesWs Error: " + JSON.stringify(e, ["message", "arguments", "type", "name"])), Na(), vueApp.showGenericPopup("uh_oh", "generic_conn_failed", "ok"), ie = null, vueApp.hideSpinner()
     }))
   }
 
-  function Ga(e) {
+  function Va(e) {
     this.isReady = !1, this.weaponItem = null, this.grenadeItem = null, this.hatItem = null, this.stampItem = null, this.camX = 0, this.camY = .35, this.camRadius = 3.4, this.rotY = 0, this.rotX = 0, this.jump = 0, this.turnCountdown = 60, this.buyingItem = null, this.setupScene();
     var t = this;
-    jr(this.scene, (function () {
+    Gr(this.scene, (function () {
       t.onResourcesLoaded(), t.isReady = !0, e && e()
     }))
   }
 
-  function Ha(e, t) {
+  function Ua(e, t) {
     console.log("Pinging servers");
     for (var i = 0, r = 0; r < servers.length; r++) ! function (t) {
       var i, o = servers[r],
@@ -53495,12 +53825,12 @@ var extern = function () {
       }), 1e3);
       a.onopen = function (e) {
         console.log("Pinging " + o.name);
-        var t = Hi.getBuffer();
-        t.packInt8(lt), t.send(a), i = Date.now()
+        var t = Ui.getBuffer();
+        t.packInt8(at), t.send(a), i = Date.now()
       }, a.onmessage = function (t) {
         clearTimeout(s);
         var r = Date.now() - i;
-        o.ping = r, a.close(), e && Wa(o.id), n(e), console.log(o.name + ": " + r)
+        o.ping = r, a.close(), e && za(o.id), n(e), console.log(o.name + ": " + r)
       }, a.onerror = function (t) {
         clearTimeout(s), o.ping = 1e3, n(e)
       }
@@ -53512,14 +53842,14 @@ var extern = function () {
           var r = 1e3,
             n = servers[0];
           for (var o in servers) servers[o].ping < r && (n = servers[o], r = servers[o].ping);
-          Wa(n.id)
+          za(n.id)
         }
         vueApp.serverList = servers.slice(0), t && t()
       }
     }
   }
 
-  function Wa(e) {
+  function za(e) {
     ! function (e) {
       F = servers.find((function (t) {
         return t.id === e
@@ -53527,19 +53857,19 @@ var extern = function () {
     }(e), vueApp.selectedServerId = F.id, vueApp.currentServerId = F.id, vueApp.currentServerLocKey = F.locKey, localStore.setItem("selectedServerId", F.id)
   }
 
-  function ja() {
+  function Ga() {
     this.loggedOut = function () {
-      this.firebaseId = null, this.id = null, this.session = null, this.kills = 0, this.deaths = 0, this.streak = 0, this.currentBalance = 0, this.classIdx = 0, this.inventory = [], this.pickedWeapons = [], this.stampItem = null, this.grenadeItem = null, this.hatItem = null, this.colorIdx = 0, this.killMultiplier = 1, this.hideAds = !1, this.maybeSchoolEmail = !1, this.isAnonymous = !0, this.upgradeIsExpired = null, this.upgradeExpiryDate = null, this.upgradeName = "", this.isSubscriber = !1;
-      for (var e = 0; e < Ne.length; e++) {
+      this.firebaseId = null, this.id = null, this.session = null, this.kills = 0, this.deaths = 0, this.streak = 0, this.currentBalance = 0, this.classIdx = 0, this.inventory = [], this.pickedWeapons = [], this.stampItem = null, this.grenadeItem = null, this.hatItem = null, this.colorIdx = 0, this.killMultiplier = 1, this.hideAds = !1, this.maybeSchoolEmail = !1, this.isAnonymous = !0, this.upgradeIsExpired = null, this.upgradeExpiryDate = null, this.upgradeName = "", this.isSubscriber = !1, this.social = "";
+      for (var e = 0; e < Be.length; e++) {
         var t = [V.forClass[e].primaryWeapons[0], V.forClass[e].secondaryWeapons[0]];
         this.pickedWeapons.push(t)
       }
     }, this.loggingOut = function () {
       this.loggedOut(), this.applyLoadoutObject(), this.getPrimaryWeapon(), this.getSecondaryWeapon(), this.setClass(this.classIdx), localStore.removeItem("localLoadOut"), vueApp.signOut()
     }, this.setClass = function (e) {
-      e >= hi.length && (e = 0), this.classIdx = e, vueApp.classIdx = this.classIdx
+      e >= si.length && (e = 0), this.classIdx = e, vueApp.classIdx = this.classIdx
     }, this.pickWeapon = function (e, t) {
-      t.item_type_id === Le && this.setClass(t.exclusive_for_class), !1 === V.findItemInListById(t, V.forClass[this.classIdx].forWeaponSlot[e]) && (t = V.forClass[this.classIdx].forWeaponSlot[e][0]), this.pickedWeapons[this.classIdx][e] = t
+      t.item_type_id === De && this.setClass(t.exclusive_for_class), !1 === V.findItemInListById(t, V.forClass[this.classIdx].forWeaponSlot[e]) && (t = V.forClass[this.classIdx].forWeaponSlot[e][0]), this.pickedWeapons[this.classIdx][e] = t
     }, this.calculateKdr = function () {
       this.kdr = Math.floor(this.kills / Math.max(this.deaths, 1) * 100) / 100
     }, this._firebaseId, Object.defineProperty(this, "firebaseId", {
@@ -53633,12 +53963,19 @@ var extern = function () {
       set: function (e) {
         this._upgradeName = e, vueApp.upgradeName = e
       }
+    }), this._hideAds, Object.defineProperty(this, "hideAds", {
+      get: function () {
+        return this._hideAds
+      },
+      set: function (e) {
+        ye = e, vueApp.hideAds = !!e
+      }
     }), this.getPickedWeaponInSlot = function (e) {
       return this.pickedWeapons[this.classIdx][e]
     }, this.getPrimaryWeapon = function () {
-      return this.getPickedWeaponInSlot(Oe)
+      return this.getPickedWeaponInSlot(Ce)
     }, this.getSecondaryWeapon = function () {
-      return this.getPickedWeaponInSlot(Ie)
+      return this.getPickedWeaponInSlot(Re)
     }, this.isUpgraded = function () {
       return hasValue(this.upgradeProductId) && !this.upgradeIsExpired
     }, this.isItemOwned = function (e) {
@@ -53655,29 +53992,29 @@ var extern = function () {
       this.isItemOwned(e) || this.inventory.push(e), !0 === t && this.tryEquipItem(e)
     }, this.tryEquipItem = function (e) {
       if (this.isItemOwned(e)) switch (e.item_type_id) {
-        case De:
+        case Oe:
           this.hatItem = e;
           break;
-        case we:
+        case Ie:
           this.stampItem = e;
           break;
+        case De:
+          e.exclusive_for_class !== this.classIdx && this.setClass(e.exclusive_for_class), this.pickWeapon(Ce, e);
+          break;
+        case we:
+          this.pickWeapon(Re, e);
+          break;
         case Le:
-          e.exclusive_for_class !== this.classIdx && this.setClass(e.exclusive_for_class), this.pickWeapon(Oe, e);
-          break;
-        case Be:
-          this.pickWeapon(Ie, e);
-          break;
-        case Fe:
           this.grenadeItem = e
       }
     }, this.signedIn = function (e, t) {
       if (e.uid === t.firebaseId) {
-        if (this.isAnonymous = e.isAnonymous, this.isEmailVerified = !this.isAnonymous && t.emailVerified, this.id = t.id, this.firebaseId = t.firebaseId, this.session = t.session, this.maskedEmail = t.maskedEmail, this.kills = t.kills, this.deaths = t.deaths, this.streak = t.streak, this.currentBalance = t.currentBalance, this.upgradeProductId = t.upgradeProductId, this.killMultiplier = hasValue(t.upgradeMultiplier) ? t.upgradeMultiplier : 1, this.hideAds = !!hasValue(t.upgradeAdFree) && t.upgradeAdFree, this.upgradeExpiryDate = hasValue(t.upgradeExpiryDate) ? t.upgradeExpiryDate : null, this.upgradeIsExpired = hasValue(t.upgradeExpiryDate) ? t.upgradeIsExpired : null, this.isSubscriber = "subscription" === t.upgradeType, this.upgradeName = t.upgradeName, this.maybeSchoolEmail = t.maybeSchoolEmail, this.subscriptionEnded = t.subscriptionEnded, hasValue(t.ownedItemIds))
+        if (this.isAnonymous = e.isAnonymous, this.isEmailVerified = !this.isAnonymous && t.emailVerified, this.id = t.id, this.firebaseId = t.firebaseId, this.session = t.session, this.maskedEmail = t.maskedEmail, this.kills = t.kills, this.deaths = t.deaths, this.streak = t.streak, this.currentBalance = t.currentBalance, this.upgradeProductId = t.upgradeProductId, this.killMultiplier = hasValue(t.upgradeMultiplier) ? t.upgradeMultiplier : 1, this.hideAds = !!hasValue(t.upgradeAdFree) && t.upgradeAdFree, this.upgradeExpiryDate = hasValue(t.upgradeExpiryDate) ? t.upgradeExpiryDate : null, this.upgradeIsExpired = hasValue(t.upgradeExpiryDate) ? t.upgradeIsExpired : null, this.isSubscriber = "subscription" === t.upgradeType, this.upgradeName = t.upgradeName, this.maybeSchoolEmail = t.maybeSchoolEmail, this.subscriptionEnded = t.subscriptionEnded, this.social = hasValue(t.social) ? t.social : "[]", hasValue(t.ownedItemIds))
           for (var i = 0; i < t.ownedItemIds.length; i++) {
             var r = V.findItemById(t.ownedItemIds[i]);
             this.inventory.push(r)
           }
-        this.isUpgraded() && Si(), this.subscriptionEnded && (Ee = !0), vueData.announcementMessage = t.announcement, this.applyLoadoutObject(t.loadout), this.applyLocalLoadout(t.loadout)
+        this.isUpgraded() && Ti(), this.subscriptionEnded && (xe = !0), vueData.announcementMessage = t.announcement, this.applyLoadoutObject(t.loadout), this.applyLocalLoadout(t.loadout)
       } else console.log("Firebase user ID does not match account returned from API")
     }, this.convertLoadout = e => {
       e || (e = this.generateLoadoutObject());
@@ -53698,20 +54035,20 @@ var extern = function () {
     }, this.generateLoadoutObject = function () {
       return {
         class_idx: this.classIdx,
-        soldier_primary_item_id: this.pickedWeapons[Ne.Soldier][Oe].id,
-        soldier_secondary_item_id: this.pickedWeapons[Ne.Soldier][Ie].id,
-        scrambler_primary_item_id: this.pickedWeapons[Ne.Scrambler][Oe].id,
-        scrambler_secondary_item_id: this.pickedWeapons[Ne.Scrambler][Ie].id,
-        ranger_primary_item_id: this.pickedWeapons[Ne.Ranger][Oe].id,
-        ranger_secondary_item_id: this.pickedWeapons[Ne.Ranger][Ie].id,
-        eggsploder_primary_item_id: this.pickedWeapons[Ne.Eggsploder][Oe].id,
-        eggsploder_secondary_item_id: this.pickedWeapons[Ne.Eggsploder][Ie].id,
-        whipper_primary_item_id: this.pickedWeapons[Ne.Whipper][Oe].id,
-        whipper_secondary_item_id: this.pickedWeapons[Ne.Whipper][Ie].id,
-        crackshot_primary_item_id: this.pickedWeapons[Ne.Crackshot][Oe].id,
-        crackshot_secondary_item_id: this.pickedWeapons[Ne.Crackshot][Ie].id,
-        trihard_primary_item_id: this.pickedWeapons[Ne.TriHard][Oe].id,
-        trihard_secondary_item_id: this.pickedWeapons[Ne.TriHard][Ie].id,
+        soldier_primary_item_id: this.pickedWeapons[Be.Soldier][Ce].id,
+        soldier_secondary_item_id: this.pickedWeapons[Be.Soldier][Re].id,
+        scrambler_primary_item_id: this.pickedWeapons[Be.Scrambler][Ce].id,
+        scrambler_secondary_item_id: this.pickedWeapons[Be.Scrambler][Re].id,
+        ranger_primary_item_id: this.pickedWeapons[Be.Ranger][Ce].id,
+        ranger_secondary_item_id: this.pickedWeapons[Be.Ranger][Re].id,
+        eggsploder_primary_item_id: this.pickedWeapons[Be.Eggsploder][Ce].id,
+        eggsploder_secondary_item_id: this.pickedWeapons[Be.Eggsploder][Re].id,
+        whipper_primary_item_id: this.pickedWeapons[Be.Whipper][Ce].id,
+        whipper_secondary_item_id: this.pickedWeapons[Be.Whipper][Re].id,
+        crackshot_primary_item_id: this.pickedWeapons[Be.Crackshot][Ce].id,
+        crackshot_secondary_item_id: this.pickedWeapons[Be.Crackshot][Re].id,
+        trihard_primary_item_id: this.pickedWeapons[Be.TriHard][Ce].id,
+        trihard_secondary_item_id: this.pickedWeapons[Be.TriHard][Re].id,
         hat_id: hasValue(this.hatItem) ? W.hatItem.id : null,
         stamp_id: hasValue(this.stampItem) ? W.stampItem.id : null,
         grenade_id: hasValue(this.grenadeItem) ? W.grenadeItem.id : null,
@@ -53739,7 +54076,7 @@ var extern = function () {
               t && (n = t)
             }
             t.pickedWeapons[i][r] = n
-          }, r = 0; r < Ne.length; r++) i(e.primaryId[r], r, Oe), i(e.secondaryId[r], r, Ie);
+          }, r = 0; r < Be.length; r++) i(e.primaryId[r], r, Ce), i(e.secondaryId[r], r, Re);
         if (hasValue(e.hatId)) {
           var n = V.findItemById(e.hatId);
           this.isItemOwned(n) || (this.hatItem = null), this.hatItem = n
@@ -53758,7 +54095,7 @@ var extern = function () {
     }, this.syncToServer = function () {
       var e = this.generateLoadoutObject();
       ! function (e) {
-        Ni({
+        Li({
           cmd: "saveLoadout",
           firebaseId: W.firebaseId,
           save: "undefined" == typeof checkStatus || checkStatus(),
@@ -53770,15 +54107,16 @@ var extern = function () {
         }))
       }(e), null !== e && this.applyLocalLoadout(e)
     }, this.pickedWeapons = [];
-    for (var e = 0; e < Ne.length; e++) {
+    for (var e = 0; e < Be.length; e++) {
       var t = [V.forClass[e].primaryWeapons[0], V.forClass[e].secondaryWeapons[0]];
       this.pickedWeapons.push(t)
     }
-    this.firebaseId = null, this.session = null, this.maskedEmail = null, this.classIdx = 0, this.inventory = [], this.hatItem = null, this.stampItem = null, this.grenadeItem = V.grenades[0], this.colorIdx = 0, this.kills = 0, this.deaths = 0, this.streak = 0, this.currentBalance = 0, this.upgradeProductId = null, this.killMultiplier = 1, this.hideAds = !1, this.maybeSchoolEmail = !1, this.upgradeExpiryDate = null, this.upgradeIsExpired = null, this.upgradeName = "", this.isSubscriber = !1
+    this.firebaseId = null, this.session = null, this.maskedEmail = null, this.classIdx = 0, this.inventory = [], this.hatItem = null, this.stampItem = null, this.grenadeItem = V.grenades[0], this.colorIdx = 0, this.kills = 0, this.deaths = 0, this.streak = 0, this.currentBalance = 0, this.upgradeProductId = null, this.killMultiplier = 1, this.hideAds = !1, this.maybeSchoolEmail = !1, this.upgradeExpiryDate = null, this.upgradeIsExpired = null, this.upgradeName = "", this.isSubscriber = !1, this.social = ""
   }
+  var Ha;
 
-  function Ya(e) {
-    this.player = e, this.scene = e.scene, this.mesh = new BABYLON.TransformNode, this.hat = null, this.bodyMesh = this.scene.cloneMesh("egg", this.mesh), this.bodyMesh.position.y = .32, this.bodyMesh.player = this.player, this.lerpToPosition = new BABYLON.Vector3, this.positionLerp = 0, this.lerpFromPosition = new BABYLON.Vector3, this.lerpTargetPosition = new BABYLON.Vector3, this.bodyMesh.material = this.scene.getMaterialByName("eggShell"), this.bodyMesh.material.setTexture("textureSampler", s), this.head = new BABYLON.TransformNode, this.head.parent = this.mesh, this.head.position.y = .3, this.head.position.z = 0, this.gunContainer = new BABYLON.TransformNode, this.gunContainer.parent = this.head, this.gunContainer.rotation.y = -.14, this.gunContainer.rotation.x = -.035, this.setupStowAnims(), this.eye = new BABYLON.TransformNode, this.eye.position.y = .1, this.eye.position.x = 0, this.eye.parent = this.head, this.hands = this.scene.cloneMesh("hands", this.gunContainer), this.hands.skeleton = this.scene.cloneSkeleton("hands_skeleton"), this.hands.material = this.scene.getMaterialByName("standard"), this.gripBone = this.hands.skeleton.bones[this.hands.skeleton.getBoneIndexByName("gripHand")], this.foreBone = this.hands.skeleton.bones[this.hands.skeleton.getBoneIndexByName("foreHand")], this.player.shield > 0 && (this.bodyMesh.overlayColor = di.OverlayColor.green, this.hands.overlayColor = di.OverlayColor.green, this.bodyMesh.renderOverlay = !0, this.hands.renderOverlay = !0), this.setShellColor(this.player.shellColor), ya = 0, this.mesh.position.x = this.player.x, this.mesh.position.y = this.player.y, this.mesh.position.z = this.player.z, this.player.id != l && (this.wearHat(this.player.hatItem), this.applyStamp(this.player.stampItem)), H && this.hands.setEnabled(!1), this.bobbleIntensity = 0, this.scope = !1, this.zoomed = !1, this.hitSoundDelay = 0, this.auraSprite = null, this.auraSpriteFrame = 0;;
+  function Wa(e) {
+    this.player = e, this.scene = e.scene, this.mesh = new BABYLON.TransformNode, this.hat = null, this.bodyMesh = this.scene.cloneMesh("egg", this.mesh), this.bodyMesh.position.y = .32, this.bodyMesh.player = this.player, this.lerpToPosition = new BABYLON.Vector3, this.positionLerp = 0, this.lerpFromPosition = new BABYLON.Vector3, this.lerpTargetPosition = new BABYLON.Vector3, this.bodyMesh.material = this.scene.getMaterialByName("eggShell"), this.bodyMesh.material.setTexture("textureSampler", s), this.head = new BABYLON.TransformNode, this.head.parent = this.mesh, this.head.position.y = .3, this.head.position.z = 0, this.gunContainer = new BABYLON.TransformNode, this.gunContainer.parent = this.head, this.gunContainer.rotation.y = -.14, this.gunContainer.rotation.x = -.035, this.setupStowAnims(), this.eye = new BABYLON.TransformNode, this.eye.position.y = .1, this.eye.position.x = 0, this.eye.parent = this.head, this.hands = this.scene.cloneMesh("hands", this.gunContainer), this.hands.skeleton = this.scene.cloneSkeleton("hands_skeleton"), this.hands.material = this.scene.getMaterialByName("standard"), this.gripBone = this.hands.skeleton.bones[this.hands.skeleton.getBoneIndexByName("gripHand")], this.foreBone = this.hands.skeleton.bones[this.hands.skeleton.getBoneIndexByName("foreHand")], this.player.shield > 0 && (this.bodyMesh.overlayColor = ci.OverlayColor.green, this.hands.overlayColor = ci.OverlayColor.green, this.bodyMesh.renderOverlay = !0, this.hands.renderOverlay = !0), this.setShellColor(this.player.shellColor), Ha = 0, this.mesh.position.x = this.player.x, this.mesh.position.y = this.player.y, this.mesh.position.z = this.player.z, this.player.id != l && (this.wearHat(this.player.hatItem), this.applyStamp(this.player.stampItem)), H && this.hands.setEnabled(!1), this.bobbleIntensity = 0, this.scope = !1, this.zoomed = !1, this.hitSoundDelay = 0, this.auraSprite = null, this.auraSpriteFrame = 0;;
     if (this.player.id != -1 && this.player.id != window.hack.myPlayerId) {
       this.eggLines = BABYLON.MeshBuilder.CreateLines('special.lines', {
         points: window.hack.esp1,
@@ -53786,81 +54124,32 @@ var extern = function () {
       }, this.scene);
       this.eggLines.parent = this.mesh;
     }
-    for (var t = 0; t < Object.keys(Wt).length; t++) {
+
+    for (var t = 0; t < Object.keys(zt).length; t++) {
       var r = Math.pow(2, t);
       this.player.activeShellStreaks & r && this.beginShellStreak(r)
     }
-    k ? (i && i.getShadowMap().renderList.push(this.bodyMesh), this.player.id == l ? this.hands.setRenderingGroupId(2) : (this.setupNameSprite(), this.showSprites()), k && this.updateTeam()) : (this.bodyMesh.outlineColor = Se.outline[0].clone(), this.bodyMesh.outlineColor.a = 0)
+    k ? (i && i.getShadowMap().renderList.push(this.bodyMesh), this.player.id == l ? this.hands.setRenderingGroupId(2) : (this.setupNameSprite(), this.showSprites()), k && this.updateTeam()) : (this.bodyMesh.outlineColor = Ee.outline[0].clone(), this.bodyMesh.outlineColor.a = 0)
   }
-  xa.prototype.dispose = function () {
-    for (let e of Object.values(this.meshes)) e.dispose()
-  }, xa.prototype.throw = function () {
-    this.mesh = this.meshes[this.grenade.player.grenadeItem.id], this.mesh.setEnabled(!0), this.mesh.position.x = this.grenade.x, this.mesh.position.y = this.grenade.y, this.mesh.position.z = this.grenade.z, this.grenade.player.id == l ? this.flashColor = ba[0] : this.flashColor = ba[this.grenade.player.team], ji.play("grenade_pin", this.mesh.position), this.bounce()
-  }, xa.prototype.update = function (e) {
-    this.grenade.resting || (this.mesh.position.x += .5 * (this.grenade.x - this.mesh.position.x), this.mesh.position.y += .5 * (this.grenade.y - this.mesh.position.y), this.mesh.position.z += .5 * (this.grenade.z - this.mesh.position.z), this.mesh.rotation.x += this.rx, this.mesh.rotation.y += this.ry, this.mesh.rotation.z += this.rz), Math.sqrt(2 * this.grenade.ttl) % 2 > 1 ? (0 == this.beep && (ji.play("grenade_beep", this.mesh.position), this.beep = !0), this.mesh.emissiveColor = this.flashColor) : (this.mesh.emissiveColor = BABYLON.Color3.Black(), this.beep = !1)
-  }, xa.prototype.remove = function () {
-    this.mesh.setEnabled(!1)
-  }, xa.prototype.bounce = function () {
-    var e = Math.length3(this.grenade.dx, this.grenade.dy, this.grenade.dz);
-    this.rx = (2 * Math.random() - 1) * e, this.ry = (2 * Math.random() - 1) * e, this.rz = (2 * Math.random() - 1) * e
-  }, xa.prototype.stop = function () {
-    this.rx = 0, this.ry = 0, this.rz = 0
-  }, Ta.prototype.setup = function (e) {
-    this.gunMesh = this.scene.cloneMesh(this.meshName, this.playerActor.gunContainer), this.gunMesh.skeleton = this.skeleton, this.gunMesh.setEnabled(!1), e && (this.muzzleFlash = this.scene.cloneMesh("muzzleFlash", this.playerActor.gunContainer), this.muzzleFlash.setEnabled(!1), this.muzzleFlash.parent = this.playerActor.gunContainer, this.muzzleFlash.position.x = .25, this.muzzleFlash.position.z = e, this.muzzleFlash.scaling.copyFromFloats(.7, .7, .7)), this.gun.player.id == l && (this.gunMesh.setRenderingGroupId(2), this.muzzleFlash && this.muzzleFlash.setRenderingGroupId(2))
-  }, Ta.prototype.addSoundEvent = function (e, t, i) {
-    t += this.skeleton.getAnimationRange(e).from;
-    var r = new BABYLON.AnimationEvent(t, function (e, t) {
-      return function () {
-        ji.play(e, t, !0)
-      }
-    }(i, this.gun.player.actor.mesh.position));
-    this.skeleton.bones[0].animations[0].addEvent(r)
-  }, Ta.prototype.dispose = function () {
-    this.gunMesh.dispose()
-  }, Ta.prototype.stow = function () {
-    var e = this;
-    ji.play("weapon_swap", e.gun.player.actor.mesh.position, !0), this.scene.beginAnimation(this.playerActor.gunContainer, 0, 25, !1, 1, (function () {
-      e.gunMesh.setEnabled(!1), e.gun.equip()
-    }))
-  }, Ta.prototype.equip = function () {
-    this.playerActor.setWeaponSkeleton(this.skeleton), this.playerActor.gunContainer.setEnabled(!1), this.scene.beginAnimation(this.playerActor.gunContainer, 30, 55, !1, 1), this.gunMesh.setEnabled(!0), this.roundsFired = 0;
-    var e = this;
-    setTimeout((function () {
-      e.playerActor.gunContainer.setEnabled(!0)
-    }), 1)
-  }, Ta.prototype.dryFire = function () {
-    ji.play(this.dryFireSound, this.gun.player.actor.mesh.position, !0)
-  }, Ta.prototype.denyFire = function () {
-    ar.fireDenied(), ji.play(this.dryFireSound, this.gun.player.actor.mesh.position, !0), ji.play(this.denyFireSound, this.gun.player.actor.mesh.position, !0)
-  }, Ta.prototype.fire = function () {
-    if (this.gun.subClass.burst && this.roundsFired % this.gun.subClass.burst != 0 || (this.fireSound && ji.play(this.fireSound, this.gun.player.actor.mesh.position, !0), this.skeleton.beginAnimation("fire")), this.roundsFired++, this.muzzleFlash) {
-      this.muzzleFlash.rotation.z = 3.141 * Math.random(), this.muzzleFlash.setEnabled(!0);
-      var e = this;
-      setTimeout((function () {
-        e.muzzleFlash.setEnabled(!1)
-      }), 33)
-    }
-  }, Ta.prototype.reload = function () {
-    this.gun.longReloadTime == this.gun.shortReloadTime ? this.skeleton.beginAnimation("reload") : this.gun.ammo.rounds > 0 ? this.skeleton.beginAnimation("shortReload") : this.skeleton.beginAnimation("longReload")
-  }, Ta.prototype.update = function () {}, Ea.prototype = Object.create(Ta.prototype), Ea.prototype.constructor = Ta, Pa.prototype = Object.create(Ta.prototype), Pa.prototype.constructor = Ta, Sa.prototype = Object.create(Ta.prototype), Sa.prototype.constructor = Ta, Aa.prototype = Object.create(Ta.prototype), Aa.prototype.constructor = Ta, Ma.prototype = Object.create(Ta.prototype), Ma.prototype.constructor = Ta, Ca.prototype = Object.create(Ta.prototype), Ca.prototype.constructor = Ta, Ra.prototype = Object.create(Ta.prototype), Ra.prototype.constructor = Ta, Oa.prototype = Object.create(Ta.prototype), Oa.prototype.constructor = Ta, wa.prototype.update = function (e) {
+  Oa.prototype.update = function (e) {
     this.mesh.rotation.y += .03 * e
-  }, wa.prototype.remove = function () {
+  }, Oa.prototype.remove = function () {
     this.mesh.setEnabled(!1)
-  }, La.prototype = Object.create(wa.prototype), La.prototype.constructor = wa, Ba.prototype = Object.create(wa.prototype), Ba.prototype.constructor = wa, Fa.AMMO = 0, Fa.GRENADE = 1, Fa.Constructors = [La, Ba], Fa.prototype.update = function (e) {
+  }, Ia.prototype = Object.create(Oa.prototype), Ia.prototype.constructor = Oa, Da.prototype = Object.create(Oa.prototype), Da.prototype.constructor = Oa, wa.AMMO = 0, wa.GRENADE = 1, wa.Constructors = [Ia, Da], wa.prototype.update = function (e) {
     for (var t = 0; t < this.pools.length; t++) this.pools[t].forEachActive((function (t) {
-      t.update(e), t.mesh.isVisible = lo(t.mesh)
+      t.update(e), t.mesh.isVisible = so(t.mesh)
     }))
-  }, Fa.prototype.spawnItem = function (e, t, i, r, n) {
+  }, wa.prototype.spawnItem = function (e, t, i, r, n) {
     var o = this.pools[t].retrieve(e);
     o.mesh.setEnabled(!0), o.mesh.position.x = i, o.mesh.position.y = r, o.mesh.position.z = n, Q && o.mesh.freezeWorldMatrix()
-  }, Fa.prototype.collectItem = function (e, t) {
+  }, wa.prototype.collectItem = function (e, t) {
     var i = this.pools[e];
     i.recycle(i.objects[t]), i.objects[t].remove()
-  }, Fa.prototype.recycleAllItems = function () {
+  }, wa.prototype.recycleAllItems = function () {
     for (var e = this, t = 0; t < this.pools.length; t++) this.pools[t].forEachActive((function (i) {
       e.pools[t].recycle(i), i.remove()
     }))
-  }, Na.prototype.renderToCanvas = function (e, t, i) {
+  }, La.prototype.renderToCanvas = function (e, t, i) {
     this.engine.clear(), this.camera.alpha = 0, this.camera.beta = Math.PI90, this.camera.radius = i.radius || 1;
     i.y;
     var r = this.scene.getMeshByName(e);
@@ -53886,20 +54175,20 @@ var extern = function () {
     this.scene.render(), n.dispose();
     var d = t.getContext("2d");
     d.clearRect(0, 0, 256, 256), d.drawImage(this.canvas, 0, 0)
-  }, Na.prototype.renderStampToCanvas = function (e, t) {
+  }, La.prototype.renderStampToCanvas = function (e, t) {
     var i = new BABYLON.Sprite("", this.stampSprites),
       r = e.item_data.x,
       n = e.item_data.y;
     i.cellIndex = r + 16 * n, i.size = 1, this.camera.alpha = 0, this.camera.beta = 0, this.camera.radius = 2.5, this.scene.render(), i.dispose();
     var o = t.getContext("2d");
     o.clearRect(0, 0, 256, 256), o.drawImage(this.canvas, 0, 0)
-  }, Ga.prototype.onResourcesLoaded = function () {
+  }, Va.prototype.onResourcesLoaded = function () {
     var e = this;
     this.startRendering();
     try {
       var t = W.getPrimaryWeapon().item_data.meshName;
       this.avatar = new function (i) {
-        this.scene = e.scene, this.id = -1, this.name = "", this.x = 0, this.y = 0, this.z = 0, this.hp = 100, this.hatItem = W.hatItem, this.stampItem = W.stampItem, this.shellColor = W.colorIdx, this.actor = new Ya(this), this.actor.mesh.rotation.y = e.rotY, this.weapon = new hi[i].weapon(this, t), this.weapon.actor.equip()
+        this.scene = e.scene, this.id = -1, this.name = "", this.x = 0, this.y = 0, this.z = 0, this.hp = 100, this.hatItem = W.hatItem, this.stampItem = W.stampItem, this.shellColor = W.colorIdx, this.actor = new Wa(this), this.actor.mesh.rotation.y = e.rotY, this.weapon = new si[i].weapon(this, t), this.weapon.actor.equip()
       }(W.classIdx), console.log("avatar created: " + this.avatar);
       var i = Date.now();
       this.scene.registerBeforeRender((function () {
@@ -53920,17 +54209,17 @@ var extern = function () {
     }), this.dollContainer.addEventListener("pointerleave", e => {
       this.manualOrientation = !1
     })
-  }, Ga.prototype.pointEgg = function (e) {
+  }, Va.prototype.pointEgg = function (e) {
     if (!this.grenadeItem) {
       var t = e.target.getBoundingClientRect();
       this.rotY = -(e.x - t.left) / t.width * 4 + 2, this.rotX = 1.5 * ((e.y - t.top) / t.height - .5)
     }
-  }, Ga.prototype.startRendering = function () {
+  }, Va.prototype.startRendering = function () {
     var t = this;
     e.runRenderLoop((function () {
       t.scene.render()
     }))
-  }, Ga.prototype.update = function (e) {
+  }, Va.prototype.update = function (e) {
     if (this.avatar.actor.handsToWeaponSkeleton(), this.camera.target.x += (this.camX - this.camera.target.x) / 5, this.camera.target.y += (this.camY - this.camera.target.y) / 5, this.camera.radius += (this.camRadius - this.camera.radius) / 5, this.avatar.actor.head.rotation.x += (this.rotX - this.avatar.actor.head.rotation.x) / 5, this.avatar.actor.mesh.rotation.y += (this.rotY - this.avatar.actor.mesh.rotation.y) / 5, this.avatar.actor.mesh.rotation.x = .5 * this.avatar.actor.head.rotation.x, this.avatar.actor.mesh.position.x = .1 * -this.avatar.actor.mesh.rotation.y, this.jump -= .002 * e, this.avatar.actor.mesh.position.y = Math.max(0, this.avatar.actor.mesh.position.y + this.jump * e), !this.manualOrientation && null === this.grenadeItem && (this.turnCountdown -= e, this.turnCountdown <= 0)) {
       var t = .6 * Math.random() - .4,
         i = 2 * Math.random() - 1 + .5 * this.camX,
@@ -53941,7 +54230,7 @@ var extern = function () {
       let e = this.avatar.grenade.actor.mesh;
       e.rotation.x -= .02, e.rotation.y -= .007
     }
-  }, Ga.prototype.setupScene = function () {
+  }, Va.prototype.setupScene = function () {
     this.scene = new BABYLON.Scene(e), this.scene.autoClear = !1, this.scene.fogMode = BABYLON.Scene.FOGMODE_EXP2, this.scene.fogDensity = .06;
     var t = new BABYLON.Color3(.35, .65, .8);
     this.scene.fogColor = t, this.scene.sunLight = {
@@ -53952,14 +54241,14 @@ var extern = function () {
     i.emissiveColor = new BABYLON.Color3(0, .2, .3), i.alpha = .4, this.fakeShadow = BABYLON.MeshBuilder.CreateDisc("fakeShadow", {
       radius: .25
     }, this.scene), this.fakeShadow.material = i, this.fakeShadow.rotation.x = Math.PI / 2, this.fakeShadow.position.y = 0, this.scene.render(), s = new BABYLON.Texture("img/stamps.png?v=" + version, this.scene)
-  }, Ga.prototype.poseWithEquipped = function () {
+  }, Va.prototype.poseWithEquipped = function () {
     const e = vueApp.$refs.spinnerOverlay.isShowing;
-    this.avatar ? (this.poseWithHat(W.hatItem), this.poseWithStamp(W.stampItem), this.poseWithWeapon(W.getPickedWeaponInSlot(Oe)), this.poseWithColor(W.colorIdx), e && vueApp.$nextTick(() => {
-      D && ye || vueApp.hideSpinner()
+    this.avatar ? (this.poseWithHat(W.hatItem), this.poseWithStamp(W.stampItem), this.poseWithWeapon(W.getPickedWeaponInSlot(Ce)), this.poseWithColor(W.colorIdx), e && vueApp.$nextTick(() => {
+      D && ge || vueApp.hideSpinner()
     })) : setTimeout(() => this.poseWithEquipped(), 500)
-  }, Ga.prototype.poseWithWeapon = function (e) {
+  }, Va.prototype.poseWithWeapon = function (e) {
     hasValue(e) && this.avatar && (null !== this.grenadeItem && (this.avatar.grenade.actor.dispose(), this.avatar.actor.throwingGrenade = !1, this.grenadeItem = null), null !== this.weaponItem && this.weaponItem.id === e.id || (this.avatar.weapon && this.avatar.weapon.actor.dispose(), this.avatar.weapon = e.instantiateNew(this.avatar), this.avatar.actor.throwingGrenade = !1, this.avatar.weapon.actor.equip()), this.weaponItem = e)
-  }, Ga.prototype.poseWithGrenade = function (e) {
+  }, Va.prototype.poseWithGrenade = function (e) {
     if (hasValue(e) && this.avatar) {
       if (null === this.grenadeItem || this.grenadeItem.id !== e.id) {
         this.avatar.grenade && this.avatar.grenade.actor.dispose(), this.avatar.grenade = e.instantiateNew(this.avatar);
@@ -53970,21 +54259,21 @@ var extern = function () {
       }
       this.grenadeItem = e
     }
-  }, Ga.prototype.poseWithHat = function (e) {
+  }, Va.prototype.poseWithHat = function (e) {
     hasValue(e) ? null !== this.hatItem && this.hatItem.id === e.id || this.avatar.actor.wearHat(e) : this.avatar.actor.removeHat(), this.hatItem = e
-  }, Ga.prototype.poseWithStamp = function (e) {
+  }, Va.prototype.poseWithStamp = function (e) {
     hasValue(e) ? null !== this.stampItem && this.stampItem.id === e.id || this.avatar.actor.applyStamp(e) : this.avatar.actor.removeStamp(), this.stampItem = e
-  }, Ga.prototype.poseWithColor = function (e) {
+  }, Va.prototype.poseWithColor = function (e) {
     this.avatar.actor.setShellColor(e), vueApp.setShellColor(e)
-  }, Ya.prototype.wearHat = function (e) {
+  }, Wa.prototype.wearHat = function (e) {
     this.removeHat(), null !== e && (this.hat = this.scene.cloneMesh(e.item_data.meshName, this.bodyMesh), this.hat.position.y = -.02)
-  }, Ya.prototype.removeHat = function () {
+  }, Wa.prototype.removeHat = function () {
     void 0 !== this.hat && null !== this.hat && this.hat.dispose()
-  }, Ya.prototype.applyStamp = function (e) {
+  }, Wa.prototype.applyStamp = function (e) {
     this.removeStamp(), null !== e && (this.bodyMesh.stampU = e.item_data.x / 16, this.bodyMesh.stampV = 1 - e.item_data.y / 16)
-  }, Ya.prototype.removeStamp = function () {
+  }, Wa.prototype.removeStamp = function () {
     this.bodyMesh.stampU = 0, this.bodyMesh.stampV = 1
-  }, Ya.prototype.drawTextOnNameTexture = function (e, t, i, r, n, o) {
+  }, Wa.prototype.drawTextOnNameTexture = function (e, t, i, r, n, o) {
     var a = [{
         x: 0,
         y: -4
@@ -54015,15 +54304,15 @@ var extern = function () {
       var i = he.getContext("2d");
       return i.font = "bold " + t + "px Nunito, sans-serif", i.measureText(e).width
     }(e, r) / 2);
-    for (var l = 0; l < 4; l++) Dr.drawText(e, t + a[l].x, i + a[l].y, "bold " + r + "px Nunito, sans-serif", "rgba(0, 0, 0, 0.5)", "transparent");
-    for (l = 0; l < 4; l++) Dr.drawText(e, t + s[l].x, i + s[l].y, "bold " + r + "px Nunito, sans-serif", n, "transparent")
-  }, Ya.prototype.setupNameSprite = function () {
+    for (var l = 0; l < 4; l++) Rr.drawText(e, t + a[l].x, i + a[l].y, "bold " + r + "px Nunito, sans-serif", "rgba(0, 0, 0, 0.5)", "transparent");
+    for (l = 0; l < 4; l++) Rr.drawText(e, t + s[l].x, i + s[l].y, "bold " + r + "px Nunito, sans-serif", n, "transparent")
+  }, Wa.prototype.setupNameSprite = function () {
     var e = this.player.id % 4 * 512,
       t = 2048 - 256 * Math.floor(this.player.id / 4);
-    Dr.clearRect(e, t - 256, 512, 256), this.drawTextOnNameTexture(this.player.name, 0, 32, 60, "white", !0)
-  }, Ya.prototype.updateTeam = function () {
-    this.player.team > 0 ? (this.player.team == A || lr ? this.bodyMesh.outlineColor = Se.outline[this.player.team].clone() : this.bodyMesh.outlineColor.a = 0, this.nameSprite && (this.nameSprite.width = .6, this.nameSprite.height = .3, this.nameSprite.color = Se.outline[this.player.team])) : this.bodyMesh.outlineColor.a = 0
-  }, Ya.prototype.update = function (e) {
+    Rr.clearRect(e, t - 256, 512, 256), this.drawTextOnNameTexture(this.player.name, 0, 32, 60, "white", !0)
+  }, Wa.prototype.updateTeam = function () {
+    this.player.team > 0 ? (this.player.team == A || or ? this.bodyMesh.outlineColor = Ee.outline[this.player.team].clone() : this.bodyMesh.outlineColor.a = 0, this.nameSprite && (this.nameSprite.width = .6, this.nameSprite.height = .3, this.nameSprite.color = Ee.outline[this.player.team])) : this.bodyMesh.outlineColor.a = 0
+  }, Wa.prototype.update = function (e) {
     var t = Math.cos(this.player.bobble) * this.bobbleIntensity,
       i = Math.abs(Math.sin(this.player.bobble) * this.bobbleIntensity),
       n = Math.sin(2 * this.player.bobble) * this.bobbleIntensity;
@@ -54031,38 +54320,38 @@ var extern = function () {
       var o = .7 * Math.random() + .2;
       this.bodyMesh.overlayAlpha = o, this.hands.overlayAlpha = o
     }
-    if (this.player.activeShellStreaks & Wt.EggBreaker) {
-      o = .5 * Math.cos(Er / 100) + .5;
+    if (this.player.activeShellStreaks & zt.EggBreaker) {
+      o = .5 * Math.cos(br / 100) + .5;
       this.bodyMesh.overlayAlpha = o, this.hands.overlayAlpha = o
     }
     var a = .333 * (e = Math.min(e, 1));
     if (this.player.id == l)
-      if (this.scope && this.player.isAtReady(!0)) r.fov = r.fov + (this.player.weapon.actor.scopeFov - r.fov) * a, this.gunContainer.rotation.y *= a, this.gunContainer.rotation.x *= a, this.gunContainer.position.x += (-.24999999 - this.gunContainer.position.x) * a, this.gunContainer.position.y += (this.player.weapon.actor.scopeY - this.gunContainer.position.y) * a, this.gunContainer.position.z += (-.05 - this.gunContainer.position.z) * a, this.player.weapon.hasScope && !this.zoomed && r.fov < this.player.weapon.actor.scopeFov + .05 && (or.show(), this.gunContainer.setEnabled(!1), this.zoomed = !0);
+      if (this.scope && this.player.isAtReady(!0)) r.fov = r.fov + (this.player.weapon.actor.scopeFov - r.fov) * a, this.gunContainer.rotation.y *= a, this.gunContainer.rotation.x *= a, this.gunContainer.position.x += (-.24999999 - this.gunContainer.position.x) * a, this.gunContainer.position.y += (this.player.weapon.actor.scopeY - this.gunContainer.position.y) * a, this.gunContainer.position.z += (-.05 - this.gunContainer.position.z) * a, this.player.weapon.hasScope && !this.zoomed && r.fov < this.player.weapon.actor.scopeFov + .05 && (ir.show(), this.gunContainer.setEnabled(!1), this.zoomed = !0);
       else {
         window.hack.camera = r, r.fov = r.fov + (1.25 - r.fov) * a;
         var s = 1 - a;
-        this.gunContainer.rotation.y += (2 * t - .14 - this.gunContainer.rotation.y) * a, this.gunContainer.rotation.x += (.75 * n - .035 - this.gunContainer.rotation.x) * a, this.gunContainer.position.x *= s, this.gunContainer.position.y *= s, this.gunContainer.position.z *= s, this.zoomed && r.fov > this.player.weapon.actor.scopeFov + .05 && (or.hide(), this.gunContainer.setEnabled(!0), this.zoomed = !1)
+        this.gunContainer.rotation.y += (2 * t - .14 - this.gunContainer.rotation.y) * a, this.gunContainer.rotation.x += (.75 * n - .035 - this.gunContainer.rotation.x) * a, this.gunContainer.position.x *= s, this.gunContainer.position.y *= s, this.gunContainer.position.z *= s, this.zoomed && r.fov > this.player.weapon.actor.scopeFov + .05 && (ir.hide(), this.gunContainer.setEnabled(!0), this.zoomed = !1)
       }
-    else if (this.gunContainer.rotation.y += (2 * t - .14 - this.gunContainer.rotation.y) * a, this.gunContainer.rotation.x += (.75 * n - .035 - this.gunContainer.rotation.x) * a, this.player.team > 0 && (this.player.team == A || lr) && this.nameSprite) {
-      var c = Math.length3(this.player.x - Cr.x, this.player.y - Cr.y, this.player.z - Cr.z),
+    else if (this.gunContainer.rotation.y += (2 * t - .14 - this.gunContainer.rotation.y) * a, this.gunContainer.rotation.x += (.75 * n - .035 - this.gunContainer.rotation.x) * a, this.player.team > 0 && (this.player.team == A || or) && this.nameSprite) {
+      var c = Math.length3(this.player.x - Sr.x, this.player.y - Sr.y, this.player.z - Sr.z),
         h = Math.pow(c, 1.25);
       this.nameSprite.width = h / 10 + .6, this.nameSprite.height = h / 20 + .3
     }
     this.lerpToPosition.copyFromFloats(this.player.x, this.player.y, this.player.z), BABYLON.Vector3.LerpToRef(this.lerpFromPosition, this.lerpToPosition, Math.min(this.positionLerp, 1), this.lerpTargetPosition), this.positionLerp += e / 2, this.mesh.position.x += .5 * (this.lerpTargetPosition.x - this.mesh.position.x), this.mesh.position.y += .5 * (this.lerpTargetPosition.y - this.mesh.position.y), this.mesh.position.z += .5 * (this.lerpTargetPosition.z - this.mesh.position.z);
     var u;
     Math.radDifference(this.player.yaw, this.mesh.rotation.y), Math.radDifference(this.player.pitch, this.head.rotation.x);
-    if (this.mesh.rotation.y = this.player.yaw, this.head.rotation.x = this.player.pitch, this.bodyMesh.rotation.x = this.head.rotation.x / 4, u = this.player.onGround || this.player.climbing ? Math.length3(this.player.dx, this.player.dy, this.player.dz) : 0, this.bobbleIntensity += (u - this.bobbleIntensity) / 10, this.bodyMesh.rotation.z = 5 * t, this.bodyMesh.position.y = 1.5 * i + .32, ya > 0)
-      if ((ya *= .9) < .001) ya = 0;
+    if (this.mesh.rotation.y = this.player.yaw, this.head.rotation.x = this.player.pitch, this.bodyMesh.rotation.x = this.head.rotation.x / 4, u = this.player.onGround || this.player.climbing ? Math.length3(this.player.dx, this.player.dy, this.player.dz) : 0, this.bobbleIntensity += (u - this.bobbleIntensity) / 10, this.bodyMesh.rotation.z = 5 * t, this.bodyMesh.position.y = 1.5 * i + .32, Ha > 0)
+      if ((Ha *= .9) < .001) Ha = 0;
       else {
-        var d = Math.random() * ya - .5 * ya,
-          p = Math.random() * ya - .5 * ya,
-          f = Math.random() * ya - .5 * ya;
+        var d = Math.random() * Ha - .5 * Ha,
+          p = Math.random() * Ha - .5 * Ha,
+          f = Math.random() * Ha - .5 * Ha;
         this.eye.rotation.x += (d - this.eye.rotation.x) / 10, this.eye.rotation.y += (p - this.eye.rotation.y) / 10, this.eye.rotation.z += (f - this.eye.rotation.z) / 10
       }
     else this.eye.rotation.x *= .9, this.eye.rotation.y *= .9, this.eye.rotation.z *= .9;
     if (this.player.id != l) {
-      var m = lo(this.mesh, .31);
-      window.hack.meshVisible = lo;
+      var m = so(this.mesh, .31);
+      window.hack.meshVisible = so;
       this.mesh.setVisible(m), m ? this.showSprites() : this.hideSprites(), this.nameSprite && this.positionSprites()
     }
     if (this.player.id != window.hack.myPlayerId) {
@@ -54182,68 +54471,69 @@ var extern = function () {
         }
       }
     }
-  }, Ya.prototype.updateLerp = function () {
+
+  }, Wa.prototype.updateLerp = function () {
     this.positionLerp = 0, this.lerpFromPosition.copyFromFloats(this.player.x, this.player.y, this.player.z)
-  }, Ya.prototype.resetLerp = function () {
+  }, Wa.prototype.resetLerp = function () {
     this.positionLerp = 0, this.lerpToPosition.copyFromFloats(this.player.x, this.player.y, this.player.z), this.lerpFromPosition.copyFromFloats(this.player.x, this.player.y, this.player.z), this.lerpTargetPosition.copyFromFloats(this.player.x, this.player.y, this.player.z)
-  }, Ya.v3_1 = new BABYLON.Vector3, Ya.v3_2 = new BABYLON.Vector3, Ya.prototype.positionSprites = function () {
+  }, Wa.v3_1 = new BABYLON.Vector3, Wa.v3_2 = new BABYLON.Vector3, Wa.prototype.positionSprites = function () {
     var e, t;
-    this.nameSprite && ((e = Ya.v3_1).copyFrom(this.mesh.position), e.y += .5 * this.nameSprite.height + .65, (t = this.nameSprite.position).copyFrom(r.globalPosition), t.subtractInPlace(e), t.normalize(), t.scaleInPlace(.4), t.addInPlace(e));
-    this.auraSprite && ((e = Ya.v3_1).copyFrom(this.mesh.position), e.y += .35, (t = this.auraSprite.position).copyFrom(r.globalPosition), t.subtractInPlace(e), t.normalize(), t.scaleInPlace(.4), t.addInPlace(e))
-  }, Ya.prototype.showSprites = function () {
-    this.player.playing && (this.nameSprite || (this.nameSprite = new BABYLON.Sprite("", wr), this.nameSprite.invertV = !0, this.nameSprite.width = .6, this.nameSprite.height = .3, this.nameSprite.cellIndex = this.player.id, this.nameSprite.color = Se.outline[this.player.team]), !this.auraSprite && this.player.activeShellStreaks & Wt.HardBoiled && (this.auraSprite = new BABYLON.Sprite("", Lr), this.auraSprite.invertV = !0, this.auraSprite.width = .7, this.auraSprite.height = .7, this.auraSprite.playAnimation(this.auraSpriteFrame, this.auraSpriteFrame + 7, !0, 67)))
-  }, Ya.prototype.hideSprites = function () {
+    this.nameSprite && ((e = Wa.v3_1).copyFrom(this.mesh.position), e.y += .5 * this.nameSprite.height + .65, (t = this.nameSprite.position).copyFrom(r.globalPosition), t.subtractInPlace(e), t.normalize(), t.scaleInPlace(.4), t.addInPlace(e));
+    this.auraSprite && ((e = Wa.v3_1).copyFrom(this.mesh.position), e.y += .35, (t = this.auraSprite.position).copyFrom(r.globalPosition), t.subtractInPlace(e), t.normalize(), t.scaleInPlace(.4), t.addInPlace(e))
+  }, Wa.prototype.showSprites = function () {
+    this.player.playing && (this.nameSprite || (this.nameSprite = new BABYLON.Sprite("", Or), this.nameSprite.invertV = !0, this.nameSprite.width = .6, this.nameSprite.height = .3, this.nameSprite.cellIndex = this.player.id, this.nameSprite.color = Ee.outline[this.player.team]), !this.auraSprite && this.player.activeShellStreaks & zt.HardBoiled && (this.auraSprite = new BABYLON.Sprite("", Ir), this.auraSprite.invertV = !0, this.auraSprite.width = .7, this.auraSprite.height = .7, this.auraSprite.playAnimation(this.auraSpriteFrame, this.auraSpriteFrame + 7, !0, 67)))
+  }, Wa.prototype.hideSprites = function () {
     this.nameSprite && (this.nameSprite.dispose(), this.nameSprite = null), this.auraSprite && (this.auraSprite.dispose(), this.auraSprite = null)
-  }, Ya.prototype.scopeIn = function () {
+  }, Wa.prototype.scopeIn = function () {
     this.scope = !0
-  }, Ya.prototype.scopeOut = function () {
+  }, Wa.prototype.scopeOut = function () {
     this.scope = !1
-  }, Ya.prototype.hit = function () {
-    this.hitSoundDelay <= 0 && (this.player.activeShellStreaks & Wt.HardBoiled ? ji.play("shield_hit", this.bodyMesh.absolutePosition, !0) : ji.play("hit", this.bodyMesh.absolutePosition, !0), this.hitSoundDelay = 10)
-  }, Ya.prototype.beginShellStreak = function (e) {
+  }, Wa.prototype.hit = function () {
+    this.hitSoundDelay <= 0 && (this.player.activeShellStreaks & zt.HardBoiled ? Gi.play("shield_hit", this.bodyMesh.absolutePosition, !0) : Gi.play("hit", this.bodyMesh.absolutePosition, !0), this.hitSoundDelay = 10)
+  }, Wa.prototype.beginShellStreak = function (e) {
     switch (e) {
-      case Wt.HardBoiled:
-        this.auraSpriteFrame = 8, this.player.id == l && (Rn("HARD BOILED"), Nn());
+      case zt.HardBoiled:
+        this.auraSpriteFrame = 8, this.player.id == l && (An("HARD BOILED"), Ln());
         break;
-      case Wt.EggBreaker:
-        this.player.id == l && (Rn("EGG BREAKER"), ar.setPowerful(!0), document.getElementById("eggBreakerContainer").className = "on"), this.bodyMesh.overlayColor = di.OverlayColor.red, this.hands.overlayColor = di.OverlayColor.red, this.bodyMesh.renderOverlay = !0, this.hands.renderOverlay = !0
+      case zt.EggBreaker:
+        this.player.id == l && (An("EGG BREAKER"), rr.setPowerful(!0), document.getElementById("eggBreakerContainer").className = "on"), this.bodyMesh.overlayColor = ci.OverlayColor.red, this.hands.overlayColor = ci.OverlayColor.red, this.bodyMesh.renderOverlay = !0, this.hands.renderOverlay = !0
     }
     this.showSprites()
-  }, Ya.prototype.endShellStreak = function (e) {
+  }, Wa.prototype.endShellStreak = function (e) {
     switch (e) {
-      case Wt.HardBoiled:
-        this.player.id == l && Nn(), this.auraSprite && (this.auraSprite.dispose(), this.auraSprite = null);
+      case zt.HardBoiled:
+        this.player.id == l && Ln(), this.auraSprite && (this.auraSprite.dispose(), this.auraSprite = null);
         break;
-      case Wt.EggBreaker:
-        this.player.id == l && (ar.setPowerful(!1), document.getElementById("eggBreakerContainer").className = "off"), this.bodyMesh.renderOverlay = !1, this.hands.renderOverlay = !1
+      case zt.EggBreaker:
+        this.player.id == l && (rr.setPowerful(!1), document.getElementById("eggBreakerContainer").className = "off"), this.bodyMesh.renderOverlay = !1, this.hands.renderOverlay = !1
     }
-  }, Ya.prototype.removeFromPlay = function () {
+  }, Wa.prototype.removeFromPlay = function () {
     this.scope = !1, this.zoomed = !1, this.throwingGrenade = !1, this.gripBone._frozen = !1, this.mesh.setEnabled(!1), this.hideSprites()
-  }, Ya.prototype.restoreToPlay = function () {
+  }, Wa.prototype.restoreToPlay = function () {
     this.mesh.setEnabled(!0), this.gunContainer.setEnabled(!0), this.player.id != l && this.showSprites()
-  }, Ya.prototype.remove = function () {
+  }, Wa.prototype.remove = function () {
     this.mesh.dispose(), this.hideSprites()
-  }, Ya.prototype.fire = function () {
-    this.zoomed && this.player.weapon.hasScope && (ya = .15, this.eye.rotation.x = -.05)
-  }, Ya.prototype.reachForGrenade = function () {
+  }, Wa.prototype.fire = function () {
+    this.zoomed && this.player.weapon.hasScope && (Ha = .15, this.eye.rotation.x = -.05)
+  }, Wa.prototype.reachForGrenade = function () {
     var e = this;
     this.throwingGrenade = !0, this.gripBone._frozen = !0, this.hands.skeleton.enableBlending(.2), this.hands.skeleton.beginAnimation("grenade_grab", !1, 1, (function () {
       e.hands.skeleton && e.hands.skeleton.disableBlending()
     }))
-  }, Ya.prototype.throwGrenade = function () {
+  }, Wa.prototype.throwGrenade = function () {
     var e = this;
     this.player.id == l && (document.getElementById("grenadeThrowContainer").style.visibility = "hidden"), this.hands.skeleton.beginAnimation("grenade_throw", !1, 1, (function () {
       e.hands.skeleton && (e.throwingGrenade = !1, e.gripBone._frozen = !1)
     }))
-  }, Ya.prototype.setShellColor = function (e) {
+  }, Wa.prototype.setShellColor = function (e) {
     (e < 0 || e >= shellColors.length) && (console.log("Shell color out of bounds: " + e), e = 0);
     var t = BABYLON.Color3.FromHexString(shellColors[e]);
     this.bodyMesh.colorMult = t, this.hands.colorMult = t
-  }, Ya.prototype.setWeaponSkeleton = function (e) {
+  }, Wa.prototype.setWeaponSkeleton = function (e) {
     this.skeleton = e, this.weaponGripBone = this.skeleton.bones[this.skeleton.getBoneIndexByName("gripHand")], this.weaponForeBone = this.skeleton.bones[this.skeleton.getBoneIndexByName("foreHand")]
-  }, Ya.prototype.handsToWeaponSkeleton = function () {
+  }, Wa.prototype.handsToWeaponSkeleton = function () {
     this.gripBone.position = this.weaponGripBone.position, this.gripBone.setRotationQuaternion(this.weaponGripBone.rotationQuaternion), 1 != this.throwingGrenade && (this.foreBone.position = this.weaponForeBone.position, this.foreBone.setRotationQuaternion(this.weaponForeBone.rotationQuaternion))
-  }, Ya.prototype.setupStowAnims = function () {
+  }, Wa.prototype.setupStowAnims = function () {
     var e = new BABYLON.Animation("", "rotation", 60, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT),
       t = new BABYLON.Animation("", "scaling", 60, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT),
       i = new BABYLON.Animation("", "position", 60, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT),
@@ -54293,94 +54583,101 @@ var extern = function () {
         value: new BABYLON.Vector3(0, 0, 0)
       }];
     e.setKeys(a), t.setKeys(s), i.setKeys(l), this.gunContainer.animations.push(e), this.gunContainer.animations.push(t), this.gunContainer.animations.push(i)
-  }, di.OverlayColor = {
+  }, ci.OverlayColor = {
     green: BABYLON.Color3.Green(),
     red: new BABYLON.Color3(255, 0, 0)
   };
-  const Xa = (e, t, i) => {
-      _e && (cs(0), PokiSDK.commercialBreak().then(() => {
-        e && e(), t && t(), cs(), console.log("Poki end of commercial break")
-      }).catch(() => {
-        console.log("Poki commercial break fails"), e && e(), t && t(), cs()
+  const ja = () => {
+      pokiActive && (thirdPartyAdblocker || "undefined" != typeof googletag && window.googletag && googletag.apiReady && googletag.pubads().addEventListener("impressionViewable", e => {
+        const t = e.slot.getSlotElementId(),
+          i = document.getElementById(t).parentNode.id;
+        i && ga("send", "event", "Poki", "Display ad", i)
       }))
     },
-    Ka = e => {
-      cs(0), PokiSDK.rewardedBreak().then(() => {
+    Ya = (e, t, i) => {
+      pokiActive && (ls(0), PokiSDK.commercialBreak().then(() => {
+        e && e(), t && t(), ls(), console.log("Poki end of commercial break")
+      }).catch(() => {
+        console.log("Poki commercial break fails"), e && e(), t && t(), ls()
+      }))
+    },
+    Xa = e => {
+      ls(0), PokiSDK.rewardedBreak().then(() => {
         setTimeout(() => {
           e && e()
         }, 1e3)
       })
     },
+    Ka = () => {
+      pokiActive && PokiSDK.gameLoadingStart()
+    },
     Qa = () => {
-      _e && PokiSDK.gameLoadingStart()
+      pokiActive && PokiSDK.gameLoadingFinished()
     },
     Za = () => {
-      _e && PokiSDK.gameLoadingFinished()
+      pokiActive && PokiSDK.gameplayStart()
     },
     qa = () => {
-      _e && PokiSDK.gameplayStart()
+      pokiActive && PokiSDK.gameplayStop()
     },
-    Ja = () => {
-      _e && PokiSDK.gameplayStop()
+    Ja = e => {
+      pokiActive && PokiSDK.happyTime(e)
     },
     $a = e => {
-      _e && PokiSDK.happyTime(e)
-    },
-    es = e => {
-      if (_e) switch (e) {
+      if (pokiActive) switch (e) {
         case 5:
-          $a(.3);
+          Ja(.3);
           break;
         case 10:
-          $a(.5);
+          Ja(.5);
           break;
         case 20:
-          $a(.7);
+          Ja(.7);
           break;
         case 40:
-          $a(1)
+          Ja(1)
       }
     },
-    ts = () => {
+    es = () => {
       console.log("pokiCurrencyReward");
-      var e = Hi.getBuffer();
-      e.packInt8(Bt), e.send(ws), cs()
+      var e = Ui.getBuffer();
+      e.packInt8(wt), e.send(ws), ls()
+    },
+    ts = () => {
+      pokiActive && (vueData.isPokiGameLoad = !0)
     },
     is = () => {
-      _e && (vueData.isPokiGameLoad = !0)
-    },
-    rs = () => {
-      _e && (console.log("clearPokiRewardTimer"), vueData.isPokiGameLoad = !1, vueData.isPokiNewRewardTimer = !1, vueData.pokiRewardReady = !1)
+      pokiActive && (console.log("clearPokiRewardTimer"), vueData.isPokiGameLoad = !1, vueData.isPokiNewRewardTimer = !1, vueData.pokiRewardReady = !1)
     };
-  class ns {
+  class rs {
     constructor() {
       this.currencies = [], this.items = [], this.subscriptions = [], this.initalized = !1
     }
     init() {
-      null != Ae ? (this.currencies = Ae.filter(e => "currency" === e.type), this.items = Ae.filter(e => "item" === e.type), this.subscriptions = Ae.filter(e => "subscription" === e.type), this.initalized = !0) : console.log("No products")
+      null != Pe ? (this.currencies = Pe.filter(e => "currency" === e.type), this.items = Pe.filter(e => "item" === e.type), this.subscriptions = Pe.filter(e => "subscription" === e.type), this.initalized = !0) : console.log("No products")
     }
     getBySku(e) {
-      if (this.initalized) return Ae.filter(t => t.sku === e)
+      if (this.initalized) return Pe.filter(t => t.sku === e)
     }
     getShopItems() {
-      if (this.initalized) return Ae.filter(e => e.isActive && "item" === e.type)
+      if (this.initalized) return Pe.filter(e => e.isActive && "item" === e.type)
     }
     getStoreItems() {
-      if (this.initalized) return Ae.filter(e => e.inStore && e.isActive)
+      if (this.initalized) return Pe.filter(e => e.inStore && e.isActive)
     }
     getSubscriptions() {
-      if (this.initalized) return Ae.filter(e => "subscription" === e.type && e.isActive)
+      if (this.initalized) return Pe.filter(e => "subscription" === e.type && e.isActive)
     }
     getActiveByType(e) {
       if (this.initalized) return this[e].filter(e => e.isActive)
     }
   }
 
-  function os(e) {
+  function ns(e) {
     this.rocket = e, this.scene = e.scene, this.armed = !1, this.delayFrames = 0, this.mesh = this.scene.getMeshByName("rocket").createInstance(""), this.mesh.setEnabled(!1)
   }
 
-  function as() {
+  function os() {
     (B = {
       volume: getStoredNumber("volume", 1),
       mouseSensitivity: getStoredNumber("mouseSensitivity", null),
@@ -54464,14 +54761,14 @@ var extern = function () {
           descend: 7
         }
       }
-    }, B.controls.keyboard = getStoredObject("controls")), ls(B.controls), vueApp.setUiSettings(B)
+    }, B.controls.keyboard = getStoredObject("controls")), ss(B.controls), vueApp.setUiSettings(B)
   }
 
-  function ss() {
+  function as() {
     localStore.setItem("volume", B.volume), localStore.setItem("mouseSpeed", B.mouseSpeed), localStore.setItem("mouseInvert", B.mouseInvert), localStore.setItem("holdToAim", B.holdToAim), localStore.setItem("enableChat", B.enableChat), localStore.setItem("safeNames", B.safeNames), localStore.setItem("autoDetail", B.autoDetail), localStore.setItem("shadowsEnabled", B.shadowsEnabled), localStore.setItem("highRes", B.highRes), localStore.setItem("controllerSpeed", B.controllerSpeed), localStore.setItem("deadzone", B.deadzone), localStore.setItem("controllerInvert", B.controllerInvert), localStore.setItem("controls", JSON.stringify(B.controls)), localStore.setItem("musicVolume", B.musicVolume), localStore.setItem("musicStatus", B.musicStatus)
   }
 
-  function ls(e) {
+  function ss(e) {
     j = {
       keyboard: {
         game: {},
@@ -54492,32 +54789,32 @@ var extern = function () {
     })
   }
 
-  function cs(e, t) {
-    if (0 === e) return console.log("game volume suspended"), vueApp.volume = 0, Ui.setVolume(0), vueApp.musicVolumeControl(0), Ui.suspend();
-    e = e || B.volume, console.log("volume set to: " + e), Ui.resume(), Ui.setVolume(e), vueApp.musicVolumeControl(t || B.musicVolume), vueApp.volume = e
+  function ls(e, t) {
+    if (0 === e) return console.log("game volume suspended"), vueApp.volume = 0, Ni.setVolume(0), vueApp.musicVolumeControl(0), Ni.suspend();
+    e = e || B.volume, console.log("volume set to: " + e), Ni.resume(), Ni.setVolume(e), vueApp.musicVolumeControl(t || B.musicVolume), vueApp.volume = e
   }
 
-  function hs(e) {
+  function cs(e) {
     B.mouseSpeed = e
   }
 
-  function us(e) {
+  function hs(e) {
     B.controllerSpeed = e
   }
 
-  function ds(e) {
+  function us(e) {
     B.deadzone = e
   }
 
-  function ps(e, t) {
+  function ds(e, t) {
     this.spatula = e, this.scene = e.scene, this.mesh = this.scene.cloneMesh("spatula"), this.mesh.emissiveColor = new BABYLON.Color3(.8, .6, .2), this.mesh.setRenderingGroupId(1)
   }
 
-  function fs() {
+  function ps() {
     this.dx = 0, this.dy = 0, this.dz = 0
   }
 
-  function ms() {
+  function fs() {
     getRequest("twitchStreams.json?" + Date.now(), (function (e, t) {
       if (!e) {
         var i = JSON.parse(t),
@@ -54536,14 +54833,14 @@ var extern = function () {
     }))
   }
 
-  function _s() {
-    gs("golden_chicken_pass")
+  function ms() {
+    _s("golden_chicken_pass")
   }
 
-  function gs(e, t) {
+  function _s(e, t) {
     if (console.log("getXsollaToken called (firebase ID: {0})".format(W.firebaseId), t), me = e, !W.isAnonymous && W.isEmailVerified) {
       ! function (e, t, i, r) {
-        r = r || !1, Ni({
+        r = r || !1, Li({
           cmd: "xsollaToken",
           firebaseId: W.firebaseId,
           productSku: e,
@@ -54555,7 +54852,7 @@ var extern = function () {
             storeVisited: !0,
             product: e
           };
-          console.log("Sending xsolla tags to OneSignal: " + JSON.stringify(t)), Va(t)
+          console.log("Sending xsolla tags to OneSignal: " + JSON.stringify(t)), Fa(t)
         }(e), function (e) {
           var t = {
               access_token: e,
@@ -54571,7 +54868,7 @@ var extern = function () {
               console.log("Xsolla PayStation initialized"), XPayStationWidget.open()
             })), XPayStationWidget.on("close", (function (e) {
               console.log("Xsolla PayStation closed"), vueApp.hideChickenPopup(), k && vueApp.showGameMenu(), setTimeout((function () {
-                ki(), Si()
+                Bi(), Ti()
               }), 3e3)
             })), XPayStationWidget.on("open", (function (e) {
               k && vueApp.hideGameMenu(), console.log("Xsolla PayStation open"), console.log(me)
@@ -54582,7 +54879,7 @@ var extern = function () {
             })), XPayStationWidget.on("status-delivering", (function (e) {
               console.log("Xsolla PayStation status-delivering"), console.log("status-delivering", e), console.log(me)
             })), XPayStationWidget.on("status-done", (function (e) {
-              console.log("Xsolla PayStation status-done"), console.log("status-done", e), console.log(me), "golden_chicken_pass" === me && $a(1), (() => {
+              console.log("Xsolla PayStation status-done"), console.log("status-done", e), console.log(me), "golden_chicken_pass" === me && Ja(1), (() => {
                 if (!hasValue(me)) return;
                 let e = vueData.eggStoreItems.filter(e => e.sku === me)[0],
                   t = e.sku,
@@ -54595,39 +54892,39 @@ var extern = function () {
               })()
             })), XPayStationWidget.init(t)
           }), !1), document.getElementsByTagName("head")[0].appendChild(i), xsollaSetup = !0
-        }(t.token), console.log(t)) : (console.log("Failed to get Xsolla token"), vs()))
+        }(t.token), console.log(t)) : (console.log("Failed to get Xsolla token"), gs()))
       }), (function (e) {
-        console.log("Error getting Xsolla token: " + JSON.stringify(e)), vs()
+        console.log("Error getting Xsolla token: " + JSON.stringify(e)), gs()
       }), t)
     } else vueApp.denyAnonUser()
   }
-  os.v3_1 = new BABYLON.Vector3, os.prototype.fire = function () {
+  ns.v3_1 = new BABYLON.Vector3, ns.prototype.fire = function () {
     this.armed = !1, this.delayFrames = 2, this.mesh.position.x = this.rocket.x, this.mesh.position.y = this.rocket.y, this.mesh.position.z = this.rocket.z;
-    var e = os.v3_1;
+    var e = ns.v3_1;
     e.set(this.rocket.x + this.rocket.dx, this.rocket.y + this.rocket.dy, this.rocket.z + this.rocket.dz), this.mesh.lookAt(e)
-  }, os.prototype.update = function () {
-    if (--this.delayFrames <= 0 && this.mesh.setEnabled(!0), !this.armed && this.rocket.minRange <= 0 && (this.armed = !0, ji.play("rpegg_rocket_fly", this.mesh.position, !0)), this.delayFrames % 2 == 0) {
+  }, ns.prototype.update = function () {
+    if (--this.delayFrames <= 0 && this.mesh.setEnabled(!0), !this.armed && this.rocket.minRange <= 0 && (this.armed = !0, Gi.play("rpegg_rocket_fly", this.mesh.position, !0)), this.delayFrames % 2 == 0) {
       var e = .04 * Math.random() - .02,
         t = .04 * Math.random() - .02,
         i = .04 * Math.random() - .02;
-      this.armed && (sn(Yi, 30, this.rocket.x, this.rocket.y, this.rocket.z, e, t, i, .4, 0, null), sn(Xi, 10, this.rocket.x, this.rocket.y, this.rocket.z, e, t, i, .4, 0, null))
+      this.armed && (nn(Hi, 30, this.rocket.x, this.rocket.y, this.rocket.z, e, t, i, .4, 0, null), nn(Wi, 10, this.rocket.x, this.rocket.y, this.rocket.z, e, t, i, .4, 0, null))
     }
     this.mesh.position.x += .5 * (this.rocket.x - this.mesh.position.x), this.mesh.position.y += .5 * (this.rocket.y - this.mesh.position.y), this.mesh.position.z += .5 * (this.rocket.z - this.mesh.position.z)
-  }, os.prototype.remove = function () {
+  }, ns.prototype.remove = function () {
     this.mesh.setEnabled(!1)
-  }, BABYLON.Effect.ShadersStore.standardVertexShader = "\n#include<instancesDeclaration>\n#include<bonesDeclaration>\n\nprecision lowp float;\n\n// Attributes\nattribute vec3 position;\nattribute vec3 normal;\nattribute vec4 color;\nattribute vec2 uv;\n\n// Uniforms\nuniform mat4 view;\nuniform mat4 viewProjection;\nuniform mat4 shadowLightMat;\nuniform vec3 cameraPosition;\nuniform vec3 colorMult;\n\n// Varying\nvarying vec4 vPositionFromLight;\nvarying vec3 vPositionFromCamera;\nvarying vec3 vNormal;\nvarying vec4 vColor;\nvarying vec4 vEmissiveColor;\nvarying float fFogDistance;\n\n#ifdef EGGSHELL\n\tvarying vec2 vUV;\n#endif\n\n/*\nvec4 distort(vec4 p)\n{\n    vec2 v = p.xy / p.w;\n\n    // Convert to polar coords:\n    float theta  = atan(v.y,v.x);\n    float radius = length(v);\n\n    // Distort:\n    radius = pow(radius, 0.9);\n\n    // Convert back to Cartesian:\n    v.x = radius * cos(theta);\n    v.y = radius * sin(theta);\n    p.xy = v.xy * p.w;\n    return p;\n}\n*/\n\n// MAIN\nvoid main(void) {\n\t#include<instancesVertex>\n\t#include<bonesVertex>\n\tvec4 worldPosition = finalWorld * vec4(position, 1.);\n\n\t#ifdef RECEIVESHADOWS\n\t\tvPositionFromLight = shadowLightMat * worldPosition;\n\t#endif\n\n\tvNormal = normalize(vec3(finalWorld * vec4(normal, 0.0)));\n\tvColor = color;\n\t\n\t#ifdef COLORMULT\n\t\tvColor.rgb *= colorMult;\n\t#endif\n\n\tfFogDistance = (view * worldPosition).z;\n\tgl_Position = viewProjection * worldPosition;\n\n\t#ifdef EGGSHELL\n\t\tvUV = uv;\n\t\tvPositionFromCamera = normalize(cameraPosition - worldPosition.xyz);\n\t#endif\n}\n", BABYLON.Effect.ShadersStore.standardPixelShader = "\n#define FOGMODE_NONE 0.\n#define FOGMODE_EXP 1.\n#define FOGMODE_EXP2 2.\n#define FOGMODE_LINEAR 3.\n#define E 2.71828\n\nprecision lowp float;\n\n// Uniforms\nuniform sampler2D shadowSampler;\nuniform vec3 shadowParams;\nuniform vec4 vFogInfos;\nuniform vec3 vFogColor;\nuniform vec3 emissiveColor;\nuniform mat4 worldView;\nuniform float hp;\nuniform vec3 colorMult;\nuniform vec4 outlineColor;\nuniform sampler2D textureSampler;\nuniform vec2 stampOffset;\nuniform vec3 sunDirection;\nuniform vec3 sunColor;\n\n// Varying\nvarying vec4 vPositionFromLight;\nvarying vec3 vPositionFromCamera;\nvarying vec4 vColor;\nvarying vec2 vUV;\nvarying vec3 vNormal;\nvarying float fFogDistance;\n\nconst float sOff = .001;\n\n// FUNCTIONS\nfloat unpack(vec4 color)\n{\n\tconst vec4 bit_shift = vec4(1.0 / (255.0 * 255.0 * 255.0), 1.0 / (255.0 * 255.0), 1.0 / 255.0, 1.0);\n\treturn dot(color, bit_shift);\n}\n\nfloat random(vec2 p)\n{\n    vec2 K1 = vec2(23.14069263277926, 2.665144142690225);\n    return fract(cos(dot(p, K1)) * 12345.6789);\n}\n\nfloat calcFogFactor()\n{\n\tfloat fogCoeff = 1.0;\n\tfloat fogStart = vFogInfos.y;\n\tfloat fogEnd = vFogInfos.z;\n\tfloat fogDensity = vFogInfos.w;\n\n\tfogCoeff = 1.0 / pow(E, fFogDistance * fFogDistance * fogDensity * fogDensity); // Exp2\n\n\treturn clamp(fogCoeff, 0.0, 1.0);\n}\n\nfloat computeShadow(vec4 vPositionFromLight, sampler2D shadowSampler, float darkness)\n{\n\tvec3 depth = vPositionFromLight.xyz / vPositionFromLight.w;\n\tdepth = 0.5 * depth + vec3(0.5);\n\tvec2 uv = depth.xy;\n\n\tif (uv.x < 0. || uv.x > 1.0 || uv.y < 0. || uv.y > 1.0)\n\t{\n\t\treturn 1.0;\n\t}\n\n\t#ifndef SHADOWFULLFLOAT\n\t\tfloat shadow = unpack(texture2D(shadowSampler, uv));\n\t#else\n\t\tfloat shadow = texture2D(shadowSampler, uv).x;\n\t#endif\n\n\tif (depth.z < shadow) return 1.;\n\tfloat s = clamp((depth.z - shadow) * 12. + 0.5, 0.5, 1.0);\n\treturn min(1.0, max(s, length(vPositionFromLight.xy)));\n}\n\nvec3 desaturate(vec3 color, float amount)\n{\n    vec3 gray = vec3(dot(vec3(0.2126,0.7152,0.0722), color));\n    return vec3(mix(color, gray, amount));\n}\n\n// MAIN\nvoid main(void)\n{\n\tvec4 color = vColor;\n\n\t#ifdef EGGSHELL // Show cracks and stamp texture!\n\t\tcolor.rgb = min((color.rgb - 0.5) * 4. + hp + 2., 1.);\n\t\tcolor.rgb *= colorMult;\n\t\tvec2 uv = clamp(vUV, vec2(0., 0.9375), vec2(.0625, 1.));\n\t\tuv += stampOffset;\n\t\tcolor.rgb = mix(color.rgb, texture2D(textureSampler, uv).rgb, texture2D(textureSampler, uv).a);\n\t#endif\n\n\t#ifdef RECEIVESHADOWS\n\t\tfloat s = computeShadow(vPositionFromLight, shadowSampler, shadowParams.x);\n\t\tcolor *= vec4(s, s, s, 1.);\n\t#endif\n\n\t#ifndef MAP // Not the map; use dynamic light\n\t\tcolor.rgb *= max(max(0.3, -vNormal.y * 0.4), dot(vNormal, sunDirection * 1.) + 0.4);\n\t\tcolor.rgb *= sunColor;\n\t#endif\n\n\t#ifdef FLASH\n\t\tcolor.rgb += emissiveColor;\n\t#endif\n\n\tfloat fog = calcFogFactor();\n\tcolor.rgb = fog * color.rgb + (1.0 - fog) * vFogColor;\n\n\t#ifdef EGGSHELL\n\t\tfloat f = step(dot(vNormal, vPositionFromCamera), 0.4);\n\t\tcolor.rgb = mix(color.rgb, outlineColor.rgb, f * outlineColor.a);\n\t#endif\n\n\tgl_FragColor = color;\n}\n", ps.prototype.drop = function () {
-    this.mesh.parent = null, Ui.play("drop_spatula")
-  }, ps.prototype.update = function (e) {
+  }, BABYLON.Effect.ShadersStore.standardVertexShader = "\n#include<instancesDeclaration>\n#include<bonesDeclaration>\n\nprecision lowp float;\n\n// Attributes\nattribute vec3 position;\nattribute vec3 normal;\nattribute vec4 color;\nattribute vec2 uv;\n\n// Uniforms\nuniform mat4 view;\nuniform mat4 viewProjection;\nuniform mat4 shadowLightMat;\nuniform vec3 cameraPosition;\nuniform vec3 colorMult;\n\n// Varying\nvarying vec4 vPositionFromLight;\nvarying vec3 vPositionFromCamera;\nvarying vec3 vNormal;\nvarying vec4 vColor;\nvarying vec4 vEmissiveColor;\nvarying float fFogDistance;\n\n#ifdef EGGSHELL\n\tvarying vec2 vUV;\n#endif\n\n/*\nvec4 distort(vec4 p)\n{\n    vec2 v = p.xy / p.w;\n\n    // Convert to polar coords:\n    float theta  = atan(v.y,v.x);\n    float radius = length(v);\n\n    // Distort:\n    radius = pow(radius, 0.9);\n\n    // Convert back to Cartesian:\n    v.x = radius * cos(theta);\n    v.y = radius * sin(theta);\n    p.xy = v.xy * p.w;\n    return p;\n}\n*/\n\n// MAIN\nvoid main(void) {\n\t#include<instancesVertex>\n\t#include<bonesVertex>\n\tvec4 worldPosition = finalWorld * vec4(position, 1.);\n\n\t#ifdef RECEIVESHADOWS\n\t\tvPositionFromLight = shadowLightMat * worldPosition;\n\t#endif\n\n\tvNormal = normalize(vec3(finalWorld * vec4(normal, 0.0)));\n\tvColor = color;\n\t\n\t#ifdef COLORMULT\n\t\tvColor.rgb *= colorMult;\n\t#endif\n\n\tfFogDistance = (view * worldPosition).z;\n\tgl_Position = viewProjection * worldPosition;\n\n\t#ifdef EGGSHELL\n\t\tvUV = uv;\n\t\tvPositionFromCamera = normalize(cameraPosition - worldPosition.xyz);\n\t#endif\n}\n", BABYLON.Effect.ShadersStore.standardPixelShader = "\n#define FOGMODE_NONE 0.\n#define FOGMODE_EXP 1.\n#define FOGMODE_EXP2 2.\n#define FOGMODE_LINEAR 3.\n#define E 2.71828\n\nprecision lowp float;\n\n// Uniforms\nuniform sampler2D shadowSampler;\nuniform vec3 shadowParams;\nuniform vec4 vFogInfos;\nuniform vec3 vFogColor;\nuniform vec3 emissiveColor;\nuniform mat4 worldView;\nuniform float hp;\nuniform vec3 colorMult;\nuniform vec4 outlineColor;\nuniform sampler2D textureSampler;\nuniform vec2 stampOffset;\nuniform vec3 sunDirection;\nuniform vec3 sunColor;\n\n// Varying\nvarying vec4 vPositionFromLight;\nvarying vec3 vPositionFromCamera;\nvarying vec4 vColor;\nvarying vec2 vUV;\nvarying vec3 vNormal;\nvarying float fFogDistance;\n\nconst float sOff = .001;\n\n// FUNCTIONS\nfloat unpack(vec4 color)\n{\n\tconst vec4 bit_shift = vec4(1.0 / (255.0 * 255.0 * 255.0), 1.0 / (255.0 * 255.0), 1.0 / 255.0, 1.0);\n\treturn dot(color, bit_shift);\n}\n\nfloat random(vec2 p)\n{\n    vec2 K1 = vec2(23.14069263277926, 2.665144142690225);\n    return fract(cos(dot(p, K1)) * 12345.6789);\n}\n\nfloat calcFogFactor()\n{\n\tfloat fogCoeff = 1.0;\n\tfloat fogStart = vFogInfos.y;\n\tfloat fogEnd = vFogInfos.z;\n\tfloat fogDensity = vFogInfos.w;\n\n\tfogCoeff = 1.0 / pow(E, fFogDistance * fFogDistance * fogDensity * fogDensity); // Exp2\n\n\treturn clamp(fogCoeff, 0.0, 1.0);\n}\n\nfloat computeShadow(vec4 vPositionFromLight, sampler2D shadowSampler, float darkness)\n{\n\tvec3 depth = vPositionFromLight.xyz / vPositionFromLight.w;\n\tdepth = 0.5 * depth + vec3(0.5);\n\tvec2 uv = depth.xy;\n\n\tif (uv.x < 0. || uv.x > 1.0 || uv.y < 0. || uv.y > 1.0)\n\t{\n\t\treturn 1.0;\n\t}\n\n\t#ifndef SHADOWFULLFLOAT\n\t\tfloat shadow = unpack(texture2D(shadowSampler, uv));\n\t#else\n\t\tfloat shadow = texture2D(shadowSampler, uv).x;\n\t#endif\n\n\tif (depth.z < shadow) return 1.;\n\tfloat s = clamp((depth.z - shadow) * 12. + 0.5, 0.5, 1.0);\n\treturn min(1.0, max(s, length(vPositionFromLight.xy)));\n}\n\nvec3 desaturate(vec3 color, float amount)\n{\n    vec3 gray = vec3(dot(vec3(0.2126,0.7152,0.0722), color));\n    return vec3(mix(color, gray, amount));\n}\n\n// MAIN\nvoid main(void)\n{\n\tvec4 color = vColor;\n\n\t#ifdef EGGSHELL // Show cracks and stamp texture!\n\t\tcolor.rgb = min((color.rgb - 0.5) * 4. + hp + 2., 1.);\n\t\tcolor.rgb *= colorMult;\n\t\tvec2 uv = clamp(vUV, vec2(0., 0.9375), vec2(.0625, 1.));\n\t\tuv += stampOffset;\n\t\tcolor.rgb = mix(color.rgb, texture2D(textureSampler, uv).rgb, texture2D(textureSampler, uv).a);\n\t#endif\n\n\t#ifdef RECEIVESHADOWS\n\t\tfloat s = computeShadow(vPositionFromLight, shadowSampler, shadowParams.x);\n\t\tcolor *= vec4(s, s, s, 1.);\n\t#endif\n\n\t#ifndef MAP // Not the map; use dynamic light\n\t\tcolor.rgb *= max(max(0.3, -vNormal.y * 0.4), dot(vNormal, sunDirection * 1.) + 0.4);\n\t\tcolor.rgb *= sunColor;\n\t#endif\n\n\t#ifdef FLASH\n\t\tcolor.rgb += emissiveColor;\n\t#endif\n\n\tfloat fog = calcFogFactor();\n\tcolor.rgb = fog * color.rgb + (1.0 - fog) * vFogColor;\n\n\t#ifdef EGGSHELL\n\t\tfloat f = step(dot(vNormal, vPositionFromCamera), 0.4);\n\t\tcolor.rgb = mix(color.rgb, outlineColor.rgb, f * outlineColor.a);\n\t#endif\n\n\tgl_FragColor = color;\n}\n", ds.prototype.drop = function () {
+    this.mesh.parent = null, Ni.play("drop_spatula")
+  }, ds.prototype.update = function (e) {
     if (this.mesh.position.x += .5 * (this.spatula.x - this.mesh.position.x), this.mesh.position.y += .5 * (this.spatula.y + .1 - this.mesh.position.y), this.mesh.position.z += .5 * (this.spatula.z - this.mesh.position.z), 255 == this.spatula.controlledBy) this.mesh.rotation.y += .1 * e;
     else {
-      var t = Ir[this.spatula.controlledBy];
+      var t = Cr[this.spatula.controlledBy];
       t && (this.mesh.rotation.y = t.yaw)
     }
-  }, di.v1 = new BABYLON.Vector3, di.v2 = new BABYLON.Vector3, di.ray = new BABYLON.Ray, di.matrix = new BABYLON.Matrix, fs.prototype.update = function (e) {
+  }, ci.v1 = new BABYLON.Vector3, ci.v2 = new BABYLON.Vector3, ci.ray = new BABYLON.Ray, ci.matrix = new BABYLON.Matrix, ps.prototype.update = function (e) {
     var t = 0,
       i = 0,
       n = 0;
-    gr & ci.left && (t -= Math.cos(Cr.yaw), n += Math.sin(Cr.yaw)), gr & ci.right && (t += Math.cos(Cr.yaw), n -= Math.sin(Cr.yaw)), gr & ci.up && (t += Math.sin(Cr.yaw), n += Math.cos(Cr.yaw)), gr & ci.down && (t -= Math.sin(Cr.yaw), n -= Math.cos(Cr.yaw)), gr & ci.ascend && (i = 1), gr & ci.descend && (i = -1);
+    fr & ai.left && (t -= Math.cos(Sr.yaw), n += Math.sin(Sr.yaw)), fr & ai.right && (t += Math.cos(Sr.yaw), n -= Math.sin(Sr.yaw)), fr & ai.up && (t += Math.sin(Sr.yaw), n += Math.cos(Sr.yaw)), fr & ai.down && (t -= Math.sin(Sr.yaw), n -= Math.cos(Sr.yaw)), fr & ai.ascend && (i = 1), fr & ai.descend && (i = -1);
     var o = new BABYLON.Vector3(t, i, n).normalize(),
       a = this.dx,
       s = this.dy,
@@ -54636,35 +54933,35 @@ var extern = function () {
     var c = .5 * (this.dx + a),
       h = .5 * (this.dy + s),
       u = .5 * (this.dz + l);
-    r.position.x += c * e, r.position.y += h * e, r.position.z += u * e, r.position.y = Math.max(1.5, r.position.y), Cr.x = r.position.x, Cr.y = r.position.y, Cr.z = r.position.z, this.dx *= Math.pow(.85, e), this.dy *= Math.pow(.85, e), this.dz *= Math.pow(.85, e), r.rotation.x = Cr.pitch, r.rotation.y = Cr.yaw
+    r.position.x += c * e, r.position.y += h * e, r.position.z += u * e, r.position.y = Math.max(1.5, r.position.y), Sr.x = r.position.x, Sr.y = r.position.y, Sr.z = r.position.z, this.dx *= Math.pow(.85, e), this.dy *= Math.pow(.85, e), this.dz *= Math.pow(.85, e), r.rotation.x = Sr.pitch, r.rotation.y = Sr.yaw
   }, window.addEventListener("contextmenu", (function (e) {
     e.preventDefault()
   }), !1), window.onresize = function () {
-    No()
+    Fo()
   }, window.mobileAndTabletcheck = function () {
     var e = !1;
     return function (t) {
       (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(t) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(t.substr(0, 4))) && (e = !0)
     }(navigator.userAgent || navigator.vendor || window.opera), e
   }, window.onload = function () {
-    if (playShellshockers()) return console.log("startShellShockers"), Ao(), void(window.onload = null);
+    if (playShellshockers()) return console.log("startShellShockers"), So(), void(window.onload = null);
     const e = location.protocol + "//" + location.host;
     return window.location.href = e + "/portals"
   }, window.onbeforeunload = function (e) {
-    if (n > 0 && (va(n, ti[d].name), Cr && vr > 0)) {
-      var t = Math.floor(vr / Math.max(vr + yr, 1) * 100);
-      ga("send", "event", "player stats", "kill ratio", hi[Cr.charClass].name, t), ga("send", "event", "player stats", "best kill streak", hi[Cr.charClass].name, br)
+    if (n > 0 && (ma(n, Jt[d].name), Sr && mr > 0)) {
+      var t = Math.floor(mr / Math.max(mr + _r, 1) * 100);
+      ga("send", "event", "player stats", "kills", si[Sr.charClass].name, mr), ga("send", "event", "player stats", "deaths", si[Sr.charClass].name, _r), ga("send", "event", "player stats", "kill ratio", si[Sr.charClass].name, t), ga("send", "event", "player stats", "best kill streak", si[Sr.charClass].name, gr)
     }
-    m > 4 && (ga("send", "timing", "game", "ping", Math.floor(f / m), F.name), ga("send", "event", "game", "stats", "fps", Math.ceil(dr / pr)), ga("send", "event", "game", "settings", "volume", B.volume), ga("send", "event", "game", "settings", "mouse speed", B.mouseSpeed), ga("send", "event", "game", "settings", "mouse invert", B.mouseInvert), ga("send", "event", "game", "settings", "deadzone", B.deadzone), ga("send", "event", "game", "settings", "controller speed", B.controllerSpeed), ga("send", "event", "game", "settings", "controller invert", B.controllerInvert))
+    m > 4 && (ga("send", "timing", "game", "ping", Math.floor(f / m), F.name), ga("send", "event", "game", "stats", "fps", Math.ceil(cr / hr)), ga("send", "event", "game", "settings", "volume", B.volume), ga("send", "event", "game", "settings", "mouse speed", B.mouseSpeed), ga("send", "event", "game", "settings", "mouse invert", B.mouseInvert), ga("send", "event", "game", "settings", "deadzone", B.deadzone), ga("send", "event", "game", "settings", "controller speed", B.controllerSpeed), ga("send", "event", "game", "settings", "controller invert", B.controllerInvert))
   }, window.onerror = function (e, t, i, r, n) {
     var o = ["Message: " + e, "URL: " + t, "Line: " + i, "Column: " + r].join("\n");
     return o += JSON.stringify(n, ["message", "arguments", "type", "name"]) + "\n", console.log(o), !1
   };
 
-  function vs() {
+  function gs() {
     vueApp.showGenericPopup("uh_oh", "purchase_disabled", "ok")
   }
-  class ys {
+  class vs {
     static normalizeManhattan(e) {
       var t = Math.abs(e.x),
         i = Math.abs(e.y),
@@ -54721,7 +55018,7 @@ var extern = function () {
         updatable: !0
       });
       r.computeParticleColor = !1, r.computeParticleTexture = !1, r.computeParticleRotation = !1, r.recomputeNormals = !1;
-      var n = vi(t),
+      var n = mi(t),
         o = Object.keys(t.data),
         a = [];
       var s = function e(s) {
@@ -54729,7 +55026,7 @@ var extern = function () {
           var l = o[s],
             c = t.data[l],
             h = n[l];
-          void 0 === (_ = li[h]) && console.log("mesh not found: " + l);
+          void 0 === (_ = oi[h]) && console.log("mesh not found: " + l);
           var u = l.split(".");
           u = l.split(".");
           if (_.theme = u[0], _.colliderType = u[2], _.softness = u[3], "SPECIAL" != _.theme) {
@@ -54740,7 +55037,7 @@ var extern = function () {
                 var n = f[p].rx || 0,
                   o = f[p].ry || 0,
                   a = f[p].rz || 0;
-                e.position.x = f[p].x + t.extents.x.min, e.position.y = f[p].y + t.extents.y.min, e.position.z = f[p].z + t.extents.z.min, e.rotation.x = n * In, e.rotation.y = o * In, e.rotation.z = a * In, e.alive = !1, d = l.endsWith(".full") ? {
+                e.position.x = f[p].x + t.extents.x.min, e.position.y = f[p].y + t.extents.y.min, e.position.z = f[p].z + t.extents.z.min, e.rotation.x = n * Cn, e.rotation.y = o * Cn, e.rotation.z = a * Cn, e.alive = !1, d = l.endsWith(".full") ? {
                   x: e.position.x,
                   y: e.position.y,
                   z: e.position.z
@@ -54763,11 +55060,11 @@ var extern = function () {
   }
   return {
     catalog: V,
-    play: Wo,
-    getLanguageData: Lo,
+    play: Ho,
+    getLanguageData: wo,
     continueStartup: function () {
       if (window.addEventListener("beforeinstallprompt", e => {
-          console.log("pwa Ready"), be = e, !0
+          console.log("pwa Ready"), ve = e, !0
         }), window.addEventListener("appinstalled", e => {
           ga("send", "event", "pwa", "install", "success")
         }), window.mobileAndTabletcheck()) {
@@ -54790,26 +55087,27 @@ var extern = function () {
             isChrome84 = -1 !== navigator.userAgent.indexOf("Chrome/84"), isChrome84 && (BABYLON.chrome84BugWorkaround = !0);
             if (localStore.getItem("ssChrome84Bug")) return !1;
             if (isChrome84) localStore.setItem("ssChrome84Bug", !0)
-          }(), navigator.onLine && !H ? go() : (W = new ja, D = !0), ma.init(), as(), ms(), function () {
+          }(), navigator.onLine && !H ? _o() : (W = new Ga, D = !0), pa.init(), os(), fs(), function () {
             const e = window.location.origin;
             getRequest(e + "/housePromo.json?" + Date.now(), (function (e, t) {
               e ? y = {
                 big: [],
                 small: [],
+                bigBanner: [],
                 houseAdPercentChance: 100
               } : (y = JSON.parse(t), function () {
                 for (var e = [], t = 0; t < y.small.length; t++) y.small[t].active && e.push(t);
                 e.length > 0 && (g = e[Date.now() % e.length], vueApp.useHouseAdSmall(y.small[g]))
               }(), console.log("special items tag: " + y.specialItemsTag), console.log("num special items: " + V.getTaggedItems(y.specialItemsTag).length), hasValue(y.specialItemsTag) && null !== y.specialItemsTag && V.getTaggedItems(y.specialItemsTag).length > 0 ? vueApp.useSpecialItemsTag(y.specialItemsTag) : vueApp.disableSpecialItems()), !0
             }))
-          }(), Ia("shellNews.json", (function (e) {
+          }(), Ca("shellNews.json", (function (e) {
             vueApp.newsfeedItems = e
-          })), Ia("shellYouTube.json", (function (e) {
+          })), Ca("shellYouTube.json", (function (e) {
             vueApp.youtubeStreams = e
-          })), console.log("From EU: " + isFromEU), itemRenderer = new Na, canvas = vueApp.getCanvas(), e = new BABYLON.Engine(canvas, !0, null, !1), t = e.getCaps(), cs(), B.autoDetail || Uo(B.highRes), H) return Y.x = parsedUrl.query.x, Y.y = parsedUrl.query.y, Y.z = parsedUrl.query.z, Y.pitch = parsedUrl.query.pitch, Y.yaw = parsedUrl.query.yaw, playerLimit = 1, ws = {
+          })), console.log("From EU: " + isFromEU), itemRenderer = new La, canvas = vueApp.getCanvas(), e = new BABYLON.Engine(canvas, !0, null, !1), t = e.getCaps(), ls(), B.autoDetail || Vo(B.highRes), H) return Y.x = parsedUrl.query.x, Y.y = parsedUrl.query.y, Y.z = parsedUrl.query.z, Y.pitch = parsedUrl.query.pitch, Y.yaw = parsedUrl.query.yaw, playerLimit = 1, ws = {
           send: function () {}
-        }, k = !0, e.stopRenderLoop(), void Yr();
-        U = new Ga(Ro), Co(), parsedUrl.query.openSettings && vueApp.showSettingsPopup(), parsedUrl.query.test && (Q = !0), parsedUrl.query.noSkybox && (K = !0), Ua(), Za(), vueApp.eggStoreItems = Te.getStoreItems(), vueApp.premiumShopItems = Te.getShopItems(), vueApp.subStoreItems = Te.getSubscriptions(), _e && vueApp.isPlayingPoki(), I = !0
+        }, k = !0, e.stopRenderLoop(), void Hr();
+        U = new Va(Co), ja(), parsedUrl.query.openSettings && vueApp.showSettingsPopup(), parsedUrl.query.test && (Q = !0), parsedUrl.query.noSkybox && (K = !0), Na(), Qa(), vueApp.eggStoreItems = be.getStoreItems(), vueApp.premiumShopItems = be.getShopItems(), vueApp.subStoreItems = be.getSubscriptions(), pokiActive && vueApp.isPlayingPoki(), I = !0
       }
     },
     showSignInDialog: function () {
@@ -54817,8 +55115,8 @@ var extern = function () {
       var e = {
         autoUpgradeAnonymousUsers: !0,
         callbacks: {
-          signInSuccessWithAuthResult: Po,
-          signInFailure: So,
+          signInSuccessWithAuthResult: Eo,
+          signInFailure: Po,
           uiShown: function (e) {
             console.log("UI: showed firebase UI")
           }
@@ -54835,14 +55133,14 @@ var extern = function () {
     },
     signOut: function () {
       firebase.auth().signOut().then((function () {
-        (W = new ja).loggingOut(), vueApp.setDarkOverlay(!1)
+        (W = new Ga).loggingOut(), vueApp.setDarkOverlay(!1), void 0 !== v || pokiActive || crazyGamesActive || Mo()
       }), (function (e) {
         console.log(e)
       })), ga("send", "event", vueData.googleAnalytics.cat.playerStats, vueData.googleAnalytics.action.signIn, vueData.googleAnalytics.label.signInOut), vueApp.photoUrl = null
     },
-    sendFirebaseVerificationEmail: bo,
-    selectServer: Wa,
-    generateRandomName: Fo,
+    sendFirebaseVerificationEmail: yo,
+    selectServer: za,
+    generateRandomName: Bo,
     changeClass: function (e) {
       W.setClass(e);
       var t = W.getPrimaryWeapon();
@@ -54874,44 +55172,44 @@ var extern = function () {
         B.controls.gamepad.game[e.id] = e.value
       }), e.controls.gamepad.spectate.forEach(e => {
         B.controls.gamepad.spectate[e.id] = e.value
-      }), ls(B.controls), cs(), hs(B.mouseSpeed), us(B.controllerSpeed), ds(B.deadzone), i = B.enableChat, console.log("setting chat: " + i), i ? (B.enableChat = !0, localStore.setItem("enableChat", !0), k && (b.value = "Press ENTER to chat", x.style.display = "block", b.style.display = "block")) : (B.enableChat = !1, localStore.setItem("enableChat", !1), k && (x.style.display = "none", b.style.display = "none")), Pr && (B.autoDetail ? t.autoDetail || (Uo(!0), zo(!0), ko()) : (Uo(B.highRes), zo(B.shadowsEnabled), Vo())), ss()
+      }), ss(B.controls), ls(), cs(B.mouseSpeed), hs(B.controllerSpeed), us(B.deadzone), i = B.enableChat, console.log("setting chat: " + i), i ? (B.enableChat = !0, localStore.setItem("enableChat", !0), k && (b.value = "Press ENTER to chat", x.style.display = "block", b.style.display = "block")) : (B.enableChat = !1, localStore.setItem("enableChat", !1), k && (x.style.display = "none", b.style.display = "none")), xr && (B.autoDetail ? t.autoDetail || (Vo(!0), Uo(!0), No()) : (Vo(B.highRes), Uo(B.shadowsEnabled), ko())), as()
     },
     resetSettings: function () {
-      localStore.removeItem("volume"), localStore.removeItem("mouseSensitivity"), localStore.removeItem("mouseSpeed"), localStore.removeItem("mouseInvert"), localStore.removeItem("holdToAim"), localStore.removeItem("enableChat"), localStore.removeItem("safeNames"), localStore.removeItem("autoDetail"), localStore.removeItem("shadowsEnabled"), localStore.removeItem("highRes"), localStore.removeItem("controlConfig"), localStore.removeItem("controllerSpeed"), localStore.removeItem("deadzone"), localStore.removeItem("controllerInvert"), localStore.removeItem("controls"), localStore.removeItem("musicVolume"), localStore.removeItem("musicStatus"), as()
+      localStore.removeItem("volume"), localStore.removeItem("mouseSensitivity"), localStore.removeItem("mouseSpeed"), localStore.removeItem("mouseInvert"), localStore.removeItem("holdToAim"), localStore.removeItem("enableChat"), localStore.removeItem("safeNames"), localStore.removeItem("autoDetail"), localStore.removeItem("shadowsEnabled"), localStore.removeItem("highRes"), localStore.removeItem("controlConfig"), localStore.removeItem("controllerSpeed"), localStore.removeItem("deadzone"), localStore.removeItem("controllerInvert"), localStore.removeItem("controls"), localStore.removeItem("musicVolume"), localStore.removeItem("musicStatus"), os()
     },
-    setVolume: cs,
+    setVolume: ls,
     setMusicVolume: function (e) {
       B.musicVolume = e, vueApp.musicVolumeControl(B.musicVolume), localStore.setItem("musicVolume", B.musicVolume)
     },
     setSafeNames: function (e) {
       if (k) {
         for (var t = 0; t < playerLimit; t++) {
-          var i = Ir[t];
+          var i = Cr[t];
           i && (i.name = e ? i.safeName : i.normalName)
         }
-        zn()
+        Un()
       }
     },
-    setMouseSpeed: hs,
-    setControllerSpeed: us,
-    setDeadzone: ds,
-    setShadows: zo,
+    setMouseSpeed: cs,
+    setControllerSpeed: hs,
+    setDeadzone: us,
+    setShadows: Uo,
     setMusicStatus: function (e) {
       localStore.setItem("musicStatus", e), B.musicStatus = e, vueApp.setUiSettings(B)
     },
     renderItemToCanvas: function (e, t) {
-      if (e.item_type_id === we) itemRenderer.renderStampToCanvas(e, t);
+      if (e.item_type_id === Ie) itemRenderer.renderStampToCanvas(e, t);
       else {
         var i = function (e) {
           switch (e) {
+            case Oe:
+              return po;
             case De:
-              return fo;
+              return uo[0];
+            case we:
+              return uo[1];
             case Le:
-              return po[0];
-            case Be:
-              return po[1];
-            case Fe:
-              return mo
+              return fo
           }
         }(e.item_type_id);
         itemRenderer.renderToCanvas(e.item_data.meshName, t, i)
@@ -54919,78 +55217,78 @@ var extern = function () {
     },
     getEquippedItems: function () {
       var e = [];
-      return e[De] = W.hatItem, e[we] = W.stampItem, e[Le] = W.getPrimaryWeapon(), e[Be] = W.getSecondaryWeapon(), e[Fe] = W.grenadeItem, e
+      return e[Oe] = W.hatItem, e[Ie] = W.stampItem, e[De] = W.getPrimaryWeapon(), e[we] = W.getSecondaryWeapon(), e[Le] = W.grenadeItem, e
     },
     getTaggedItems: function (e) {
       return V.getTaggedItems(e)
     },
     getItemsOfType: function (e) {
       switch (e) {
-        case De:
+        case Oe:
           return V.hats;
-        case we:
+        case Ie:
           return V.stamps;
+        case De:
+          return V.forClass[W.classIdx].forWeaponSlot[Ce];
+        case we:
+          return V.forClass[W.classIdx].forWeaponSlot[Re];
         case Le:
-          return V.forClass[W.classIdx].forWeaponSlot[Oe];
-        case Be:
-          return V.forClass[W.classIdx].forWeaponSlot[Ie];
-        case Fe:
           return V.grenades;
         default:
           return []
       }
     },
-    isItemOwned: _o,
+    isItemOwned: mo,
     tryEquipItem: function (e) {
-      if (hasValue(e) && (_o(e) || "default" === e.unlock)) switch (e.item_type_id) {
-        case De:
+      if (hasValue(e) && (mo(e) || "default" === e.unlock)) switch (e.item_type_id) {
+        case Oe:
           W.hatItem = e;
           break;
-        case we:
+        case Ie:
           W.stampItem = e;
           break;
+        case De:
+          W.pickWeapon(Ce, e);
+          break;
+        case we:
+          W.pickWeapon(Re, e);
+          break;
         case Le:
-          W.pickWeapon(Oe, e);
-          break;
-        case Be:
-          W.pickWeapon(Ie, e);
-          break;
-        case Fe:
           W.grenadeItem = e
       }
     },
     removeItemType: function (e) {
       switch (e) {
-        case De:
+        case Oe:
           W.hatItem = null;
           break;
-        case we:
+        case Ie:
           W.stampItem = null
       }
     },
     poseWithItem: function (e, t) {
       if (hasValue(e)) switch (e) {
-        case De:
+        case Oe:
           U.poseWithHat(t);
           break;
-        case we:
+        case Ie:
           U.poseWithStamp(t);
           break;
-        case Fe:
+        case Le:
           U.poseWithGrenade(t);
           break;
-        case Le:
-        case Be:
+        case De:
+        case we:
           U.poseWithWeapon(t)
       }
     },
     setShellColor: function (e) {
       W.colorIdx = e, U.poseWithColor(e)
     },
-    api_checkBalance: ki,
-    checkUpgrade: Si,
+    api_checkBalance: Bi,
+    checkUpgrade: Ti,
     api_buy: function (e, t, i) {
-      Ni({
+      Li({
         cmd: "buy",
         firebaseId: W.firebaseId,
         itemId: e.id,
@@ -55002,7 +55300,7 @@ var extern = function () {
               var r = V.findItemById(e.itemId);
               W.addToInventory(r, !0)
             }
-            W.currentBalance = e.currentBalance, $a(.5), t();
+            W.currentBalance = e.currentBalance, Ja(.5), t();
             break;
           case "INSUFFICIENT_FUNDS":
             vueApp.needMoreEggsPopupCall();
@@ -55024,21 +55322,21 @@ var extern = function () {
       }))
     },
     api_redeem: function (e, t, i) {
-      Ni({
+      Li({
         cmd: "redeem",
         firebaseId: W.firebaseId,
         code: e
       }, (function (e) {
         switch (console.log("Redeem Code response: " + e.result), e.result) {
           case "SUCCESS":
-            e.eggs_given || (e.eggs_given = 0), e.item_ids || (e.item_ids = []), e.eggs_given && e.eggs_given > 0 && ki();
+            e.eggs_given || (e.eggs_given = 0), e.item_ids || (e.item_ids = []), e.eggs_given && e.eggs_given > 0 && Bi();
             var r = [];
             if (e.item_ids)
               for (var n = 0; n < e.item_ids.length; n++) {
                 var o = V.findItemById(e.item_ids[n]);
                 W.addToInventory(o), r.push(o)
               }
-            $a(.5), t(e.eggs_given, r);
+            Ja(.5), t(e.eggs_given, r);
             break;
           case "PLAYER_NOT_FOUND":
             vueApp.showGenericPopup("p_redeem_error_no_player_title", "p_redeem_error_no_player_content", "ok");
@@ -55060,22 +55358,22 @@ var extern = function () {
         console.log("there be an error"), i()
       }))
     },
-    saveEquipment: jo,
-    buyGoldenChicken: _s,
+    saveEquipment: Wo,
+    buyGoldenChicken: ms,
     startChickenNugget: function () {
       ! function (e, t) {
-        Ni({
+        Li({
           cmd: "token",
           firebaseId: W.firebaseId
         }, e, t)
       }((function (e) {
-        console.log("token: " + JSON.stringify(e.token)), z = !0, G = e.token, Fi(Pi), console.log("startChickenNugget succcess")
+        console.log("token: " + JSON.stringify(e.token)), z = !0, G = e.token, wi(xi), console.log("startChickenNugget succcess")
       }), (function (e) {
         console.log("error getting token: " + JSON.stringify(e)), vueApp.hideNuggetPopup(), vueApp.showGenericPopup("uh_oh", "purchase_disabled", "ok"), console.log("startChickenNugget fail")
       }))
     },
     api_feedback: function (t, i, n) {
-      for (var o = e.getGlInfo(), a = e.getCaps(), s = [], l = 0; l < Ne.length; l++) s.push([W.pickedWeapons[l][0].id, W.pickedWeapons[l][1].id]);
+      for (var o = e.getGlInfo(), a = e.getCaps(), s = [], l = 0; l < Be.length; l++) s.push([W.pickedWeapons[l][0].id, W.pickedWeapons[l][1].id]);
       var h = "";
       try {
         h = JSON.stringify({
@@ -55085,7 +55383,7 @@ var extern = function () {
       } catch (e) {
         console.log(e)
       }
-      Ni({
+      Li({
         cmd: "feedback",
         feedbackType: t,
         gameVersion: version,
@@ -55099,15 +55397,15 @@ var extern = function () {
         session: W.session || null,
         ping: m > 0 ? Math.floor(f / m) : null,
         highestPing: ae || null,
-        fps: pr > 0 ? Math.ceil(dr / pr) : null,
+        fps: hr > 0 ? Math.ceil(cr / hr) : null,
         gameType: c || null,
         privateGame: null,
-        localKills: vr || 0,
-        localDeaths: yr || 0,
-        localStreak: br || 0,
+        localKills: mr || 0,
+        localDeaths: _r || 0,
+        localStreak: gr || 0,
         url: parsedUrl.root,
         referrer: document.referrer,
-        gameCode: Fr || null,
+        gameCode: wr || null,
         screenSize: screen.width + "x" + screen.height,
         colorDepth: screen.colorDepth,
         pixelDepth: screen.pixelDepth,
@@ -55148,55 +55446,55 @@ var extern = function () {
         console.log(e)
       }))
     },
-    releaseKeys: Kn,
-    captureKeys: Xn,
+    releaseKeys: Xn,
+    captureKeys: Yn,
     respawn: function () {
-      return H ? (Cr.playing = !0, void canvas.requestPointerLock()) : (console.log("Respawn pressed - respawnTime: " + qi), qi < 0 ? (Xo.clearAll(), Ko.clearAll(), B.autoDetail && ko(), function () {
-        if (xe || !0 === W.hideAds) return !1;
-        if (ce) return qr ? (qr = !1, !0) : (setTimeout(() => qr = !0, 5e3), !1);
+      return H ? (Sr.playing = !0, void canvas.requestPointerLock()) : (console.log("Respawn pressed - respawnTime: " + Ki), Ki < 0 ? (Yo.clearAll(), Xo.clearAll(), B.autoDetail && No(), function () {
+        if (ye) return !1;
+        if (ce) return Kr ? (Kr = !1, !0) : (setTimeout(() => Kr = !0, 5e3), !1);
         let e = 24e4;
-        _e && (e = 12e4);
+        pokiActive && (e = 12e4);
         const t = getStoredNumber("lastPreRoll", Date.now()) + e;
-        if (!(p > 1 && yr > 1 && Date.now() > t)) return;
+        if (!(p > 1 && _r > 1 && Date.now() > t)) return;
         return !0
-      }() ? Fi(Xr) : $r()) : void 0)
+      }() ? wi(Wr) : Zr()) : void 0)
     },
     leaveGame: function (t) {
       if (e && e.stopRenderLoop(), l = 0, S = 0, k) {
-        if (Cr && (W.kills += vr, W.deaths += yr, W.streak = Math.max(br, W.streak)), Xo.clearAll(), Ko.clearAll(), fa(Tr), vueApp.musicPause(), ws.close(We), ws = null, Kn(), document.exitPointerLock(), n > 0 && (va(n, ti[d].name), Cr && vr > 0)) {
-          var i = Math.floor(vr / Math.max(vr + yr, 1) * 100);
-          ga("send", "event", "player stats", "kill ratio", hi[Cr.charClass].name, i), ga("send", "event", "player stats", "best kill streak", hi[Cr.charClass].name, br)
+        if (Sr && (W.kills += mr, W.deaths += _r, W.streak = Math.max(gr, W.streak)), Yo.clearAll(), Xo.clearAll(), da(yr), vueApp.musicPause(), ws.close(Ge), ws = null, Xn(), document.exitPointerLock(), n > 0 && (ma(n, Jt[d].name), Sr && mr > 0)) {
+          var i = Math.floor(mr / Math.max(mr + _r, 1) * 100);
+          ga("send", "event", "player stats", "kills", si[Sr.charClass].name, mr), ga("send", "event", "player stats", "deaths", si[Sr.charClass].name, _r), ga("send", "event", "player stats", "kill ratio", si[Sr.charClass].name, i), ga("send", "event", "player stats", "best kill streak", si[Sr.charClass].name, gr)
         }
-        Pr.dispose(), k = !1, ms(), Ha(), U = new Ga(t), rs()
+        xr.dispose(), k = !1, fs(), Ua(), U = new Va(t), is()
       } else vueApp.switchToHomeUi()
     },
     openEquipInGame: function () {
       e.stopRenderLoop(), U.startRendering()
     },
     closeEquipInGame: function () {
-      e.stopRenderLoop(), En(), Cr.changeCharacter(W.classIdx, W.getPrimaryWeapon(), W.getSecondaryWeapon(), W.colorIdx, W.hatItem, W.stampItem, W.grenadeItem, 0, 0), er && b.focus()
+      e.stopRenderLoop(), bn(), Sr.changeCharacter(W.classIdx, W.getPrimaryWeapon(), W.getSecondaryWeapon(), W.colorIdx, W.hatItem, W.stampItem, W.grenadeItem, 0, 0), qi && b.focus()
     },
     buyProductForMoney: function (e, t) {
-      gs(e, t), me = e
+      _s(e, t), me = e
     },
     openUrlAndGiveReward: function () {
-      window.open(ie.openUrl, "_blank", "width=800,height=600"), ie.wasUrlOpened = !0, za()
+      window.open(ie.openUrl, "_blank", "width=800,height=600"), ie.wasUrlOpened = !0, ka()
     },
     clickedHouseAdSmall: function (e) {
       ga("send", "event", {
         eventCategory: "House banner ad",
         eventAction: "click",
         eventLabel: e.label
-      }), Da(e)
+      }), Ra(e)
     },
     clickedHouseAdBig: function (e) {
       ga("send", "event", {
         eventCategory: "Big ad",
         eventAction: "click",
         eventLabel: e.label
-      }), Da(e)
+      }), Ra(e)
     },
-    clickedHouseLink: Da,
+    clickedHouseLink: Ra,
     doConsent: function () {
       ga("send", "event", "privacy", "age gate", "agree"), O = {
         ofAge: !0,
@@ -55213,7 +55511,7 @@ var extern = function () {
       O.targetedAds = e, googletag.consented = e, ga("send", "event", "privacy", "targetedAds", e ? "yes" : "no"), localStore.setItem("consent", JSON.stringify(O))
     },
     settingsMenuOpened: function () {
-      k && 1 == B.enableChat && eo()
+      k && 1 == B.enableChat && $n()
     },
     copyFriendCode: function (e) {
       e.select(),
@@ -55221,12 +55519,12 @@ var extern = function () {
           let e = vueData.gameTypes.find(({
               value: e
             }) => e === c),
-            t = E === ut ? "Public" : E === pt || E == dt ? "Private" : null,
+            t = E === ct ? "Public" : E === ut || E == ht ? "Private" : null,
             i = vueData.googleAnalytics,
             r = [{
               eventCategory: i.cat.play,
               eventAction: i.action.shareGameCopy,
-              eventLabel: "Map - " + Ar.name
+              eventLabel: "Map - " + Er.name
             }, {
               eventCategory: i.cat.play,
               eventAction: i.action.shareGameCopy,
@@ -55240,7 +55538,7 @@ var extern = function () {
               eventAction: i.action.shareGameCopy,
               eventLabel: "Play type - " + t
             }];
-          _a(r)
+          fa(r)
         }();
       try {
         document.execCommand("copy")
@@ -55251,37 +55549,37 @@ var extern = function () {
     switchTeam: function () {
       if (de) {
         console.log("Team switch requested");
-        var e = Hi.getBuffer();
-        e.packInt8(ft), e.send(ws)
+        var e = Ui.getBuffer();
+        e.packInt8(dt), e.send(ws)
       }
     },
     onChatKeyDown: function (e) {
       var t = (e = e || window.event).key;
-      switch (b.value = Qo(b.value, 280), t) {
+      switch (b.value = Ko(b.value, 280), t) {
         case "Enter":
           var i = b.value.trim();
           if ("" != i && i.indexOf("<") < 0) {
-            var r = Hi.getBuffer();
-            r.packInt8(Je), r.packString(i), r.send(ws), to(i, Cr), Cr.chatLineCap--, 1 === ++mr && ga("send", "event", "game", "stats", "chat", mr)
+            var r = Ui.getBuffer();
+            r.packInt8(Ze), r.packString(i), r.send(ws), eo(i, Sr), Sr.chatLineCap--, 1 === ++dr && ga("send", "event", "game", "stats", "chat", dr)
           }
           case "Tab":
-            eo(), e.preventDefault(), e.stopPropagation(), Xn()
+            $n(), e.preventDefault(), e.stopPropagation(), Yn()
       }
     },
     selectGameType: function (e) {
       c = e, localStore.setItem("gameType", e)
     },
-    inviteFriends: so,
+    inviteFriends: ao,
     hasHouseLink: function (e) {
       return e.link || e.linksToTaggedItems || e.linksToItemId || e.linksToNugget || e.linksToGoldenChicken
     },
     enterSpectatorMode: function () {
-      Tn || (Tn = !0, setTimeout(() => Tn = !1, 1e3), qi < 0 && (tr = !1, lr = !0, r.lockedTarget = null, canvas.requestPointerLock(), Cr.yaw = Math.radRange(r.rotation.y), Cr.pitch = Math.radRange(r.rotation.x), hr = Xo.set((function () {
-        var e = Hi.getBuffer();
-        e.packInt8(Ct), e.send(Cr.ws)
-      }), 6e4), On()))
+      yn || (yn = !0, setTimeout(() => yn = !1, 1e3), Ki < 0 && (Ji = !1, or = !0, r.lockedTarget = null, canvas.requestPointerLock(), Sr.yaw = Math.radRange(r.rotation.y), Sr.pitch = Math.radRange(r.rotation.x), sr = Yo.set((function () {
+        var e = Ui.getBuffer();
+        e.packInt8(At), e.send(Sr.ws)
+      }), 6e4), Mn()))
     },
-    fixStringWidth: Qo,
+    fixStringWidth: Ko,
     clickedWebFeedItem: function (e) {
       function t(e) {
         ga("send", "event", "newsItem", "clicked", e)
@@ -55290,14 +55588,13 @@ var extern = function () {
         let i = V.findItemById(parseInt(e.linksToItemId, 10));
         return vueApp.showItemOnEquipScreen(i), void t("item=" + i.name)
       }
-      return "linksToTaggedItems" in e ? (se = e.linksToTaggedItems, Do(), void t("tagged=" + e.linksToTaggedItems)) : "linksToChangeLog" in e ? (vueApp.showChangelogPopup(), void t("sschangelog")) : "link" in e ? (window.open(e.link, "_window"), void t(e.link)) : "linksToGoldenChicken" in e ? (_s(), void t("goldenChicken")) : ("linksToNugget" in e && (le = !0, wo(), t("nugget")), "linksToEggStoreItem" in e ? (vueApp.showPopupEggStoreSingle(e.linksToEggStoreItem), void t("skuItem=" + e.linksToEggStoreItem)) : void("linksToVipStore" in e && (vueApp.showSubStorePopup(), t("skuItem=" + e.linksToVipStore))))
+      return "linksToTaggedItems" in e ? (se = e.linksToTaggedItems, Io(), void t("tagged=" + e.linksToTaggedItems)) : "linksToChangeLog" in e ? (vueApp.showChangelogPopup(), void t("sschangelog")) : "link" in e ? (window.open(e.link, "_window"), void t(e.link)) : "linksToGoldenChicken" in e ? (ms(), void t("goldenChicken")) : ("linksToNugget" in e && (le = !0, Do(), t("nugget")), "linksToEggStoreItem" in e ? (vueApp.showPopupEggStoreSingle(e.linksToEggStoreItem), void t("skuItem=" + e.linksToEggStoreItem)) : void("linksToVipStore" in e && (vueApp.showSubStorePopup(), t("skuItem=" + e.linksToVipStore))))
     },
-    isPokiSDK: () => _e,
     pokiRewardedBreak: (e, t) => {
-      ge && _e && (cs(0), PokiSDK.rewardedBreak().then(() => {
-        ts(), e && e(Gt), cs(), console.log("POKI Reward given")
+      pokiActive && (ls(0), PokiSDK.rewardedBreak().then(() => {
+        es(), e && e(Ut.video), ls(), console.log("POKI Reward given")
       }).catch(e => {
-        console.log("Reward failed. ", e), t && t(), cs()
+        console.log("Reward failed. ", e), t && t(), ls()
       }))
     },
     api_inGameReward: function (e, t, i) {
@@ -55305,7 +55602,7 @@ var extern = function () {
         cmd: "inGameReward",
         firebaseId: W.firebaseId
       };
-      vueApp.showSpinner(), Ni(r, r => {
+      vueApp.showSpinner(), Li(r, r => {
         switch (console.log("In Game reward response: " + r.result), vueApp.hideSpinner(), r.result) {
           case "SUCCESS":
           case "SUCCESS_FIRST":
@@ -55319,44 +55616,62 @@ var extern = function () {
         }
       }, t)
     },
-    pokiInitialized: () => ge,
-    discordReward: function () {
-      if (Pe >= 1) return void localStore.setItem("discordRewarded", !0);
-      Pe++, vueApp.showSpinner();
-      const e = {};
-      e.tag = Ht, Vi(e, (function (e) {
-        if (vueApp.hideSpinner(), e.error) console.log("Discord reward error: " + JSON.stringify(e.error));
-        else switch (console.log("Discord reward response: " + e.result), e.result) {
+    socialReward: function (e) {
+      const t = e + "Rewarded";
+      if (Te[t] >= 1) return void localStore.setItem(t, !0);
+      Te[t]++, vueApp.showSpinner();
+      const i = {};
+      i.tag = Ut[e], Fi(i, (function (e) {
+        if (vueApp.hideSpinner(), e.error) console.log("Social media item reward error: " + JSON.stringify(e.error));
+        else switch (console.log("Social media item reward response: " + e.result), e.result) {
           case "SUCCESS":
-            localStore.setItem("discordRewarded", !0);
-            var t = 0;
-            hasValue(e.eggsGiven) && e.eggsGiven > 0 && (t = e.eggsGiven, ki());
-            var i = [];
-            hasValue(e.itemIds) && e.itemIds.length > 0 && (i = V.findItemsByIds(e.itemIds)).forEach(e => {
+            localStore.setItem(t, !0);
+            var i = 0;
+            hasValue(e.eggsGiven) && e.eggsGiven > 0 && (i = e.eggsGiven, Bi());
+            var r = [];
+            hasValue(e.itemIds) && e.itemIds.length > 0 && (r = V.findItemsByIds(e.itemIds)).forEach(e => {
               W.isItemOwned(e) || (W.inventory.push(e), console.log("Reward item given, id: " + e.id))
-            }), vueApp.showGiveStuffPopup("reward_title", t, i);
+            }), vueApp.showGiveStuffPopup("reward_title", i, r);
             break;
           case "REWARD_PREV_GIVEN":
-            localStore.setItem("discordRewarded", !0), vueApp.showGenericPopup("uh_oh", "reward_already", "ok");
+            localStore.setItem(t, !0), vueApp.showGenericPopup("uh_oh", "reward_already", "ok");
             break;
           case "REWARD_EXPIRED":
-            localStore.setItem("discordRewarded", !0), vueApp.showGenericPopup("uh_oh", "reward_expired", "ok");
+            localStore.setItem(t, !0), vueApp.showGenericPopup("uh_oh", "reward_expired", "ok");
             break;
           case "REWARD_NOT_FOUND":
-            localStore.setItem("discordRewarded", !0), vueApp.showGenericPopup("uh_oh", "reward_not_found", "ok");
+            localStore.setItem(t, !1), vueApp.showGenericPopup("uh_oh", "reward_not_found", "ok");
             break;
           case "ERROR":
-            localStore.setItem("discordRewarded", !0), console.log("error: " + e.error), vueApp.showGenericPopup("uh_oh", "error", "ok");
+            localStore.getItem(t) && localStore.removeItem(t), console.log("error: " + e.error), vueApp.showGenericPopup("uh_oh", "error", "ok");
+            break;
+          case "PLAYER_NOT_FOUND":
+            console.log("error: " + e.result), localStore.getItem(t) && localStore.removeItem(t), vueApp.showGenericPopup("uh_oh", "error", "ok");
             break;
           default:
-            localStore.setItem("discordRewarded", !0), vueApp.showGenericPopup("uh_oh", "error", "ok")
+            localStore.getItem(t) && localStore.removeItem(t), vueApp.showGenericPopup("uh_oh", "error", "ok")
         }
       }), (function (e) {
         console.log("servicesWs Error: " + JSON.stringify(e, ["message", "arguments", "type", "name"])), vueApp.showGenericPopup("uh_oh", "generic_conn_failed", "ok"), vueApp.hideSpinner()
       }))
     },
+    getHouseAd: e => {
+      if (!Array.isArray(y[e])) return !1;
+      const t = [],
+        i = y[e].filter(e => e.active),
+        r = i.filter(e => e.label.includes("VIP")).length;
+      let n = Math.round(.5 * i.length / r);
+      isFinite(n) || (n = 1);
+      const o = i.map(e => {
+        const t = e.label.toUpperCase();
+        return e.priority = 1, t.includes("VIP") && (e.priority = n), e
+      });
+      for (let e = 0; e < o.length; ++e)
+        for (let i = 0; i < o[e].priority; ++i) t.push(o[e]);
+      return t[Math.floor(Math.random() * t.length)]
+    },
     get isGameReady() {
-      return Oo()
+      return Ro()
     },
     get inGame() {
       return k
@@ -55368,15 +55683,18 @@ var extern = function () {
       return y.specialItemsTag
     },
     get getPwaEvent() {
-      return be
+      return ve
     },
     get account() {
       return W
     },
-    get adsblocked() {
-      return xe
+    get productBlockAds() {
+      return ye
     },
-    playAdInPlayPreroll: Li,
+    get adBlocker() {
+      return N
+    },
+    playAdInPlayPreroll: Ii,
     sendTestNotification: function (e) {
       OneSignal.sendSelfNotification("Test Notification", "This is a test notification message.", "http://localshelldev.bluewizard.com", "https://onesignal.com/images/notification_logo.png", {
         rewardTag: e,
@@ -55396,7 +55714,7 @@ var extern = function () {
       }])
     },
     testGameUI: function () {
-      vueApp.hideGameMenu(), document.getElementById("deathBox").style.display = "none", document.getElementById("weaponBox").style.display = "block", document.getElementById("healthContainer").style.display = "block", document.getElementById("hardBoiledContainer").style.display = "block", document.getElementById("killTicker").style.display = "block", document.getElementById("playerList").style.display = "block", er && b.focus(), xn(), ar.show(), document.getElementById("gameAdContainer").style.display = "none"
+      vueApp.hideGameMenu(), document.getElementById("deathBox").style.display = "none", document.getElementById("weaponBox").style.display = "block", document.getElementById("healthContainer").style.display = "block", document.getElementById("hardBoiledContainer").style.display = "block", document.getElementById("killTicker").style.display = "block", document.getElementById("playerList").style.display = "block", qi && b.focus(), vn(), rr.show(), document.getElementById("gameAdContainer").style.display = "none"
     }
   }
 }();
