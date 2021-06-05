@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Social Medieval Ages: Cannon Simulator | WSQUAREPA</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            canvas {
+                background: #eee;
+                display: block;
+                margin: 0 auto;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <canvas id="myCanvas"></canvas>
+        <img id="cannon" href="cannon.png" style="position: absolute;top:0px;right: 0px;">
+
+        <script>
+            var canvas = document.getElementById("myCanvas");
+
+            canvas.height = window.innerHeight
+            canvas.width = window.innerWidth
+
+            var ctx = canvas.getContext("2d");
+            var ballRadius = 10;
+            var x = 30;
+            var y = canvas.height - 30;
+            var dx = 0;
+            var dy = -0;
+            var launched = false
+            var debug = false
+            const image = new Image(60, 45);
+            image.src = 'cannon.png';
+
+            var lastframeupdate = Date.now()
+            var fps = 0
+
+            var lagmachine = {
+                enabled: false,
+                tpmsrate: 1,
+                fps: 10,
+                _nextframetime: Date.now()
+            }
+
+            var mouse = {
+                x: 0,
+                y: 0
+            }
+
+            var launchmousepos = {
+                x: 0,
+                y: 0
+            }
+
+            var markers = []
+
+            function respawn() {
+                x = 30
+                y = canvas.clientHeight - 30
+                dy = 0
+                dx = 0
+                launched = false
+                clear()
+            }
+
+            function drawBall() {
+                ctx.beginPath();
+                ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+                ctx.fillStyle = "#000000"; //#0095DD
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            function clear() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+
+            function debugDraw() {
+                ctx.beginPath()
+                ctx.strokeStyle = "#FF0000"
+                ctx.moveTo(x, y)
+                ctx.lineTo(x, canvas.clientHeight)
+                ctx.moveTo(x, y)
+                ctx.lineTo(x, 0)
+                ctx.moveTo(x, y)
+                ctx.lineTo(0, y)
+                ctx.moveTo(x, y)
+                ctx.lineTo(canvas.clientWidth, y)
+                ctx.stroke()
+
+                ctx.beginPath()
+                ctx.strokeStyle = "#0000FF"
+                ctx.moveTo(x, y)
+                ctx.lineTo(x + dx * 10, y + dy * 10)
+                ctx.stroke()
+            }
+            
+            function drawframe() {
+                clear()
+                if (debug) {
+                    debugDraw()
+                }
+
+                // ctx.beginPath()
+                // ctx.strokeStyle = "#000000"
+                // ctx.moveTo(x, y)
+                // if (!launched) {
+                //     ctx.lineTo(mouse.x, canvas.clientHeight - mouse.y)
+                // } else {
+                //     ctx.lineTo(launchmousepos.x, launchmousepos.y)
+                // }
+                // ctx.stroke()
+
+                ctx.beginPath()
+                ctx.strokeStyle = "#0000FF"
+                for (var i = 0; i < markers.length; i++) {
+                    ctx.moveTo(markers[i].x + 5, markers[i].y + 5)
+                    ctx.lineTo(markers[i].x - 5, markers[i].y - 5)
+                    ctx.moveTo(markers[i].x + 5, markers[i].y - 5)
+                    ctx.lineTo(markers[i].x - 5, markers[i].y + 5)
+                }
+                ctx.stroke()
+
+                ctx.beginPath()
+                ctx.strokeStyle = "#FF0000"
+                ctx.moveTo(launchmousepos.x + 5, launchmousepos.y + 5)
+                ctx.lineTo(launchmousepos.x - 5, launchmousepos.y - 5)
+                ctx.moveTo(launchmousepos.x + 5, launchmousepos.y - 5)
+                ctx.lineTo(launchmousepos.x - 5, launchmousepos.y + 5)
+                ctx.stroke()
+
+                drawBall()
+                
+                const mstimediff = (Date.now() - lastframeupdate)
+                fps = (1000 / mstimediff).toFixed(0)
+                ctx.font = "30px Arial";
+                ctx.fillText(fps + " FPS", 10, 30)
+                lastframeupdate = Date.now()
+            }
+
+            function draw() {
+                if (lagmachine.enabled) {
+                    // lagmachine._framecount++
+                    // const tpms = 10 * lagmachine.tpmsrate
+
+                    // lagmachine._maxframecount = 60
+                    // if (lagmachine._framecount >= lagmachine._maxframecount) {
+                    //     drawframe()
+                    //     lagmachine._framecount = 0
+                    // }
+
+                    if (Date.now() > lagmachine._nextframetime) {
+                        drawframe()
+                        lagmachine._nextframetime = Date.now() + 1000 / lagmachine.fps
+                    }
+                } else {
+                    drawframe()
+                }
+
+                if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+                    dx = -dx; //Supposed to be -dx to bounce
+                    respawn()
+                }
+
+                if ((y + dy > canvas.height - ballRadius) || y + dy < ballRadius) {
+                    dy = -(dy / 5) - 0.1; //Supposed to be -dy to bounce
+
+                }
+
+                if (dx != 0) {
+                    if (dx < 0) {
+                        dx += 0.01
+                    } else {
+                        dx -= 0.01
+                    }
+                }
+
+                if (dy != 0) {
+                    if (dy < 0) {
+                        dy += 0.01
+                    } else {
+                        dy -= 0.01
+                    }
+                }
+
+                //Gravity
+                if (y + ballRadius < canvas.clientHeight) {
+                    dy += 0.1
+                }
+
+                x += dx;
+                y += dy;
+
+                if (y > canvas.clientHeight) {
+                    respawn()
+                }
+            }
+
+            window.addEventListener("keydown", (e) => {
+                if (e.key == "ArrowUp") {
+                    dy--
+                } else if (e.key == "ArrowDown") {
+                    dy++
+                } else if (e.key == "ArrowLeft") {
+                    dx--
+                } else if (e.key == "ArrowRight") {
+                    dx++
+                }
+
+                if (e.key == "l" && !launched) {
+                    dx = (mouse.x / 100)
+                    dy = -(mouse.y / 100) * 1.5
+                    launchmousepos.x = mouse.x
+                    launchmousepos.y = canvas.clientHeight - mouse.y
+                    launched = true
+                } else if (e.key == "p") {
+                    dx = 0
+                    dy = 0
+                } else if (e.key == "o") {
+                    dy = -((y / 100) - ((canvas.clientHeight - mouse.y) / 100))
+                } else if (e.key == "c") {
+                    markers = []
+                } else if (e.key == "r") {
+                    respawn()
+                } else if (e.key == "d") {
+                    debug = !debug
+                } else if (e.key == "u") {
+                    lagmachine.enabled = !lagmachine.enabled
+                } else if (e.key == "f") {
+                    lagmachine.fps = parseInt(prompt("What LAGMACHINE FPS would you like? (To turn on lag machine, press u)", "30"))
+                    if (isNaN(lagmachine.fps)) {
+                        lagmachine.fps = 30
+                    }
+                }
+            })
+
+            window.addEventListener("mousemove", (e) => {
+                mouse.x = e.clientX
+                mouse.y = canvas.height - (e.clientY)
+                for (var i = 0; i < markers.length; i++) {
+                    if ((20 >= mouse.x - markers[i].x && -20 <= mouse.x - markers[i].x) && (20 >= mouse.y - (
+                                canvas.clientHeight - markers[i].y) &&
+                            -20 <= mouse.y - (canvas.clientHeight - markers[i].y))) {
+                        mouse.x = markers[i].x
+                        mouse.y = canvas.clientHeight - markers[i].y
+                    }
+                }
+            })
+
+            window.addEventListener("mousedown", (e) => {
+                markers.push({
+                    x: e.clientX,
+                    y: e.clientY
+                })
+            })
+
+            setInterval(draw, (lagmachine.enabled ? 10 * lagmachine.tpmsrate : 10))
+
+        </script>
+
+    </body>
+
+</html>
