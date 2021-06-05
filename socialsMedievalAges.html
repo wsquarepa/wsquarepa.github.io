@@ -239,15 +239,11 @@
 
                     //Gravity
                     if (y + ballRadius < canvas.clientHeight) {
-                        dy += 0.05
+                        dy += 0.04
                     }
 
                     x += dx;
                     y += dy;
-
-                    if (y > canvas.clientHeight) {
-                        respawn()
-                    }
                 }
             }
 
@@ -262,12 +258,11 @@
                     dx++
                 }
 
-                if (e.key == "l" && !launched) {
-                    dx = (mouse.x / 100)
-                    dy = -(mouse.y / 100)
-                    launchmousepos.x = mouse.x
-                    launchmousepos.y = canvas.clientHeight - mouse.y
-                    launched = true
+                if (e.key == "m") {
+                    markers.push({
+                        x: mouse.x,
+                        y: canvas.clientHeight - mouse.y
+                    })
                 } else if (e.key == "p") {
                     dx = 0
                     dy = 0
@@ -304,10 +299,13 @@
             })
 
             window.addEventListener("mousedown", (e) => {
-                markers.push({
-                    x: e.clientX,
-                    y: e.clientY
-                })
+                if (!launched) {
+                    dx = (mouse.x / 100)
+                    dy = -(mouse.y / 100)
+                    launchmousepos.x = mouse.x
+                    launchmousepos.y = canvas.clientHeight - mouse.y
+                    launched = true
+                }
             })
 
             setInterval(draw, (lagmachine.enabled ? 10 * lagmachine.tpmsrate : 10))
