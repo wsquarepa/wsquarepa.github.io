@@ -67,11 +67,11 @@
                 ctx.translate(ox, oy);
                 ctx.rotate(Math.atan2(looky - oy, lookx - ox));
                 ctx.drawImage(img, -width / 2, -height / 2, width, height);
-                ctx.setTransform(1, 0, 0, 1, 0, - 0);
+                ctx.setTransform(1, 0, 0, 1, 0, -0);
 
                 if (!launched) {
                     x = ox,
-                    y = oy
+                        y = oy
                 }
 
                 ctx.strokeStyle = "black";
@@ -198,7 +198,7 @@
                 ctx.font = "15px Arial";
                 ctx.fillText(fps + " FPS", 10, 15)
                 lastframeupdate = Date.now()
-                ctx.fillText("X: " + mouse.x + " Y: " + (canvas.clientHeight - mouse.y ), 10, 35)
+                ctx.fillText("X: " + mouse.x + " Y: " + (canvas.clientHeight - mouse.y), 10, 35)
                 ctx.fillText("GRAY LINE IS NOT TRAJECTORY", 10, 55)
             }
 
@@ -281,6 +281,14 @@
                         "What LAGMACHINE FPS would you like? (To turn on lag machine, press u)", "30"))
                     if (isNaN(lagmachine.fps)) {
                         lagmachine.fps = 30
+                    }
+                } else if (e.key == "Space") {
+                    if (!launched) {
+                        dx = (mouse.x / 100)
+                        dy = -(mouse.y / 100)
+                        launchmousepos.x = mouse.x
+                        launchmousepos.y = canvas.clientHeight - mouse.y
+                        launched = true
                     }
                 }
             })
