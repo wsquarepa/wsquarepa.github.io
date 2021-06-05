@@ -187,9 +187,11 @@
                 ctx.lineTo(launchmousepos.x - 5, launchmousepos.y + 5)
                 ctx.stroke()
 
-                ctx.beginPath()
-                canvas_arrow(x, y, x + (dx * 10), y + (dy * 10))
-                ctx.stroke()
+                if (launched) {
+                    ctx.beginPath()
+                    canvas_arrow(x, y, x + (dx * 10), y + (dy * 10))
+                    ctx.stroke()
+                }
 
                 const mstimediff = (Date.now() - lastframeupdate)
                 fps = (1000 / mstimediff).toFixed(0)
@@ -212,13 +214,11 @@
 
                 if (launched) {
                     if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
-                        dx = -dx;
                         respawn()
                     }
 
                     if ((y + dy > canvas.height - ballRadius) || y + dy < ballRadius) {
-                        dy = -(dy / 5) - 0.1;
-
+                        respawn()
                     }
 
                     if (dx != 0) {
