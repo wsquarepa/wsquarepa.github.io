@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Social Medieval Ages: Cannon Simulator | WSQUAREPA</title>
+        <title>WSQUAREPA | Social Medieval Ages: Crossbow Simulator</title>
         <style>
             * {
                 padding: 0;
@@ -14,6 +14,7 @@
                 background: #eee;
                 display: block;
                 margin: 0 auto;
+                cursor: none;
             }
 
         </style>
@@ -32,8 +33,8 @@
 
             var ctx = canvas.getContext("2d");
             var ballRadius = 10;
-            var x = 30;
-            var y = canvas.height - 30;
+            var x = 90;
+            var y = 835;
             var dx = 0;
             var dy = -0;
             var launched = false
@@ -47,7 +48,7 @@
             var lagmachine = {
                 enabled: false,
                 tpmsrate: 1,
-                fps: 10,
+                fps: 30,
                 _nextframetime: Date.now()
             }
 
@@ -63,6 +64,37 @@
 
             var markers = []
 
+            function drawImageLookat(img, ox, oy, lookx, looky, width, height) {
+                ctx.translate(ox, oy); // set scale and origin
+                ctx.rotate(Math.atan2(looky - oy, lookx - ox)); // set angle
+                ctx.drawImage(img, -width / 2, -height / 2, width, height); // draw image
+                ctx.setTransform(1, 0, 0, 1, 0, -
+                0); // restore default not needed if you use setTransform for other rendering operations
+
+                if (!launched) {
+                    x = ox,
+                    y = oy
+                }
+
+                ctx.strokeStyle = "black";
+                ctx.beginPath();
+                ctx.globalAlpha = 0.1;
+                ctx.moveTo(ox, oy);
+                ctx.lineTo(lookx, looky);
+                ctx.stroke();
+                ctx.globalAlpha = 1;
+            }
+
+            function drawCrossHair(x, y, color) {
+                ctx.strokeStyle = color;
+                ctx.beginPath();
+                ctx.moveTo(x - 10, y);
+                ctx.lineTo(x + 10, y);
+                ctx.moveTo(x, y - 10);
+                ctx.lineTo(x, y + 10);
+                ctx.stroke();
+            }
+
             function respawn() {
                 x = 30
                 y = canvas.clientHeight - 30
@@ -72,12 +104,26 @@
                 clear()
             }
 
-            function drawBall() {
+            function drawBall(x, y) {
                 ctx.beginPath();
                 ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
                 ctx.fillStyle = "#000000"; //#0095DD
                 ctx.fill();
                 ctx.closePath();
+            }
+
+            function canvas_arrow(fromx, fromy, tox, toy) {
+                var headlen = 10; // length of head in pixels
+                var dx = tox - fromx;
+                var dy = toy - fromy;
+                var angle = Math.atan2(dy, dx);
+                ctx.moveTo(fromx, fromy);
+                ctx.lineTo(tox, toy);
+                ctx.lineTo(tox - headlen * Math.cos(angle - Math.PI / 6), toy - headlen * Math.sin(angle - Math.PI /
+                    6));
+                ctx.moveTo(tox, toy);
+                ctx.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI /
+                    6));
             }
 
             function clear() {
@@ -103,12 +149,27 @@
                 ctx.lineTo(x + dx * 10, y + dy * 10)
                 ctx.stroke()
             }
-            
+
             function drawframe() {
                 clear()
                 if (debug) {
                     debugDraw()
                 }
+
+                var image = new Image(10, 10)
+                image.src = "crossbow.png"
+                image.width = 10
+                image.height = 19
+
+                if (launched) {
+                    drawImageLookat(image, 60, canvas.clientHeight - (image.height * 3), launchmousepos.x,
+                        launchmousepos.y, 120, 120)
+                } else {
+                    drawImageLookat(image, 60, canvas.clientHeight - (image.height * 3), mouse.x, canvas.clientHeight -
+                        mouse.y, 120, 120)
+                }
+
+                drawCrossHair(mouse.x, canvas.clientHeight - mouse.y, "red")
 
                 // ctx.beginPath()
                 // ctx.strokeStyle = "#000000"
@@ -138,13 +199,18 @@
                 ctx.lineTo(launchmousepos.x - 5, launchmousepos.y + 5)
                 ctx.stroke()
 
-                drawBall()
-                
+                // drawBall(x, y)
+                ctx.beginPath()
+                canvas_arrow(x, y, x + (dx * 10), y + (dy * 10))
+                ctx.stroke()
+
                 const mstimediff = (Date.now() - lastframeupdate)
                 fps = (1000 / mstimediff).toFixed(0)
-                ctx.font = "30px Arial";
-                ctx.fillText(fps + " FPS", 10, 30)
+                ctx.font = "15px Arial";
+                ctx.fillText(fps + " FPS", 10, 15)
                 lastframeupdate = Date.now()
+                ctx.fillText("X: " + mouse.x + " Y: " + (canvas.clientHeight - mouse.y ), 10, 35)
+                ctx.fillText("WARNING: GRAY LINE IS NOT TRAJECTORY", 10, 55)
             }
 
             function draw() {
@@ -166,42 +232,44 @@
                     drawframe()
                 }
 
-                if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
-                    dx = -dx; //Supposed to be -dx to bounce
-                    respawn()
-                }
-
-                if ((y + dy > canvas.height - ballRadius) || y + dy < ballRadius) {
-                    dy = -(dy / 5) - 0.1; //Supposed to be -dy to bounce
-
-                }
-
-                if (dx != 0) {
-                    if (dx < 0) {
-                        dx += 0.01
-                    } else {
-                        dx -= 0.01
+                if (launched) {
+                    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+                        dx = -dx; //Supposed to be -dx to bounce
+                        respawn()
                     }
-                }
 
-                if (dy != 0) {
-                    if (dy < 0) {
-                        dy += 0.01
-                    } else {
-                        dy -= 0.01
+                    if ((y + dy > canvas.height - ballRadius) || y + dy < ballRadius) {
+                        dy = -(dy / 5) - 0.1; //Supposed to be -dy to bounce
+
                     }
-                }
 
-                //Gravity
-                if (y + ballRadius < canvas.clientHeight) {
-                    dy += 0.1
-                }
+                    if (dx != 0) {
+                        if (dx < 0) {
+                            dx += 0.01
+                        } else {
+                            dx -= 0.01
+                        }
+                    }
 
-                x += dx;
-                y += dy;
+                    if (dy != 0) {
+                        if (dy < 0) {
+                            dy += 0.01
+                        } else {
+                            dy -= 0.01
+                        }
+                    }
 
-                if (y > canvas.clientHeight) {
-                    respawn()
+                    //Gravity
+                    if (y + ballRadius < canvas.clientHeight) {
+                        dy += 0.05
+                    }
+
+                    x += dx;
+                    y += dy;
+
+                    if (y > canvas.clientHeight) {
+                        respawn()
+                    }
                 }
             }
 
@@ -218,7 +286,7 @@
 
                 if (e.key == "l" && !launched) {
                     dx = (mouse.x / 100)
-                    dy = -(mouse.y / 100) * 1.5
+                    dy = -(mouse.y / 100)
                     launchmousepos.x = mouse.x
                     launchmousepos.y = canvas.clientHeight - mouse.y
                     launched = true
@@ -236,7 +304,8 @@
                 } else if (e.key == "u") {
                     lagmachine.enabled = !lagmachine.enabled
                 } else if (e.key == "f") {
-                    lagmachine.fps = parseInt(prompt("What LAGMACHINE FPS would you like? (To turn on lag machine, press u)", "30"))
+                    lagmachine.fps = parseInt(prompt(
+                        "What LAGMACHINE FPS would you like? (To turn on lag machine, press u)", "30"))
                     if (isNaN(lagmachine.fps)) {
                         lagmachine.fps = 30
                     }
