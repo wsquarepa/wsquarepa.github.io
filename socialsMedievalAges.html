@@ -32,8 +32,8 @@
 
             var ctx = canvas.getContext("2d");
             var ballRadius = 10;
-            var x = 90;
-            var y = 835;
+            var x = 0;
+            var y = 0;
             var dx = 0;
             var dy = -0;
             var launched = false
@@ -94,8 +94,8 @@
             }
 
             function respawn() {
-                x = 30
-                y = canvas.clientHeight - 30
+                x = 0
+                y = 0
                 dy = 0
                 dx = 0
                 launched = false
@@ -249,13 +249,30 @@
 
             window.addEventListener("keydown", (e) => {
                 if (e.key == "ArrowUp") {
-                    dy--
+                    mouse.y += 5
+
+                    if (mouse.y > canvas.clientHeight) {
+                        mouse.y = canvas.clientHeight
+                    }
                 } else if (e.key == "ArrowDown") {
-                    dy++
+                    mouse.y -= 5
+                    
+                    if (mouse.y < 0) {
+                        mouse.y = 0
+                    }
                 } else if (e.key == "ArrowLeft") {
-                    dx--
+                    mouse.x -= 5
+
+
+                    if (mouse.x < 0) {
+                        mouse.x = 0
+                    }
                 } else if (e.key == "ArrowRight") {
-                    dx++
+                    mouse.x += 5
+
+                    if (mouse.x > canvas.clientWidth) {
+                        mouse.x = canvas.clientWidth
+                    }
                 }
 
                 if (e.key == "m") {
@@ -282,7 +299,7 @@
                     if (isNaN(lagmachine.fps)) {
                         lagmachine.fps = 30
                     }
-                } else if (e.key == "Space") {
+                } else if (e.key == " ") {
                     if (!launched) {
                         dx = (mouse.x / 100)
                         dy = -(mouse.y / 100)
