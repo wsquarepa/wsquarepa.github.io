@@ -23,7 +23,6 @@
     <body>
 
         <canvas id="myCanvas"></canvas>
-        <img id="cannon" href="cannon.png" style="position: absolute;top:0px;right: 0px;">
 
         <script>
             var canvas = document.getElementById("myCanvas");
@@ -65,11 +64,10 @@
             var markers = []
 
             function drawImageLookat(img, ox, oy, lookx, looky, width, height) {
-                ctx.translate(ox, oy); // set scale and origin
-                ctx.rotate(Math.atan2(looky - oy, lookx - ox)); // set angle
-                ctx.drawImage(img, -width / 2, -height / 2, width, height); // draw image
-                ctx.setTransform(1, 0, 0, 1, 0, -
-                0); // restore default not needed if you use setTransform for other rendering operations
+                ctx.translate(ox, oy);
+                ctx.rotate(Math.atan2(looky - oy, lookx - ox));
+                ctx.drawImage(img, -width / 2, -height / 2, width, height);
+                ctx.setTransform(1, 0, 0, 1, 0, - 0);
 
                 if (!launched) {
                     x = ox,
@@ -171,16 +169,6 @@
 
                 drawCrossHair(mouse.x, canvas.clientHeight - mouse.y, "red")
 
-                // ctx.beginPath()
-                // ctx.strokeStyle = "#000000"
-                // ctx.moveTo(x, y)
-                // if (!launched) {
-                //     ctx.lineTo(mouse.x, canvas.clientHeight - mouse.y)
-                // } else {
-                //     ctx.lineTo(launchmousepos.x, launchmousepos.y)
-                // }
-                // ctx.stroke()
-
                 ctx.beginPath()
                 ctx.strokeStyle = "#0000FF"
                 for (var i = 0; i < markers.length; i++) {
@@ -199,7 +187,6 @@
                 ctx.lineTo(launchmousepos.x - 5, launchmousepos.y + 5)
                 ctx.stroke()
 
-                // drawBall(x, y)
                 ctx.beginPath()
                 canvas_arrow(x, y, x + (dx * 10), y + (dy * 10))
                 ctx.stroke()
@@ -210,20 +197,11 @@
                 ctx.fillText(fps + " FPS", 10, 15)
                 lastframeupdate = Date.now()
                 ctx.fillText("X: " + mouse.x + " Y: " + (canvas.clientHeight - mouse.y ), 10, 35)
-                ctx.fillText("WARNING: GRAY LINE IS NOT TRAJECTORY", 10, 55)
+                ctx.fillText("GRAY LINE IS NOT TRAJECTORY", 10, 55)
             }
 
             function draw() {
                 if (lagmachine.enabled) {
-                    // lagmachine._framecount++
-                    // const tpms = 10 * lagmachine.tpmsrate
-
-                    // lagmachine._maxframecount = 60
-                    // if (lagmachine._framecount >= lagmachine._maxframecount) {
-                    //     drawframe()
-                    //     lagmachine._framecount = 0
-                    // }
-
                     if (Date.now() > lagmachine._nextframetime) {
                         drawframe()
                         lagmachine._nextframetime = Date.now() + 1000 / lagmachine.fps
@@ -234,12 +212,12 @@
 
                 if (launched) {
                     if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
-                        dx = -dx; //Supposed to be -dx to bounce
+                        dx = -dx;
                         respawn()
                     }
 
                     if ((y + dy > canvas.height - ballRadius) || y + dy < ballRadius) {
-                        dy = -(dy / 5) - 0.1; //Supposed to be -dy to bounce
+                        dy = -(dy / 5) - 0.1;
 
                     }
 
