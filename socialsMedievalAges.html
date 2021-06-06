@@ -69,11 +69,6 @@
                 ctx.drawImage(img, -width / 2, -height / 2, width, height);
 
                 if (!launched) {
-                    x = ox,
-                    y = oy
-                }
-
-                if (!launched) {
                     ctx.beginPath()
                     canvas_arrow(0, 0, 60, 0, "brown", "gray")
                     ctx.stroke()
@@ -303,7 +298,7 @@
                     }
                 } else if (e.key == " ") {
                     if (!launched) {
-                        dx = (mouse.x / 100) - 30
+                        dx = ((mouse.x - 30) / 100)
                         dy = -(mouse.y / 100)
                         launchmousepos.x = mouse.x
                         launchmousepos.y = canvas.clientHeight - mouse.y
