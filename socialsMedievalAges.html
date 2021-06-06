@@ -22,6 +22,28 @@
 
     <body>
 
+        <div id="help" style="position: absolute; top:50%; left: 50%; display: none; transform: translate(-50%, -50%); background-color: white;
+        border: 10px white solid; border-radius: 10px;padding:10px">
+            <center>
+                <h1>Help:</h1>
+                <ul>
+                    <li>Aim - Move mouse</li>
+                    <li>Aim Precision - Arrow keys</li>
+                    <li>Shoot - Space or click</li>
+                    <li>Open/Close debug menu - D</li>
+                    <li>Open/Close help menu - H</li>
+                    <li>Drop marker - M</li>
+                    <li>Clear markers - C</li>
+                    <li>Restart/Respawn Arrow - R</li>
+                    <hr>
+                        <b>DEBUG FUNCTIONS</b>
+                        <ul>
+                            <li>Enable/Disable LAGMACHINE with U</li>
+                            <li>Change LAGMACHINE FPS with F</li>
+                        </ul>
+                </ul>
+            </center>
+        </div>
         <canvas id="myCanvas"></canvas>
 
         <script>
@@ -368,6 +390,13 @@
                         launchmousepos.x = mouse.x
                         launchmousepos.y = canvas.clientHeight - mouse.y
                         launched = true
+                    }
+                } else if (e.key == "h") {
+                    const helpbox = document.getElementById("help")
+                    if (helpbox.style.display == "none") {
+                        helpbox.style.display = "block"
+                    } else {
+                        helpbox.style.display = "none"
                     }
                 }
             })
