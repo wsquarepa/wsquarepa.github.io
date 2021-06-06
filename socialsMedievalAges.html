@@ -38,15 +38,17 @@
             var dy = -0;
             var launched = false
             var debug = false
-            const image = new Image(60, 45);
-            image.src = 'cannon.png';
 
             var lastframeupdate = Date.now()
             var fps = 0
+            var lasttick = Date.now()
+            var tps = 0
+
+            var fpslist = []
+            var tpslist = []
 
             var lagmachine = {
                 enabled: false,
-                tpmsrate: 1,
                 fps: 30,
                 _nextframetime: Date.now()
             }
@@ -147,22 +149,22 @@
 
             function debugDraw() {
                 ctx.beginPath()
-                ctx.strokeStyle = "#FF0000"
-                ctx.moveTo(x, y)
-                ctx.lineTo(x, canvas.clientHeight)
-                ctx.moveTo(x, y)
-                ctx.lineTo(x, 0)
-                ctx.moveTo(x, y)
-                ctx.lineTo(0, y)
-                ctx.moveTo(x, y)
-                ctx.lineTo(canvas.clientWidth, y)
+                ctx.strokeStyle = "#00FF00"
+                ctx.moveTo(canvas.clientWidth, canvas.clientHeight)
+                for (var i = 0; i < fpslist.length; i++) {
+                    ctx.lineTo(canvas.clientWidth - i * 5, canvas.clientHeight - fpslist[i])
+                }
                 ctx.stroke()
 
-                ctx.beginPath()
-                ctx.strokeStyle = "#0000FF"
-                ctx.moveTo(x, y)
-                ctx.lineTo(x + dx * 10, y + dy * 10)
-                ctx.stroke()
+                ctx.font = "15px Arial";
+                ctx.fillText(fps.toFixed(0) + " FPS", 10, 15)
+                ctx.fillText(tps.toFixed(0) + " TPS", 10, 35)
+                ctx.fillText("Mouse X: " + mouse.x + " Mouse Y: " + (canvas.clientHeight - mouse.y), 10, 55)
+                ctx.fillText("Arrow X: " + x.toFixed(0) + " Arrow Y: " + y.toFixed(0), 10, 75)
+                ctx.fillText("Acceleration X: " + dx.toFixed(0) + " Acceleration Y: " + -dy.toFixed(0), 10, 95)
+                ctx.font = "10px Arial";
+                ctx.fillText("GRAY LINE IS NOT TRAJECTORY", 10, 110)
+                ctx.font = "15px Arial";
             }
 
             function drawframe() {
@@ -212,12 +214,15 @@
                 ctx.stroke()
 
                 const mstimediff = (Date.now() - lastframeupdate)
-                fps = (1000 / mstimediff).toFixed(0)
-                ctx.font = "15px Arial";
-                ctx.fillText(fps + " FPS", 10, 15)
+                var totalfps = 0
+                fps = (1000 / mstimediff)
+                fpslist.push(fps)
+                if (fpslist.length > 100) {
+                    fpslist.shift()
+                }
+                fpslist.forEach(x => totalfps += x)
+                fps = totalfps / fpslist.length
                 lastframeupdate = Date.now()
-                ctx.fillText("X: " + mouse.x + " Y: " + (canvas.clientHeight - mouse.y), 10, 35)
-                ctx.fillText("GRAY LINE IS NOT TRAJECTORY", 10, 55)
             }
 
             function draw() {
@@ -230,6 +235,10 @@
                     drawframe()
                 }
 
+                requestAnimationFrame(draw)
+            }
+
+            function tick() {
                 if (launched) {
                     if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
                         respawn()
@@ -247,6 +256,17 @@
                     x += dx;
                     y += dy;
                 }
+
+                const mstimediff = Date.now() - lasttick
+                var totaltps = 0
+                tps = (1000 / mstimediff)
+                tpslist.push(tps)
+                if (tpslist.length > 100) {
+                    tpslist.shift()
+                }
+                tpslist.forEach(x => totaltps += x)
+                tps = totaltps / tpslist.length
+                lasttick = Date.now()
             }
 
             window.addEventListener("keydown", (e) => {
@@ -295,6 +315,7 @@
                     debug = !debug
                 } else if (e.key == "u") {
                     lagmachine.enabled = !lagmachine.enabled
+                    fpslist = []
                 } else if (e.key == "f") {
                     lagmachine.fps = parseInt(prompt(
                         "What LAGMACHINE FPS would you like? (To turn on lag machine, press u)", "30"))
@@ -323,6 +344,14 @@
                         mouse.y = canvas.clientHeight - markers[i].y
                     }
                 }
+
+                if ((20 >= mouse.x - launchmousepos.x && -20 <= mouse.x - launchmousepos.x) && (20 >= mouse.y -
+                        (
+                            canvas.clientHeight - launchmousepos.y) &&
+                        -20 <= mouse.y - (canvas.clientHeight - launchmousepos.y))) {
+                    mouse.x = launchmousepos.x
+                    mouse.y = canvas.clientHeight - launchmousepos.y
+                }
             })
 
             window.addEventListener("mousedown", (e) => {
@@ -335,7 +364,8 @@
                 }
             })
 
-            setInterval(draw, (lagmachine.enabled ? 10 * lagmachine.tpmsrate : 10))
+            requestAnimationFrame(draw)
+            setInterval(tick, 10)
 
         </script>
 
