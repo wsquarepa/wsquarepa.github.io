@@ -46,6 +46,10 @@
 
             var fpslist = []
             var tpslist = []
+            var maxsavelength = {
+                fps: 100,
+                tps: 100
+            }
 
             var lagmachine = {
                 enabled: false,
@@ -148,16 +152,6 @@
             }
 
             function debugDraw() {
-                ctx.beginPath()
-                ctx.strokeStyle = "#00FF00"
-                ctx.moveTo(canvas.clientWidth, canvas.clientHeight)
-                for (var i = 0; i < fpslist.length; i++) {
-                    ctx.lineTo(canvas.clientWidth - i * 5, canvas.clientHeight - fpslist[i])
-                }
-                ctx.stroke()
-                ctx.font = "10px Arial";
-                ctx.fillText("FPS Graph", canvas.clientWidth - (fpslist.length - 1) * 5, canvas.clientHeight - 10)
-
                 ctx.font = "15px Arial";
                 ctx.fillText(fps.toFixed(0) + " FPS", 10, 15)
                 ctx.fillText(tps.toFixed(0) + " TPS", 10, 35)
@@ -167,6 +161,47 @@
                 ctx.font = "10px Arial";
                 ctx.fillText("GRAY LINE IS NOT TRAJECTORY", 10, 110)
                 ctx.font = "15px Arial";
+            }
+
+            function drawGraphs(debugonly, offonlag) {
+                if (debugonly && !debug) return
+
+                if (offonlag && !lagmachine.enabled || !offonlag) {
+                    ctx.beginPath()
+                    ctx.strokeStyle = "#00FF00"
+                    ctx.moveTo(canvas.clientWidth, canvas.clientHeight)
+                    for (var i = 0; i < fpslist.length; i++) {
+                        ctx.lineTo(canvas.clientWidth - i * 5, canvas.clientHeight - fpslist[i])
+                    }
+                    ctx.stroke()
+                    ctx.font = "10px Arial";
+                    ctx.fillText("FPS Graph", canvas.clientWidth - (maxsavelength.fps - 1) * 5, canvas.clientHeight -
+                        10)
+
+                    ctx.beginPath()
+                    ctx.strokeStyle = "#0000FF"
+                    ctx.moveTo(canvas.clientWidth, 0)
+
+                    var highesttps = 300
+
+                    for (var i = 0; i < tpslist.length; i++) {
+                        if (tpslist[i] > highesttps) {
+                            highesttps = tpslist[i]
+                        }
+                    }
+
+                    for (var i = 0; i < tpslist.length; i++) {
+                        ctx.lineTo(canvas.clientWidth - i * 5, highesttps - tpslist[i])
+                    }
+                    ctx.stroke()
+                    ctx.font = "10px Arial";
+                    ctx.fillText("TPS Graph", canvas.clientWidth - (maxsavelength.tps - 1) * 5, 10)
+                } else {
+                    ctx.font = "10px Arial";
+                    ctx.fillText("FPS Graph DISABLED when lag machine is on", canvas.clientWidth - (maxsavelength.fps - 1) * 5, canvas.clientHeight - 10)
+                    ctx.font = "10px Arial";
+                    ctx.fillText("TPS Graph DISABLED when lag machine is on", canvas.clientWidth - (maxsavelength.tps - 1) * 5, 10)
+                }
             }
 
             function drawframe() {
@@ -219,7 +254,7 @@
                 var totalfps = 0
                 fps = (1000 / mstimediff)
                 fpslist.push(fps)
-                if (fpslist.length > 100) {
+                if (fpslist.length > maxsavelength.fps) {
                     fpslist.shift()
                 }
                 fpslist.forEach(x => totalfps += x)
@@ -236,6 +271,8 @@
                 } else {
                     drawframe()
                 }
+
+                drawGraphs(true, true)
 
                 requestAnimationFrame(draw)
             }
@@ -263,7 +300,7 @@
                 var totaltps = 0
                 tps = (1000 / mstimediff)
                 tpslist.push(tps)
-                if (tpslist.length > 100) {
+                if (tpslist.length > maxsavelength.tps) {
                     tpslist.shift()
                 }
                 tpslist.forEach(x => totaltps += x)
@@ -367,7 +404,7 @@
             })
 
             requestAnimationFrame(draw)
-            setInterval(tick, 10)
+            setInterval(tick)
 
         </script>
 
