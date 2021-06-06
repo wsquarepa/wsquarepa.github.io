@@ -69,6 +69,11 @@
                 ctx.drawImage(img, -width / 2, -height / 2, width, height);
 
                 if (!launched) {
+                    x = ox
+                    y = oy
+                }
+
+                if (!launched) {
                     ctx.beginPath()
                     canvas_arrow(0, 0, 60, 0, "brown", "gray")
                     ctx.stroke()
