@@ -155,6 +155,8 @@
                     ctx.lineTo(canvas.clientWidth - i * 5, canvas.clientHeight - fpslist[i])
                 }
                 ctx.stroke()
+                ctx.font = "10px Arial";
+                ctx.fillText("FPS Graph", canvas.clientWidth - (fpslist.length - 1) * 5, canvas.clientHeight - 10)
 
                 ctx.font = "15px Arial";
                 ctx.fillText(fps.toFixed(0) + " FPS", 10, 15)
