@@ -17,6 +17,14 @@
                 cursor: none;
             }
 
+            a {
+                color: blue;
+            }
+
+            a:hover {
+                color: red
+            }
+
         </style>
     </head>
 
@@ -36,11 +44,11 @@
                     <li>Clear markers - C</li>
                     <li>Restart/Respawn Arrow - R</li>
                     <hr>
-                        <b>DEBUG FUNCTIONS</b>
-                        <ul>
-                            <li>Enable/Disable LAGMACHINE with U</li>
-                            <li>Change LAGMACHINE FPS with F</li>
-                        </ul>
+                    <b>DEBUG FUNCTIONS</b>
+                    <ul>
+                        <li>Enable/Disable LAGMACHINE with U</li>
+                        <li>Change LAGMACHINE FPS with F</li>
+                    </ul>
                     <hr>
                     <b>
                         <a href="socialsMedievalAgesInfArrow.html">Infinite arrow version</a>
@@ -225,9 +233,11 @@
                     ctx.fillText("TPS Graph", canvas.clientWidth - (maxsavelength.tps - 1) * 5, 10)
                 } else {
                     ctx.font = "10px Arial";
-                    ctx.fillText("FPS Graph DISABLED when lag machine is on", canvas.clientWidth - (maxsavelength.fps - 1) * 5, canvas.clientHeight - 10)
+                    ctx.fillText("FPS Graph DISABLED when lag machine is on", canvas.clientWidth - (maxsavelength.fps -
+                        1) * 5, canvas.clientHeight - 10)
                     ctx.font = "10px Arial";
-                    ctx.fillText("TPS Graph DISABLED when lag machine is on", canvas.clientWidth - (maxsavelength.tps - 1) * 5, 10)
+                    ctx.fillText("TPS Graph DISABLED when lag machine is on", canvas.clientWidth - (maxsavelength.tps -
+                        1) * 5, 10)
                 }
             }
 
@@ -316,7 +326,7 @@
 
                     //Gravity
                     if (y + ballRadius < canvas.clientHeight) {
-                        dy += 0.03
+                        dy += 0.01
                     }
 
                     x += dx;
