@@ -215,6 +215,7 @@
                     for (var i = 0; i < tpslist.length; i++) {
                         ctx.lineTo(canvas.clientWidth - i * 5, highesttps - tpslist[i])
                     }
+
                     ctx.stroke()
                     ctx.font = "10px Arial";
                     ctx.fillText("TPS Graph", canvas.clientWidth - (maxsavelength.tps - 1) * 5, 10)
@@ -433,7 +434,7 @@
             })
 
             requestAnimationFrame(draw)
-            setInterval(tick)
+            setInterval(tick, 1)
 
         </script>
 
