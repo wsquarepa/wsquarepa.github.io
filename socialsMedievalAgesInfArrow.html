@@ -36,15 +36,11 @@
                     <li>Clear markers - C</li>
                     <li>Restart/Respawn Arrow - R</li>
                     <hr>
-                        <b>DEBUG FUNCTIONS</b>
-                        <ul>
-                            <li>Enable/Disable LAGMACHINE with U</li>
-                            <li>Change LAGMACHINE FPS with F</li>
-                        </ul>
-                    <hr>
-                    <b>
-                        <a href="socialsMedievalAgesInfArrow.html">Infinite arrow version</a>
-                    </b>
+                    <b>DEBUG FUNCTIONS</b>
+                    <ul>
+                        <li>Enable/Disable LAGMACHINE with U</li>
+                        <li>Change LAGMACHINE FPS with F</li>
+                    </ul>
                 </ul>
             </center>
         </div>
@@ -58,6 +54,7 @@
 
             var ctx = canvas.getContext("2d");
             var ballRadius = 10;
+            var arrows = []
             var x = 0;
             var y = 0;
             var dx = 0;
@@ -100,16 +97,12 @@
                 ctx.rotate(Math.atan2(looky - oy, lookx - ox));
                 ctx.drawImage(img, -width / 2, -height / 2, width, height);
 
-                if (!launched) {
-                    x = ox
-                    y = oy
-                }
+                x = ox
+                y = oy
 
-                if (!launched) {
-                    ctx.beginPath()
-                    canvas_arrow(0, 0, 60, 0, "brown", "gray")
-                    ctx.stroke()
-                }
+                ctx.beginPath()
+                canvas_arrow(0, 0, 60, 0, "brown", "gray")
+                ctx.stroke()
 
                 ctx.setTransform(1, 0, 0, 1, 0, -0);
 
@@ -182,8 +175,6 @@
                 ctx.fillText(fps.toFixed(0) + " FPS", 10, 15)
                 ctx.fillText(tps.toFixed(0) + " TPS", 10, 35)
                 ctx.fillText("Mouse X: " + mouse.x + " Mouse Y: " + (canvas.clientHeight - mouse.y), 10, 55)
-                ctx.fillText("Arrow X: " + x.toFixed(0) + " Arrow Y: " + y.toFixed(0), 10, 75)
-                ctx.fillText("Acceleration X: " + dx.toFixed(0) + " Acceleration Y: " + -dy.toFixed(0), 10, 95)
                 ctx.font = "10px Arial";
                 ctx.fillText("GRAY LINE IS NOT TRAJECTORY", 10, 110)
                 ctx.font = "15px Arial";
@@ -225,9 +216,11 @@
                     ctx.fillText("TPS Graph", canvas.clientWidth - (maxsavelength.tps - 1) * 5, 10)
                 } else {
                     ctx.font = "10px Arial";
-                    ctx.fillText("FPS Graph DISABLED when lag machine is on", canvas.clientWidth - (maxsavelength.fps - 1) * 5, canvas.clientHeight - 10)
+                    ctx.fillText("FPS Graph DISABLED when lag machine is on", canvas.clientWidth - (maxsavelength.fps -
+                        1) * 5, canvas.clientHeight - 10)
                     ctx.font = "10px Arial";
-                    ctx.fillText("TPS Graph DISABLED when lag machine is on", canvas.clientWidth - (maxsavelength.tps - 1) * 5, 10)
+                    ctx.fillText("TPS Graph DISABLED when lag machine is on", canvas.clientWidth - (maxsavelength.tps -
+                        1) * 5, 10)
                 }
             }
 
@@ -242,14 +235,8 @@
                 image.width = 10
                 image.height = 19
 
-                if (launched) {
-                    image.src = "crossbow_unloaded.png"
-                    drawImageLookat(image, 60, canvas.clientHeight - (image.height * 3), launchmousepos.x,
-                        launchmousepos.y, 120, 120)
-                } else {
-                    drawImageLookat(image, 60, canvas.clientHeight - (image.height * 3), mouse.x, canvas.clientHeight -
-                        mouse.y, 120, 120)
-                }
+                drawImageLookat(image, 60, canvas.clientHeight - (image.height * 3), mouse.x, canvas.clientHeight -
+                    mouse.y, 120, 120)
 
                 drawCrossHair(mouse.x, canvas.clientHeight - mouse.y, "red")
 
@@ -273,7 +260,10 @@
 
                 ctx.beginPath()
                 if (launched) {
-                    canvas_arrow(x, y, x + (dx * 10), y + (dy * 10), "brown", "gray")
+                    for (var i = 0; i < arrows.length; i++) {
+                        canvas_arrow(arrows[i].x, arrows[i].y, arrows[i].x + (arrows[i].dx * 10), arrows[i].y + (arrows[
+                            i].dy * 10), "brown", "gray")
+                    }
                 }
                 ctx.stroke()
 
@@ -306,21 +296,25 @@
 
             function tick() {
                 if (launched) {
-                    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
-                        respawn()
-                    }
+                    for (var i = 0; i < arrows.length; i++) {
+                        if (arrows[i].x + arrows[i].dx > canvas.width - ballRadius || arrows[i].x + arrows[i].dx <
+                            ballRadius) {
+                            arrows.splice(i, 1)
+                        }
 
-                    if ((y + dy > canvas.height - ballRadius) || y + dy < ballRadius) {
-                        respawn()
-                    }
+                        if ((arrows[i].y + arrows[i].dy > canvas.height - ballRadius) || arrows[i].y + arrows[i].dy <
+                            ballRadius) {
+                            arrows.splice(i, 1)
+                        }
 
-                    //Gravity
-                    if (y + ballRadius < canvas.clientHeight) {
-                        dy += 0.03
-                    }
+                        //Gravity
+                        if (arrows[i].y + ballRadius < canvas.clientHeight) {
+                            arrows[i].dy += 0.03
+                        }
 
-                    x += dx;
-                    y += dy;
+                        arrows[i].x += arrows[i].dx;
+                        arrows[i].y += arrows[i].dy;
+                    }
                 }
 
                 const mstimediff = Date.now() - lasttick
@@ -389,13 +383,13 @@
                         lagmachine.fps = 30
                     }
                 } else if (e.key == " ") {
-                    if (!launched) {
-                        dx = ((mouse.x - 30) / 100)
-                        dy = -(mouse.y / 100)
-                        launchmousepos.x = mouse.x
-                        launchmousepos.y = canvas.clientHeight - mouse.y
-                        launched = true
-                    }
+                    arrows.push({
+                        x: x,
+                        y: y,
+                        dx: ((mouse.x - 30) / 100),
+                        dy: -(mouse.y / 100)
+                    })
+                    launched = true
                 } else if (e.key == "h") {
                     const helpbox = document.getElementById("help")
                     if (helpbox.style.display == "none") {
@@ -428,13 +422,13 @@
             })
 
             window.addEventListener("mousedown", (e) => {
-                if (!launched) {
-                    dx = ((mouse.x - 30) / 100)
-                    dy = -(mouse.y / 100)
-                    launchmousepos.x = mouse.x
-                    launchmousepos.y = canvas.clientHeight - mouse.y
-                    launched = true
-                }
+                arrows.push({
+                    x: x,
+                    y: y,
+                    dx: ((mouse.x - 30) / 100),
+                    dy: -(mouse.y / 100)
+                })
+                launched = true
             })
 
             requestAnimationFrame(draw)
