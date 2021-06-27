@@ -1,0 +1,62 @@
+<head>
+    <title>WSQUAREPA | Username Availability Checker</title>
+    <style>
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="centered">
+        <label for="username">Username: </label><input id="username"><br>
+        <label for="platform">Platform: </label>
+        <select id="platform">
+            <option value="minecraft">Minecraft</option>
+            <option value="steam">Steam</option>
+            <option value="fortnite">Fortnite</option>
+            <option value="youtube">Youtube</option>
+            <option value="reddit">Reddit</option>
+            <option value="pintrest">Pintrest</option>
+            <option value="twitch">Twitch</option>
+            <option value="twitter">Twitter</option>
+            <option value="vimeo">Vimeo</option>
+        </select><br>
+        <button onclick="checkavailability()">Check</button><br>
+        <h1 id="status">Status: Not checked</h1>
+    </div>
+</body>
+<script>
+    function checkavailability() {
+        const platform = document.getElementById("platform").value
+        const username = document.getElementById("username").value
+
+        fetch("https://username-checker.nordpass.com/checker?username=" + username + "&website=" + platform, {
+            method: "GET"
+        })
+            .then(res => res.json())
+            .then(res => {
+                const status = res.status
+                var statuselm = document.getElementById("status")
+                if (status == "available") {
+                    statuselm.innerHTML = "Status: Available"
+                    statuselm.style.color = "green"
+                } else if (status == "taken") {
+                    statuselm.innerHTML = "Status: Taken"
+                    statuselm.style.color = "red"
+                } else {
+                    statuselm.innerHTML = "Status: " + status
+                    statuselm.style.color = "black"
+                }
+            })
+    }
+
+    document.getElementById("username").addEventListener("keydown", (e) => {
+        if (e.key == "Enter") {
+            checkavailability()
+        }
+    })
+</script>
