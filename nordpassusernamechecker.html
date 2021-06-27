@@ -36,7 +36,7 @@
 
         fetch("https://username-checker.nordpass.com/checker?username=" + username + "&website=" + platform, {
             method: "GET",
-            mode: "no-cors"
+            mode: "cors"
         })
             .then(res => res.json())
             .then(res => {
