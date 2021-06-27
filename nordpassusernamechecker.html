@@ -35,7 +35,8 @@
         const username = document.getElementById("username").value
 
         fetch("https://username-checker.nordpass.com/checker?username=" + username + "&website=" + platform, {
-            method: "GET"
+            method: "GET",
+            mode: "no-cors"
         })
             .then(res => res.json())
             .then(res => {
